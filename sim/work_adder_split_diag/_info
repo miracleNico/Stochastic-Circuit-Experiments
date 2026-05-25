@@ -1,0 +1,327 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Projects/stochastic_circuits/sim
+Egen_adder8_split_q8_opt
+Z1 w1779662310
+Z2 DPx4 work 10 inv_sc_pkg 0 22 ^nE2V>d5;@T?EER7D4W`S0
+Z3 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 3
+R0
+Z6 8experiments/generated_networks_fp8_e3m4_b1_gap100_link_1_16.vhd
+Z7 Fexperiments/generated_networks_fp8_e3m4_b1_gap100_link_1_16.vhd
+l0
+L678 1
+V_k`kDmUdC<2MNh`dQOUZF0
+!s100 `1^LR[I_ONb`@ZGd321G51
+Z8 OV;C;2020.1;71
+33
+Z9 !s110 1779663148
+!i10b 1
+Z10 !s108 1779663148.000000
+Z11 !s90 -2008|experiments/generated_networks_fp8_e3m4_b1_gap100_link_1_16.vhd|
+Z12 !s107 experiments/generated_networks_fp8_e3m4_b1_gap100_link_1_16.vhd|
+!i113 1
+Z13 o-2008
+Z14 tExplicit 1 CvgOpt 0
+Artl
+Z15 DEx4 work 9 spin_node 0 22 `UKD:RPbI?DmJ3U9JW65]1
+R2
+R3
+R4
+R5
+Z16 DEx4 work 23 gen_adder8_split_q8_opt 0 22 _k`kDmUdC<2MNh`dQOUZF0
+!i122 3
+l817
+L694 2276
+VGZ1QzdUJMIG@m<iVLoF5X0
+!s100 ^6Unz7l1]nlTDPjG7eNYj2
+R8
+33
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Egen_fa_gate_fp8_e3m4_b1_opt
+R1
+R2
+R3
+R4
+R5
+!i122 3
+R0
+R6
+R7
+l0
+L317 1
+VSa`BH1WaY?VR?NG9JBENi1
+!s100 ^PSII3MX7cKCaVhzWWiZh0
+R8
+33
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Artl
+R15
+R2
+R3
+R4
+R5
+DEx4 work 27 gen_fa_gate_fp8_e3m4_b1_opt 0 22 Sa`BH1WaY?VR?NG9JBENi1
+!i122 3
+l354
+L333 338
+VU76h`:93K6]EOMUZICz6:0
+!s100 ID:DAZz3F=FOUN;UG:I7U2
+R8
+33
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Egen_xor_gate_fp8_e3m4_b1_opt
+R1
+R2
+R3
+R4
+R5
+!i122 3
+R0
+R6
+R7
+l0
+L13 1
+VXng80FILNcRl[ckK]XP:c1
+!s100 TnjVOg`_QFYbm[KnV_;k71
+R8
+33
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Artl
+R15
+R2
+R3
+R4
+R5
+DEx4 work 28 gen_xor_gate_fp8_e3m4_b1_opt 0 22 Xng80FILNcRl[ckK]XP:c1
+!i122 3
+l47
+L29 281
+VSoUK>PcUHL[=]cXfDF^z01
+!s100 WRJO3]aOAmAg6_5cGjlaT0
+R8
+33
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Pinv_sc_pkg
+R3
+R4
+R5
+!i122 0
+Z17 w1779661595
+R0
+Z18 8../src/inv_sc_pkg.vhd
+Z19 F../src/inv_sc_pkg.vhd
+l0
+L5 1
+V^nE2V>d5;@T?EER7D4W`S0
+!s100 K]nA8he_i0=j7YQ7H82NK3
+R8
+33
+b1
+R9
+!i10b 1
+R10
+Z20 !s90 -2008|../src/inv_sc_pkg.vhd|
+Z21 !s107 ../src/inv_sc_pkg.vhd|
+!i113 1
+R13
+R14
+Bbody
+R2
+R3
+R4
+R5
+!i122 0
+l0
+L17 1
+VCM?YS84`PDfMGlC]]0LHm3
+!s100 ln:neY8VFNU;]7>Tk<4:H0
+R8
+33
+R9
+!i10b 1
+R10
+R20
+R21
+!i113 1
+R13
+R14
+Elfsr32
+Z22 w1779607279
+R3
+R4
+R5
+!i122 1
+R0
+Z23 8../src/lfsr32.vhd
+Z24 F../src/lfsr32.vhd
+l0
+L5 1
+VUfi@c]_6G`7m]OjX=ag[H0
+!s100 gUm;;T0O69kFIFB<<8bR42
+R8
+33
+R9
+!i10b 1
+R10
+Z25 !s90 -2008|../src/lfsr32.vhd|
+Z26 !s107 ../src/lfsr32.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+Z27 DEx4 work 6 lfsr32 0 22 Ufi@c]_6G`7m]OjX=ag[H0
+!i122 1
+l29
+L18 31
+VE^L8WfX3RV^Pg703If0Z42
+!s100 0VWNdMZUK4iU3fBF;<ImO1
+R8
+33
+R9
+!i10b 1
+R10
+R25
+R26
+!i113 1
+R13
+R14
+Espin_node
+Z28 w1779662911
+R2
+R3
+R4
+R5
+!i122 2
+R0
+Z29 8../src/spin_node.vhd
+Z30 F../src/spin_node.vhd
+l0
+L7 1
+V`UKD:RPbI?DmJ3U9JW65]1
+!s100 Tl@=BX`_AVH;LJ>@a7_<P3
+R8
+33
+R9
+!i10b 1
+R10
+Z31 !s90 -2008|../src/spin_node.vhd|
+Z32 !s107 ../src/spin_node.vhd|
+!i113 1
+R13
+R14
+Artl
+R27
+R2
+R3
+R4
+R5
+R15
+!i122 2
+l199
+L61 198
+V_@l1kN3D@aH[_5a@4oRzi3
+!s100 ^`Dd=2A3:jG6H>YZiWlA91
+R8
+33
+R9
+!i10b 1
+R10
+R31
+R32
+!i113 1
+R13
+R14
+Etb_adder8_split_diagnostics
+Z33 w1779662691
+R3
+R4
+R5
+!i122 4
+R0
+Z34 8../tb/tb_adder8_split_diagnostics.vhd
+Z35 F../tb/tb_adder8_split_diagnostics.vhd
+l0
+L5 1
+VYCD9D4@i1JIlYZ3N1gZ^n3
+!s100 afR[V3:fg3;DW0eJnH^zG3
+R8
+33
+R9
+!i10b 1
+R10
+Z36 !s90 -2008|../tb/tb_adder8_split_diagnostics.vhd|
+!s107 ../tb/tb_adder8_split_diagnostics.vhd|
+!i113 1
+R13
+R14
+Asim
+R2
+R16
+R3
+R4
+R5
+DEx4 work 27 tb_adder8_split_diagnostics 0 22 YCD9D4@i1JIlYZ3N1gZ^n3
+!i122 4
+l23
+L13 122
+V=MK42Z4TRZj3dW[4H7K=h2
+!s100 2@VO]Rl2gh`aQ;Y:ZQn<O0
+R8
+33
+R9
+!i10b 1
+R10
+R36
+Z37 !s107 ../tb/tb_adder8_split_diagnostics.vhd|
+!i113 1
+R13
+R14

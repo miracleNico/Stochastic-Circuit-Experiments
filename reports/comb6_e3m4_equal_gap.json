@@ -1,0 +1,1091 @@
+{
+  "name": "COMB6_MIXED_E3M4_EQGAP",
+  "entity": "gen_comb6_mixed",
+  "coefficient_format": "fp8-e3m4-b1",
+  "field_frac_bits": 4,
+  "encoding": "physical = encoded / 16",
+  "idea": "2: equalize intrablock valid/invalid gap across all block types",
+  "target_gap_physical": 4.0,
+  "blocks": {
+    "AND": {
+      "name": "AND_E3M4_EQGAP",
+      "nodes": [
+        "A",
+        "B",
+        "Y"
+      ],
+      "h_encoded": [
+        16,
+        16,
+        -32
+      ],
+      "h_physical": [
+        1.0,
+        1.0,
+        -2.0
+      ],
+      "J_encoded": [
+        [
+          0,
+          -16,
+          32
+        ],
+        [
+          -16,
+          0,
+          32
+        ],
+        [
+          32,
+          32,
+          0
+        ]
+      ],
+      "J_physical": [
+        [
+          0.0,
+          -1.0,
+          2.0
+        ],
+        [
+          -1.0,
+          0.0,
+          2.0
+        ],
+        [
+          2.0,
+          2.0,
+          0.0
+        ]
+      ],
+      "edges_encoded": [
+        {
+          "i": "A",
+          "j": "B",
+          "value": -16
+        },
+        {
+          "i": "A",
+          "j": "Y",
+          "value": 32
+        },
+        {
+          "i": "B",
+          "j": "Y",
+          "value": 32
+        }
+      ],
+      "energy_gap_encoded": 64,
+      "energy_gap_physical": 4.0,
+      "valid_energy_encoded": -48,
+      "valid_energy_physical": -3.0
+    },
+    "OR": {
+      "name": "OR_E3M4_EQGAP",
+      "nodes": [
+        "A",
+        "B",
+        "Y"
+      ],
+      "h_encoded": [
+        -16,
+        -16,
+        32
+      ],
+      "h_physical": [
+        -1.0,
+        -1.0,
+        2.0
+      ],
+      "J_encoded": [
+        [
+          0,
+          -16,
+          32
+        ],
+        [
+          -16,
+          0,
+          32
+        ],
+        [
+          32,
+          32,
+          0
+        ]
+      ],
+      "J_physical": [
+        [
+          0.0,
+          -1.0,
+          2.0
+        ],
+        [
+          -1.0,
+          0.0,
+          2.0
+        ],
+        [
+          2.0,
+          2.0,
+          0.0
+        ]
+      ],
+      "edges_encoded": [
+        {
+          "i": "A",
+          "j": "B",
+          "value": -16
+        },
+        {
+          "i": "A",
+          "j": "Y",
+          "value": 32
+        },
+        {
+          "i": "B",
+          "j": "Y",
+          "value": 32
+        }
+      ],
+      "energy_gap_encoded": 64,
+      "energy_gap_physical": 4.0,
+      "valid_energy_encoded": -48,
+      "valid_energy_physical": -3.0
+    },
+    "NAND": {
+      "name": "NAND_E3M4_EQGAP",
+      "nodes": [
+        "A",
+        "B",
+        "Y"
+      ],
+      "h_encoded": [
+        16,
+        16,
+        32
+      ],
+      "h_physical": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "J_encoded": [
+        [
+          0,
+          -16,
+          -32
+        ],
+        [
+          -16,
+          0,
+          -32
+        ],
+        [
+          -32,
+          -32,
+          0
+        ]
+      ],
+      "J_physical": [
+        [
+          0.0,
+          -1.0,
+          -2.0
+        ],
+        [
+          -1.0,
+          0.0,
+          -2.0
+        ],
+        [
+          -2.0,
+          -2.0,
+          0.0
+        ]
+      ],
+      "edges_encoded": [
+        {
+          "i": "A",
+          "j": "B",
+          "value": -16
+        },
+        {
+          "i": "A",
+          "j": "Y",
+          "value": -32
+        },
+        {
+          "i": "B",
+          "j": "Y",
+          "value": -32
+        }
+      ],
+      "energy_gap_encoded": 64,
+      "energy_gap_physical": 4.0,
+      "valid_energy_encoded": -48,
+      "valid_energy_physical": -3.0
+    },
+    "NOR": {
+      "name": "NOR_E3M4_EQGAP",
+      "nodes": [
+        "A",
+        "B",
+        "Y"
+      ],
+      "h_encoded": [
+        -16,
+        -16,
+        -32
+      ],
+      "h_physical": [
+        -1.0,
+        -1.0,
+        -2.0
+      ],
+      "J_encoded": [
+        [
+          0,
+          -16,
+          -32
+        ],
+        [
+          -16,
+          0,
+          -32
+        ],
+        [
+          -32,
+          -32,
+          0
+        ]
+      ],
+      "J_physical": [
+        [
+          0.0,
+          -1.0,
+          -2.0
+        ],
+        [
+          -1.0,
+          0.0,
+          -2.0
+        ],
+        [
+          -2.0,
+          -2.0,
+          0.0
+        ]
+      ],
+      "edges_encoded": [
+        {
+          "i": "A",
+          "j": "B",
+          "value": -16
+        },
+        {
+          "i": "A",
+          "j": "Y",
+          "value": -32
+        },
+        {
+          "i": "B",
+          "j": "Y",
+          "value": -32
+        }
+      ],
+      "energy_gap_encoded": 64,
+      "energy_gap_physical": 4.0,
+      "valid_energy_encoded": -48,
+      "valid_energy_physical": -3.0
+    },
+    "HA_XOR": {
+      "name": "HA_XOR_E3M4_EQGAP",
+      "nodes": [
+        "A",
+        "B",
+        "S",
+        "C"
+      ],
+      "h_encoded": [
+        32,
+        32,
+        -32,
+        -64
+      ],
+      "h_physical": [
+        2.0,
+        2.0,
+        -2.0,
+        -4.0
+      ],
+      "J_encoded": [
+        [
+          0,
+          -32,
+          32,
+          64
+        ],
+        [
+          -32,
+          0,
+          32,
+          64
+        ],
+        [
+          32,
+          32,
+          0,
+          -64
+        ],
+        [
+          64,
+          64,
+          -64,
+          0
+        ]
+      ],
+      "J_physical": [
+        [
+          0.0,
+          -2.0,
+          2.0,
+          4.0
+        ],
+        [
+          -2.0,
+          0.0,
+          2.0,
+          4.0
+        ],
+        [
+          2.0,
+          2.0,
+          0.0,
+          -4.0
+        ],
+        [
+          4.0,
+          4.0,
+          -4.0,
+          0.0
+        ]
+      ],
+      "edges_encoded": [
+        {
+          "i": "A",
+          "j": "B",
+          "value": -32
+        },
+        {
+          "i": "A",
+          "j": "S",
+          "value": 32
+        },
+        {
+          "i": "A",
+          "j": "C",
+          "value": 64
+        },
+        {
+          "i": "B",
+          "j": "S",
+          "value": 32
+        },
+        {
+          "i": "B",
+          "j": "C",
+          "value": 64
+        },
+        {
+          "i": "S",
+          "j": "C",
+          "value": -64
+        }
+      ],
+      "energy_gap_encoded": 64,
+      "energy_gap_physical": 4.0,
+      "valid_energy_encoded": -128,
+      "valid_energy_physical": -8.0
+    },
+    "XNOR": {
+      "name": "XNOR_E3M4_EQGAP",
+      "nodes": [
+        "A",
+        "B",
+        "Y",
+        "C"
+      ],
+      "h_encoded": [
+        32,
+        32,
+        32,
+        -64
+      ],
+      "h_physical": [
+        2.0,
+        2.0,
+        2.0,
+        -4.0
+      ],
+      "J_encoded": [
+        [
+          0,
+          -32,
+          -32,
+          64
+        ],
+        [
+          -32,
+          0,
+          -32,
+          64
+        ],
+        [
+          -32,
+          -32,
+          0,
+          64
+        ],
+        [
+          64,
+          64,
+          64,
+          0
+        ]
+      ],
+      "J_physical": [
+        [
+          0.0,
+          -2.0,
+          -2.0,
+          4.0
+        ],
+        [
+          -2.0,
+          0.0,
+          -2.0,
+          4.0
+        ],
+        [
+          -2.0,
+          -2.0,
+          0.0,
+          4.0
+        ],
+        [
+          4.0,
+          4.0,
+          4.0,
+          0.0
+        ]
+      ],
+      "edges_encoded": [
+        {
+          "i": "A",
+          "j": "B",
+          "value": -32
+        },
+        {
+          "i": "A",
+          "j": "Y",
+          "value": -32
+        },
+        {
+          "i": "A",
+          "j": "C",
+          "value": 64
+        },
+        {
+          "i": "B",
+          "j": "Y",
+          "value": -32
+        },
+        {
+          "i": "B",
+          "j": "C",
+          "value": 64
+        },
+        {
+          "i": "Y",
+          "j": "C",
+          "value": 64
+        }
+      ],
+      "energy_gap_encoded": 64,
+      "energy_gap_physical": 4.0,
+      "valid_energy_encoded": -128,
+      "valid_energy_physical": -8.0
+    }
+  },
+  "comb6": {
+    "nodes": [
+      "x0",
+      "x1",
+      "x2",
+      "x3",
+      "x4",
+      "x5",
+      "u0_and",
+      "u1_or",
+      "u2_nand",
+      "u3_xor",
+      "u3_aux",
+      "u4_xnor",
+      "u4_aux",
+      "v0_xor",
+      "v0_aux",
+      "v1_and",
+      "v2_nor",
+      "y1_or",
+      "y2_xnor",
+      "y2_aux",
+      "y3_nand"
+    ],
+    "h_encoded": [
+      48,
+      48,
+      16,
+      -16,
+      16,
+      48,
+      0,
+      48,
+      48,
+      16,
+      -64,
+      48,
+      -64,
+      -16,
+      -64,
+      -48,
+      -48,
+      32,
+      48,
+      -64,
+      32
+    ],
+    "h_physical": [
+      3.0,
+      3.0,
+      1.0,
+      -1.0,
+      1.0,
+      3.0,
+      0.0,
+      3.0,
+      3.0,
+      1.0,
+      -4.0,
+      3.0,
+      -4.0,
+      -1.0,
+      -4.0,
+      -3.0,
+      -3.0,
+      2.0,
+      3.0,
+      -4.0,
+      2.0
+    ],
+    "edges_encoded": [
+      {
+        "i": "x0",
+        "j": "x1",
+        "value": -16
+      },
+      {
+        "i": "x0",
+        "j": "x2",
+        "value": -32
+      },
+      {
+        "i": "x0",
+        "j": "u0_and",
+        "value": 32
+      },
+      {
+        "i": "x0",
+        "j": "u3_xor",
+        "value": 32
+      },
+      {
+        "i": "x0",
+        "j": "u3_aux",
+        "value": 64
+      },
+      {
+        "i": "x1",
+        "j": "x5",
+        "value": -32
+      },
+      {
+        "i": "x1",
+        "j": "u0_and",
+        "value": 32
+      },
+      {
+        "i": "x1",
+        "j": "u4_xnor",
+        "value": -32
+      },
+      {
+        "i": "x1",
+        "j": "u4_aux",
+        "value": 64
+      },
+      {
+        "i": "x2",
+        "j": "x3",
+        "value": -16
+      },
+      {
+        "i": "x2",
+        "j": "u1_or",
+        "value": 32
+      },
+      {
+        "i": "x2",
+        "j": "u3_xor",
+        "value": 32
+      },
+      {
+        "i": "x2",
+        "j": "u3_aux",
+        "value": 64
+      },
+      {
+        "i": "x3",
+        "j": "u1_or",
+        "value": 32
+      },
+      {
+        "i": "x4",
+        "j": "x5",
+        "value": -16
+      },
+      {
+        "i": "x4",
+        "j": "u2_nand",
+        "value": -32
+      },
+      {
+        "i": "x5",
+        "j": "u2_nand",
+        "value": -32
+      },
+      {
+        "i": "x5",
+        "j": "u4_xnor",
+        "value": -32
+      },
+      {
+        "i": "x5",
+        "j": "u4_aux",
+        "value": 64
+      },
+      {
+        "i": "u0_and",
+        "j": "u1_or",
+        "value": -32
+      },
+      {
+        "i": "u0_and",
+        "j": "v0_xor",
+        "value": 32
+      },
+      {
+        "i": "u0_and",
+        "j": "v0_aux",
+        "value": 64
+      },
+      {
+        "i": "u1_or",
+        "j": "u4_xnor",
+        "value": -16
+      },
+      {
+        "i": "u1_or",
+        "j": "v0_xor",
+        "value": 32
+      },
+      {
+        "i": "u1_or",
+        "j": "v0_aux",
+        "value": 64
+      },
+      {
+        "i": "u1_or",
+        "j": "v2_nor",
+        "value": -32
+      },
+      {
+        "i": "u2_nand",
+        "j": "u3_xor",
+        "value": -16
+      },
+      {
+        "i": "u2_nand",
+        "j": "v1_and",
+        "value": 32
+      },
+      {
+        "i": "u3_xor",
+        "j": "u3_aux",
+        "value": -64
+      },
+      {
+        "i": "u3_xor",
+        "j": "u4_xnor",
+        "value": -32
+      },
+      {
+        "i": "u3_xor",
+        "j": "v1_and",
+        "value": 32
+      },
+      {
+        "i": "u3_xor",
+        "j": "y2_xnor",
+        "value": -32
+      },
+      {
+        "i": "u3_xor",
+        "j": "y2_aux",
+        "value": 64
+      },
+      {
+        "i": "u4_xnor",
+        "j": "u4_aux",
+        "value": 64
+      },
+      {
+        "i": "u4_xnor",
+        "j": "v2_nor",
+        "value": -32
+      },
+      {
+        "i": "u4_xnor",
+        "j": "y2_xnor",
+        "value": -32
+      },
+      {
+        "i": "u4_xnor",
+        "j": "y2_aux",
+        "value": 64
+      },
+      {
+        "i": "v0_xor",
+        "j": "v0_aux",
+        "value": -64
+      },
+      {
+        "i": "v0_xor",
+        "j": "y2_xnor",
+        "value": -16
+      },
+      {
+        "i": "v0_xor",
+        "j": "y3_nand",
+        "value": -32
+      },
+      {
+        "i": "v1_and",
+        "j": "v2_nor",
+        "value": -16
+      },
+      {
+        "i": "v1_and",
+        "j": "y1_or",
+        "value": 32
+      },
+      {
+        "i": "v2_nor",
+        "j": "y1_or",
+        "value": 32
+      },
+      {
+        "i": "y2_xnor",
+        "j": "y2_aux",
+        "value": 64
+      },
+      {
+        "i": "y2_xnor",
+        "j": "y3_nand",
+        "value": -32
+      }
+    ],
+    "edges_physical": [
+      {
+        "i": "x0",
+        "j": "x1",
+        "encoded": -16,
+        "physical": -1.0
+      },
+      {
+        "i": "x0",
+        "j": "x2",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "x0",
+        "j": "u0_and",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "x0",
+        "j": "u3_xor",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "x0",
+        "j": "u3_aux",
+        "encoded": 64,
+        "physical": 4.0
+      },
+      {
+        "i": "x1",
+        "j": "x5",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "x1",
+        "j": "u0_and",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "x1",
+        "j": "u4_xnor",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "x1",
+        "j": "u4_aux",
+        "encoded": 64,
+        "physical": 4.0
+      },
+      {
+        "i": "x2",
+        "j": "x3",
+        "encoded": -16,
+        "physical": -1.0
+      },
+      {
+        "i": "x2",
+        "j": "u1_or",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "x2",
+        "j": "u3_xor",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "x2",
+        "j": "u3_aux",
+        "encoded": 64,
+        "physical": 4.0
+      },
+      {
+        "i": "x3",
+        "j": "u1_or",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "x4",
+        "j": "x5",
+        "encoded": -16,
+        "physical": -1.0
+      },
+      {
+        "i": "x4",
+        "j": "u2_nand",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "x5",
+        "j": "u2_nand",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "x5",
+        "j": "u4_xnor",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "x5",
+        "j": "u4_aux",
+        "encoded": 64,
+        "physical": 4.0
+      },
+      {
+        "i": "u0_and",
+        "j": "u1_or",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "u0_and",
+        "j": "v0_xor",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "u0_and",
+        "j": "v0_aux",
+        "encoded": 64,
+        "physical": 4.0
+      },
+      {
+        "i": "u1_or",
+        "j": "u4_xnor",
+        "encoded": -16,
+        "physical": -1.0
+      },
+      {
+        "i": "u1_or",
+        "j": "v0_xor",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "u1_or",
+        "j": "v0_aux",
+        "encoded": 64,
+        "physical": 4.0
+      },
+      {
+        "i": "u1_or",
+        "j": "v2_nor",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "u2_nand",
+        "j": "u3_xor",
+        "encoded": -16,
+        "physical": -1.0
+      },
+      {
+        "i": "u2_nand",
+        "j": "v1_and",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "u3_xor",
+        "j": "u3_aux",
+        "encoded": -64,
+        "physical": -4.0
+      },
+      {
+        "i": "u3_xor",
+        "j": "u4_xnor",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "u3_xor",
+        "j": "v1_and",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "u3_xor",
+        "j": "y2_xnor",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "u3_xor",
+        "j": "y2_aux",
+        "encoded": 64,
+        "physical": 4.0
+      },
+      {
+        "i": "u4_xnor",
+        "j": "u4_aux",
+        "encoded": 64,
+        "physical": 4.0
+      },
+      {
+        "i": "u4_xnor",
+        "j": "v2_nor",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "u4_xnor",
+        "j": "y2_xnor",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "u4_xnor",
+        "j": "y2_aux",
+        "encoded": 64,
+        "physical": 4.0
+      },
+      {
+        "i": "v0_xor",
+        "j": "v0_aux",
+        "encoded": -64,
+        "physical": -4.0
+      },
+      {
+        "i": "v0_xor",
+        "j": "y2_xnor",
+        "encoded": -16,
+        "physical": -1.0
+      },
+      {
+        "i": "v0_xor",
+        "j": "y3_nand",
+        "encoded": -32,
+        "physical": -2.0
+      },
+      {
+        "i": "v1_and",
+        "j": "v2_nor",
+        "encoded": -16,
+        "physical": -1.0
+      },
+      {
+        "i": "v1_and",
+        "j": "y1_or",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "v2_nor",
+        "j": "y1_or",
+        "encoded": 32,
+        "physical": 2.0
+      },
+      {
+        "i": "y2_xnor",
+        "j": "y2_aux",
+        "encoded": 64,
+        "physical": 4.0
+      },
+      {
+        "i": "y2_xnor",
+        "j": "y3_nand",
+        "encoded": -32,
+        "physical": -2.0
+      }
+    ]
+  }
+}

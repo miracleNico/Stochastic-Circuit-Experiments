@@ -1,0 +1,198 @@
+# do run_adder8_shadow1_q34_diagnostics.do
+# onerror {quit -code 1}
+# onbreak {quit -code 1}
+# 
+# if {[file exists work_adder8_shadow1_q34_diag]} {
+#     vdel -lib work_adder8_shadow1_q34_diag -all
+# }
+# 
+# set block_rnd_weight 4
+# 4
+# if {[info exists ::env(BLOCK_RND_WEIGHT)]} {
+#     set block_rnd_weight $::env(BLOCK_RND_WEIGHT)
+# }
+# 4
+# set copy_rnd_weight 0
+# 0
+# if {[info exists ::env(COPY_RND_WEIGHT)]} {
+#     set copy_rnd_weight $::env(COPY_RND_WEIGHT)
+# }
+# 0
+# set block0_cycles 10
+# 10
+# if {[info exists ::env(BLOCK0_CYCLES)]} {
+#     set block0_cycles $::env(BLOCK0_CYCLES)
+# }
+# 40
+# set block1_cycles 8
+# 8
+# if {[info exists ::env(BLOCK1_CYCLES)]} {
+#     set block1_cycles $::env(BLOCK1_CYCLES)
+# }
+# 40
+# set block2_cycles 16
+# 16
+# if {[info exists ::env(BLOCK2_CYCLES)]} {
+#     set block2_cycles $::env(BLOCK2_CYCLES)
+# }
+# 40
+# set block3_cycles 6
+# 6
+# if {[info exists ::env(BLOCK3_CYCLES)]} {
+#     set block3_cycles $::env(BLOCK3_CYCLES)
+# }
+# 40
+# set block4_cycles 8
+# 8
+# if {[info exists ::env(BLOCK4_CYCLES)]} {
+#     set block4_cycles $::env(BLOCK4_CYCLES)
+# }
+# 40
+# set block5_cycles 8
+# 8
+# if {[info exists ::env(BLOCK5_CYCLES)]} {
+#     set block5_cycles $::env(BLOCK5_CYCLES)
+# }
+# 40
+# set block6_cycles 16
+# 16
+# if {[info exists ::env(BLOCK6_CYCLES)]} {
+#     set block6_cycles $::env(BLOCK6_CYCLES)
+# }
+# 40
+# set block7_cycles 6
+# 6
+# if {[info exists ::env(BLOCK7_CYCLES)]} {
+#     set block7_cycles $::env(BLOCK7_CYCLES)
+# }
+# 40
+# set copy_cycles 2
+# 2
+# if {[info exists ::env(COPY_CYCLES)]} {
+#     set copy_cycles $::env(COPY_CYCLES)
+# }
+# 2
+# set count_cycles 100
+# 100
+# if {[info exists ::env(COUNT_CYCLES)]} {
+#     set count_cycles $::env(COUNT_CYCLES)
+# }
+# 100
+# 
+# vlib work_adder8_shadow1_q34_diag
+# vmap work work_adder8_shadow1_q34_diag
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work work_adder8_shadow1_q34_diag 
+# Modifying modelsim.ini
+# 
+# vcom -2008 ../src/inv_sc_pkg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 00:15:51 on May 25,2026
+# vcom -2008 ../src/inv_sc_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package inv_sc_pkg
+# -- Compiling package body inv_sc_pkg
+# -- Loading package inv_sc_pkg
+# End time: 00:15:51 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/lfsr32.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 00:15:51 on May 25,2026
+# vcom -2008 ../src/lfsr32.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lfsr32
+# -- Compiling architecture rtl of lfsr32
+# End time: 00:15:51 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/spin_node.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 00:15:51 on May 25,2026
+# vcom -2008 ../src/spin_node.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity spin_node
+# -- Compiling architecture rtl of spin_node
+# -- Loading entity lfsr32
+# End time: 00:15:51 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/generated_shadow1_q34_adder8.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 00:15:51 on May 25,2026
+# vcom -2008 ../src/generated_shadow1_q34_adder8.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity gen_adder8_shadow1_windowed
+# -- Compiling architecture rtl of gen_adder8_shadow1_windowed
+# -- Loading entity spin_node
+# End time: 00:15:51 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../tb/tb_adder8_shadow1_diagnostics.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 00:15:51 on May 25,2026
+# vcom -2008 ../tb/tb_adder8_shadow1_diagnostics.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_adder8_shadow1_diagnostics
+# -- Compiling architecture sim of tb_adder8_shadow1_diagnostics
+# -- Loading package inv_sc_pkg
+# -- Loading entity gen_adder8_shadow1_windowed
+# End time: 00:15:52 on May 25,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vsim \
+#     -gBLOCK_RND_WEIGHT=$block_rnd_weight \
+#     -gCOPY_RND_WEIGHT=$copy_rnd_weight \
+#     -gBLOCK0_CYCLES=$block0_cycles \
+#     -gBLOCK1_CYCLES=$block1_cycles \
+#     -gBLOCK2_CYCLES=$block2_cycles \
+#     -gBLOCK3_CYCLES=$block3_cycles \
+#     -gBLOCK4_CYCLES=$block4_cycles \
+#     -gBLOCK5_CYCLES=$block5_cycles \
+#     -gBLOCK6_CYCLES=$block6_cycles \
+#     -gBLOCK7_CYCLES=$block7_cycles \
+#     -gCOPY_CYCLES=$copy_cycles \
+#     -gCOUNT_CYCLES=$count_cycles \
+#     work.tb_adder8_shadow1_diagnostics
+# vsim work.tb_adder8_shadow1_diagnostics -gBLOCK4_CYCLES=40 -gBLOCK6_CYCLES=40 -gCOUNT_CYCLES=100 -gBLOCK_RND_WEIGHT=4 -gCOPY_RND_WEIGHT=0 -gCOPY_CYCLES=2 -gBLOCK1_CYCLES=40 -gBLOCK3_CYCLES=40 -gBLOCK5_CYCLES=40 -gBLOCK7_CYCLES=40 -gBLOCK0_CYCLES=40 -gBLOCK2_CYCLES=40 
+# Start time: 00:15:52 on May 25,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.inv_sc_pkg(body)
+# Loading work.tb_adder8_shadow1_diagnostics(sim)
+# Loading work.gen_adder8_shadow1_windowed(rtl)
+# Loading work.spin_node(rtl)
+# Loading work.lfsr32(rtl)
+# ** Warning: Design size of 13571 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# 
+# set case_count 32
+# 32
+# set settle_cycles [expr {$block0_cycles + $block1_cycles + $block2_cycles + $block3_cycles + $block4_cycles + $block5_cycles + $block6_cycles + $block7_cycles + (7 * $copy_cycles)}]
+# 334
+# set run_ns [expr {($case_count * (8 + $settle_cycles + $count_cycles) + 200) * 10}]
+# 143440
+# run ${run_ns} ns
+# ** Note: shadow1 adder8 completed cases=32 perfect=32 failed=0 total_hits=3200/3200 min_hits=100 block_rnd=4 copy_rnd=0 blocks=40,40,40,40,40,40,40,40 copy=2
+#    Time: 141435 ns  Iteration: 0  Instance: /tb_adder8_shadow1_diagnostics
+# ** Note: shadow1 adder8 shadow_min q1=100 q2=100 q3=100 q4=100 q5=100 q6=100 q7=100/100
+#    Time: 141435 ns  Iteration: 0  Instance: /tb_adder8_shadow1_diagnostics
+# 
+# quit -f
+# End time: 00:15:56 on May 25,2026, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 1

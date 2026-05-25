@@ -1,0 +1,196 @@
+# do run_adder4_shadow1_q34_inverse.do
+# onerror {quit -code 1}
+# onbreak {quit -code 1}
+# 
+# if {[file exists work_adder4_shadow1_q34_inverse]} {
+#     vdel -lib work_adder4_shadow1_q34_inverse -all
+# }
+# 
+# set block_rnd_weight 0
+# 0
+# if {[info exists ::env(BLOCK_RND_WEIGHT)]} {
+#     set block_rnd_weight $::env(BLOCK_RND_WEIGHT)
+# }
+# 4
+# set copy_rnd_weight 0
+# 0
+# if {[info exists ::env(COPY_RND_WEIGHT)]} {
+#     set copy_rnd_weight $::env(COPY_RND_WEIGHT)
+# }
+# 0
+# set block0_cycles 10
+# 10
+# if {[info exists ::env(BLOCK0_CYCLES)]} {
+#     set block0_cycles $::env(BLOCK0_CYCLES)
+# }
+# 10
+# set block1_cycles 8
+# 8
+# if {[info exists ::env(BLOCK1_CYCLES)]} {
+#     set block1_cycles $::env(BLOCK1_CYCLES)
+# }
+# 8
+# set block2_cycles 16
+# 16
+# if {[info exists ::env(BLOCK2_CYCLES)]} {
+#     set block2_cycles $::env(BLOCK2_CYCLES)
+# }
+# 16
+# set block3_cycles 6
+# 6
+# if {[info exists ::env(BLOCK3_CYCLES)]} {
+#     set block3_cycles $::env(BLOCK3_CYCLES)
+# }
+# 6
+# set copy_cycles 2
+# 2
+# if {[info exists ::env(COPY_CYCLES)]} {
+#     set copy_cycles $::env(COPY_CYCLES)
+# }
+# 2
+# set count_cycles 1000
+# 1000
+# if {[info exists ::env(COUNT_CYCLES)]} {
+#     set count_cycles $::env(COUNT_CYCLES)
+# }
+# 100
+# set reverse_order false
+# false
+# if {[info exists ::env(REVERSE_ORDER)]} {
+#     set reverse_order $::env(REVERSE_ORDER)
+# }
+# 
+# vlib work_adder4_shadow1_q34_inverse
+# vmap work work_adder4_shadow1_q34_inverse
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work work_adder4_shadow1_q34_inverse 
+# Modifying modelsim.ini
+# 
+# vcom -2008 ../src/inv_sc_pkg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:43:41 on May 24,2026
+# vcom -2008 ../src/inv_sc_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package inv_sc_pkg
+# -- Compiling package body inv_sc_pkg
+# -- Loading package inv_sc_pkg
+# End time: 23:43:41 on May 24,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/lfsr32.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:43:41 on May 24,2026
+# vcom -2008 ../src/lfsr32.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lfsr32
+# -- Compiling architecture rtl of lfsr32
+# End time: 23:43:41 on May 24,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/spin_node.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:43:41 on May 24,2026
+# vcom -2008 ../src/spin_node.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity spin_node
+# -- Compiling architecture rtl of spin_node
+# -- Loading entity lfsr32
+# End time: 23:43:41 on May 24,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/generated_shadow1_q34_adder4.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:43:41 on May 24,2026
+# vcom -2008 ../src/generated_shadow1_q34_adder4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity gen_adder4_shadow1_windowed
+# -- Compiling architecture rtl of gen_adder4_shadow1_windowed
+# -- Loading entity spin_node
+# End time: 23:43:41 on May 24,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../tb/tb_adder4_shadow1_inverse.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:43:41 on May 24,2026
+# vcom -2008 ../tb/tb_adder4_shadow1_inverse.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_adder4_shadow1_inverse
+# -- Compiling architecture sim of tb_adder4_shadow1_inverse
+# -- Loading package inv_sc_pkg
+# -- Loading entity gen_adder4_shadow1_windowed
+# End time: 23:43:41 on May 24,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim \
+#     -gBLOCK_RND_WEIGHT=$block_rnd_weight \
+#     -gCOPY_RND_WEIGHT=$copy_rnd_weight \
+#     -gBLOCK0_CYCLES=$block0_cycles \
+#     -gBLOCK1_CYCLES=$block1_cycles \
+#     -gBLOCK2_CYCLES=$block2_cycles \
+#     -gBLOCK3_CYCLES=$block3_cycles \
+#     -gCOPY_CYCLES=$copy_cycles \
+#     -gCOUNT_CYCLES=$count_cycles \
+#     -gREVERSE_ORDER=$reverse_order \
+#     work.tb_adder4_shadow1_inverse
+# vsim work.tb_adder4_shadow1_inverse -gBLOCK3_CYCLES=6 -gCOPY_CYCLES=2 -gBLOCK0_CYCLES=10 -gCOPY_RND_WEIGHT=0 -gBLOCK_RND_WEIGHT=4 -gBLOCK1_CYCLES=8 -gREVERSE_ORDER=false -gCOUNT_CYCLES=100 -gBLOCK2_CYCLES=16 
+# Start time: 23:43:41 on May 24,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.inv_sc_pkg(body)
+# Loading work.tb_adder4_shadow1_inverse(sim)
+# Loading work.gen_adder4_shadow1_windowed(rtl)
+# Loading work.spin_node(rtl)
+# Loading work.lfsr32(rtl)
+# 
+# set bsum_cases 256
+# 256
+# set sum_cases 31
+# 31
+# set case_count [expr {$bsum_cases + $sum_cases}]
+# 287
+# set settle_cycles [expr {$block0_cycles + $block1_cycles + $block2_cycles + $block3_cycles + (3 * $copy_cycles)}]
+# 46
+# set run_ns [expr {($case_count * (8 + $settle_cycles + $count_cycles) + 200) * 10}]
+# 443980
+# run ${run_ns} ns
+# ** Note: shadow1 inverse B+SUM completed cases=256 perfect=256 failed=0 total_hits=25600/25600 min_hits=100 reverse=false block_rnd=4 copy_rnd=0 blocks=10,8,16,6 copy=2
+#    Time: 394235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_inverse
+# ** Note: shadow1 inverse SUM-only fail SUM=0 hits=0/100 last_A=1 last_B=7 last_AplusB=8
+#    Time: 395775 ns  Iteration: 0  Instance: /tb_adder4_shadow1_inverse
+# ** Note: shadow1 inverse SUM-only fail SUM=1 hits=0/100 last_A=4 last_B=5 last_AplusB=9
+#    Time: 397315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_inverse
+# ** Note: shadow1 inverse SUM-only fail SUM=2 hits=0/100 last_A=5 last_B=5 last_AplusB=10
+#    Time: 398855 ns  Iteration: 0  Instance: /tb_adder4_shadow1_inverse
+# ** Note: shadow1 inverse SUM-only fail SUM=3 hits=0/100 last_A=4 last_B=7 last_AplusB=11
+#    Time: 400395 ns  Iteration: 0  Instance: /tb_adder4_shadow1_inverse
+# ** Note: shadow1 inverse SUM-only fail SUM=4 hits=0/100 last_A=5 last_B=7 last_AplusB=12
+#    Time: 401935 ns  Iteration: 0  Instance: /tb_adder4_shadow1_inverse
+# ** Note: shadow1 inverse SUM-only fail SUM=5 hits=0/100 last_A=4 last_B=5 last_AplusB=9
+#    Time: 403475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_inverse
+# ** Note: shadow1 inverse SUM-only fail SUM=6 hits=0/100 last_A=5 last_B=5 last_AplusB=10
+#    Time: 405015 ns  Iteration: 0  Instance: /tb_adder4_shadow1_inverse
+# ** Note: shadow1 inverse SUM-only fail SUM=7 hits=0/100 last_A=4 last_B=7 last_AplusB=11
+#    Time: 406555 ns  Iteration: 0  Instance: /tb_adder4_shadow1_inverse
+# ** Note: shadow1 inverse SUM-only completed cases=31 perfect=15 failed=16 total_hits=1500/3100 min_hits=0 reverse=false block_rnd=4 copy_rnd=0 blocks=10,8,16,6 copy=2
+#    Time: 441975 ns  Iteration: 0  Instance: /tb_adder4_shadow1_inverse
+# ** Note: shadow1 inverse shadow_min q1=100 q2=100 q3=100/100
+#    Time: 441975 ns  Iteration: 0  Instance: /tb_adder4_shadow1_inverse
+# 
+# quit -f
+# End time: 23:43:43 on May 24,2026, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0

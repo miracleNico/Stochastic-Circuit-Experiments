@@ -1,0 +1,65 @@
+# vsim -c -lib work_gen tb_generated_gates -do "run -all; quit -f" 
+# Start time: 17:08:49 on May 24,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work_gen.inv_sc_pkg(body)
+# Loading work_gen.tb_generated_gates(sim)
+# Loading work_gen.gen_and_gate(rtl)
+# Loading work_gen.spin_node(rtl)
+# Loading work_gen.lfsr32(rtl)
+# Loading work_gen.gen_or_gate(rtl)
+# Loading work_gen.gen_nand_gate(rtl)
+# Loading work_gen.gen_nor_gate(rtl)
+# Loading work_gen.gen_xor_gate(rtl)
+# Loading work_gen.gen_xnor_gate(rtl)
+# Loading work_gen.gen_# ** Note: adder forward 0+0 hits=823/1000
+#    Time: 15075 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: adder forward 1+1 hits=879/1000
+#    Time: 30155 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: adder forward 15+1 hits=0/1000
+#    Time: 45235 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: 8-bit adder forward probability below diagnostic threshold
+#    Time: 45235 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: adder forward 127+1 hits=823/1000
+#    Time: 60315 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: adder forward 255+1 hits=823/1000
+#    Time: 75395 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: adder forward 170+85 hits=0/1000
+#    Time: 90475 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: 8-bit adder forward probability below diagnostic threshold
+#    Time: 90475 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: adder reverse sum=0 hits=0/1000
+#    Time: 105555 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: 8-bit adder reverse probability below diagnostic threshold
+#    Time: 105555 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: adder reverse sum=16 hits=0/1000
+#    Time: 120635 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: 8-bit adder reverse probability below diagnostic threshold
+#    Time: 120635 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: adder reverse sum=128 hits=0/1000
+#    Time: 135715 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: 8-bit adder reverse probability below diagnostic threshold
+#    Time: 135715 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: bitcount forward expected=0 hits=987/1000
+#    Time: 150795 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: bitcount forward expected=1 hits=984/1000
+#    Time: 165875 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: bitcount forward expected=4 hits=0/1000
+#    Time: 180955 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: 8-input bitcount forward probability below diagnostic threshold
+#    Time: 180955 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: bitcount forward expected=8 hits=987/1000
+#    Time: 196035 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: bitcount reverse count=0 hits=806/1000
+#    Time: 211115 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: bitcount reverse count=1 hits=952/1000
+#    Time: 226195 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: bitcount reverse count=4 hits=976/1000
+#    Time: 241275 ns  Iteration: 0  Instance: /tb_generated_systems
+# ** Note: tb_generated_systems completed
+#    Time: 241275 ns  Iteration: 0  Instance: /tb_generated_systems
+# End time: 17:08:57 on May 24,2026, Elapsed time: 0:00:09
+# Errors: 0, Warnings: 1

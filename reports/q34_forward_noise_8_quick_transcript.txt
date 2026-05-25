@@ -1,0 +1,424 @@
+# do run_adder4_shadow1_q34_exhaustive.do
+# onerror {quit -code 1}
+# onbreak {quit -code 1}
+# 
+# if {[file exists work_adder4_shadow1_q34_exhaustive]} {
+#     vdel -lib work_adder4_shadow1_q34_exhaustive -all
+# }
+# 
+# set block_rnd_weight 0
+# 0
+# if {[info exists ::env(BLOCK_RND_WEIGHT)]} {
+#     set block_rnd_weight $::env(BLOCK_RND_WEIGHT)
+# }
+# 8
+# set copy_rnd_weight 0
+# 0
+# if {[info exists ::env(COPY_RND_WEIGHT)]} {
+#     set copy_rnd_weight $::env(COPY_RND_WEIGHT)
+# }
+# 0
+# set block0_cycles 10
+# 10
+# if {[info exists ::env(BLOCK0_CYCLES)]} {
+#     set block0_cycles $::env(BLOCK0_CYCLES)
+# }
+# 10
+# set block1_cycles 8
+# 8
+# if {[info exists ::env(BLOCK1_CYCLES)]} {
+#     set block1_cycles $::env(BLOCK1_CYCLES)
+# }
+# 8
+# set block2_cycles 16
+# 16
+# if {[info exists ::env(BLOCK2_CYCLES)]} {
+#     set block2_cycles $::env(BLOCK2_CYCLES)
+# }
+# 16
+# set block3_cycles 6
+# 6
+# if {[info exists ::env(BLOCK3_CYCLES)]} {
+#     set block3_cycles $::env(BLOCK3_CYCLES)
+# }
+# 6
+# set copy_cycles 2
+# 2
+# if {[info exists ::env(COPY_CYCLES)]} {
+#     set copy_cycles $::env(COPY_CYCLES)
+# }
+# 2
+# set count_cycles 1000
+# 1000
+# if {[info exists ::env(COUNT_CYCLES)]} {
+#     set count_cycles $::env(COUNT_CYCLES)
+# }
+# 100
+# 
+# vlib work_adder4_shadow1_q34_exhaustive
+# vmap work work_adder4_shadow1_q34_exhaustive
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work work_adder4_shadow1_q34_exhaustive 
+# Modifying modelsim.ini
+# 
+# vcom -2008 ../src/inv_sc_pkg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:40:32 on May 24,2026
+# vcom -2008 ../src/inv_sc_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package inv_sc_pkg
+# -- Compiling package body inv_sc_pkg
+# -- Loading package inv_sc_pkg
+# End time: 23:40:32 on May 24,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/lfsr32.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:40:32 on May 24,2026
+# vcom -2008 ../src/lfsr32.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lfsr32
+# -- Compiling architecture rtl of lfsr32
+# End time: 23:40:33 on May 24,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/spin_node.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:40:33 on May 24,2026
+# vcom -2008 ../src/spin_node.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity spin_node
+# -- Compiling architecture rtl of spin_node
+# -- Loading entity lfsr32
+# End time: 23:40:33 on May 24,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/generated_shadow1_q34_adder4.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:40:33 on May 24,2026
+# vcom -2008 ../src/generated_shadow1_q34_adder4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity gen_adder4_shadow1_windowed
+# -- Compiling architecture rtl of gen_adder4_shadow1_windowed
+# -- Loading entity spin_node
+# End time: 23:40:33 on May 24,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../tb/tb_adder4_shadow1_exhaustive.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:40:33 on May 24,2026
+# vcom -2008 ../tb/tb_adder4_shadow1_exhaustive.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_adder4_shadow1_exhaustive
+# -- Compiling architecture sim of tb_adder4_shadow1_exhaustive
+# -- Loading package inv_sc_pkg
+# -- Loading entity gen_adder4_shadow1_windowed
+# End time: 23:40:33 on May 24,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim \
+#     -gBLOCK_RND_WEIGHT=$block_rnd_weight \
+#     -gCOPY_RND_WEIGHT=$copy_rnd_weight \
+#     -gBLOCK0_CYCLES=$block0_cycles \
+#     -gBLOCK1_CYCLES=$block1_cycles \
+#     -gBLOCK2_CYCLES=$block2_cycles \
+#     -gBLOCK3_CYCLES=$block3_cycles \
+#     -gCOPY_CYCLES=$copy_cycles \
+#     -gCOUNT_CYCLES=$count_cycles \
+#     work.tb_adder4_shadow1_exhaustive
+# vsim work.tb_adder4_shadow1_exhaustive -gBLOCK3_CYCLES=6 -gCOPY_CYCLES=2 -gBLOCK0_CYCLES=10 -gCOPY_RND_WEIGHT=0 -gBLOCK_RND_WEIGHT=8 -gBLOCK1_CYCLES=8 -gCOUNT_CYCLES=100 -gBLOCK2_CYCLES=16 
+# Start time: 23:40:33 on May 24,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.inv_sc_pkg(body)
+# Loading work.tb_adder4_shadow1_exhaustive(sim)
+# Loading work.gen_adder4_shadow1_windowed(rtl)
+# Loading work.spin_node(rtl)
+# Loading work.lfsr32(rtl)
+# 
+# set case_count 256
+# 256
+# set settle_cycles [expr {$block0_cycles + $block1_cycles + $block2_cycles + $block3_cycles + (3 * $copy_cycles)}]
+# 46
+# set run_ns [expr {($case_count * (8 + $settle_cycles + $count_cycles) + 200) * 10}]
+# 396240
+# run ${run_ns} ns
+# ** Note: shadow1 exhaustive fail 0+1 expected_sum=1 hits=0/100 top_sum=2 top_count=100
+#    Time: 3075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 0+3 expected_sum=3 hits=0/100 top_sum=4 top_count=100
+#    Time: 6155 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 0+5 expected_sum=5 hits=0/100 top_sum=6 top_count=100
+#    Time: 9235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 0+7 expected_sum=7 hits=0/100 top_sum=8 top_count=100
+#    Time: 12315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 0+9 expected_sum=9 hits=0/100 top_sum=10 top_count=100
+#    Time: 15395 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 0+11 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 18475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 0+13 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 21555 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 0+15 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 24635 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 1+0 expected_sum=1 hits=0/100 top_sum=2 top_count=100
+#    Time: 26175 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 1+2 expected_sum=3 hits=0/100 top_sum=4 top_count=100
+#    Time: 29255 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 1+4 expected_sum=5 hits=0/100 top_sum=6 top_count=100
+#    Time: 32335 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 1+6 expected_sum=7 hits=0/100 top_sum=8 top_count=100
+#    Time: 35415 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 1+8 expected_sum=9 hits=0/100 top_sum=10 top_count=100
+#    Time: 38495 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 1+10 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 41575 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 1+12 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 44655 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 1+14 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 47735 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 2+1 expected_sum=3 hits=0/100 top_sum=4 top_count=100
+#    Time: 52355 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 2+3 expected_sum=5 hits=0/100 top_sum=6 top_count=100
+#    Time: 55435 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 2+5 expected_sum=7 hits=0/100 top_sum=8 top_count=100
+#    Time: 58515 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 2+7 expected_sum=9 hits=0/100 top_sum=10 top_count=100
+#    Time: 61595 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 2+9 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 64675 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 2+11 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 67755 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 2+13 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 70835 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 2+15 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 73915 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 3+0 expected_sum=3 hits=0/100 top_sum=4 top_count=100
+#    Time: 75455 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 3+2 expected_sum=5 hits=0/100 top_sum=6 top_count=100
+#    Time: 78535 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 3+4 expected_sum=7 hits=0/100 top_sum=8 top_count=100
+#    Time: 81615 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 3+6 expected_sum=9 hits=0/100 top_sum=10 top_count=100
+#    Time: 84695 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 3+8 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 87775 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 3+10 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 90855 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 3+12 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 93935 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 3+14 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 97015 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 4+1 expected_sum=5 hits=0/100 top_sum=6 top_count=100
+#    Time: 101635 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 4+3 expected_sum=7 hits=0/100 top_sum=8 top_count=100
+#    Time: 104715 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 4+5 expected_sum=9 hits=0/100 top_sum=10 top_count=100
+#    Time: 107795 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 4+7 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 110875 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 4+9 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 113955 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 4+11 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 117035 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 4+13 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 120115 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 4+15 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 123195 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 5+0 expected_sum=5 hits=0/100 top_sum=6 top_count=100
+#    Time: 124735 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 5+2 expected_sum=7 hits=0/100 top_sum=8 top_count=100
+#    Time: 127815 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 5+4 expected_sum=9 hits=0/100 top_sum=10 top_count=100
+#    Time: 130895 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 5+6 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 133975 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 5+8 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 137055 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 5+10 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 140135 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 5+12 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 143215 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 5+14 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 146295 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 6+1 expected_sum=7 hits=0/100 top_sum=8 top_count=100
+#    Time: 150915 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 6+3 expected_sum=9 hits=0/100 top_sum=10 top_count=100
+#    Time: 153995 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 6+5 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 157075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 6+7 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 160155 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 6+9 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 163235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 6+11 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 166315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 6+13 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 169395 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 6+15 expected_sum=21 hits=0/100 top_sum=22 top_count=100
+#    Time: 172475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 7+0 expected_sum=7 hits=0/100 top_sum=8 top_count=100
+#    Time: 174015 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 7+2 expected_sum=9 hits=0/100 top_sum=10 top_count=100
+#    Time: 177095 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 7+4 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 180175 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 7+6 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 183255 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 7+8 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 186335 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 7+10 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 189415 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 7+12 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 192495 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 7+14 expected_sum=21 hits=0/100 top_sum=22 top_count=100
+#    Time: 195575 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 8+1 expected_sum=9 hits=0/100 top_sum=10 top_count=100
+#    Time: 200195 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 8+3 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 203275 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 8+5 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 206355 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 8+7 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 209435 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 8+9 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 212515 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 8+11 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 215595 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 8+13 expected_sum=21 hits=0/100 top_sum=22 top_count=100
+#    Time: 218675 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 8+15 expected_sum=23 hits=0/100 top_sum=24 top_count=100
+#    Time: 221755 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 9+0 expected_sum=9 hits=0/100 top_sum=10 top_count=100
+#    Time: 223295 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 9+2 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 226375 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 9+4 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 229455 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 9+6 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 232535 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 9+8 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 235615 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 9+10 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 238695 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 9+12 expected_sum=21 hits=0/100 top_sum=22 top_count=100
+#    Time: 241775 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 9+14 expected_sum=23 hits=0/100 top_sum=24 top_count=100
+#    Time: 244855 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 10+1 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 249475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 10+3 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 252555 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 10+5 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 255635 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 10+7 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 258715 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 10+9 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 261795 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 10+11 expected_sum=21 hits=0/100 top_sum=22 top_count=100
+#    Time: 264875 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 10+13 expected_sum=23 hits=0/100 top_sum=24 top_count=100
+#    Time: 267955 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 10+15 expected_sum=25 hits=0/100 top_sum=26 top_count=100
+#    Time: 271035 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 11+0 expected_sum=11 hits=0/100 top_sum=12 top_count=100
+#    Time: 272575 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 11+2 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 275655 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 11+4 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 278735 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 11+6 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 281815 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 11+8 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 284895 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 11+10 expected_sum=21 hits=0/100 top_sum=22 top_count=100
+#    Time: 287975 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 11+12 expected_sum=23 hits=0/100 top_sum=24 top_count=100
+#    Time: 291055 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 11+14 expected_sum=25 hits=0/100 top_sum=26 top_count=100
+#    Time: 294135 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 12+1 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 298755 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 12+3 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 301835 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 12+5 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 304915 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 12+7 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 307995 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 12+9 expected_sum=21 hits=0/100 top_sum=22 top_count=100
+#    Time: 311075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 12+11 expected_sum=23 hits=0/100 top_sum=24 top_count=100
+#    Time: 314155 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 12+13 expected_sum=25 hits=0/100 top_sum=26 top_count=100
+#    Time: 317235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 12+15 expected_sum=27 hits=0/100 top_sum=28 top_count=100
+#    Time: 320315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 13+0 expected_sum=13 hits=0/100 top_sum=14 top_count=100
+#    Time: 321855 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 13+2 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 324935 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 13+4 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 328015 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 13+6 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 331095 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 13+8 expected_sum=21 hits=0/100 top_sum=22 top_count=100
+#    Time: 334175 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 13+10 expected_sum=23 hits=0/100 top_sum=24 top_count=100
+#    Time: 337255 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 13+12 expected_sum=25 hits=0/100 top_sum=26 top_count=100
+#    Time: 340335 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 13+14 expected_sum=27 hits=0/100 top_sum=28 top_count=100
+#    Time: 343415 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 14+1 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 348035 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 14+3 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 351115 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 14+5 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 354195 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 14+7 expected_sum=21 hits=0/100 top_sum=22 top_count=100
+#    Time: 357275 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 14+9 expected_sum=23 hits=0/100 top_sum=24 top_count=100
+#    Time: 360355 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 14+11 expected_sum=25 hits=0/100 top_sum=26 top_count=100
+#    Time: 363435 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 14+13 expected_sum=27 hits=0/100 top_sum=28 top_count=100
+#    Time: 366515 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 14+15 expected_sum=29 hits=0/100 top_sum=30 top_count=100
+#    Time: 369595 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 15+0 expected_sum=15 hits=0/100 top_sum=16 top_count=100
+#    Time: 371135 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 15+2 expected_sum=17 hits=0/100 top_sum=18 top_count=100
+#    Time: 374215 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 15+4 expected_sum=19 hits=0/100 top_sum=20 top_count=100
+#    Time: 377295 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 15+6 expected_sum=21 hits=0/100 top_sum=22 top_count=100
+#    Time: 380375 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 15+8 expected_sum=23 hits=0/100 top_sum=24 top_count=100
+#    Time: 383455 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 15+10 expected_sum=25 hits=0/100 top_sum=26 top_count=100
+#    Time: 386535 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 15+12 expected_sum=27 hits=0/100 top_sum=28 top_count=100
+#    Time: 389615 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive fail 15+14 expected_sum=29 hits=0/100 top_sum=30 top_count=100
+#    Time: 392695 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive completed cases=256 perfect=128 failed=128 total_hits=12800/25600 min_hits=0 block_rnd=8 copy_rnd=0 blocks=10,8,16,6 copy=2
+#    Time: 394235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# ** Note: shadow1 exhaustive shadow_min q1=100 q2=100 q3=100/100
+#    Time: 394235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_exhaustive
+# 
+# quit -f
+# End time: 23:40:34 on May 24,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
