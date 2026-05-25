@@ -1,0 +1,6 @@
+run,pattern,valid_total,trials,valid_rate,valid_pairs_seen,valid_pairs_total,coverage_rate,weighted_entropy_norm,weighted_tv_from_uniform,min_sum_valid_rate,sums_below_90pct_valid,zero_valid_sums
+sum_baseline_direct4,baseline direct integer RCA,26645,31000,0.859516129032258,256,256,1.0,0.9740110213492928,0.12456490361752781,0.72,30,0
+sum_idea34_integer4,idea 3+4 integer shadow/window,21267,31000,0.6860322580645162,256,256,1.0,0.986857832436641,0.09235745685949752,0.087,28,0
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,23946,31000,0.7724516129032258,64,256,0.25,0.31703164551454066,0.7516862977080286,0.0,11,3
+sum_idea4_parallel4,idea 4 only parallel shadow,19516,31000,0.6295483870967742,256,256,1.0,0.9839553815316263,0.10059996782446157,0.06,31,0
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,23818,31000,0.7683225806451612,165,256,0.64453125,0.6576979373103584,0.5073101712851465,0.0,10,3

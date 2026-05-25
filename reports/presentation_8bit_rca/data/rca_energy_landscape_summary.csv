@@ -1,0 +1,5 @@
+label,width,state_count,valid_count,energy_levels,min_energy,valid_energy,invalid_energy,gap,valid_energy_encoded,invalid_energy_encoded,gap_encoded,frac_bits
+4-bit RCA before quantization (integer),4,65536,256,29,-16.0,-16.0,-14.0,2.0,-16,-14,2,0
+4-bit RCA after Q3.4 design,4,65536,256,29,-56.0,-56.0,-49.0,7.0,-896,-784,112,4
+8-bit RCA before quantization (integer),8,4294967296,65536,65,-32.0,-32.0,-30.0,2.0,-32,-30,2,0
+8-bit RCA after Q3.4 design,8,4294967296,65536,65,-112.0,-112.0,-105.0,7.0,-1792,-1680,112,4

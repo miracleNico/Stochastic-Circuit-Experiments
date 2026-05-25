@@ -1,0 +1,1281 @@
+run,pattern,sum,a,b,count,trials
+sum_baseline_direct4,baseline direct integer RCA,0,0,0,720,1000
+sum_baseline_direct4,baseline direct integer RCA,1,0,1,391,1000
+sum_baseline_direct4,baseline direct integer RCA,1,1,0,409,1000
+sum_baseline_direct4,baseline direct integer RCA,2,0,2,310,1000
+sum_baseline_direct4,baseline direct integer RCA,2,1,1,198,1000
+sum_baseline_direct4,baseline direct integer RCA,2,2,0,315,1000
+sum_baseline_direct4,baseline direct integer RCA,3,0,3,208,1000
+sum_baseline_direct4,baseline direct integer RCA,3,1,2,224,1000
+sum_baseline_direct4,baseline direct integer RCA,3,2,1,230,1000
+sum_baseline_direct4,baseline direct integer RCA,3,3,0,216,1000
+sum_baseline_direct4,baseline direct integer RCA,4,0,4,235,1000
+sum_baseline_direct4,baseline direct integer RCA,4,1,3,78,1000
+sum_baseline_direct4,baseline direct integer RCA,4,2,2,209,1000
+sum_baseline_direct4,baseline direct integer RCA,4,3,1,88,1000
+sum_baseline_direct4,baseline direct integer RCA,4,4,0,256,1000
+sum_baseline_direct4,baseline direct integer RCA,5,0,5,165,1000
+sum_baseline_direct4,baseline direct integer RCA,5,1,4,151,1000
+sum_baseline_direct4,baseline direct integer RCA,5,2,3,137,1000
+sum_baseline_direct4,baseline direct integer RCA,5,3,2,133,1000
+sum_baseline_direct4,baseline direct integer RCA,5,4,1,136,1000
+sum_baseline_direct4,baseline direct integer RCA,5,5,0,167,1000
+sum_baseline_direct4,baseline direct integer RCA,6,0,6,126,1000
+sum_baseline_direct4,baseline direct integer RCA,6,1,5,108,1000
+sum_baseline_direct4,baseline direct integer RCA,6,2,4,131,1000
+sum_baseline_direct4,baseline direct integer RCA,6,3,3,195,1000
+sum_baseline_direct4,baseline direct integer RCA,6,4,2,130,1000
+sum_baseline_direct4,baseline direct integer RCA,6,5,1,66,1000
+sum_baseline_direct4,baseline direct integer RCA,6,6,0,130,1000
+sum_baseline_direct4,baseline direct integer RCA,7,0,7,111,1000
+sum_baseline_direct4,baseline direct integer RCA,7,1,6,123,1000
+sum_baseline_direct4,baseline direct integer RCA,7,2,5,130,1000
+sum_baseline_direct4,baseline direct integer RCA,7,3,4,116,1000
+sum_baseline_direct4,baseline direct integer RCA,7,4,3,96,1000
+sum_baseline_direct4,baseline direct integer RCA,7,5,2,107,1000
+sum_baseline_direct4,baseline direct integer RCA,7,6,1,104,1000
+sum_baseline_direct4,baseline direct integer RCA,7,7,0,111,1000
+sum_baseline_direct4,baseline direct integer RCA,8,0,8,187,1000
+sum_baseline_direct4,baseline direct integer RCA,8,1,7,64,1000
+sum_baseline_direct4,baseline direct integer RCA,8,2,6,64,1000
+sum_baseline_direct4,baseline direct integer RCA,8,3,5,66,1000
+sum_baseline_direct4,baseline direct integer RCA,8,4,4,132,1000
+sum_baseline_direct4,baseline direct integer RCA,8,5,3,43,1000
+sum_baseline_direct4,baseline direct integer RCA,8,6,2,63,1000
+sum_baseline_direct4,baseline direct integer RCA,8,7,1,44,1000
+sum_baseline_direct4,baseline direct integer RCA,8,8,0,198,1000
+sum_baseline_direct4,baseline direct integer RCA,9,0,9,100,1000
+sum_baseline_direct4,baseline direct integer RCA,9,1,8,110,1000
+sum_baseline_direct4,baseline direct integer RCA,9,2,7,77,1000
+sum_baseline_direct4,baseline direct integer RCA,9,3,6,78,1000
+sum_baseline_direct4,baseline direct integer RCA,9,4,5,99,1000
+sum_baseline_direct4,baseline direct integer RCA,9,5,4,90,1000
+sum_baseline_direct4,baseline direct integer RCA,9,6,3,58,1000
+sum_baseline_direct4,baseline direct integer RCA,9,7,2,54,1000
+sum_baseline_direct4,baseline direct integer RCA,9,8,1,95,1000
+sum_baseline_direct4,baseline direct integer RCA,9,9,0,118,1000
+sum_baseline_direct4,baseline direct integer RCA,10,0,10,73,1000
+sum_baseline_direct4,baseline direct integer RCA,10,1,9,43,1000
+sum_baseline_direct4,baseline direct integer RCA,10,2,8,99,1000
+sum_baseline_direct4,baseline direct integer RCA,10,3,7,124,1000
+sum_baseline_direct4,baseline direct integer RCA,10,4,6,88,1000
+sum_baseline_direct4,baseline direct integer RCA,10,5,5,64,1000
+sum_baseline_direct4,baseline direct integer RCA,10,6,4,85,1000
+sum_baseline_direct4,baseline direct integer RCA,10,7,3,71,1000
+sum_baseline_direct4,baseline direct integer RCA,10,8,2,100,1000
+sum_baseline_direct4,baseline direct integer RCA,10,9,1,60,1000
+sum_baseline_direct4,baseline direct integer RCA,10,10,0,72,1000
+sum_baseline_direct4,baseline direct integer RCA,11,0,11,66,1000
+sum_baseline_direct4,baseline direct integer RCA,11,1,10,65,1000
+sum_baseline_direct4,baseline direct integer RCA,11,2,9,97,1000
+sum_baseline_direct4,baseline direct integer RCA,11,3,8,87,1000
+sum_baseline_direct4,baseline direct integer RCA,11,4,7,70,1000
+sum_baseline_direct4,baseline direct integer RCA,11,5,6,65,1000
+sum_baseline_direct4,baseline direct integer RCA,11,6,5,66,1000
+sum_baseline_direct4,baseline direct integer RCA,11,7,4,51,1000
+sum_baseline_direct4,baseline direct integer RCA,11,8,3,74,1000
+sum_baseline_direct4,baseline direct integer RCA,11,9,2,97,1000
+sum_baseline_direct4,baseline direct integer RCA,11,10,1,71,1000
+sum_baseline_direct4,baseline direct integer RCA,11,11,0,83,1000
+sum_baseline_direct4,baseline direct integer RCA,12,0,12,113,1000
+sum_baseline_direct4,baseline direct integer RCA,12,1,11,26,1000
+sum_baseline_direct4,baseline direct integer RCA,12,2,10,82,1000
+sum_baseline_direct4,baseline direct integer RCA,12,3,9,37,1000
+sum_baseline_direct4,baseline direct integer RCA,12,4,8,129,1000
+sum_baseline_direct4,baseline direct integer RCA,12,5,7,20,1000
+sum_baseline_direct4,baseline direct integer RCA,12,6,6,52,1000
+sum_baseline_direct4,baseline direct integer RCA,12,7,5,21,1000
+sum_baseline_direct4,baseline direct integer RCA,12,8,4,120,1000
+sum_baseline_direct4,baseline direct integer RCA,12,9,3,33,1000
+sum_baseline_direct4,baseline direct integer RCA,12,10,2,81,1000
+sum_baseline_direct4,baseline direct integer RCA,12,11,1,34,1000
+sum_baseline_direct4,baseline direct integer RCA,12,12,0,131,1000
+sum_baseline_direct4,baseline direct integer RCA,13,0,13,85,1000
+sum_baseline_direct4,baseline direct integer RCA,13,1,12,70,1000
+sum_baseline_direct4,baseline direct integer RCA,13,2,11,58,1000
+sum_baseline_direct4,baseline direct integer RCA,13,3,10,46,1000
+sum_baseline_direct4,baseline direct integer RCA,13,4,9,72,1000
+sum_baseline_direct4,baseline direct integer RCA,13,5,8,86,1000
+sum_baseline_direct4,baseline direct integer RCA,13,6,7,29,1000
+sum_baseline_direct4,baseline direct integer RCA,13,7,6,38,1000
+sum_baseline_direct4,baseline direct integer RCA,13,8,5,78,1000
+sum_baseline_direct4,baseline direct integer RCA,13,9,4,80,1000
+sum_baseline_direct4,baseline direct integer RCA,13,10,3,54,1000
+sum_baseline_direct4,baseline direct integer RCA,13,11,2,50,1000
+sum_baseline_direct4,baseline direct integer RCA,13,12,1,70,1000
+sum_baseline_direct4,baseline direct integer RCA,13,13,0,80,1000
+sum_baseline_direct4,baseline direct integer RCA,14,0,14,51,1000
+sum_baseline_direct4,baseline direct integer RCA,14,1,13,55,1000
+sum_baseline_direct4,baseline direct integer RCA,14,2,12,66,1000
+sum_baseline_direct4,baseline direct integer RCA,14,3,11,66,1000
+sum_baseline_direct4,baseline direct integer RCA,14,4,10,51,1000
+sum_baseline_direct4,baseline direct integer RCA,14,5,9,31,1000
+sum_baseline_direct4,baseline direct integer RCA,14,6,8,72,1000
+sum_baseline_direct4,baseline direct integer RCA,14,7,7,94,1000
+sum_baseline_direct4,baseline direct integer RCA,14,8,6,77,1000
+sum_baseline_direct4,baseline direct integer RCA,14,9,5,45,1000
+sum_baseline_direct4,baseline direct integer RCA,14,10,4,64,1000
+sum_baseline_direct4,baseline direct integer RCA,14,11,3,65,1000
+sum_baseline_direct4,baseline direct integer RCA,14,12,2,75,1000
+sum_baseline_direct4,baseline direct integer RCA,14,13,1,31,1000
+sum_baseline_direct4,baseline direct integer RCA,14,14,0,52,1000
+sum_baseline_direct4,baseline direct integer RCA,15,0,15,54,1000
+sum_baseline_direct4,baseline direct integer RCA,15,1,14,53,1000
+sum_baseline_direct4,baseline direct integer RCA,15,2,13,71,1000
+sum_baseline_direct4,baseline direct integer RCA,15,3,12,56,1000
+sum_baseline_direct4,baseline direct integer RCA,15,4,11,50,1000
+sum_baseline_direct4,baseline direct integer RCA,15,5,10,52,1000
+sum_baseline_direct4,baseline direct integer RCA,15,6,9,55,1000
+sum_baseline_direct4,baseline direct integer RCA,15,7,8,58,1000
+sum_baseline_direct4,baseline direct integer RCA,15,8,7,63,1000
+sum_baseline_direct4,baseline direct integer RCA,15,9,6,69,1000
+sum_baseline_direct4,baseline direct integer RCA,15,10,5,60,1000
+sum_baseline_direct4,baseline direct integer RCA,15,11,4,62,1000
+sum_baseline_direct4,baseline direct integer RCA,15,12,3,48,1000
+sum_baseline_direct4,baseline direct integer RCA,15,13,2,56,1000
+sum_baseline_direct4,baseline direct integer RCA,15,14,1,47,1000
+sum_baseline_direct4,baseline direct integer RCA,15,15,0,51,1000
+sum_baseline_direct4,baseline direct integer RCA,16,1,15,40,1000
+sum_baseline_direct4,baseline direct integer RCA,16,2,14,45,1000
+sum_baseline_direct4,baseline direct integer RCA,16,3,13,34,1000
+sum_baseline_direct4,baseline direct integer RCA,16,4,12,104,1000
+sum_baseline_direct4,baseline direct integer RCA,16,5,11,39,1000
+sum_baseline_direct4,baseline direct integer RCA,16,6,10,38,1000
+sum_baseline_direct4,baseline direct integer RCA,16,7,9,40,1000
+sum_baseline_direct4,baseline direct integer RCA,16,8,8,197,1000
+sum_baseline_direct4,baseline direct integer RCA,16,9,7,48,1000
+sum_baseline_direct4,baseline direct integer RCA,16,10,6,36,1000
+sum_baseline_direct4,baseline direct integer RCA,16,11,5,42,1000
+sum_baseline_direct4,baseline direct integer RCA,16,12,4,119,1000
+sum_baseline_direct4,baseline direct integer RCA,16,13,3,30,1000
+sum_baseline_direct4,baseline direct integer RCA,16,14,2,35,1000
+sum_baseline_direct4,baseline direct integer RCA,16,15,1,31,1000
+sum_baseline_direct4,baseline direct integer RCA,17,2,15,61,1000
+sum_baseline_direct4,baseline direct integer RCA,17,3,14,54,1000
+sum_baseline_direct4,baseline direct integer RCA,17,4,13,71,1000
+sum_baseline_direct4,baseline direct integer RCA,17,5,12,63,1000
+sum_baseline_direct4,baseline direct integer RCA,17,6,11,54,1000
+sum_baseline_direct4,baseline direct integer RCA,17,7,10,44,1000
+sum_baseline_direct4,baseline direct integer RCA,17,8,9,92,1000
+sum_baseline_direct4,baseline direct integer RCA,17,9,8,120,1000
+sum_baseline_direct4,baseline direct integer RCA,17,10,7,50,1000
+sum_baseline_direct4,baseline direct integer RCA,17,11,6,56,1000
+sum_baseline_direct4,baseline direct integer RCA,17,12,5,70,1000
+sum_baseline_direct4,baseline direct integer RCA,17,13,4,75,1000
+sum_baseline_direct4,baseline direct integer RCA,17,14,3,46,1000
+sum_baseline_direct4,baseline direct integer RCA,17,15,2,32,1000
+sum_baseline_direct4,baseline direct integer RCA,18,3,15,74,1000
+sum_baseline_direct4,baseline direct integer RCA,18,4,14,75,1000
+sum_baseline_direct4,baseline direct integer RCA,18,5,13,47,1000
+sum_baseline_direct4,baseline direct integer RCA,18,6,12,76,1000
+sum_baseline_direct4,baseline direct integer RCA,18,7,11,61,1000
+sum_baseline_direct4,baseline direct integer RCA,18,8,10,84,1000
+sum_baseline_direct4,baseline direct integer RCA,18,9,9,56,1000
+sum_baseline_direct4,baseline direct integer RCA,18,10,8,87,1000
+sum_baseline_direct4,baseline direct integer RCA,18,11,7,72,1000
+sum_baseline_direct4,baseline direct integer RCA,18,12,6,78,1000
+sum_baseline_direct4,baseline direct integer RCA,18,13,5,51,1000
+sum_baseline_direct4,baseline direct integer RCA,18,14,4,78,1000
+sum_baseline_direct4,baseline direct integer RCA,18,15,3,46,1000
+sum_baseline_direct4,baseline direct integer RCA,19,4,15,80,1000
+sum_baseline_direct4,baseline direct integer RCA,19,5,14,65,1000
+sum_baseline_direct4,baseline direct integer RCA,19,6,13,81,1000
+sum_baseline_direct4,baseline direct integer RCA,19,7,12,67,1000
+sum_baseline_direct4,baseline direct integer RCA,19,8,11,65,1000
+sum_baseline_direct4,baseline direct integer RCA,19,9,10,90,1000
+sum_baseline_direct4,baseline direct integer RCA,19,10,9,90,1000
+sum_baseline_direct4,baseline direct integer RCA,19,11,8,92,1000
+sum_baseline_direct4,baseline direct integer RCA,19,12,7,68,1000
+sum_baseline_direct4,baseline direct integer RCA,19,13,6,69,1000
+sum_baseline_direct4,baseline direct integer RCA,19,14,5,66,1000
+sum_baseline_direct4,baseline direct integer RCA,19,15,4,60,1000
+sum_baseline_direct4,baseline direct integer RCA,20,5,15,28,1000
+sum_baseline_direct4,baseline direct integer RCA,20,6,14,84,1000
+sum_baseline_direct4,baseline direct integer RCA,20,7,13,36,1000
+sum_baseline_direct4,baseline direct integer RCA,20,8,12,187,1000
+sum_baseline_direct4,baseline direct integer RCA,20,9,11,48,1000
+sum_baseline_direct4,baseline direct integer RCA,20,10,10,105,1000
+sum_baseline_direct4,baseline direct integer RCA,20,11,9,49,1000
+sum_baseline_direct4,baseline direct integer RCA,20,12,8,207,1000
+sum_baseline_direct4,baseline direct integer RCA,20,13,7,22,1000
+sum_baseline_direct4,baseline direct integer RCA,20,14,6,76,1000
+sum_baseline_direct4,baseline direct integer RCA,20,15,5,23,1000
+sum_baseline_direct4,baseline direct integer RCA,21,6,15,75,1000
+sum_baseline_direct4,baseline direct integer RCA,21,7,14,65,1000
+sum_baseline_direct4,baseline direct integer RCA,21,8,13,128,1000
+sum_baseline_direct4,baseline direct integer RCA,21,9,12,112,1000
+sum_baseline_direct4,baseline direct integer RCA,21,10,11,69,1000
+sum_baseline_direct4,baseline direct integer RCA,21,11,10,74,1000
+sum_baseline_direct4,baseline direct integer RCA,21,12,9,110,1000
+sum_baseline_direct4,baseline direct integer RCA,21,13,8,127,1000
+sum_baseline_direct4,baseline direct integer RCA,21,14,7,52,1000
+sum_baseline_direct4,baseline direct integer RCA,21,15,6,57,1000
+sum_baseline_direct4,baseline direct integer RCA,22,7,15,124,1000
+sum_baseline_direct4,baseline direct integer RCA,22,8,14,94,1000
+sum_baseline_direct4,baseline direct integer RCA,22,9,13,72,1000
+sum_baseline_direct4,baseline direct integer RCA,22,10,12,100,1000
+sum_baseline_direct4,baseline direct integer RCA,22,11,11,136,1000
+sum_baseline_direct4,baseline direct integer RCA,22,12,10,95,1000
+sum_baseline_direct4,baseline direct integer RCA,22,13,9,47,1000
+sum_baseline_direct4,baseline direct integer RCA,22,14,8,93,1000
+sum_baseline_direct4,baseline direct integer RCA,22,15,7,104,1000
+sum_baseline_direct4,baseline direct integer RCA,23,8,15,111,1000
+sum_baseline_direct4,baseline direct integer RCA,23,9,14,115,1000
+sum_baseline_direct4,baseline direct integer RCA,23,10,13,126,1000
+sum_baseline_direct4,baseline direct integer RCA,23,11,12,113,1000
+sum_baseline_direct4,baseline direct integer RCA,23,12,11,93,1000
+sum_baseline_direct4,baseline direct integer RCA,23,13,10,107,1000
+sum_baseline_direct4,baseline direct integer RCA,23,14,9,98,1000
+sum_baseline_direct4,baseline direct integer RCA,23,15,8,105,1000
+sum_baseline_direct4,baseline direct integer RCA,24,9,15,110,1000
+sum_baseline_direct4,baseline direct integer RCA,24,10,14,139,1000
+sum_baseline_direct4,baseline direct integer RCA,24,11,13,89,1000
+sum_baseline_direct4,baseline direct integer RCA,24,12,12,224,1000
+sum_baseline_direct4,baseline direct integer RCA,24,13,11,80,1000
+sum_baseline_direct4,baseline direct integer RCA,24,14,10,135,1000
+sum_baseline_direct4,baseline direct integer RCA,24,15,9,93,1000
+sum_baseline_direct4,baseline direct integer RCA,25,10,15,165,1000
+sum_baseline_direct4,baseline direct integer RCA,25,11,14,156,1000
+sum_baseline_direct4,baseline direct integer RCA,25,12,13,127,1000
+sum_baseline_direct4,baseline direct integer RCA,25,13,12,135,1000
+sum_baseline_direct4,baseline direct integer RCA,25,14,11,138,1000
+sum_baseline_direct4,baseline direct integer RCA,25,15,10,135,1000
+sum_baseline_direct4,baseline direct integer RCA,26,11,15,193,1000
+sum_baseline_direct4,baseline direct integer RCA,26,12,14,189,1000
+sum_baseline_direct4,baseline direct integer RCA,26,13,13,114,1000
+sum_baseline_direct4,baseline direct integer RCA,26,14,12,202,1000
+sum_baseline_direct4,baseline direct integer RCA,26,15,11,159,1000
+sum_baseline_direct4,baseline direct integer RCA,27,12,15,199,1000
+sum_baseline_direct4,baseline direct integer RCA,27,13,14,216,1000
+sum_baseline_direct4,baseline direct integer RCA,27,14,13,222,1000
+sum_baseline_direct4,baseline direct integer RCA,27,15,12,206,1000
+sum_baseline_direct4,baseline direct integer RCA,28,13,15,246,1000
+sum_baseline_direct4,baseline direct integer RCA,28,14,14,358,1000
+sum_baseline_direct4,baseline direct integer RCA,28,15,13,236,1000
+sum_baseline_direct4,baseline direct integer RCA,29,14,15,403,1000
+sum_baseline_direct4,baseline direct integer RCA,29,15,14,399,1000
+sum_baseline_direct4,baseline direct integer RCA,30,15,15,720,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,0,0,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,1,0,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,1,1,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,2,0,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,2,1,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,2,2,0,665,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,3,0,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,3,1,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,3,2,1,665,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,3,3,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,4,0,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,4,1,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,4,2,2,665,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,4,3,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,4,4,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,5,0,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,5,1,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,5,2,3,665,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,5,3,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,5,4,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,5,5,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,6,0,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,6,1,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,6,2,4,782,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,6,3,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,6,4,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,6,5,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,6,6,0,216,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,7,0,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,7,1,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,7,2,5,782,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,7,3,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,7,4,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,7,5,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,7,6,1,216,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,7,7,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,8,0,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,8,1,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,8,2,6,538,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,8,3,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,8,4,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,8,5,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,8,6,2,461,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,8,7,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,8,8,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,9,0,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,9,1,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,9,2,7,538,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,9,3,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,9,4,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,9,5,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,9,6,3,461,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,9,7,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,9,8,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,9,9,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,10,0,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,10,1,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,10,2,8,484,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,10,3,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,10,4,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,10,5,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,10,6,4,332,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,10,7,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,10,8,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,10,9,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,10,10,0,182,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,0,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,1,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,2,9,484,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,3,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,4,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,5,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,6,5,332,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,7,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,8,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,9,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,10,1,182,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,11,11,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,0,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,1,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,2,10,484,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,3,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,4,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,5,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,6,6,332,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,7,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,8,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,9,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,10,2,182,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,11,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,12,12,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,0,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,1,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,2,11,484,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,3,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,4,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,5,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,6,7,332,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,7,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,8,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,9,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,10,3,182,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,11,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,12,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,13,13,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,0,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,1,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,2,12,340,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,3,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,4,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,5,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,6,8,56,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,7,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,8,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,9,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,10,4,441,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,11,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,12,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,13,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,14,14,0,161,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,0,15,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,1,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,2,13,340,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,3,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,4,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,5,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,6,9,56,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,7,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,8,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,9,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,10,5,441,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,11,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,12,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,13,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,14,1,161,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,15,15,0,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,1,15,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,2,14,63,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,3,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,4,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,5,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,6,10,333,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,7,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,8,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,9,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,10,6,475,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,11,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,12,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,13,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,14,2,128,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,16,15,1,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,2,15,63,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,3,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,4,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,5,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,6,11,333,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,7,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,8,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,9,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,10,7,475,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,11,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,12,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,13,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,14,3,128,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,17,15,2,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,3,15,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,4,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,5,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,6,12,140,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,7,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,8,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,9,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,10,8,666,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,11,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,12,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,13,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,14,4,191,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,18,15,3,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,4,15,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,5,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,6,13,140,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,7,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,8,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,9,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,10,9,666,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,11,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,12,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,13,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,14,5,191,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,19,15,4,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,20,5,15,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,20,6,14,140,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,20,7,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,20,8,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,20,9,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,20,10,10,666,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,20,11,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,20,12,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,20,13,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,20,14,6,191,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,20,15,5,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,21,6,15,140,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,21,7,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,21,8,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,21,9,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,21,10,11,666,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,21,11,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,21,12,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,21,13,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,21,14,7,191,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,21,15,6,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,22,7,15,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,22,8,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,22,9,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,22,10,12,781,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,22,11,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,22,12,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,22,13,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,22,14,8,217,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,22,15,7,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,23,8,15,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,23,9,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,23,10,13,781,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,23,11,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,23,12,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,23,13,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,23,14,9,217,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,23,15,8,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,24,9,15,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,24,10,14,538,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,24,11,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,24,12,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,24,13,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,24,14,10,461,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,24,15,9,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,25,10,15,538,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,25,11,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,25,12,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,25,13,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,25,14,11,461,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,25,15,10,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,26,11,15,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,26,12,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,26,13,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,26,14,12,331,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,26,15,11,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,27,12,15,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,27,13,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,27,14,13,331,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,27,15,12,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,28,13,15,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,28,14,14,331,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,28,15,13,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,29,14,15,331,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,29,15,14,0,1000
+sum_idea234_q34_4,idea 2+3+4 Q3.4 shadow/window,30,15,15,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,0,0,0,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,1,0,1,335,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,1,1,0,136,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,2,0,2,258,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,2,1,1,260,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,2,2,0,181,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,3,0,3,482,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,3,1,2,136,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,3,2,1,267,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,3,3,0,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,4,0,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,4,1,3,359,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,4,2,2,437,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,4,3,1,101,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,4,4,0,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,5,0,5,237,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,5,1,4,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,5,2,3,405,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,5,3,2,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,5,4,1,200,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,5,5,0,91,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,6,0,6,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,6,1,5,237,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,6,2,4,127,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,6,3,3,191,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,6,4,2,213,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,6,5,1,125,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,6,6,0,54,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,7,0,7,57,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,7,1,6,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,7,2,5,292,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,7,3,4,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,7,4,3,425,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,7,5,2,91,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,7,6,1,68,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,7,7,0,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,8,0,8,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,8,1,7,57,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,8,2,6,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,8,3,5,189,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,8,4,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,8,5,3,302,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,8,6,2,392,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,8,7,1,5,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,8,8,0,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,9,0,9,117,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,9,1,8,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,9,2,7,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,9,3,6,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,9,4,5,102,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,9,5,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,9,6,3,405,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,9,7,2,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,9,8,1,218,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,9,9,0,136,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,10,0,10,48,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,10,1,9,117,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,10,2,8,181,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,10,3,7,153,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,10,4,6,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,10,5,5,102,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,10,6,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,10,7,3,37,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,10,8,2,210,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,10,9,1,143,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,10,10,0,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,0,11,257,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,1,10,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,2,9,266,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,3,8,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,4,7,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,5,6,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,6,5,93,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,7,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,8,3,226,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,9,2,136,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,10,1,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,11,11,0,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,0,12,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,1,11,209,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,2,10,229,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,3,9,100,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,4,8,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,5,7,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,6,6,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,7,5,93,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,8,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,9,3,151,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,10,2,208,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,11,1,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,12,12,0,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,0,13,108,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,1,12,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,2,11,397,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,3,10,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,4,9,9,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,5,8,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,6,7,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,7,6,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,8,5,129,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,9,4,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,10,3,8,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,11,2,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,12,1,192,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,13,13,0,91,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,0,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,1,13,108,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,2,12,127,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,3,11,183,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,4,10,48,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,5,9,9,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,6,8,54,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,7,7,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,8,6,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,9,5,129,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,10,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,11,3,8,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,12,2,165,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,13,1,117,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,14,14,0,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,0,15,26,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,1,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,2,13,194,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,3,12,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,4,11,231,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,5,10,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,6,9,63,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,7,8,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,8,7,31,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,9,6,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,10,5,98,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,11,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,12,3,195,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,13,2,91,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,14,1,5,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,15,15,0,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,1,15,26,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,2,14,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,3,13,104,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,4,12,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,5,11,131,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,6,10,42,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,7,9,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,8,8,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,9,7,31,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,10,6,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,11,5,85,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,12,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,13,3,172,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,14,2,350,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,16,15,1,5,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,2,15,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,3,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,4,13,60,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,5,12,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,6,11,131,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,7,10,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,8,9,335,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,9,8,136,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,10,7,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,11,6,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,12,5,42,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,13,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,14,3,274,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,17,15,2,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,3,15,94,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,4,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,5,13,60,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,6,12,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,7,11,37,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,8,10,258,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,9,9,260,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,10,8,181,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,11,7,59,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,12,6,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,13,5,42,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,14,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,18,15,3,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,4,15,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,5,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,6,13,51,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,7,12,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,8,11,482,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,9,10,136,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,10,9,266,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,11,8,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,12,7,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,13,6,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,14,5,42,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,19,15,4,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,20,5,15,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,20,6,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,20,7,13,51,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,20,8,12,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,20,9,11,359,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,20,10,10,437,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,20,11,9,100,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,20,12,8,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,20,13,7,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,20,14,6,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,20,15,5,42,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,21,6,15,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,21,7,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,21,8,13,237,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,21,9,12,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,21,10,11,404,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,21,11,10,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,21,12,9,201,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,21,13,8,91,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,21,14,7,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,21,15,6,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,22,7,15,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,22,8,14,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,22,9,13,237,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,22,10,12,127,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,22,11,11,190,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,22,12,10,213,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,22,13,9,126,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,22,14,8,54,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,22,15,7,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,23,8,15,57,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,23,9,14,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,23,10,13,292,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,23,11,12,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,23,12,11,425,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,23,13,10,91,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,23,14,9,68,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,23,15,8,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,24,9,15,57,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,24,10,14,46,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,24,11,13,189,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,24,12,12,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,24,13,11,302,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,24,14,10,392,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,24,15,9,5,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,25,10,15,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,25,11,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,25,12,13,102,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,25,13,12,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,25,14,11,404,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,25,15,10,15,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,26,11,15,153,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,26,12,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,26,13,13,102,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,26,14,12,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,26,15,11,37,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,27,12,15,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,27,13,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,27,14,13,93,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,27,15,12,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,28,13,15,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,28,14,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,28,15,13,93,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,29,14,15,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,29,15,14,0,1000
+sum_idea24_q34_parallel4,idea 2+4 Q3.4 parallel shadow,30,15,15,0,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,0,0,0,90,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,1,0,1,93,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,1,1,0,97,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,2,0,2,104,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,2,1,1,106,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,2,2,0,106,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,3,0,3,126,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,3,1,2,106,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,3,2,1,93,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,3,3,0,113,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,4,0,4,124,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,4,1,3,108,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,4,2,2,118,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,4,3,1,111,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,4,4,0,91,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,5,0,5,109,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,5,1,4,108,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,5,2,3,114,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,5,3,2,109,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,5,4,1,109,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,5,5,0,98,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,6,0,6,127,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,6,1,5,109,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,6,2,4,113,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,6,3,3,118,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,6,4,2,107,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,6,5,1,112,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,6,6,0,112,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,7,0,7,123,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,7,1,6,117,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,7,2,5,103,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,7,3,4,113,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,7,4,3,120,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,7,5,2,104,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,7,6,1,107,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,7,7,0,102,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,8,0,8,38,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,8,1,7,100,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,8,2,6,117,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,8,3,5,105,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,8,4,4,124,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,8,5,3,111,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,8,6,2,117,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,8,7,1,115,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,8,8,0,53,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,9,0,9,47,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,9,1,8,41,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,9,2,7,120,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,9,3,6,95,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,9,4,5,122,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,9,5,4,112,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,9,6,3,109,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,9,7,2,121,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,9,8,1,48,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,9,9,0,57,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,10,0,10,52,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,10,1,9,56,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,10,2,8,50,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,10,3,7,96,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,10,4,6,133,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,10,5,5,116,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,10,6,4,118,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,10,7,3,108,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,10,8,2,54,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,10,9,1,54,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,10,10,0,58,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,0,11,68,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,1,10,55,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,2,9,44,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,3,8,60,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,4,7,120,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,5,6,116,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,6,5,118,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,7,4,103,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,8,3,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,9,2,53,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,10,1,52,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,11,11,0,55,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,0,12,62,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,1,11,60,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,2,10,66,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,3,9,58,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,4,8,35,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,5,7,104,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,6,6,120,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,7,5,109,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,8,4,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,9,3,50,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,10,2,54,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,11,1,57,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,12,12,0,58,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,0,13,53,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,1,12,48,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,2,11,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,3,10,68,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,4,9,48,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,5,8,44,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,6,7,123,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,7,6,106,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,8,5,57,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,9,4,59,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,10,3,56,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,11,2,44,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,12,1,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,13,13,0,57,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,0,14,64,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,1,13,47,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,2,12,57,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,3,11,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,4,10,53,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,5,9,60,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,6,8,53,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,7,7,87,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,8,6,62,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,9,5,63,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,10,4,56,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,11,3,60,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,12,2,58,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,13,1,53,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,14,14,0,62,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,0,15,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,1,14,57,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,2,13,48,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,3,12,54,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,4,11,60,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,5,10,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,6,9,49,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,7,8,54,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,8,7,64,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,9,6,59,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,10,5,55,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,11,4,59,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,12,3,62,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,13,2,46,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,14,1,62,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,15,15,0,50,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,1,15,55,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,2,14,65,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,3,13,48,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,4,12,60,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,5,11,68,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,6,10,64,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,7,9,57,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,8,8,89,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,9,7,47,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,10,6,51,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,11,5,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,12,4,65,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,13,3,47,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,14,2,55,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,16,15,1,58,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,2,15,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,3,14,54,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,4,13,59,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,5,12,52,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,6,11,59,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,7,10,67,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,8,9,95,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,9,8,97,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,10,7,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,11,6,40,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,12,5,63,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,13,4,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,14,3,55,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,17,15,2,57,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,3,15,48,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,4,14,70,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,5,13,54,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,6,12,62,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,7,11,63,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,8,10,106,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,9,9,110,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,10,8,102,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,11,7,51,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,12,6,64,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,13,5,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,14,4,57,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,18,15,3,49,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,4,15,62,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,5,14,66,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,6,13,54,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,7,12,49,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,8,11,127,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,9,10,109,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,10,9,93,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,11,8,110,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,12,7,61,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,13,6,51,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,14,5,64,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,19,15,4,54,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,20,5,15,62,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,20,6,14,65,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,20,7,13,44,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,20,8,12,119,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,20,9,11,108,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,20,10,10,116,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,20,11,9,113,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,20,12,8,93,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,20,13,7,46,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,20,14,6,55,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,20,15,5,65,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,21,6,15,59,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,21,7,14,59,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,21,8,13,110,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,21,9,12,105,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,21,10,11,112,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,21,11,10,109,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,21,12,9,107,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,21,13,8,102,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,21,14,7,67,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,21,15,6,46,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,22,7,15,46,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,22,8,14,124,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,22,9,13,111,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,22,10,12,107,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,22,11,11,119,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,22,12,10,110,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,22,13,9,111,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,22,14,8,112,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,22,15,7,44,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,23,8,15,123,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,23,9,14,117,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,23,10,13,102,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,23,11,12,108,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,23,12,11,120,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,23,13,10,108,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,23,14,9,107,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,23,15,8,101,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,24,9,15,99,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,24,10,14,113,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,24,11,13,108,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,24,12,12,122,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,24,13,11,116,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,24,14,10,117,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,24,15,9,110,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,25,10,15,118,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,25,11,14,92,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,25,12,13,118,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,25,13,12,113,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,25,14,11,111,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,25,15,10,121,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,26,11,15,96,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,26,12,14,131,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,26,13,13,112,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,26,14,12,116,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,26,15,11,109,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,27,12,15,120,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,27,13,14,117,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,27,14,13,115,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,27,15,12,100,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,28,13,15,108,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,28,14,14,118,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,28,15,13,105,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,29,14,15,124,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,29,15,14,103,1000
+sum_idea34_integer4,idea 3+4 integer shadow/window,30,15,15,87,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,0,0,0,70,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,1,0,1,99,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,1,1,0,73,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,2,0,2,91,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,2,1,1,103,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,2,2,0,81,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,3,0,3,100,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,3,1,2,90,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,3,2,1,97,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,3,3,0,87,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,4,0,4,84,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,4,1,3,120,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,4,2,2,110,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,4,3,1,128,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,4,4,0,80,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,5,0,5,117,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,5,1,4,91,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,5,2,3,112,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,5,3,2,141,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,5,4,1,105,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,5,5,0,92,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,6,0,6,87,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,6,1,5,127,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,6,2,4,91,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,6,3,3,128,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,6,4,2,107,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,6,5,1,125,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,6,6,0,87,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,7,0,7,96,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,7,1,6,99,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,7,2,5,109,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,7,3,4,102,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,7,4,3,113,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,7,5,2,104,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,7,6,1,100,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,7,7,0,98,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,8,0,8,32,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,8,1,7,104,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,8,2,6,90,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,8,3,5,102,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,8,4,4,101,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,8,5,3,102,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,8,6,2,121,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,8,7,1,96,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,8,8,0,33,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,9,0,9,49,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,9,1,8,36,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,9,2,7,98,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,9,3,6,110,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,9,4,5,119,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,9,5,4,115,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,9,6,3,108,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,9,7,2,106,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,9,8,1,44,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,9,9,0,37,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,10,0,10,37,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,10,1,9,57,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,10,2,8,39,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,10,3,7,88,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,10,4,6,101,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,10,5,5,146,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,10,6,4,96,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,10,7,3,87,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,10,8,2,52,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,10,9,1,44,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,10,10,0,30,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,0,11,45,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,1,10,33,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,2,9,51,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,3,8,46,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,4,7,110,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,5,6,112,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,6,5,107,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,7,4,115,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,8,3,53,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,9,2,54,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,10,1,41,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,11,11,0,38,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,0,12,47,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,1,11,62,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,2,10,53,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,3,9,65,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,4,8,38,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,5,7,91,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,6,6,108,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,7,5,84,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,8,4,38,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,9,3,58,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,10,2,56,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,11,1,66,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,12,12,0,38,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,0,13,55,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,1,12,42,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,2,11,58,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,3,10,70,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,4,9,51,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,5,8,51,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,6,7,99,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,7,6,88,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,8,5,61,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,9,4,50,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,10,3,60,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,11,2,71,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,12,1,51,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,13,13,0,42,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,0,14,47,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,1,13,65,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,2,12,51,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,3,11,65,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,4,10,49,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,5,9,61,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,6,8,43,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,7,7,63,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,8,6,41,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,9,5,62,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,10,4,39,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,11,3,65,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,12,2,55,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,13,1,66,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,14,14,0,39,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,0,15,44,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,1,14,48,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,2,13,59,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,3,12,57,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,4,11,55,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,5,10,47,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,6,9,54,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,7,8,53,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,8,7,51,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,9,6,49,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,10,5,51,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,11,4,47,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,12,3,54,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,13,2,56,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,14,1,48,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,15,15,0,42,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,1,15,55,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,2,14,52,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,3,13,57,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,4,12,52,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,5,11,53,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,6,10,57,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,7,9,49,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,8,8,63,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,9,7,53,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,10,6,45,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,11,5,49,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,12,4,51,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,13,3,52,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,14,2,64,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,16,15,1,51,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,2,15,49,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,3,14,62,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,4,13,63,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,5,12,64,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,6,11,48,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,7,10,57,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,8,9,91,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,9,8,72,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,10,7,54,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,11,6,51,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,12,5,59,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,13,4,56,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,14,3,64,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,17,15,2,50,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,3,15,50,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,4,14,58,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,5,13,78,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,6,12,49,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,7,11,44,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,8,10,87,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,9,9,99,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,10,8,68,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,11,7,42,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,12,6,48,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,13,5,75,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,14,4,50,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,18,15,3,46,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,4,15,50,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,5,14,64,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,6,13,60,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,7,12,74,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,8,11,96,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,9,10,87,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,10,9,89,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,11,8,82,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,12,7,64,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,13,6,52,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,14,5,53,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,19,15,4,44,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,20,5,15,49,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,20,6,14,50,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,20,7,13,46,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,20,8,12,82,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,20,9,11,119,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,20,10,10,107,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,20,11,9,125,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,20,12,8,75,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,20,13,7,44,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,20,14,6,58,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,20,15,5,43,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,21,6,15,43,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,21,7,14,48,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,21,8,13,112,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,21,9,12,90,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,21,10,11,112,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,21,11,10,141,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,21,12,9,97,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,21,13,8,93,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,21,14,7,58,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,21,15,6,39,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,22,7,15,33,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,22,8,14,85,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,22,9,13,122,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,22,10,12,85,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,22,11,11,126,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,22,12,10,103,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,22,13,9,123,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,22,14,8,82,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,22,15,7,30,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,23,8,15,91,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,23,9,14,97,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,23,10,13,102,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,23,11,12,102,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,23,12,11,105,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,23,13,10,100,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,23,14,9,99,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,23,15,8,93,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,24,9,15,107,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,24,10,14,98,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,24,11,13,109,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,24,12,12,103,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,24,13,11,105,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,24,14,10,121,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,24,15,9,101,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,25,10,15,106,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,25,11,14,113,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,25,12,13,120,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,25,13,12,118,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,25,14,11,109,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,25,15,10,110,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,26,11,15,91,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,26,12,14,106,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,26,13,13,147,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,26,14,12,100,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,26,15,11,94,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,27,12,15,109,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,27,13,14,115,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,27,14,13,110,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,27,15,12,117,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,28,13,15,91,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,28,14,14,109,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,28,15,13,91,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,29,14,15,102,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,29,15,14,85,1000
+sum_idea4_parallel4,idea 4 only parallel shadow,30,15,15,60,1000

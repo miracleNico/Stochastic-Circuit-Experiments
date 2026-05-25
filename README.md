@@ -43,6 +43,71 @@ forcing clamped nodes. This avoids symmetric parallel-update oscillations in
 the small XOR/half-adder network and is closer to the asynchronous update style
 used by Boltzmann-machine p-bit systems.
 
+## Current Presentation Workflow
+
+The current main result is the RCA timing/shadow-node study in:
+
+```text
+reports/presentation_8bit_rca/report.md
+```
+
+It is designed as a clean presentation artifact for the pseudo-time-dependent
+adder problem. The report includes:
+
+- restored primitive-gate visualizations for AND, OR, NAND, NOR, HA/XOR, XNOR,
+  and FA;
+- exhaustive randomized ModelSim tests for the 4-bit RCA;
+- a separate clamp SUM-only inverse-distribution test for the 4-bit RCA;
+- non-exhaustive repeated-solve ModelSim checks for selected 8-bit RCA vectors;
+- ablations for idea 2, idea 3, and idea 4 separately;
+- final comparison against the combined idea 2+3+4 design.
+
+Rebuild the full presentation dataset from fresh OS-random seed salts:
+
+```powershell
+cd "C:\Projects\stochastic_circuits"
+python .\scripts\run_presentation_rca_experiments.py
+```
+
+The driver regenerates presentation VHDL, runs ModelSim, parses transcripts into
+CSV, and writes SVG figures under `reports/presentation_8bit_rca/`.
+
+Latest 4-bit exhaustive repeated-solve results:
+
+| Test | Forward success |
+|---|---:|
+| Direct integer baseline | 85.69% |
+| Idea 2 only, Q3.4 direct weights | 70.53% |
+| Idea 3 only, sequential window | 46.79% |
+| Idea 4 only, parallel shadow node | 65.36% |
+| Idea 3+4, integer shadow/window | 85.94% |
+| Idea 2+3+4, Q3.4 shadow/window | 98.64% |
+
+The key interpretation is that idea 2 does not work by itself: Q3.4 increases
+the local HA/FA field magnitude and saturates the tanh update, but it does not
+fix carry arrival time. A downstream FA can confidently collapse around a wrong
+early carry. Q3.4 becomes useful only after idea 3 and idea 4 provide timing
+isolation and a directional shadow carry boundary.
+
+Clamp SUM-only inverse sampling is intentionally reported separately because it
+tests distribution quality with both A and B free, not recovery of one missing
+operand. Current 1000-trial-per-SUM results are honest but not yet ideal:
+
+| Test | Valid rate | Valid-pair coverage |
+|---|---:|---:|
+| Direct integer baseline | 85.95% | 100.00% |
+| Idea 3+4, integer shadow/window | 68.60% | 100.00% |
+| Idea 2+3+4, Q3.4 shadow/window | 77.25% | 25.00% |
+| Idea 4 only, parallel shadow node | 62.95% | 100.00% |
+| Idea 2+4, Q3.4 parallel shadow | 76.83% | 64.45% |
+
+The direct integer baseline is strongest on this SUM-only metric, while the
+shadow/window ideas mainly help the timing-dependent forward and constrained
+inverse tasks. The Q3.4 cases improve validity relative to shadow-only variants
+but collapse the distribution. The report frames this as future
+energy-distribution tuning, likely using fixed-point or floating-point weights
+rather than plain integers.
+
 ## Implemented Gates
 
 Two hand-written wrappers are kept for continuity:
@@ -238,9 +303,15 @@ src/inv_and_gate.vhd    Three-node invertible AND network
 src/inv_xor_gate.vhd    Four-node invertible XOR/half-adder network
 src/generated_networks.vhd
                          Generated OR/NAND/NOR/XNOR/FA/adder/bitcount networks
+src/generated_presentation_*.vhd
+                         Fresh-seeded RCA presentation artifacts
 tb/*.vhd                ModelSim testbenches
 reports/hamiltonians.*  Coefficient reports
+reports/presentation_8bit_rca/
+                         Current report, CSV data, SVG figures, and transcripts
 scripts/*.py            Generator, verifier, and probability plotters
+scripts/run_presentation_rca_experiments.py
+                         End-to-end presentation experiment driver
 sim/run_modelsim.do     ModelSim compile/run script
 sim/run_modelsim.ps1    PowerShell wrapper for local ModelSim path
 ```
@@ -288,6 +359,30 @@ For targeted 8-bit synthesized-adder convergence debugging:
 
 The diagnostic bench reports output-sum histograms and per-sum/per-carry hit
 counts for hard carry-chain cases.
+
+For the presentation RCA workflow, the most useful direct entry point is:
+
+```powershell
+python .\scripts\run_presentation_rca_experiments.py
+```
+
+Individual runners used by that script include:
+
+```text
+sim/run_adder4_direct_randomized_exhaustive.ps1
+sim/run_adder4_direct_sum_randomized_distribution.ps1
+sim/run_adder4_windowed_randomized_exhaustive.ps1
+sim/run_adder4_shadow1_parallel_randomized_exhaustive.ps1
+sim/run_adder4_shadow1_randomized_exhaustive.ps1
+sim/run_adder4_shadow1_sum_randomized_distribution.ps1
+sim/run_adder8_direct_repeated_solve.ps1
+sim/run_adder8_shadow1_repeated_solve.ps1
+```
+
+The 4-bit presentation tests are exhaustive over all `A,B` pairs and use fresh
+randomized trajectories. The SUM-only test is exhaustive over SUM=0..30 and
+records the sampled valid-pair distribution. The 8-bit presentation tests are
+selected-vector repeated solves, not exhaustive.
 
 ## Open AND Waveform
 
@@ -339,7 +434,7 @@ sim/xor_state_probabilities.csv
 sim/xor_ab_probabilities.csv
 ```
 
-To regenerate both probability reports:
+To regenerate both legacy probability reports:
 
 ```powershell
 .\sim\run_all_traces.ps1
@@ -358,6 +453,16 @@ sim/generated_gate_probabilities.png
 For clamped-output runs, the `*_ab_probabilities.csv` files are the most useful
 view. For example, AND with `Y=0` should distribute probability across
 `AB=00`, `AB=01`, and `AB=10`, with each near one third.
+
+The current presentation gate visualizations are produced by
+`scripts/run_presentation_rca_experiments.py` and written to:
+
+```text
+reports/presentation_8bit_rca/figures/gate_energy_landscape.svg
+reports/presentation_8bit_rca/figures/gate_reverse_distributions.svg
+reports/presentation_8bit_rca/data/gate_energy_landscape.csv
+reports/presentation_8bit_rca/data/gate_reverse_distributions.csv
+```
 
 ## Notes
 

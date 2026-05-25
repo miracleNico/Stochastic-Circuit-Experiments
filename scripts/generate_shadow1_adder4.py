@@ -36,6 +36,7 @@ def emit(
     path: Path,
     width: int = 4,
     copy_weight: int = 4,
+    reverse_copy_weight: int = 0,
     ha=None,
     fa=None,
     entity: str = "gen_adder4_shadow1_windowed",
@@ -73,9 +74,11 @@ def emit(
 
     for bit in range(1, width):
         w[idx[f"q{bit}"]][idx[f"c{bit - 1}"]] = copy_weight
+        if reverse_copy_weight:
+            w[idx[f"c{bit - 1}"]][idx[f"q{bit}"]] = reverse_copy_weight
 
     if seed_name is None:
-        seed_name = f"ADDER4_SHADOW1_W{copy_weight}"
+        seed_name = f"ADDER4_SHADOW1_W{copy_weight}_R{reverse_copy_weight}"
     lines = [
         "library ieee;",
         "use ieee.std_logic_1164.all;",

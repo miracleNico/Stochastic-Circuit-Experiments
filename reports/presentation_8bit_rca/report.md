@@ -108,7 +108,33 @@ Scaling Q3.4 weights increases |F_i| and therefore saturates tanh. That is good 
 
 In this run, idea 3 alone reaches 46.79% forward and idea 4 alone reaches 65.36% forward. Idea 3+4 without Q3.4 reaches 85.94% forward, showing that timing/topology help somewhat, but the high-confidence Q3.4 blocks only become strongly positive when used with that timing isolation.
 
-## 7. 8-bit Non-exhaustive Companion
+## 7. Clamp SUM-Only Inverse Test
+
+This test is reported separately because it is not the same inverse task as `B+SUM->A`. Here only the five SUM bits are clamped, while both A and B are free. For each target SUM in 0..30, the solver should sample valid `(A,B)` pairs whose sum matches the clamp. A strong result needs three things at once: high valid rate, broad coverage of all valid pairs, and a distribution that is not collapsed onto only a few pairs.
+
+The earlier main table did not include this because it measures distribution quality, not only recovery of one missing operand. That distinction is important for an invertible logic discussion: a deterministic inverse can look good under `B+SUM->A`, while a SUM-only clamp reveals whether the machine is actually sampling the full valid manifold.
+
+All SUM-only runs below are 4-bit exhaustive over SUM=0..30 with 1000 fresh randomized trajectories per SUM, so each row uses 31,000 total solves.
+
+![SUM-only valid rate](figures/sum_only_valid_rate.svg)
+
+![SUM-only valid-pair coverage](figures/sum_only_coverage_rate.svg)
+
+![SUM-only validity by target SUM](figures/sum_only_validity_by_sum.svg)
+
+| Pattern | Valid rate | Valid-pair coverage | Entropy vs uniform | TV from uniform | Zero-valid sums |
+|---|---:|---:|---:|---:|---:|
+| baseline direct integer RCA | 85.95% (26645/31000) | 100.00% (256/256) | 0.974 | 0.125 | 0 |
+| idea 3+4 integer shadow/window | 68.60% (21267/31000) | 100.00% (256/256) | 0.987 | 0.092 | 0 |
+| idea 2+3+4 Q3.4 shadow/window | 77.25% (23946/31000) | 25.00% (64/256) | 0.317 | 0.752 | 3 |
+| idea 4 only parallel shadow | 62.95% (19516/31000) | 100.00% (256/256) | 0.984 | 0.101 | 0 |
+| idea 2+4 Q3.4 parallel shadow | 76.83% (23818/31000) | 64.45% (165/256) | 0.658 | 0.507 | 3 |
+
+The direct integer baseline is useful here because it separates SUM-only inverse behavior from the shadow/window ideas. The honest result is not fully as desired. The integer direct and shadow variants preserve the valid-pair manifold well: every valid `(A,B)` pair appears, and the entropy among valid samples stays close to uniform. However, the shadow variants still produce too many invalid `(A,B)` samples when only SUM is clamped. The Q3.4 variants improve the valid rate relative to the shadow-only cases, but they also collapse the distribution: idea 2+3+4 sees only 64 of 256 valid pairs, and both Q3.4 SUM-only patterns have target sums with zero valid samples.
+
+So the present energy distribution is tuned for forward and constrained inverse recovery, not yet for SUM-only inverse sampling. My future research goal should be energy-distribution tuning that balances validity against entropy on the clamped manifold. That tuning is more likely to be practical with floating-point or fixed-point continuous weights than with integer weights, because the objective is not merely "make the local gate gap larger"; it is to shape relative energies among many globally valid states while keeping invalid states suppressed.
+
+## 8. 8-bit Non-exhaustive Companion
 
 ![8-bit spot check](figures/summary_adder8_spotcheck.svg)
 
@@ -139,13 +165,13 @@ In this run, idea 3 alone reaches 46.79% forward and idea 4 alone reaches 65.36%
 | idea 2+3+4 Q3.4 shadow RCA | 6 | 177 | 183 | 100/100 (100.0%) | 1 |
 | idea 2+3+4 Q3.4 shadow RCA | 127 | 1 | 128 | 98/100 (98.0%) | 3 |
 
-## 8. Interpretation
+## 9. Interpretation
 
 The important comparison is not only whether one frozen readout is correct, but the repeated-solve probability after fresh randomization. The direct integer RCA is the baseline failure mode. Idea 3+4 tests whether timing windows plus one shadow node repair the carry direction. Idea 2+3+4 tests whether the same topology benefits from the Q3.4 optimized gate weights while preserving the moderate interblock copy.
 
 In this final dataset, integer idea 3+4 is only a modest improvement over the direct 8-bit baseline and is roughly tied with the 4-bit direct baseline under the repeated-solve metric. The combined idea 2+3+4 result is the clear positive result: Q3.4 plus the shadow/window schedule reaches 98.64% forward and 99.62% constrained inverse success on exhaustive 4-bit tests, and about 99-100% on the selected 8-bit vectors. This suggests the larger intrablock gap is helpful only after timing isolation is added.
 
-## 9. Exact Parameters
+## 10. Exact Parameters
 
 Baseline direct RCA:
 
@@ -207,6 +233,19 @@ Idea 2+3+4 Q3.4 shadow RCA:
 - 8-bit window cycles: 40,40,40,40,40,40,40,40 with copy=2
 - Solve noise: block_rnd=4 encoded = 0.25 physical, copy_rnd=0; scramble noise=8 encoded = 0.5 physical
 
+Clamp SUM-only runs:
+
+- Direct baseline testbench: `tb/tb_adder4_direct_sum_randomized_distribution.vhd`
+- Direct baseline runner: `sim/run_adder4_direct_sum_randomized_distribution.ps1`
+- Shadow/window testbench: `tb/tb_adder4_shadow1_sum_randomized_distribution.vhd`
+- Shadow/window runner: `sim/run_adder4_shadow1_sum_randomized_distribution.ps1`
+- Scope: SUM=0..30, 1000 fresh randomized solves per SUM
+- Baseline direct integer: adder_rnd=1, scramble=80, settle=500
+- Idea 3+4 integer: block_rnd=1, copy_rnd=0, scramble_rnd=2, windows=40,40,40,40, copy=2
+- Idea 2+3+4 Q3.4: block_rnd=4 encoded, copy_rnd=0, scramble_rnd=8 encoded, windows=10,8,16,6, copy=2
+- Idea 4 only: block_rnd=1, copy_rnd=0, scramble_rnd=2, parallel settle=160
+- Idea 2+4 Q3.4: block_rnd=4 encoded, copy_rnd=0, scramble_rnd=8 encoded, parallel settle=160
+
 Integer HA h:
 
 `[1, 1, -1, -2]`
@@ -257,12 +296,15 @@ Q3.4 FA J encoded:
 
 Q3.4 FA gap: encoded 112, physical 7.0000
 
-## 10. Artifacts
+## 11. Artifacts
 
 - Manifest: `data/manifest.json`
 - Gate energy CSV: `data/gate_energy_landscape.csv`
 - Gate reverse CSV: `data/gate_reverse_distributions.csv`
 - 4-bit case CSV: `data/adder4_cases.csv`
 - 4-bit summary CSV: `data/adder4_summary.csv`
+- SUM-only aggregate CSV: `data/sum_only_aggregate.csv`
+- SUM-only by-SUM CSV: `data/sum_only_by_sum.csv`
+- SUM-only valid-pair CSV: `data/sum_only_valid_pairs.csv`
 - 8-bit repeated-solve CSV: `data/adder8_repeated.csv`
 - ModelSim transcripts: `traces/`

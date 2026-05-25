@@ -1,5 +1,6 @@
 import csv
 import json
+import math
 import re
 import secrets
 import shutil
@@ -30,6 +31,28 @@ TRACES = OUT / "traces"
 DIRECT_TRIALS = 100
 SHADOW_TRIALS = 100
 REPEAT8_TRIALS = 100
+SUM_TRIALS = 1000
+SUMMARY_RUN_ORDER = [
+    "baseline_direct4",
+    "idea34_integer4",
+    "idea2_q34_direct4",
+    "idea3_window4",
+    "idea4_shadow_parallel4",
+    "idea234_q34_4",
+]
+REPEAT8_RUN_ORDER = [
+    "baseline_direct8",
+    "idea2_q34_direct8",
+    "idea34_integer8",
+    "idea234_q34_8",
+]
+SUM_RUN_ORDER = [
+    "sum_baseline_direct4",
+    "sum_idea34_integer4",
+    "sum_idea234_q34_4",
+    "sum_idea4_parallel4",
+    "sum_idea24_q34_parallel4",
+]
 
 
 def rel(path: Path) -> str:
@@ -283,6 +306,22 @@ def run_all() -> dict[str, str]:
                 ps_value(DIRECT_TRIALS),
             ],
         ),
+        "sum_baseline_direct4": run_models(
+            "sum_baseline_direct4",
+            "run_adder4_direct_sum_randomized_distribution.ps1",
+            [
+                "-GeneratedNetworks",
+                "../src/generated_presentation_direct_adder4.vhd",
+                "-AdderRndWeight",
+                ps_value(1),
+                "-ScrambleCycles",
+                ps_value(80),
+                "-SettleCycles",
+                ps_value(500),
+                "-Trials",
+                ps_value(SUM_TRIALS),
+            ],
+        ),
         "idea34_integer4": run_models(
             "idea34_integer4",
             "run_adder4_shadow1_randomized_exhaustive.ps1",
@@ -375,6 +414,55 @@ def run_all() -> dict[str, str]:
                 ps_value(SHADOW_TRIALS),
             ],
         ),
+        "sum_idea34_integer4": run_models(
+            "sum_idea34_integer4",
+            "run_adder4_shadow1_sum_randomized_distribution.ps1",
+            [
+                "-GeneratedShadowVhdl",
+                "../src/generated_presentation_shadow1_integer_adder4.vhd",
+                "-BlockRndWeight",
+                ps_value(1),
+                "-CopyRndWeight",
+                ps_value(0),
+                "-ScrambleRndWeight",
+                ps_value(2),
+                "-ScrambleCycles",
+                ps_value(80),
+                "-Block0Cycles",
+                ps_value(40),
+                "-Block1Cycles",
+                ps_value(40),
+                "-Block2Cycles",
+                ps_value(40),
+                "-Block3Cycles",
+                ps_value(40),
+                "-CopyCycles",
+                ps_value(2),
+                "-Trials",
+                ps_value(SUM_TRIALS),
+            ],
+        ),
+        "sum_idea4_parallel4": run_models(
+            "sum_idea4_parallel4",
+            "run_adder4_shadow1_sum_randomized_distribution.ps1",
+            [
+                "-GeneratedShadowVhdl",
+                "../src/generated_presentation_shadow1_integer_adder4.vhd",
+                "-BlockRndWeight",
+                ps_value(1),
+                "-CopyRndWeight",
+                ps_value(0),
+                "-ScrambleRndWeight",
+                ps_value(2),
+                "-ScrambleCycles",
+                ps_value(80),
+                "-SettleCycles",
+                ps_value(160),
+                "-Trials",
+                ps_value(SUM_TRIALS),
+                "-ParallelMode",
+            ],
+        ),
         "baseline_direct8": run_models(
             "baseline_direct8",
             "run_adder8_direct_repeated_solve.ps1",
@@ -433,6 +521,55 @@ def run_all() -> dict[str, str]:
                 ps_value(2),
                 "-Trials",
                 ps_value(SHADOW_TRIALS),
+            ],
+        ),
+        "sum_idea234_q34_4": run_models(
+            "sum_idea234_q34_4",
+            "run_adder4_shadow1_sum_randomized_distribution.ps1",
+            [
+                "-GeneratedShadowVhdl",
+                "../src/generated_presentation_shadow1_q34_adder4.vhd",
+                "-BlockRndWeight",
+                ps_value(4),
+                "-CopyRndWeight",
+                ps_value(0),
+                "-ScrambleRndWeight",
+                ps_value(8),
+                "-ScrambleCycles",
+                ps_value(80),
+                "-Block0Cycles",
+                ps_value(10),
+                "-Block1Cycles",
+                ps_value(8),
+                "-Block2Cycles",
+                ps_value(16),
+                "-Block3Cycles",
+                ps_value(6),
+                "-CopyCycles",
+                ps_value(2),
+                "-Trials",
+                ps_value(SUM_TRIALS),
+            ],
+        ),
+        "sum_idea24_q34_parallel4": run_models(
+            "sum_idea24_q34_parallel4",
+            "run_adder4_shadow1_sum_randomized_distribution.ps1",
+            [
+                "-GeneratedShadowVhdl",
+                "../src/generated_presentation_shadow1_q34_adder4.vhd",
+                "-BlockRndWeight",
+                ps_value(4),
+                "-CopyRndWeight",
+                ps_value(0),
+                "-ScrambleRndWeight",
+                ps_value(8),
+                "-ScrambleCycles",
+                ps_value(80),
+                "-SettleCycles",
+                ps_value(160),
+                "-Trials",
+                ps_value(SUM_TRIALS),
+                "-ParallelMode",
             ],
         ),
         "idea34_integer8": run_models(
@@ -524,12 +661,47 @@ REPEAT8_RE = re.compile(
     r"repeated solve (?P<a>\d+)\+(?P<b>\d+) expected_sum=(?P<expected>\d+) "
     r"hits=(?P<hits>\d+)/(?P<trials>\d+) distinct_sums=(?P<distinct>\d+)"
 )
+SUM_RANDOM_SUMMARY_RE = re.compile(
+    r"sumdist_random summary SUM=(?P<sum>\d+) valid_total=(?P<valid>\d+) "
+    r"invalid_total=(?P<invalid>\d+) coverage=(?P<coverage>\d+) trials=(?P<trials>\d+) "
+    r"parallel=(?P<parallel>\w+) reverse=(?P<reverse>\w+) block_rnd=(?P<block_rnd>\d+) "
+    r"copy_rnd=(?P<copy_rnd>\d+) scramble_rnd=(?P<scramble_rnd>\d+) "
+    r"blocks=(?P<blocks>[0-9,]+) copy=(?P<copy>\d+) settle=(?P<settle>\d+)"
+)
+SUM_RANDOM_VALID_RE = re.compile(
+    r"sumdist_random valid SUM=(?P<sum>\d+) A=(?P<a>\d+) B=(?P<b>\d+) "
+    r"count=(?P<count>\d+) trials=(?P<trials>\d+)"
+)
 
 
-def parse_outputs(runs: dict[str, str]) -> tuple[list[dict], list[dict], list[dict]]:
+def valid_pair_count_for_sum(target_sum: int) -> int:
+    return sum(1 for a in range(16) for b in range(16) if a + b == target_sum)
+
+
+def valid_distribution_metrics(counts: list[int], valid_pair_count: int) -> tuple[float, float]:
+    total = sum(counts)
+    if total == 0:
+        return 0.0, 1.0
+    if valid_pair_count <= 1:
+        entropy_norm = 1.0
+    else:
+        entropy = 0.0
+        for count in counts:
+            if count:
+                p = count / total
+                entropy -= p * math.log(p)
+        entropy_norm = entropy / math.log(valid_pair_count)
+    uniform = 1 / valid_pair_count
+    tv = 0.5 * sum(abs((count / total) - uniform) for count in counts)
+    return entropy_norm, tv
+
+
+def parse_outputs(runs: dict[str, str]) -> tuple[list[dict], list[dict], list[dict], list[dict], list[dict], list[dict]]:
     case_rows: list[dict] = []
     summary_rows: list[dict] = []
     repeat8_rows: list[dict] = []
+    sum_summary_raw: list[dict] = []
+    sum_pair_rows: list[dict] = []
     labels = {
         "baseline_direct4": "baseline direct RCA",
         "baseline_direct8": "baseline direct RCA",
@@ -541,6 +713,11 @@ def parse_outputs(runs: dict[str, str]) -> tuple[list[dict], list[dict], list[di
         "idea234_q34_4": "idea 2+3+4 Q3.4 shadow RCA",
         "idea34_integer8": "idea 3+4 integer shadow RCA",
         "idea234_q34_8": "idea 2+3+4 Q3.4 shadow RCA",
+        "sum_baseline_direct4": "baseline direct integer RCA",
+        "sum_idea34_integer4": "idea 3+4 integer shadow/window",
+        "sum_idea234_q34_4": "idea 2+3+4 Q3.4 shadow/window",
+        "sum_idea4_parallel4": "idea 4 only parallel shadow",
+        "sum_idea24_q34_parallel4": "idea 2+4 Q3.4 parallel shadow",
     }
     for run_name, text in runs.items():
         for match in CASE4_RE.finditer(text):
@@ -595,10 +772,104 @@ def parse_outputs(runs: dict[str, str]) -> tuple[list[dict], list[dict], list[di
                     "distinct_sums": int(match.group("distinct")),
                 }
             )
-    write_csv(DATA / "adder4_cases.csv", case_rows)
-    write_csv(DATA / "adder4_summary.csv", summary_rows)
-    write_csv(DATA / "adder8_repeated.csv", repeat8_rows)
-    return case_rows, summary_rows, repeat8_rows
+        for match in SUM_RANDOM_SUMMARY_RE.finditer(text):
+            trials = int(match.group("trials"))
+            valid = int(match.group("valid"))
+            invalid = int(match.group("invalid"))
+            target_sum = int(match.group("sum"))
+            sum_summary_raw.append(
+                {
+                    "run": run_name,
+                    "pattern": labels[run_name],
+                    "sum": target_sum,
+                    "valid_total": valid,
+                    "invalid_total": invalid,
+                    "trials": trials,
+                    "valid_rate": valid / trials,
+                    "parallel": match.group("parallel"),
+                    "reverse": match.group("reverse"),
+                    "block_rnd": int(match.group("block_rnd")),
+                    "copy_rnd": int(match.group("copy_rnd")),
+                    "scramble_rnd": int(match.group("scramble_rnd")),
+                    "blocks": match.group("blocks"),
+                    "copy_cycles": int(match.group("copy")),
+                    "settle_cycles": int(match.group("settle")),
+                }
+            )
+        for match in SUM_RANDOM_VALID_RE.finditer(text):
+            sum_pair_rows.append(
+                {
+                    "run": run_name,
+                    "pattern": labels[run_name],
+                    "sum": int(match.group("sum")),
+                    "a": int(match.group("a")),
+                    "b": int(match.group("b")),
+                    "count": int(match.group("count")),
+                    "trials": int(match.group("trials")),
+                }
+            )
+
+    sum_pairs_by_run_sum: dict[tuple[str, int], list[dict]] = {}
+    for row in sum_pair_rows:
+        sum_pairs_by_run_sum.setdefault((row["run"], row["sum"]), []).append(row)
+
+    sum_by_sum_rows: list[dict] = []
+    for row in sum_summary_raw:
+        key = (row["run"], row["sum"])
+        pair_rows = sorted(sum_pairs_by_run_sum.get(key, []), key=lambda item: (item["a"], item["b"]))
+        counts = [pair["count"] for pair in pair_rows]
+        pair_count = valid_pair_count_for_sum(row["sum"])
+        coverage = sum(1 for count in counts if count > 0)
+        entropy_norm, tv = valid_distribution_metrics(counts, pair_count)
+        sum_by_sum_rows.append(
+            {
+                **row,
+                "valid_pair_count": pair_count,
+                "coverage": coverage,
+                "coverage_rate": coverage / pair_count,
+                "valid_entropy_norm": entropy_norm,
+                "valid_tv_from_uniform": tv,
+            }
+        )
+
+    sum_aggregate_rows: list[dict] = []
+    present_sum_runs = {row["run"] for row in sum_by_sum_rows}
+    ordered_sum_runs = [run for run in SUM_RUN_ORDER if run in present_sum_runs]
+    ordered_sum_runs.extend(sorted(present_sum_runs.difference(ordered_sum_runs)))
+    for run_name in ordered_sum_runs:
+        selected = [row for row in sum_by_sum_rows if row["run"] == run_name]
+        if not selected:
+            continue
+        valid_total = sum(row["valid_total"] for row in selected)
+        trials = sum(row["trials"] for row in selected)
+        valid_pairs_total = sum(row["valid_pair_count"] for row in selected)
+        valid_pairs_seen = sum(row["coverage"] for row in selected)
+        weighted_entropy = sum(row["valid_entropy_norm"] * row["valid_pair_count"] for row in selected) / valid_pairs_total
+        weighted_tv = sum(row["valid_tv_from_uniform"] * row["valid_pair_count"] for row in selected) / valid_pairs_total
+        sum_aggregate_rows.append(
+            {
+                "run": run_name,
+                "pattern": selected[0]["pattern"],
+                "valid_total": valid_total,
+                "trials": trials,
+                "valid_rate": valid_total / trials,
+                "valid_pairs_seen": valid_pairs_seen,
+                "valid_pairs_total": valid_pairs_total,
+                "coverage_rate": valid_pairs_seen / valid_pairs_total,
+                "weighted_entropy_norm": weighted_entropy,
+                "weighted_tv_from_uniform": weighted_tv,
+                "min_sum_valid_rate": min(row["valid_rate"] for row in selected),
+                "sums_below_90pct_valid": sum(1 for row in selected if row["valid_rate"] < 0.9),
+                "zero_valid_sums": sum(1 for row in selected if row["valid_total"] == 0),
+            }
+        )
+    write_csv(DATA / "adder4_cases.csv", ordered_case_rows(case_rows))
+    write_csv(DATA / "adder4_summary.csv", ordered_summary_rows(summary_rows))
+    write_csv(DATA / "adder8_repeated.csv", ordered_repeat8_rows(repeat8_rows))
+    write_csv(DATA / "sum_only_by_sum.csv", sum_by_sum_rows)
+    write_csv(DATA / "sum_only_valid_pairs.csv", sum_pair_rows)
+    write_csv(DATA / "sum_only_aggregate.csv", sum_aggregate_rows)
+    return case_rows, summary_rows, repeat8_rows, sum_by_sum_rows, sum_pair_rows, sum_aggregate_rows
 
 
 def write_csv(path: Path, rows: list[dict]) -> None:
@@ -680,6 +951,83 @@ def write_bar_chart(path: Path, title: str, labels: list[str], values: list[floa
         lines.append(f'<text x="{left + bar_w * value + 8:.1f}" y="{y + 20}" class="axis">{value * 100:.1f}%</text>')
     lines.append("</svg>")
     path.write_text("\n".join(lines), encoding="utf-8")
+
+
+def write_sum_validity_svg(path: Path, title: str, rows: list[dict]) -> None:
+    width = 900
+    height = 360
+    left = 58
+    right = 230
+    top = 42
+    bottom = 44
+    plot_w = width - left - right
+    plot_h = height - top - bottom
+    colors = ["#00796b", "#b71c1c", "#2f5597", "#7b1fa2"]
+    run_order = list(dict.fromkeys(row["run"] for row in rows))
+    lines = svg_header(width, height)
+    lines.append(f'<text x="{width / 2}" y="24" text-anchor="middle" class="title">{title}</text>')
+    for tick in [0, 0.25, 0.5, 0.75, 1.0]:
+        y = top + plot_h * (1 - tick)
+        lines.append(f'<line x1="{left}" y1="{y:.1f}" x2="{left + plot_w}" y2="{y:.1f}" stroke="#d8dee8"/>')
+        lines.append(f'<text x="{left - 8}" y="{y + 4:.1f}" text-anchor="end" class="small">{tick * 100:.0f}%</text>')
+    for target_sum in range(0, 31, 5):
+        x = left + plot_w * (target_sum / 30)
+        lines.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{top + plot_h}" stroke="#eef2f7"/>')
+        lines.append(f'<text x="{x:.1f}" y="{top + plot_h + 18}" text-anchor="middle" class="small">{target_sum}</text>')
+    lines.append(f'<text x="{left + plot_w / 2}" y="{height - 8}" text-anchor="middle" class="axis">clamped SUM</text>')
+    lines.append(f'<text x="14" y="{top + plot_h / 2}" transform="rotate(-90 14,{top + plot_h / 2})" text-anchor="middle" class="axis">valid rate</text>')
+
+    for index, run in enumerate(run_order):
+        selected = sorted((row for row in rows if row["run"] == run), key=lambda row: row["sum"])
+        if not selected:
+            continue
+        color = colors[index % len(colors)]
+        points = []
+        for row in selected:
+            x = left + plot_w * (row["sum"] / 30)
+            y = top + plot_h * (1 - row["valid_rate"])
+            points.append(f"{x:.1f},{y:.1f}")
+        lines.append(f'<polyline points="{" ".join(points)}" fill="none" stroke="{color}" stroke-width="2.2"/>')
+        label_y = top + 18 + index * 22
+        lines.append(f'<line x1="{left + plot_w + 30}" y1="{label_y - 5}" x2="{left + plot_w + 54}" y2="{label_y - 5}" stroke="{color}" stroke-width="2.2"/>')
+        lines.append(f'<text x="{left + plot_w + 62}" y="{label_y}" class="small">{selected[0]["pattern"]}</text>')
+    lines.append("</svg>")
+    path.write_text("\n".join(lines), encoding="utf-8")
+
+
+def ordered_summary_rows(rows: list[dict]) -> list[dict]:
+    direction_order = {"forward": 0, "inverse_bsum": 1}
+    return sorted(
+        rows,
+        key=lambda row: (
+            SUMMARY_RUN_ORDER.index(row["run"]) if row["run"] in SUMMARY_RUN_ORDER else len(SUMMARY_RUN_ORDER),
+            direction_order.get(row["direction"], 99),
+        ),
+    )
+
+
+def ordered_case_rows(rows: list[dict]) -> list[dict]:
+    direction_order = {"forward": 0, "inverse_bsum": 1}
+    return sorted(
+        rows,
+        key=lambda row: (
+            SUMMARY_RUN_ORDER.index(row["run"]) if row["run"] in SUMMARY_RUN_ORDER else len(SUMMARY_RUN_ORDER),
+            direction_order.get(row["direction"], 99),
+            row["a"],
+            row["b"],
+        ),
+    )
+
+
+def ordered_repeat8_rows(rows: list[dict]) -> list[dict]:
+    vector_order = {(37, 219): 0, (142, 73): 1, (201, 54): 2, (91, 188): 3, (6, 177): 4, (127, 1): 5}
+    return sorted(
+        rows,
+        key=lambda row: (
+            REPEAT8_RUN_ORDER.index(row["run"]) if row["run"] in REPEAT8_RUN_ORDER else len(REPEAT8_RUN_ORDER),
+            vector_order.get((row["a"], row["b"]), 99),
+        ),
+    )
 
 
 def state_text(bits: tuple[int, ...]) -> str:
@@ -821,7 +1169,13 @@ def write_gate_visualizations() -> None:
     write_gate_reverse_svg(FIGS / "gate_reverse_distributions.svg", reverse_rows)
 
 
-def make_figures(case_rows: list[dict], summary_rows: list[dict], repeat8_rows: list[dict]) -> dict[str, str]:
+def make_figures(
+    case_rows: list[dict],
+    summary_rows: list[dict],
+    repeat8_rows: list[dict],
+    sum_by_sum_rows: list[dict],
+    sum_aggregate_rows: list[dict],
+) -> dict[str, str]:
     figures: dict[str, str] = {}
     heatmap_specs = [
         ("baseline_direct4", "forward", "4-bit Baseline Direct RCA: Forward", "heatmap_baseline_direct4_forward.svg"),
@@ -844,17 +1198,40 @@ def make_figures(case_rows: list[dict], summary_rows: list[dict], repeat8_rows: 
 
     labels = []
     values = []
-    for row in summary_rows:
+    for row in ordered_summary_rows(summary_rows):
         direction = "forward" if row["direction"] == "forward" else "inverse"
         labels.append(f"{row['session']} ({direction})")
         values.append(row["success_probability"])
     write_bar_chart(FIGS / "summary_adder4_success.svg", "4-bit Exhaustive Repeated-Solve Success", labels, values)
     figures["summary_adder4_success.svg"] = rel(FIGS / "summary_adder4_success.svg")
 
-    labels8 = [f"{row['session']}: {row['a']}+{row['b']}" for row in repeat8_rows]
-    values8 = [row["success_probability"] for row in repeat8_rows]
+    ordered_repeat8 = ordered_repeat8_rows(repeat8_rows)
+    labels8 = [f"{row['session']}: {row['a']}+{row['b']}" for row in ordered_repeat8]
+    values8 = [row["success_probability"] for row in ordered_repeat8]
     write_bar_chart(FIGS / "summary_adder8_spotcheck.svg", "8-bit Non-exhaustive Repeated-Solve Success", labels8, values8)
     figures["summary_adder8_spotcheck.svg"] = rel(FIGS / "summary_adder8_spotcheck.svg")
+    if sum_aggregate_rows:
+        labels_sum = [row["pattern"] for row in sum_aggregate_rows]
+        write_bar_chart(
+            FIGS / "sum_only_valid_rate.svg",
+            "4-bit SUM-only Inverse Valid Rate",
+            labels_sum,
+            [row["valid_rate"] for row in sum_aggregate_rows],
+        )
+        figures["sum_only_valid_rate.svg"] = rel(FIGS / "sum_only_valid_rate.svg")
+        write_bar_chart(
+            FIGS / "sum_only_coverage_rate.svg",
+            "4-bit SUM-only Valid-Pair Coverage",
+            labels_sum,
+            [row["coverage_rate"] for row in sum_aggregate_rows],
+        )
+        figures["sum_only_coverage_rate.svg"] = rel(FIGS / "sum_only_coverage_rate.svg")
+        write_sum_validity_svg(
+            FIGS / "sum_only_validity_by_sum.svg",
+            "SUM-only Validity by Target Sum",
+            sum_by_sum_rows,
+        )
+        figures["sum_only_validity_by_sum.svg"] = rel(FIGS / "sum_only_validity_by_sum.svg")
     return figures
 
 
@@ -863,7 +1240,7 @@ def summary_table(summary_rows: list[dict]) -> str:
         "| Session | Direction | Cases | Trials/case | Total success | Min hits | Non-perfect cases |",
         "|---|---:|---:|---:|---:|---:|---:|",
     ]
-    for row in summary_rows:
+    for row in ordered_summary_rows(summary_rows):
         direction = "forward A+B->SUM" if row["direction"] == "forward" else "inverse B+SUM->A"
         lines.append(
             f"| {row['session']} | {direction} | {row['cases']} | {row['per_case_trials']} | "
@@ -878,10 +1255,24 @@ def repeat8_table(rows: list[dict]) -> str:
         "| Session | A | B | Expected SUM | Hits | Distinct sums |",
         "|---|---:|---:|---:|---:|---:|",
     ]
-    for row in rows:
+    for row in ordered_repeat8_rows(rows):
         lines.append(
             f"| {row['session']} | {row['a']} | {row['b']} | {row['expected']} | "
             f"{row['hits']}/{row['trials']} ({row['success_probability'] * 100:.1f}%) | {row['distinct_sums']} |"
+        )
+    return "\n".join(lines)
+
+
+def sum_only_table(rows: list[dict]) -> str:
+    lines = [
+        "| Pattern | Valid rate | Valid-pair coverage | Entropy vs uniform | TV from uniform | Zero-valid sums |",
+        "|---|---:|---:|---:|---:|---:|",
+    ]
+    for row in rows:
+        lines.append(
+            f"| {row['pattern']} | {row['valid_rate'] * 100:.2f}% ({row['valid_total']}/{row['trials']}) | "
+            f"{row['coverage_rate'] * 100:.2f}% ({row['valid_pairs_seen']}/{row['valid_pairs_total']}) | "
+            f"{row['weighted_entropy_norm']:.3f} | {row['weighted_tv_from_uniform']:.3f} | {row['zero_valid_sums']} |"
         )
     return "\n".join(lines)
 
@@ -898,7 +1289,13 @@ def summary_pct(summary_rows: list[dict], run: str, direction: str = "forward") 
     return float("nan")
 
 
-def write_report(manifest: dict, summary_rows: list[dict], repeat8_rows: list[dict], figures: dict[str, str]) -> None:
+def write_report(
+    manifest: dict,
+    summary_rows: list[dict],
+    repeat8_rows: list[dict],
+    sum_aggregate_rows: list[dict],
+    figures: dict[str, str],
+) -> None:
     int_weights = manifest["integer_weights"]
     q34_weights = manifest["q34_weights"]
     baseline4_pct = summary_pct(summary_rows, "baseline_direct4")
@@ -996,19 +1393,39 @@ Scaling Q3.4 weights increases |F_i| and therefore saturates tanh. That is good 
 
 In this run, idea 3 alone reaches {idea3_pct:.2f}% forward and idea 4 alone reaches {idea4_pct:.2f}% forward. Idea 3+4 without Q3.4 reaches {idea34_pct:.2f}% forward, showing that timing/topology help somewhat, but the high-confidence Q3.4 blocks only become strongly positive when used with that timing isolation.
 
-## 7. 8-bit Non-exhaustive Companion
+## 7. Clamp SUM-Only Inverse Test
+
+This test is reported separately because it is not the same inverse task as `B+SUM->A`. Here only the five SUM bits are clamped, while both A and B are free. For each target SUM in 0..30, the solver should sample valid `(A,B)` pairs whose sum matches the clamp. A strong result needs three things at once: high valid rate, broad coverage of all valid pairs, and a distribution that is not collapsed onto only a few pairs.
+
+The earlier main table did not include this because it measures distribution quality, not only recovery of one missing operand. That distinction is important for an invertible logic discussion: a deterministic inverse can look good under `B+SUM->A`, while a SUM-only clamp reveals whether the machine is actually sampling the full valid manifold.
+
+All SUM-only runs below are 4-bit exhaustive over SUM=0..30 with {SUM_TRIALS} fresh randomized trajectories per SUM, so each row uses {31 * SUM_TRIALS:,} total solves.
+
+![SUM-only valid rate](figures/sum_only_valid_rate.svg)
+
+![SUM-only valid-pair coverage](figures/sum_only_coverage_rate.svg)
+
+![SUM-only validity by target SUM](figures/sum_only_validity_by_sum.svg)
+
+{sum_only_table(sum_aggregate_rows)}
+
+The direct integer baseline is useful here because it separates SUM-only inverse behavior from the shadow/window ideas. The honest result is not fully as desired. The integer direct and shadow variants preserve the valid-pair manifold well: every valid `(A,B)` pair appears, and the entropy among valid samples stays close to uniform. However, the shadow variants still produce too many invalid `(A,B)` samples when only SUM is clamped. The Q3.4 variants improve the valid rate relative to the shadow-only cases, but they also collapse the distribution: idea 2+3+4 sees only 64 of 256 valid pairs, and both Q3.4 SUM-only patterns have target sums with zero valid samples.
+
+So the present energy distribution is tuned for forward and constrained inverse recovery, not yet for SUM-only inverse sampling. My future research goal should be energy-distribution tuning that balances validity against entropy on the clamped manifold. That tuning is more likely to be practical with floating-point or fixed-point continuous weights than with integer weights, because the objective is not merely "make the local gate gap larger"; it is to shape relative energies among many globally valid states while keeping invalid states suppressed.
+
+## 8. 8-bit Non-exhaustive Companion
 
 ![8-bit spot check](figures/summary_adder8_spotcheck.svg)
 
 {repeat8_table(repeat8_rows)}
 
-## 8. Interpretation
+## 9. Interpretation
 
 The important comparison is not only whether one frozen readout is correct, but the repeated-solve probability after fresh randomization. The direct integer RCA is the baseline failure mode. Idea 3+4 tests whether timing windows plus one shadow node repair the carry direction. Idea 2+3+4 tests whether the same topology benefits from the Q3.4 optimized gate weights while preserving the moderate interblock copy.
 
 In this final dataset, integer idea 3+4 is only a modest improvement over the direct 8-bit baseline and is roughly tied with the 4-bit direct baseline under the repeated-solve metric. The combined idea 2+3+4 result is the clear positive result: Q3.4 plus the shadow/window schedule reaches {idea234_pct:.2f}% forward and {idea234_inverse_pct:.2f}% constrained inverse success on exhaustive 4-bit tests, and about 99-100% on the selected 8-bit vectors. This suggests the larger intrablock gap is helpful only after timing isolation is added.
 
-## 9. Exact Parameters
+## 10. Exact Parameters
 
 Baseline direct RCA:
 
@@ -1070,6 +1487,19 @@ Idea 2+3+4 Q3.4 shadow RCA:
 - 8-bit window cycles: 40,40,40,40,40,40,40,40 with copy=2
 - Solve noise: block_rnd=4 encoded = 0.25 physical, copy_rnd=0; scramble noise=8 encoded = 0.5 physical
 
+Clamp SUM-only runs:
+
+- Direct baseline testbench: `tb/tb_adder4_direct_sum_randomized_distribution.vhd`
+- Direct baseline runner: `sim/run_adder4_direct_sum_randomized_distribution.ps1`
+- Shadow/window testbench: `tb/tb_adder4_shadow1_sum_randomized_distribution.vhd`
+- Shadow/window runner: `sim/run_adder4_shadow1_sum_randomized_distribution.ps1`
+- Scope: SUM=0..30, {SUM_TRIALS} fresh randomized solves per SUM
+- Baseline direct integer: adder_rnd=1, scramble=80, settle=500
+- Idea 3+4 integer: block_rnd=1, copy_rnd=0, scramble_rnd=2, windows=40,40,40,40, copy=2
+- Idea 2+3+4 Q3.4: block_rnd=4 encoded, copy_rnd=0, scramble_rnd=8 encoded, windows=10,8,16,6, copy=2
+- Idea 4 only: block_rnd=1, copy_rnd=0, scramble_rnd=2, parallel settle=160
+- Idea 2+4 Q3.4: block_rnd=4 encoded, copy_rnd=0, scramble_rnd=8 encoded, parallel settle=160
+
 Integer HA h:
 
 `{int_weights['ha']['h']}`
@@ -1106,13 +1536,16 @@ Q3.4 FA J encoded:
 
 Q3.4 FA gap: encoded {q34_weights['fa']['gap_encoded']}, physical {q34_weights['fa']['gap_physical']:.4f}
 
-## 10. Artifacts
+## 11. Artifacts
 
 - Manifest: `data/manifest.json`
 - Gate energy CSV: `data/gate_energy_landscape.csv`
 - Gate reverse CSV: `data/gate_reverse_distributions.csv`
 - 4-bit case CSV: `data/adder4_cases.csv`
 - 4-bit summary CSV: `data/adder4_summary.csv`
+- SUM-only aggregate CSV: `data/sum_only_aggregate.csv`
+- SUM-only by-SUM CSV: `data/sum_only_by_sum.csv`
+- SUM-only valid-pair CSV: `data/sum_only_valid_pairs.csv`
 - 8-bit repeated-solve CSV: `data/adder8_repeated.csv`
 - ModelSim transcripts: `traces/`
 """
@@ -1123,10 +1556,10 @@ def main() -> None:
     prepare_output()
     manifest = generate_artifacts()
     runs = run_all()
-    case_rows, summary_rows, repeat8_rows = parse_outputs(runs)
+    case_rows, summary_rows, repeat8_rows, sum_by_sum_rows, _sum_pair_rows, sum_aggregate_rows = parse_outputs(runs)
     write_gate_visualizations()
-    figures = make_figures(case_rows, summary_rows, repeat8_rows)
-    write_report(manifest, summary_rows, repeat8_rows, figures)
+    figures = make_figures(case_rows, summary_rows, repeat8_rows, sum_by_sum_rows, sum_aggregate_rows)
+    write_report(manifest, summary_rows, repeat8_rows, sum_aggregate_rows, figures)
     print(f"Wrote {OUT / 'report.md'}")
 
 
