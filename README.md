@@ -60,7 +60,8 @@ adder problem. The report includes:
 - a separate clamp SUM-only inverse-distribution test for the 4-bit RCA;
 - non-exhaustive repeated-solve ModelSim checks for selected 8-bit RCA vectors;
 - ablations for idea 2, idea 3, and idea 4 separately;
-- final comparison against the combined idea 2+3+4 design.
+- final comparison against the combined idea 2+3+4 design;
+- a separate forward-only window-reduction check for shortened Q3.4 schedules.
 
 Rebuild the full presentation dataset from fresh OS-random seed salts:
 
@@ -70,18 +71,31 @@ python .\scripts\run_presentation_rca_experiments.py
 ```
 
 The driver regenerates presentation VHDL, runs ModelSim, parses transcripts into
-CSV, and writes SVG figures under `reports/presentation_8bit_rca/`.
+CSV, and writes SVG figures under `reports/presentation_8bit_rca/`. Curated
+report artifacts are organized as:
 
-Latest 4-bit exhaustive repeated-solve results:
+```text
+reports/presentation_8bit_rca/data/     Parsed CSV and JSON data
+reports/presentation_8bit_rca/figures/  SVG/PNG visualizations
+reports/presentation_8bit_rca/traces/   ModelSim transcripts used as evidence
+```
 
-| Test | Forward success |
-|---|---:|
-| Direct integer baseline | 85.69% |
-| Idea 2 only, Q3.4 direct weights | 70.53% |
-| Idea 3 only, sequential window | 46.79% |
-| Idea 4 only, parallel shadow node | 65.36% |
-| Idea 3+4, integer shadow/window | 85.94% |
-| Idea 2+3+4, Q3.4 shadow/window | 98.64% |
+Latest 4-bit exhaustive repeated-solve results under the main 40-cycle
+comparison protocol:
+
+| Test | Forward success | Constrained inverse |
+|---|---:|---:|
+| Direct integer baseline | 85.69% | n/a |
+| Idea 2 only, Q3.4 direct weights | 70.53% | n/a |
+| Idea 3 only, sequential window | 46.79% | 54.79% |
+| Idea 4 only, parallel shadow node | 65.36% | 74.46% |
+| Idea 3+4, integer shadow/window | 85.94% | 89.01% |
+| Idea 2+3+4, Q3.4 shadow/window | 99.65% | 99.67% |
+
+The shortened Q3.4 schedules are reported separately as forward-only timing
+experiments. The corrected `10,8,16,6` schedule reaches `98.78%`, and the
+shortest physically justified schedule tested here, `2,2,4,2`, reaches
+`96.30%`. These are not used as the constrained-inverse hyperparameter setting.
 
 The key interpretation is that idea 2 does not work by itself: Q3.4 increases
 the local HA/FA field magnitude and saturates the tanh update, but it does not
@@ -91,22 +105,23 @@ isolation and a directional shadow carry boundary.
 
 Clamp SUM-only inverse sampling is intentionally reported separately because it
 tests distribution quality with both A and B free, not recovery of one missing
-operand. Current 1000-trial-per-SUM results are honest but not yet ideal:
+operand. Current 1000-trial-per-SUM results remain mixed:
 
 | Test | Valid rate | Valid-pair coverage |
 |---|---:|---:|
 | Direct integer baseline | 85.95% | 100.00% |
 | Idea 3+4, integer shadow/window | 68.60% | 100.00% |
 | Idea 2+3+4, Q3.4 shadow/window | 77.25% | 25.00% |
+| Idea 2+3+4, Q3.4 reverse-order shadow/window | 76.70% | 75.78% |
 | Idea 4 only, parallel shadow node | 62.95% | 100.00% |
 | Idea 2+4, Q3.4 parallel shadow | 76.83% | 64.45% |
 
 The direct integer baseline is strongest on this SUM-only metric, while the
 shadow/window ideas mainly help the timing-dependent forward and constrained
-inverse tasks. The Q3.4 cases improve validity relative to shadow-only variants
-but collapse the distribution. The report frames this as future
-energy-distribution tuning, likely using fixed-point or floating-point weights
-rather than plain integers.
+inverse tasks. Reverse-order SUM-only annealing improves Q3.4 valid-pair
+coverage and removes zero-valid target sums, but it still does not beat the
+direct baseline. The report frames this as future energy-distribution tuning,
+likely using fixed-point or floating-point weights rather than plain integers.
 
 ## Implemented Gates
 
@@ -315,6 +330,10 @@ scripts/run_presentation_rca_experiments.py
 sim/run_modelsim.do     ModelSim compile/run script
 sim/run_modelsim.ps1    PowerShell wrapper for local ModelSim path
 ```
+
+Regenerable Python bytecode, ModelSim work libraries, transcripts outside the
+curated report folder, and local scratch sweep directories are ignored by
+`.gitignore`.
 
 ## Run Simulation
 

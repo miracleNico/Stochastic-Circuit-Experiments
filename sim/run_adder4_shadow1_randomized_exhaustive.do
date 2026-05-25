@@ -50,6 +50,10 @@ set trials 100
 if {[info exists ::env(TRIALS)]} {
     set trials $::env(TRIALS)
 }
+set run_inverse true
+if {[info exists ::env(RUN_INVERSE)]} {
+    set run_inverse $::env(RUN_INVERSE)
+}
 
 vlib work_adder4_shadow1_random_exhaustive
 vmap work work_adder4_shadow1_random_exhaustive
@@ -71,11 +75,15 @@ vsim \
     -gBLOCK3_CYCLES=$block3_cycles \
     -gCOPY_CYCLES=$copy_cycles \
     -gTRIALS=$trials \
+    -gRUN_INVERSE=$run_inverse \
     work.tb_adder4_shadow1_randomized_exhaustive
 
 set case_count 512
+if {$run_inverse eq "false"} {
+    set case_count 256
+}
 set solve_cycles [expr {$block0_cycles + $block1_cycles + $block2_cycles + $block3_cycles + (3 * $copy_cycles)}]
-set trial_cycles [expr {$scramble_cycles + $solve_cycles}]
+set trial_cycles [expr {$scramble_cycles + $solve_cycles + 2}]
 set run_ns [expr {($case_count * $trials * $trial_cycles + 1000) * 10}]
 run ${run_ns} ns
 

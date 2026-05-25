@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="294" viewBox="0 0 900 294">
 <style>text{font-family:Arial,Helvetica,sans-serif;fill:#1f2933}.title{font-size:18px;font-weight:700}.axis{font-size:11px}.cell{stroke:#ffffff;stroke-width:1}.small{font-size:10px}</style>
 <text x="450.0" y="24" text-anchor="middle" class="title">4-bit SUM-only Valid-Pair Coverage</text>
 <text x="238" y="68" text-anchor="end" class="axis">baseline direct integer RCA</text>
@@ -13,12 +13,16 @@
 <rect x="250" y="120" width="610" height="20" fill="#eef2f7"/>
 <rect x="250" y="120" width="152.5" height="20" fill="#00796b"/>
 <text x="410.5" y="136" class="axis">25.0%</text>
-<text x="238" y="170" text-anchor="end" class="axis">idea 4 only parallel shadow</text>
+<text x="238" y="170" text-anchor="end" class="axis">idea 2+3+4 Q3.4 reverse-order shadow/window</text>
 <rect x="250" y="154" width="610" height="20" fill="#eef2f7"/>
-<rect x="250" y="154" width="610.0" height="20" fill="#00796b"/>
-<text x="868.0" y="170" class="axis">100.0%</text>
-<text x="238" y="204" text-anchor="end" class="axis">idea 2+4 Q3.4 parallel shadow</text>
+<rect x="250" y="154" width="462.3" height="20" fill="#00796b"/>
+<text x="720.3" y="170" class="axis">75.8%</text>
+<text x="238" y="204" text-anchor="end" class="axis">idea 4 only parallel shadow</text>
 <rect x="250" y="188" width="610" height="20" fill="#eef2f7"/>
-<rect x="250" y="188" width="393.2" height="20" fill="#00796b"/>
-<text x="651.2" y="204" class="axis">64.5%</text>
+<rect x="250" y="188" width="610.0" height="20" fill="#00796b"/>
+<text x="868.0" y="204" class="axis">100.0%</text>
+<text x="238" y="238" text-anchor="end" class="axis">idea 2+4 Q3.4 parallel shadow</text>
+<rect x="250" y="222" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="222" width="393.2" height="20" fill="#00796b"/>
+<text x="651.2" y="238" class="axis">64.5%</text>
 </svg>

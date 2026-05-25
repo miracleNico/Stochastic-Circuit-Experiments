@@ -9,7 +9,8 @@ param(
     [int]$Block2Cycles = -1,
     [int]$Block3Cycles = -1,
     [int]$CopyCycles = -1,
-    [int]$Trials = -1
+    [int]$Trials = -1,
+    [switch]$ForwardOnly
 )
 
 $ErrorActionPreference = "Stop"
@@ -57,6 +58,9 @@ try {
     $oldTrials = $env:TRIALS
     if ($Trials -ge 0) { $env:TRIALS = [string]$Trials }
 
+    $oldRunInverse = $env:RUN_INVERSE
+    if ($ForwardOnly) { $env:RUN_INVERSE = "false" }
+
     & $vsim -c -do run_adder4_shadow1_randomized_exhaustive.do
     if ($LASTEXITCODE -ne 0) { throw "ModelSim returned exit code $LASTEXITCODE" }
 }
@@ -72,5 +76,6 @@ finally {
     if ($null -eq $oldBlock3Cycles) { Remove-Item Env:\BLOCK3_CYCLES -ErrorAction SilentlyContinue } else { $env:BLOCK3_CYCLES = $oldBlock3Cycles }
     if ($null -eq $oldCopyCycles) { Remove-Item Env:\COPY_CYCLES -ErrorAction SilentlyContinue } else { $env:COPY_CYCLES = $oldCopyCycles }
     if ($null -eq $oldTrials) { Remove-Item Env:\TRIALS -ErrorAction SilentlyContinue } else { $env:TRIALS = $oldTrials }
+    if ($null -eq $oldRunInverse) { Remove-Item Env:\RUN_INVERSE -ErrorAction SilentlyContinue } else { $env:RUN_INVERSE = $oldRunInverse }
     Pop-Location
 }

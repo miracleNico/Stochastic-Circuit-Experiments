@@ -35,10 +35,10 @@
 <text x="712.2" y="306" class="axis">74.5%</text>
 <text x="238" y="340" text-anchor="end" class="axis">idea 2+3+4 Q3.4 shadow RCA (forward)</text>
 <rect x="250" y="324" width="610" height="20" fill="#eef2f7"/>
-<rect x="250" y="324" width="601.7" height="20" fill="#00796b"/>
-<text x="859.7" y="340" class="axis">98.6%</text>
+<rect x="250" y="324" width="607.9" height="20" fill="#00796b"/>
+<text x="865.9" y="340" class="axis">99.7%</text>
 <text x="238" y="374" text-anchor="end" class="axis">idea 2+3+4 Q3.4 shadow RCA (inverse)</text>
 <rect x="250" y="358" width="610" height="20" fill="#eef2f7"/>
-<rect x="250" y="358" width="607.7" height="20" fill="#00796b"/>
-<text x="865.7" y="374" class="axis">99.6%</text>
+<rect x="250" y="358" width="608.0" height="20" fill="#00796b"/>
+<text x="866.0" y="374" class="axis">99.7%</text>
 </svg>

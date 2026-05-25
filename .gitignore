@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+
+# ModelSim transient outputs
+sim/transcript
+sim/vsim.wlf
+sim/work*/
+sim/work_*/
+work/
+
+# Local scratch sweeps are regenerable and are not part of the curated report.
+reports/**/scratch*/

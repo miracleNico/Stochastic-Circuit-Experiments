@@ -7,5 +7,5 @@ idea 3 only sequential window RCA,idea3_window4,forward,256,11977,25600,0.467851
 idea 3 only sequential window RCA,idea3_window4,inverse_bsum,256,14027,25600,0.5479296875,100,27,256
 idea 4 only parallel shadow RCA,idea4_shadow_parallel4,forward,256,16732,25600,0.65359375,100,39,256
 idea 4 only parallel shadow RCA,idea4_shadow_parallel4,inverse_bsum,256,19061,25600,0.7445703125,100,54,256
-idea 2+3+4 Q3.4 shadow RCA,idea234_q34_4,forward,256,25251,25600,0.9863671875,100,92,153
-idea 2+3+4 Q3.4 shadow RCA,idea234_q34_4,inverse_bsum,256,25502,25600,0.996171875,100,95,77
+idea 2+3+4 Q3.4 shadow RCA,idea234_q34_4,forward,256,25511,25600,0.9965234375,100,97,77
+idea 2+3+4 Q3.4 shadow RCA,idea234_q34_4,inverse_bsum,256,25516,25600,0.99671875,100,98,76

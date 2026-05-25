@@ -13,7 +13,8 @@ entity tb_adder4_shadow1_randomized_exhaustive is
         BLOCK2_CYCLES       : natural := 16;
         BLOCK3_CYCLES       : natural := 8;
         COPY_CYCLES         : natural := 1;
-        TRIALS              : natural := 100
+        TRIALS              : natural := 100;
+        RUN_INVERSE         : boolean := true
     );
 end entity;
 
@@ -136,6 +137,12 @@ begin
             copy_rnd_s <= COPY_RND_WEIGHT;
         end procedure;
 
+        procedure prime_clamps is
+        begin
+            clear_enables;
+            wait_cycles(1);
+        end procedure;
+
         function sum_value(sp : std_logic_vector(18 downto 0)) return natural is
             variable value : natural := 0;
         begin
@@ -221,7 +228,9 @@ begin
             for trial in 1 to TRIALS loop
                 scramble_network;
                 clamp_forward(aval, bval);
+                prime_clamps;
                 run_shadow_schedule;
+                wait for 1 ns;
                 sample := sum_value(spins);
                 hist(sample) := hist(sample) + 1;
             end loop;
@@ -253,7 +262,9 @@ begin
             for trial in 1 to TRIALS loop
                 scramble_network;
                 clamp_inverse_b_sum(bval, target_sum);
+                prime_clamps;
                 run_shadow_schedule;
+                wait for 1 ns;
                 sample := a_value(spins);
                 hist(sample) := hist(sample) + 1;
             end loop;
@@ -296,25 +307,27 @@ begin
                " copy=" & integer'image(COPY_CYCLES)
                severity note;
 
-        for aval in 0 to 15 loop
-            for bval in 0 to 15 loop
-                check_inverse_case(aval, bval);
+        if RUN_INVERSE then
+            for aval in 0 to 15 loop
+                for bval in 0 to 15 loop
+                    check_inverse_case(aval, bval);
+                end loop;
             end loop;
-        end loop;
 
-        report "random4 inverse_bsum summary cases=256 total_hits=" &
-               integer'image(inverse_total_hits) & "/" & integer'image(256 * TRIALS) &
-               " min_hits=" & integer'image(inverse_min_hits) &
-               " fail_cases=" & integer'image(inverse_fail_cases) &
-               " block_rnd=" & integer'image(BLOCK_RND_WEIGHT) &
-               " scramble_rnd=" & integer'image(SCRAMBLE_RND_WEIGHT) &
-               " scramble_cycles=" & integer'image(SCRAMBLE_CYCLES) &
-               " blocks=" & integer'image(BLOCK0_CYCLES) & "," &
-                            integer'image(BLOCK1_CYCLES) & "," &
-                            integer'image(BLOCK2_CYCLES) & "," &
-                            integer'image(BLOCK3_CYCLES) &
-               " copy=" & integer'image(COPY_CYCLES)
-               severity note;
+            report "random4 inverse_bsum summary cases=256 total_hits=" &
+                   integer'image(inverse_total_hits) & "/" & integer'image(256 * TRIALS) &
+                   " min_hits=" & integer'image(inverse_min_hits) &
+                   " fail_cases=" & integer'image(inverse_fail_cases) &
+                   " block_rnd=" & integer'image(BLOCK_RND_WEIGHT) &
+                   " scramble_rnd=" & integer'image(SCRAMBLE_RND_WEIGHT) &
+                   " scramble_cycles=" & integer'image(SCRAMBLE_CYCLES) &
+                   " blocks=" & integer'image(BLOCK0_CYCLES) & "," &
+                                integer'image(BLOCK1_CYCLES) & "," &
+                                integer'image(BLOCK2_CYCLES) & "," &
+                                integer'image(BLOCK3_CYCLES) &
+                   " copy=" & integer'image(COPY_CYCLES)
+                   severity note;
+        end if;
 
         report "tb_adder4_shadow1_randomized_exhaustive completed" severity note;
         wait;
