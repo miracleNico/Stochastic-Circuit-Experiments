@@ -1,3 +1,0 @@
-"mode","noise_encoded","noise_physical","copy_noise","samples_per_case","cases","perfect","failed","total_hits","total_possible","min_hits","shadow"
-"forward_exhaustive","4","0.25","0","100","256","256","0","25600","25600","100","# ** Note: shadow1 exhaustive shadow_min q1=100 q2=100 q3=100/100"
-"forward_exhaustive","8","0.5","0","100","256","128","128","12800","25600","0","# ** Note: shadow1 exhaustive shadow_min q1=100 q2=100 q3=100/100"

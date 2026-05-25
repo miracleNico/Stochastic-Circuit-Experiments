@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="906" viewBox="0 0 900 906">
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#1f2933}.title{font-size:18px;font-weight:700}.axis{font-size:11px}.cell{stroke:#ffffff;stroke-width:1}.small{font-size:10px}</style>
+<text x="450.0" y="24" text-anchor="middle" class="title">8-bit Non-exhaustive Repeated-Solve Success</text>
+<text x="238" y="68" text-anchor="end" class="axis">baseline direct RCA: 37+219</text>
+<rect x="250" y="52" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="52" width="0.0" height="20" fill="#00796b"/>
+<text x="258.0" y="68" class="axis">0.0%</text>
+<text x="238" y="102" text-anchor="end" class="axis">baseline direct RCA: 142+73</text>
+<rect x="250" y="86" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="86" width="408.7" height="20" fill="#00796b"/>
+<text x="666.7" y="102" class="axis">67.0%</text>
+<text x="238" y="136" text-anchor="end" class="axis">baseline direct RCA: 201+54</text>
+<rect x="250" y="120" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="120" width="140.3" height="20" fill="#00796b"/>
+<text x="398.3" y="136" class="axis">23.0%</text>
+<text x="238" y="170" text-anchor="end" class="axis">baseline direct RCA: 91+188</text>
+<rect x="250" y="154" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="154" width="433.1" height="20" fill="#00796b"/>
+<text x="691.1" y="170" class="axis">71.0%</text>
+<text x="238" y="204" text-anchor="end" class="axis">baseline direct RCA: 6+177</text>
+<rect x="250" y="188" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="188" width="231.8" height="20" fill="#00796b"/>
+<text x="489.8" y="204" class="axis">38.0%</text>
+<text x="238" y="238" text-anchor="end" class="axis">baseline direct RCA: 127+1</text>
+<rect x="250" y="222" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="222" width="372.1" height="20" fill="#00796b"/>
+<text x="630.1" y="238" class="axis">61.0%</text>
+<text x="238" y="272" text-anchor="end" class="axis">idea 2 only Q3.4 direct RCA: 37+219</text>
+<rect x="250" y="256" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="256" width="0.0" height="20" fill="#00796b"/>
+<text x="258.0" y="272" class="axis">0.0%</text>
+<text x="238" y="306" text-anchor="end" class="axis">idea 2 only Q3.4 direct RCA: 142+73</text>
+<rect x="250" y="290" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="290" width="610.0" height="20" fill="#00796b"/>
+<text x="868.0" y="306" class="axis">100.0%</text>
+<text x="238" y="340" text-anchor="end" class="axis">idea 2 only Q3.4 direct RCA: 201+54</text>
+<rect x="250" y="324" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="324" width="610.0" height="20" fill="#00796b"/>
+<text x="868.0" y="340" class="axis">100.0%</text>
+<text x="238" y="374" text-anchor="end" class="axis">idea 2 only Q3.4 direct RCA: 91+188</text>
+<rect x="250" y="358" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="358" width="0.0" height="20" fill="#00796b"/>
+<text x="258.0" y="374" class="axis">0.0%</text>
+<text x="238" y="408" text-anchor="end" class="axis">idea 2 only Q3.4 direct RCA: 6+177</text>
+<rect x="250" y="392" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="392" width="610.0" height="20" fill="#00796b"/>
+<text x="868.0" y="408" class="axis">100.0%</text>
+<text x="238" y="442" text-anchor="end" class="axis">idea 2 only Q3.4 direct RCA: 127+1</text>
+<rect x="250" y="426" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="426" width="0.0" height="20" fill="#00796b"/>
+<text x="258.0" y="442" class="axis">0.0%</text>
+<text x="238" y="476" text-anchor="end" class="axis">idea 3+4 integer shadow RCA: 37+219</text>
+<rect x="250" y="460" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="460" width="427.0" height="20" fill="#00796b"/>
+<text x="685.0" y="476" class="axis">70.0%</text>
+<text x="238" y="510" text-anchor="end" class="axis">idea 3+4 integer shadow RCA: 142+73</text>
+<rect x="250" y="494" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="494" width="445.3" height="20" fill="#00796b"/>
+<text x="703.3" y="510" class="axis">73.0%</text>
+<text x="238" y="544" text-anchor="end" class="axis">idea 3+4 integer shadow RCA: 201+54</text>
+<rect x="250" y="528" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="528" width="384.3" height="20" fill="#00796b"/>
+<text x="642.3" y="544" class="axis">63.0%</text>
+<text x="238" y="578" text-anchor="end" class="axis">idea 3+4 integer shadow RCA: 91+188</text>
+<rect x="250" y="562" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="562" width="500.2" height="20" fill="#00796b"/>
+<text x="758.2" y="578" class="axis">82.0%</text>
+<text x="238" y="612" text-anchor="end" class="axis">idea 3+4 integer shadow RCA: 6+177</text>
+<rect x="250" y="596" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="596" width="408.7" height="20" fill="#00796b"/>
+<text x="666.7" y="612" class="axis">67.0%</text>
+<text x="238" y="646" text-anchor="end" class="axis">idea 3+4 integer shadow RCA: 127+1</text>
+<rect x="250" y="630" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="630" width="402.6" height="20" fill="#00796b"/>
+<text x="660.6" y="646" class="axis">66.0%</text>
+<text x="238" y="680" text-anchor="end" class="axis">idea 2+3+4 Q3.4 shadow RCA: 37+219</text>
+<rect x="250" y="664" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="664" width="610.0" height="20" fill="#00796b"/>
+<text x="868.0" y="680" class="axis">100.0%</text>
+<text x="238" y="714" text-anchor="end" class="axis">idea 2+3+4 Q3.4 shadow RCA: 142+73</text>
+<rect x="250" y="698" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="698" width="597.8" height="20" fill="#00796b"/>
+<text x="855.8" y="714" class="axis">98.0%</text>
+<text x="238" y="748" text-anchor="end" class="axis">idea 2+3+4 Q3.4 shadow RCA: 201+54</text>
+<rect x="250" y="732" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="732" width="610.0" height="20" fill="#00796b"/>
+<text x="868.0" y="748" class="axis">100.0%</text>
+<text x="238" y="782" text-anchor="end" class="axis">idea 2+3+4 Q3.4 shadow RCA: 91+188</text>
+<rect x="250" y="766" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="766" width="610.0" height="20" fill="#00796b"/>
+<text x="868.0" y="782" class="axis">100.0%</text>
+<text x="238" y="816" text-anchor="end" class="axis">idea 2+3+4 Q3.4 shadow RCA: 6+177</text>
+<rect x="250" y="800" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="800" width="610.0" height="20" fill="#00796b"/>
+<text x="868.0" y="816" class="axis">100.0%</text>
+<text x="238" y="850" text-anchor="end" class="axis">idea 2+3+4 Q3.4 shadow RCA: 127+1</text>
+<rect x="250" y="834" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="834" width="597.8" height="20" fill="#00796b"/>
+<text x="855.8" y="850" class="axis">98.0%</text>
+</svg>

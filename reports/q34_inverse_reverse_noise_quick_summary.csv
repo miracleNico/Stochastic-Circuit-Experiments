@@ -1,5 +1,0 @@
-"mode","noise_encoded","noise_physical","samples_per_case","cases","perfect","failed","total_hits","total_possible","min_hits","reverse"
-"inverse_B_plus_SUM","4","0.25","100","256","10","246","1000","25600","0","true"
-"inverse_SUM_only_single_state","4","0.25","100","31","6","25","600","3100","0","true"
-"inverse_B_plus_SUM","8","0.5","100","256","10","246","1000","25600","0","true"
-"inverse_SUM_only_single_state","8","0.5","100","31","4","27","400","3100","0","true"

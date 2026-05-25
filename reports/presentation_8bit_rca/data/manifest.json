@@ -1,0 +1,242 @@
+{
+  "generated_at": "2026-05-25",
+  "artifacts": {
+    "direct_adder4": {
+      "path": "src/generated_presentation_direct_adder4.vhd",
+      "entity": "gen_adder4",
+      "seed_salt": "PRESENTATION_DIRECT4_2089CBEAE9BD7891",
+      "rnd_weight": 1
+    },
+    "direct_adder8": {
+      "path": "src/generated_presentation_direct_adder8.vhd",
+      "entity": "gen_adder8",
+      "seed_salt": "PRESENTATION_DIRECT8_03AC0721525296FE",
+      "rnd_weight": 1
+    },
+    "integer_window4": {
+      "path": "src/generated_presentation_windowed_integer_adder4.vhd",
+      "entity": "gen_adder4_windowed",
+      "seed_salt": "PRESENTATION_INT4_WINDOW_4C776B861F45C248",
+      "field_frac_bits": 0
+    },
+    "integer_shadow4": {
+      "path": "src/generated_presentation_shadow1_integer_adder4.vhd",
+      "entity": "gen_adder4_shadow1_windowed",
+      "seed_salt": "PRESENTATION_INT4_SHADOW1_37298A3607990CB4",
+      "copy_weight_encoded": 4,
+      "field_frac_bits": 0
+    },
+    "integer_shadow8": {
+      "path": "src/generated_presentation_shadow1_integer_adder8.vhd",
+      "entity": "gen_adder8_shadow1_windowed",
+      "seed_salt": "PRESENTATION_INT8_SHADOW1_4E898EE9DC6C6495",
+      "copy_weight_encoded": 4,
+      "field_frac_bits": 0
+    },
+    "q34_direct4": {
+      "path": "src/generated_presentation_direct_q34_adder4.vhd",
+      "entity": "gen_adder4",
+      "seed_salt": "PRESENTATION_Q34_DIRECT4_6AB312F3CB926BA4",
+      "field_frac_bits": 4,
+      "rnd_weight_encoded": 4,
+      "rnd_weight_physical": 0.25
+    },
+    "q34_direct8": {
+      "path": "src/generated_presentation_direct_q34_adder8.vhd",
+      "entity": "gen_adder8",
+      "seed_salt": "PRESENTATION_Q34_DIRECT8_5F13371CC61F068B",
+      "field_frac_bits": 4,
+      "rnd_weight_encoded": 4,
+      "rnd_weight_physical": 0.25
+    },
+    "q34_shadow4": {
+      "path": "src/generated_presentation_shadow1_q34_adder4.vhd",
+      "entity": "gen_adder4_shadow1_windowed",
+      "seed_salt": "PRESENTATION_Q34_4_SHADOW1_5ED6F27AF69F9C93",
+      "copy_weight_encoded": 64,
+      "copy_weight_physical": 4.0,
+      "field_frac_bits": 4
+    },
+    "q34_shadow8": {
+      "path": "src/generated_presentation_shadow1_q34_adder8.vhd",
+      "entity": "gen_adder8_shadow1_windowed",
+      "seed_salt": "PRESENTATION_Q34_8_SHADOW1_29FE5AD3BFF46B23",
+      "copy_weight_encoded": 64,
+      "copy_weight_physical": 4.0,
+      "field_frac_bits": 4
+    }
+  },
+  "integer_weights": {
+    "ha": {
+      "h": [
+        1,
+        1,
+        -1,
+        -2
+      ],
+      "J": [
+        [
+          0,
+          -1,
+          1,
+          2
+        ],
+        [
+          -1,
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          0,
+          -2
+        ],
+        [
+          2,
+          2,
+          -2,
+          0
+        ]
+      ],
+      "gap": 2,
+      "valid_energy": -4
+    },
+    "fa": {
+      "h": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "J": [
+        [
+          0,
+          -1,
+          -1,
+          1,
+          2
+        ],
+        [
+          -1,
+          0,
+          -1,
+          1,
+          2
+        ],
+        [
+          -1,
+          -1,
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          0,
+          -2
+        ],
+        [
+          2,
+          2,
+          2,
+          -2,
+          0
+        ]
+      ],
+      "gap": 2,
+      "valid_energy": -4
+    }
+  },
+  "q34_weights": {
+    "format": "Q3.4 fixed point",
+    "ha": {
+      "h_encoded": [
+        56,
+        56,
+        -56,
+        -112
+      ],
+      "J_encoded": [
+        [
+          0,
+          -56,
+          56,
+          112
+        ],
+        [
+          -56,
+          0,
+          56,
+          112
+        ],
+        [
+          56,
+          56,
+          0,
+          -112
+        ],
+        [
+          112,
+          112,
+          -112,
+          0
+        ]
+      ],
+      "gap_encoded": 112,
+      "gap_physical": 7.0
+    },
+    "fa": {
+      "h_encoded": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "J_encoded": [
+        [
+          0,
+          -56,
+          -56,
+          56,
+          112
+        ],
+        [
+          -56,
+          0,
+          -56,
+          56,
+          112
+        ],
+        [
+          -56,
+          -56,
+          0,
+          56,
+          112
+        ],
+        [
+          56,
+          56,
+          56,
+          0,
+          -112
+        ],
+        [
+          112,
+          112,
+          112,
+          -112,
+          0
+        ]
+      ],
+      "gap_encoded": 112,
+      "gap_physical": 7.0
+    }
+  }
+}

@@ -1,5 +1,0 @@
-"mode","noise_encoded","noise_physical","samples_per_case","cases","perfect","failed","total_hits","total_possible","min_hits","reverse"
-"inverse_B_plus_SUM_forward_order","4","0.25","100","256","256","0","25600","25600","100","false"
-"inverse_SUM_only_single_state_forward_order","4","0.25","100","31","15","16","1500","3100","0","false"
-"inverse_B_plus_SUM_forward_order","8","0.5","100","256","176","80","17600","25600","0","false"
-"inverse_SUM_only_single_state_forward_order","8","0.5","100","31","15","16","1500","3100","0","false"

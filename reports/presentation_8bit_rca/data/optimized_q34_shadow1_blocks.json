@@ -1,0 +1,284 @@
+{
+  "format": "fixed-q3d4f",
+  "interpretation": "physical_value = encoded / 16",
+  "coefficient_max_physical": 7,
+  "copy_weight_encoded": 64,
+  "copy_weight_physical": 4.0,
+  "copy_gap_encoded": 128,
+  "copy_gap_physical": 8.0,
+  "gates": [
+    {
+      "name": "HA_XOR_FIXED_Q3D4F_OPT",
+      "nodes": [
+        "A",
+        "B",
+        "S",
+        "C"
+      ],
+      "field_frac_bits": 4,
+      "h_encoded": [
+        56,
+        56,
+        -56,
+        -112
+      ],
+      "h_physical": [
+        3.5,
+        3.5,
+        -3.5,
+        -7.0
+      ],
+      "J_encoded": [
+        [
+          0,
+          -56,
+          56,
+          112
+        ],
+        [
+          -56,
+          0,
+          56,
+          112
+        ],
+        [
+          56,
+          56,
+          0,
+          -112
+        ],
+        [
+          112,
+          112,
+          -112,
+          0
+        ]
+      ],
+      "J_physical": [
+        [
+          0.0,
+          -3.5,
+          3.5,
+          7.0
+        ],
+        [
+          -3.5,
+          0.0,
+          3.5,
+          7.0
+        ],
+        [
+          3.5,
+          3.5,
+          0.0,
+          -7.0
+        ],
+        [
+          7.0,
+          7.0,
+          -7.0,
+          0.0
+        ]
+      ],
+      "edges_encoded": [
+        {
+          "i": "A",
+          "j": "B",
+          "value": -56
+        },
+        {
+          "i": "A",
+          "j": "S",
+          "value": 56
+        },
+        {
+          "i": "A",
+          "j": "C",
+          "value": 112
+        },
+        {
+          "i": "B",
+          "j": "S",
+          "value": 56
+        },
+        {
+          "i": "B",
+          "j": "C",
+          "value": 112
+        },
+        {
+          "i": "S",
+          "j": "C",
+          "value": -112
+        }
+      ],
+      "gate_gap_encoded": 112,
+      "gate_gap_physical": 7.0,
+      "valid_energy_encoded": -224,
+      "valid_energy_physical": -14.0,
+      "boundary_abs_encoded": 448,
+      "boundary_abs_physical": 28.0,
+      "coeff_abs_encoded": 784,
+      "coeff_abs_physical": 49.0
+    },
+    {
+      "name": "FA_FIXED_Q3D4F_OPT",
+      "nodes": [
+        "A",
+        "B",
+        "CIN",
+        "S",
+        "COUT"
+      ],
+      "field_frac_bits": 4,
+      "h_encoded": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "h_physical": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "J_encoded": [
+        [
+          0,
+          -56,
+          -56,
+          56,
+          112
+        ],
+        [
+          -56,
+          0,
+          -56,
+          56,
+          112
+        ],
+        [
+          -56,
+          -56,
+          0,
+          56,
+          112
+        ],
+        [
+          56,
+          56,
+          56,
+          0,
+          -112
+        ],
+        [
+          112,
+          112,
+          112,
+          -112,
+          0
+        ]
+      ],
+      "J_physical": [
+        [
+          0.0,
+          -3.5,
+          -3.5,
+          3.5,
+          7.0
+        ],
+        [
+          -3.5,
+          0.0,
+          -3.5,
+          3.5,
+          7.0
+        ],
+        [
+          -3.5,
+          -3.5,
+          0.0,
+          3.5,
+          7.0
+        ],
+        [
+          3.5,
+          3.5,
+          3.5,
+          0.0,
+          -7.0
+        ],
+        [
+          7.0,
+          7.0,
+          7.0,
+          -7.0,
+          0.0
+        ]
+      ],
+      "edges_encoded": [
+        {
+          "i": "A",
+          "j": "B",
+          "value": -56
+        },
+        {
+          "i": "A",
+          "j": "CIN",
+          "value": -56
+        },
+        {
+          "i": "A",
+          "j": "S",
+          "value": 56
+        },
+        {
+          "i": "A",
+          "j": "COUT",
+          "value": 112
+        },
+        {
+          "i": "B",
+          "j": "CIN",
+          "value": -56
+        },
+        {
+          "i": "B",
+          "j": "S",
+          "value": 56
+        },
+        {
+          "i": "B",
+          "j": "COUT",
+          "value": 112
+        },
+        {
+          "i": "CIN",
+          "j": "S",
+          "value": 56
+        },
+        {
+          "i": "CIN",
+          "j": "COUT",
+          "value": 112
+        },
+        {
+          "i": "S",
+          "j": "COUT",
+          "value": -112
+        }
+      ],
+      "gate_gap_encoded": 112,
+      "gate_gap_physical": 7.0,
+      "valid_energy_encoded": -224,
+      "valid_energy_physical": -14.0,
+      "boundary_abs_encoded": 616,
+      "boundary_abs_physical": 38.5,
+      "coeff_abs_encoded": 784,
+      "coeff_abs_physical": 49.0
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+session,run,a,b,expected,hits,trials,success_probability,distinct_sums
+baseline direct RCA,baseline_direct8,37,219,256,0,100,0.0,12
+baseline direct RCA,baseline_direct8,142,73,215,67,100,0.67,14
+baseline direct RCA,baseline_direct8,201,54,255,23,100,0.23,20
+baseline direct RCA,baseline_direct8,91,188,279,71,100,0.71,12
+baseline direct RCA,baseline_direct8,6,177,183,38,100,0.38,22
+baseline direct RCA,baseline_direct8,127,1,128,61,100,0.61,16
+idea 2 only Q3.4 direct RCA,idea2_q34_direct8,37,219,256,0,100,0.0,2
+idea 2 only Q3.4 direct RCA,idea2_q34_direct8,142,73,215,100,100,1.0,1
+idea 2 only Q3.4 direct RCA,idea2_q34_direct8,201,54,255,100,100,1.0,1
+idea 2 only Q3.4 direct RCA,idea2_q34_direct8,91,188,279,0,100,0.0,2
+idea 2 only Q3.4 direct RCA,idea2_q34_direct8,6,177,183,100,100,1.0,1
+idea 2 only Q3.4 direct RCA,idea2_q34_direct8,127,1,128,0,100,0.0,3
+idea 3+4 integer shadow RCA,idea34_integer8,37,219,256,70,100,0.7,16
+idea 3+4 integer shadow RCA,idea34_integer8,142,73,215,73,100,0.73,18
+idea 3+4 integer shadow RCA,idea34_integer8,201,54,255,63,100,0.63,21
+idea 3+4 integer shadow RCA,idea34_integer8,91,188,279,82,100,0.82,11
+idea 3+4 integer shadow RCA,idea34_integer8,6,177,183,67,100,0.67,18
+idea 3+4 integer shadow RCA,idea34_integer8,127,1,128,66,100,0.66,21
+idea 2+3+4 Q3.4 shadow RCA,idea234_q34_8,37,219,256,100,100,1.0,1
+idea 2+3+4 Q3.4 shadow RCA,idea234_q34_8,142,73,215,98,100,0.98,2
+idea 2+3+4 Q3.4 shadow RCA,idea234_q34_8,201,54,255,100,100,1.0,1
+idea 2+3+4 Q3.4 shadow RCA,idea234_q34_8,91,188,279,100,100,1.0,1
+idea 2+3+4 Q3.4 shadow RCA,idea234_q34_8,6,177,183,100,100,1.0,1
+idea 2+3+4 Q3.4 shadow RCA,idea234_q34_8,127,1,128,98,100,0.98,3

@@ -1,0 +1,182 @@
+Reading pref.tcl
+
+# 2020.1
+
+# do run_adder8_direct_repeated_solve.do
+# onerror {quit -code 1}
+# onbreak {quit -code 1}
+# 
+# if {[file exists work_adder8_direct_repeat]} {
+#     vdel -lib work_adder8_direct_repeat -all
+# }
+# 
+# set generated_networks "../src/generated_networks.vhd"
+# ../src/generated_networks.vhd
+# if {[info exists ::env(GENERATED_NETWORKS_VHDL)]} {
+#     set generated_networks $::env(GENERATED_NETWORKS_VHDL)
+# }
+# ../src/generated_presentation_direct_q34_adder8.vhd
+# set adder_rnd_weight 1
+# 1
+# if {[info exists ::env(ADDER_RND_WEIGHT)]} {
+#     set adder_rnd_weight $::env(ADDER_RND_WEIGHT)
+# }
+# 4
+# set scramble_cycles 80
+# 80
+# if {[info exists ::env(SCRAMBLE_CYCLES)]} {
+#     set scramble_cycles $::env(SCRAMBLE_CYCLES)
+# }
+# 80
+# set settle_cycles 500
+# 500
+# if {[info exists ::env(SETTLE_CYCLES)]} {
+#     set settle_cycles $::env(SETTLE_CYCLES)
+# }
+# 500
+# set trials 100
+# 100
+# if {[info exists ::env(TRIALS)]} {
+#     set trials $::env(TRIALS)
+# }
+# 100
+# 
+# vlib work_adder8_direct_repeat
+# vmap work work_adder8_direct_repeat
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work work_adder8_direct_repeat 
+# Modifying modelsim.ini
+# 
+# vcom -2008 ../src/inv_sc_pkg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:30:00 on May 25,2026
+# vcom -2008 ../src/inv_sc_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package inv_sc_pkg
+# -- Compiling package body inv_sc_pkg
+# -- Loading package inv_sc_pkg
+# End time: 02:30:00 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/lfsr32.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:30:00 on May 25,2026
+# vcom -2008 ../src/lfsr32.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lfsr32
+# -- Compiling architecture rtl of lfsr32
+# End time: 02:30:00 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/spin_node.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:30:00 on May 25,2026
+# vcom -2008 ../src/spin_node.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity spin_node
+# -- Compiling architecture rtl of spin_node
+# -- Loading entity lfsr32
+# End time: 02:30:00 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 $generated_networks
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:30:00 on May 25,2026
+# vcom -2008 ../src/generated_presentation_direct_q34_adder8.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity gen_adder8
+# -- Compiling architecture rtl of gen_adder8
+# -- Loading entity spin_node
+# End time: 02:30:00 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../tb/tb_adder8_direct_repeated_solve.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:30:00 on May 25,2026
+# vcom -2008 ../tb/tb_adder8_direct_repeated_solve.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_adder8_direct_repeated_solve
+# -- Compiling architecture sim of tb_adder8_direct_repeated_solve
+# -- Loading package inv_sc_pkg
+# -- Loading entity gen_adder8
+# End time: 02:30:00 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim \
+#     -gADDER_RND_WEIGHT=$adder_rnd_weight \
+#     -gSCRAMBLE_CYCLES=$scramble_cycles \
+#     -gSETTLE_CYCLES=$settle_cycles \
+#     -gTRIALS=$trials \
+#     work.tb_adder8_direct_repeated_solve
+# vsim work.tb_adder8_direct_repeated_solve -gADDER_RND_WEIGHT=4 -gTRIALS=100 -gSETTLE_CYCLES=500 -gSCRAMBLE_CYCLES=80 
+# Start time: 02:30:00 on May 25,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.inv_sc_pkg(body)
+# Loading work.tb_adder8_direct_repeated_solve(sim)
+# Loading work.gen_adder8(rtl)
+# Loading work.spin_node(rtl)
+# Loading work.lfsr32(rtl)
+# ** Warning: Design size of 10678 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# 
+# set case_count 6
+# 6
+# set trial_cycles [expr {$scramble_cycles + $settle_cycles}]
+# 580
+# set run_ns [expr {($case_count * $trials * $trial_cycles + 500) * 10}]
+# 3485000
+# run ${run_ns} ns
+# ** Note: repeated solve 37+219 expected_sum=256 hits=0/100 distinct_sums=2 rnd=4 scramble_cycles=80 settle_cycles=500
+#    Time: 580075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note:   top1 sum=254 count=52
+#    Time: 580075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note:   top2 sum=255 count=48
+#    Time: 580075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note: repeated solve 142+73 expected_sum=215 hits=100/100 distinct_sums=1 rnd=4 scramble_cycles=80 settle_cycles=500
+#    Time: 1160075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note:   top1 sum=215 count=100
+#    Time: 1160075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note: repeated solve 201+54 expected_sum=255 hits=100/100 distinct_sums=1 rnd=4 scramble_cycles=80 settle_cycles=500
+#    Time: 1740075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note:   top1 sum=255 count=100
+#    Time: 1740075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note: repeated solve 91+188 expected_sum=279 hits=0/100 distinct_sums=2 rnd=4 scramble_cycles=80 settle_cycles=500
+#    Time: 2320075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note:   top1 sum=255 count=99
+#    Time: 2320075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note:   top2 sum=251 count=1
+#    Time: 2320075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note: repeated solve 6+177 expected_sum=183 hits=100/100 distinct_sums=1 rnd=4 scramble_cycles=80 settle_cycles=500
+#    Time: 2900075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note:   top1 sum=183 count=100
+#    Time: 2900075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note: repeated solve 127+1 expected_sum=128 hits=0/100 distinct_sums=3 rnd=4 scramble_cycles=80 settle_cycles=500
+#    Time: 3480075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note:   top1 sum=127 count=98
+#    Time: 3480075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note:   top2 sum=123 count=1
+#    Time: 3480075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note:   top3 sum=125 count=1
+#    Time: 3480075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# ** Note: tb_adder8_direct_repeated_solve completed
+#    Time: 3480075 ns  Iteration: 0  Instance: /tb_adder8_direct_repeated_solve
+# 
+# quit -f
+# End time: 02:31:36 on May 25,2026, Elapsed time: 0:01:36
+# Errors: 0, Warnings: 1

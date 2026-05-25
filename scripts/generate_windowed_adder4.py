@@ -14,7 +14,7 @@ def stage_for_node(name: str) -> int:
     raise ValueError(f"cannot infer stage for {name}")
 
 
-def emit(path: Path) -> None:
+def emit(path: Path, seed_name: str = "ADDER4_RIPPLE_WINDOWED") -> None:
     ham = adder4(ha_block(), fa_block())
     n = len(ham.nodes)
     entity = "gen_adder4_windowed"
@@ -53,7 +53,7 @@ def emit(path: Path) -> None:
         f"    signal spin_s      : std_logic_vector({n - 1} downto 0) := (others => '0');",
         f"    signal node_enable : std_logic_vector({n - 1} downto 0) := (others => '0');",
         f"    signal phase       : natural range 0 to {n - 1} := 0;",
-        f"    signal sched_state : std_logic_vector(31 downto 0) := x\"{seed_for('ADDER4_RIPPLE_WINDOWED', 0):08X}\";",
+        f"    signal sched_state : std_logic_vector(31 downto 0) := x\"{seed_for(seed_name, 0):08X}\";",
     ]
     for i in range(n):
         lines.append(f"    signal neighbors_{i} : spin_vector_t := (others => '0');")
@@ -69,7 +69,7 @@ def emit(path: Path) -> None:
             "        if rising_edge(clk) then",
             "            if rst = '1' then",
             "                phase <= 0;",
-            f"                sched_state <= x\"{seed_for('ADDER4_RIPPLE_WINDOWED', 0):08X}\";",
+            f"                sched_state <= x\"{seed_for(seed_name, 0):08X}\";",
             "            elsif enable = '1' then",
             "                x := unsigned(sched_state);",
             "                x := x xor shift_left(x, 13);",
@@ -147,7 +147,7 @@ def emit(path: Path) -> None:
                 "            RND_WEIGHT      => 0,",
                 "            USE_DYNAMIC_RND => true,",
                 "            COUNTER_BITS    => COUNTER_BITS,",
-                f"            SEED            => x\"{seed_for('ADDER4_RIPPLE_WINDOWED', i + 1):08X}\"",
+                f"            SEED            => x\"{seed_for(seed_name, i + 1):08X}\"",
                 "        )",
                 "        port map (",
                 "            clk          => clk,",

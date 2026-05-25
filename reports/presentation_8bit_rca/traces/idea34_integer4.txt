@@ -1,0 +1,1220 @@
+Reading pref.tcl
+
+# 2020.1
+
+# do run_adder4_shadow1_randomized_exhaustive.do
+# onerror {quit -code 1}
+# onbreak {quit -code 1}
+# 
+# if {[file exists work_adder4_shadow1_random_exhaustive]} {
+#     vdel -lib work_adder4_shadow1_random_exhaustive -all
+# }
+# 
+# set generated_shadow_vhdl "../src/generated_shadow1_adder4.vhd"
+# ../src/generated_shadow1_adder4.vhd
+# if {[info exists ::env(GENERATED_SHADOW_VHDL)]} {
+#     set generated_shadow_vhdl $::env(GENERATED_SHADOW_VHDL)
+# }
+# ../src/generated_presentation_shadow1_integer_adder4.vhd
+# set block_rnd_weight 1
+# 1
+# if {[info exists ::env(BLOCK_RND_WEIGHT)]} {
+#     set block_rnd_weight $::env(BLOCK_RND_WEIGHT)
+# }
+# 1
+# set copy_rnd_weight 0
+# 0
+# if {[info exists ::env(COPY_RND_WEIGHT)]} {
+#     set copy_rnd_weight $::env(COPY_RND_WEIGHT)
+# }
+# 0
+# set scramble_rnd_weight 2
+# 2
+# if {[info exists ::env(SCRAMBLE_RND_WEIGHT)]} {
+#     set scramble_rnd_weight $::env(SCRAMBLE_RND_WEIGHT)
+# }
+# 2
+# set scramble_cycles 80
+# 80
+# if {[info exists ::env(SCRAMBLE_CYCLES)]} {
+#     set scramble_cycles $::env(SCRAMBLE_CYCLES)
+# }
+# 80
+# set block0_cycles 10
+# 10
+# if {[info exists ::env(BLOCK0_CYCLES)]} {
+#     set block0_cycles $::env(BLOCK0_CYCLES)
+# }
+# 40
+# set block1_cycles 16
+# 16
+# if {[info exists ::env(BLOCK1_CYCLES)]} {
+#     set block1_cycles $::env(BLOCK1_CYCLES)
+# }
+# 40
+# set block2_cycles 16
+# 16
+# if {[info exists ::env(BLOCK2_CYCLES)]} {
+#     set block2_cycles $::env(BLOCK2_CYCLES)
+# }
+# 40
+# set block3_cycles 8
+# 8
+# if {[info exists ::env(BLOCK3_CYCLES)]} {
+#     set block3_cycles $::env(BLOCK3_CYCLES)
+# }
+# 40
+# set copy_cycles 1
+# 1
+# if {[info exists ::env(COPY_CYCLES)]} {
+#     set copy_cycles $::env(COPY_CYCLES)
+# }
+# 2
+# set trials 100
+# 100
+# if {[info exists ::env(TRIALS)]} {
+#     set trials $::env(TRIALS)
+# }
+# 100
+# 
+# vlib work_adder4_shadow1_random_exhaustive
+# vmap work work_adder4_shadow1_random_exhaustive
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work work_adder4_shadow1_random_exhaustive 
+# Modifying modelsim.ini
+# 
+# vcom -2008 ../src/inv_sc_pkg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:10:45 on May 25,2026
+# vcom -2008 ../src/inv_sc_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package inv_sc_pkg
+# -- Compiling package body inv_sc_pkg
+# -- Loading package inv_sc_pkg
+# End time: 02:10:45 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/lfsr32.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:10:45 on May 25,2026
+# vcom -2008 ../src/lfsr32.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lfsr32
+# -- Compiling architecture rtl of lfsr32
+# End time: 02:10:45 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../src/spin_node.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:10:45 on May 25,2026
+# vcom -2008 ../src/spin_node.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity spin_node
+# -- Compiling architecture rtl of spin_node
+# -- Loading entity lfsr32
+# End time: 02:10:45 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 $generated_shadow_vhdl
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:10:45 on May 25,2026
+# vcom -2008 ../src/generated_presentation_shadow1_integer_adder4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity gen_adder4_shadow1_windowed
+# -- Compiling architecture rtl of gen_adder4_shadow1_windowed
+# -- Loading entity spin_node
+# End time: 02:10:45 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 ../tb/tb_adder4_shadow1_randomized_exhaustive.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 02:10:45 on May 25,2026
+# vcom -2008 ../tb/tb_adder4_shadow1_randomized_exhaustive.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_adder4_shadow1_randomized_exhaustive
+# -- Compiling architecture sim of tb_adder4_shadow1_randomized_exhaustive
+# -- Loading package inv_sc_pkg
+# -- Loading entity gen_adder4_shadow1_windowed
+# End time: 02:10:45 on May 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim \
+#     -gBLOCK_RND_WEIGHT=$block_rnd_weight \
+#     -gCOPY_RND_WEIGHT=$copy_rnd_weight \
+#     -gSCRAMBLE_RND_WEIGHT=$scramble_rnd_weight \
+#     -gSCRAMBLE_CYCLES=$scramble_cycles \
+#     -gBLOCK0_CYCLES=$block0_cycles \
+#     -gBLOCK1_CYCLES=$block1_cycles \
+#     -gBLOCK2_CYCLES=$block2_cycles \
+#     -gBLOCK3_CYCLES=$block3_cycles \
+#     -gCOPY_CYCLES=$copy_cycles \
+#     -gTRIALS=$trials \
+#     work.tb_adder4_shadow1_randomized_exhaustive
+# vsim work.tb_adder4_shadow1_randomized_exhaustive -gBLOCK3_CYCLES=40 -gCOPY_CYCLES=2 -gBLOCK0_CYCLES=40 -gCOPY_RND_WEIGHT=0 -gBLOCK_RND_WEIGHT=1 -gBLOCK1_CYCLES=40 -gTRIALS=100 -gBLOCK2_CYCLES=40 -gSCRAMBLE_CYCLES=80 -gSCRAMBLE_RND_WEIGHT=2 
+# Start time: 02:10:45 on May 25,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.inv_sc_pkg(body)
+# Loading work.tb_adder4_shadow1_randomized_exhaustive(sim)
+# Loading work.gen_adder4_shadow1_windowed(rtl)
+# Loading work.spin_node(rtl)
+# Loading work.lfsr32(rtl)
+# 
+# set case_count 512
+# 512
+# set solve_cycles [expr {$block0_cycles + $block1_cycles + $block2_cycles + $block3_cycles + (3 * $copy_cycles)}]
+# 166
+# set trial_cycles [expr {$scramble_cycles + $solve_cycles}]
+# 246
+# set run_ns [expr {($case_count * $trials * $trial_cycles + 1000) * 10}]
+# 125962000
+# run ${run_ns} ns
+# ** Note: random4 forward case A=0 B=0 expected=0 hits=97/100 top=0 top_count=97
+#    Time: 246075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=1 expected=1 hits=89/100 top=1 top_count=89
+#    Time: 492075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=2 expected=2 hits=86/100 top=2 top_count=86
+#    Time: 738075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=3 expected=3 hits=95/100 top=3 top_count=95
+#    Time: 984075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=4 expected=4 hits=88/100 top=4 top_count=88
+#    Time: 1230075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=5 expected=5 hits=86/100 top=5 top_count=86
+#    Time: 1476075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=6 expected=6 hits=84/100 top=6 top_count=84
+#    Time: 1722075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=7 expected=7 hits=84/100 top=7 top_count=84
+#    Time: 1968075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=8 expected=8 hits=89/100 top=8 top_count=89
+#    Time: 2214075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=9 expected=9 hits=87/100 top=9 top_count=87
+#    Time: 2460075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=10 expected=10 hits=84/100 top=10 top_count=84
+#    Time: 2706075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=11 expected=11 hits=89/100 top=11 top_count=89
+#    Time: 2952075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=12 expected=12 hits=93/100 top=12 top_count=93
+#    Time: 3198075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=13 expected=13 hits=84/100 top=13 top_count=84
+#    Time: 3444075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=14 expected=14 hits=85/100 top=14 top_count=85
+#    Time: 3690075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=0 B=15 expected=15 hits=82/100 top=15 top_count=82
+#    Time: 3936075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=0 expected=1 hits=88/100 top=1 top_count=88
+#    Time: 4182075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=1 expected=2 hits=89/100 top=2 top_count=89
+#    Time: 4428075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=2 expected=3 hits=91/100 top=3 top_count=91
+#    Time: 4674075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=3 expected=4 hits=82/100 top=4 top_count=82
+#    Time: 4920075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=4 expected=5 hits=84/100 top=5 top_count=84
+#    Time: 5166075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=5 expected=6 hits=91/100 top=6 top_count=91
+#    Time: 5412075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=6 expected=7 hits=87/100 top=7 top_count=87
+#    Time: 5658075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=7 expected=8 hits=80/100 top=8 top_count=80
+#    Time: 5904075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=8 expected=9 hits=85/100 top=9 top_count=85
+#    Time: 6150075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=9 expected=10 hits=88/100 top=10 top_count=88
+#    Time: 6396075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=10 expected=11 hits=87/100 top=11 top_count=87
+#    Time: 6642075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=11 expected=12 hits=78/100 top=12 top_count=78
+#    Time: 6888075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=12 expected=13 hits=83/100 top=13 top_count=83
+#    Time: 7134075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=13 expected=14 hits=88/100 top=14 top_count=88
+#    Time: 7380075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=14 expected=15 hits=81/100 top=15 top_count=81
+#    Time: 7626075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=1 B=15 expected=16 hits=77/100 top=16 top_count=77
+#    Time: 7872075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=0 expected=2 hits=87/100 top=2 top_count=87
+#    Time: 8118075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=1 expected=3 hits=91/100 top=3 top_count=91
+#    Time: 8364075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=2 expected=4 hits=90/100 top=4 top_count=90
+#    Time: 8610075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=3 expected=5 hits=85/100 top=5 top_count=85
+#    Time: 8856075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=4 expected=6 hits=85/100 top=6 top_count=85
+#    Time: 9102075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=5 expected=7 hits=84/100 top=7 top_count=84
+#    Time: 9348075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=6 expected=8 hits=81/100 top=8 top_count=81
+#    Time: 9594075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=7 expected=9 hits=90/100 top=9 top_count=90
+#    Time: 9840075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=8 expected=10 hits=88/100 top=10 top_count=88
+#    Time: 10086075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=9 expected=11 hits=90/100 top=11 top_count=90
+#    Time: 10332075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=10 expected=12 hits=86/100 top=12 top_count=86
+#    Time: 10578075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=11 expected=13 hits=83/100 top=13 top_count=83
+#    Time: 10824075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=12 expected=14 hits=85/100 top=14 top_count=85
+#    Time: 11070075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=13 expected=15 hits=85/100 top=15 top_count=85
+#    Time: 11316075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=14 expected=16 hits=88/100 top=16 top_count=88
+#    Time: 11562075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=2 B=15 expected=17 hits=90/100 top=17 top_count=90
+#    Time: 11808075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=0 expected=3 hits=89/100 top=3 top_count=89
+#    Time: 12054075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=1 expected=4 hits=83/100 top=4 top_count=83
+#    Time: 12300075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=2 expected=5 hits=83/100 top=5 top_count=83
+#    Time: 12546075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=3 expected=6 hits=90/100 top=6 top_count=90
+#    Time: 12792075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=4 expected=7 hits=86/100 top=7 top_count=86
+#    Time: 13038075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=5 expected=8 hits=86/100 top=8 top_count=86
+#    Time: 13284075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=6 expected=9 hits=81/100 top=9 top_count=81
+#    Time: 13530075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=7 expected=10 hits=87/100 top=10 top_count=87
+#    Time: 13776075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=8 expected=11 hits=86/100 top=11 top_count=86
+#    Time: 14022075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=9 expected=12 hits=83/100 top=12 top_count=83
+#    Time: 14268075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=10 expected=13 hits=87/100 top=13 top_count=87
+#    Time: 14514075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=11 expected=14 hits=90/100 top=14 top_count=90
+#    Time: 14760075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=12 expected=15 hits=84/100 top=15 top_count=84
+#    Time: 15006075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=13 expected=16 hits=79/100 top=16 top_count=79
+#    Time: 15252075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=14 expected=17 hits=84/100 top=17 top_count=84
+#    Time: 15498075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=3 B=15 expected=18 hits=87/100 top=18 top_count=87
+#    Time: 15744075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=0 expected=4 hits=88/100 top=4 top_count=88
+#    Time: 15990075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=1 expected=5 hits=90/100 top=5 top_count=90
+#    Time: 16236075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=2 expected=6 hits=89/100 top=6 top_count=89
+#    Time: 16482075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=3 expected=7 hits=80/100 top=7 top_count=80
+#    Time: 16728075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=4 expected=8 hits=94/100 top=8 top_count=94
+#    Time: 16974075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=5 expected=9 hits=86/100 top=9 top_count=86
+#    Time: 17220075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=6 expected=10 hits=84/100 top=10 top_count=84
+#    Time: 17466075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=7 expected=11 hits=80/100 top=11 top_count=80
+#    Time: 17712075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=8 expected=12 hits=91/100 top=12 top_count=91
+#    Time: 17958075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=9 expected=13 hits=88/100 top=13 top_count=88
+#    Time: 18204075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=10 expected=14 hits=84/100 top=14 top_count=84
+#    Time: 18450075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=11 expected=15 hits=86/100 top=15 top_count=86
+#    Time: 18696075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=12 expected=16 hits=85/100 top=16 top_count=85
+#    Time: 18942075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=13 expected=17 hits=82/100 top=17 top_count=82
+#    Time: 19188075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=14 expected=18 hits=85/100 top=18 top_count=85
+#    Time: 19434075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=4 B=15 expected=19 hits=86/100 top=19 top_count=86
+#    Time: 19680075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=0 expected=5 hits=85/100 top=5 top_count=85
+#    Time: 19926075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=1 expected=6 hits=86/100 top=6 top_count=86
+#    Time: 20172075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=2 expected=7 hits=87/100 top=7 top_count=87
+#    Time: 20418075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=3 expected=8 hits=86/100 top=8 top_count=86
+#    Time: 20664075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=4 expected=9 hits=82/100 top=9 top_count=82
+#    Time: 20910075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=5 expected=10 hits=80/100 top=10 top_count=80
+#    Time: 21156075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=6 expected=11 hits=84/100 top=11 top_count=84
+#    Time: 21402075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=7 expected=12 hits=81/100 top=12 top_count=81
+#    Time: 21648075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=8 expected=13 hits=82/100 top=13 top_count=82
+#    Time: 21894075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=9 expected=14 hits=85/100 top=14 top_count=85
+#    Time: 22140075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=10 expected=15 hits=84/100 top=15 top_count=84
+#    Time: 22386075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=11 expected=16 hits=81/100 top=16 top_count=81
+#    Time: 22632075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=12 expected=17 hits=86/100 top=17 top_count=86
+#    Time: 22878075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=13 expected=18 hits=82/100 top=18 top_count=82
+#    Time: 23124075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=14 expected=19 hits=86/100 top=19 top_count=86
+#    Time: 23370075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=5 B=15 expected=20 hits=89/100 top=20 top_count=89
+#    Time: 23616075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=0 expected=6 hits=90/100 top=6 top_count=90
+#    Time: 23862075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=1 expected=7 hits=87/100 top=7 top_count=87
+#    Time: 24108075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=2 expected=8 hits=89/100 top=8 top_count=89
+#    Time: 24354075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=3 expected=9 hits=86/100 top=9 top_count=86
+#    Time: 24600075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=4 expected=10 hits=79/100 top=10 top_count=79
+#    Time: 24846075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=5 expected=11 hits=80/100 top=11 top_count=80
+#    Time: 25092075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=6 expected=12 hits=87/100 top=12 top_count=87
+#    Time: 25338075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=7 expected=13 hits=83/100 top=13 top_count=83
+#    Time: 25584075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=8 expected=14 hits=89/100 top=14 top_count=89
+#    Time: 25830075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=9 expected=15 hits=91/100 top=15 top_count=91
+#    Time: 26076075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=10 expected=16 hits=86/100 top=16 top_count=86
+#    Time: 26322075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=11 expected=17 hits=82/100 top=17 top_count=82
+#    Time: 26568075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=12 expected=18 hits=82/100 top=18 top_count=82
+#    Time: 26814075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=13 expected=19 hits=88/100 top=19 top_count=88
+#    Time: 27060075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=14 expected=20 hits=88/100 top=20 top_count=88
+#    Time: 27306075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=6 B=15 expected=21 hits=88/100 top=21 top_count=88
+#    Time: 27552075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=0 expected=7 hits=91/100 top=7 top_count=91
+#    Time: 27798075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=1 expected=8 hits=83/100 top=8 top_count=83
+#    Time: 28044075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=2 expected=9 hits=82/100 top=9 top_count=82
+#    Time: 28290075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=3 expected=10 hits=87/100 top=10 top_count=87
+#    Time: 28536075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=4 expected=11 hits=89/100 top=11 top_count=89
+#    Time: 28782075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=5 expected=12 hits=87/100 top=12 top_count=87
+#    Time: 29028075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=6 expected=13 hits=88/100 top=13 top_count=88
+#    Time: 29274075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=7 expected=14 hits=87/100 top=14 top_count=87
+#    Time: 29520075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=8 expected=15 hits=88/100 top=15 top_count=88
+#    Time: 29766075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=9 expected=16 hits=92/100 top=16 top_count=92
+#    Time: 30012075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=10 expected=17 hits=87/100 top=17 top_count=87
+#    Time: 30258075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=11 expected=18 hits=85/100 top=18 top_count=85
+#    Time: 30504075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=12 expected=19 hits=88/100 top=19 top_count=88
+#    Time: 30750075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=13 expected=20 hits=90/100 top=20 top_count=90
+#    Time: 30996075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=14 expected=21 hits=83/100 top=21 top_count=83
+#    Time: 31242075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=7 B=15 expected=22 hits=90/100 top=22 top_count=90
+#    Time: 31488075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=0 expected=8 hits=85/100 top=8 top_count=85
+#    Time: 31734075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=1 expected=9 hits=84/100 top=9 top_count=84
+#    Time: 31980075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=2 expected=10 hits=87/100 top=10 top_count=87
+#    Time: 32226075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=3 expected=11 hits=86/100 top=11 top_count=86
+#    Time: 32472075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=4 expected=12 hits=93/100 top=12 top_count=93
+#    Time: 32718075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=5 expected=13 hits=84/100 top=13 top_count=84
+#    Time: 32964075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=6 expected=14 hits=88/100 top=14 top_count=88
+#    Time: 33210075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=7 expected=15 hits=81/100 top=15 top_count=81
+#    Time: 33456075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=8 expected=16 hits=95/100 top=16 top_count=95
+#    Time: 33702075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=9 expected=17 hits=91/100 top=17 top_count=91
+#    Time: 33948075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=10 expected=18 hits=86/100 top=18 top_count=86
+#    Time: 34194075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=11 expected=19 hits=85/100 top=19 top_count=85
+#    Time: 34440075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=12 expected=20 hits=84/100 top=20 top_count=84
+#    Time: 34686075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=13 expected=21 hits=91/100 top=21 top_count=91
+#    Time: 34932075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=14 expected=22 hits=86/100 top=22 top_count=86
+#    Time: 35178075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=8 B=15 expected=23 hits=78/100 top=23 top_count=78
+#    Time: 35424075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=0 expected=9 hits=86/100 top=9 top_count=86
+#    Time: 35670075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=1 expected=10 hits=89/100 top=10 top_count=89
+#    Time: 35916075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=2 expected=11 hits=91/100 top=11 top_count=91
+#    Time: 36162075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=3 expected=12 hits=78/100 top=12 top_count=78
+#    Time: 36408075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=4 expected=13 hits=89/100 top=13 top_count=89
+#    Time: 36654075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=5 expected=14 hits=85/100 top=14 top_count=85
+#    Time: 36900075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=6 expected=15 hits=79/100 top=15 top_count=79
+#    Time: 37146075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=7 expected=16 hits=83/100 top=16 top_count=83
+#    Time: 37392075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=8 expected=17 hits=83/100 top=17 top_count=83
+#    Time: 37638075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=9 expected=18 hits=80/100 top=18 top_count=80
+#    Time: 37884075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=10 expected=19 hits=89/100 top=19 top_count=89
+#    Time: 38130075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=11 expected=20 hits=79/100 top=20 top_count=79
+#    Time: 38376075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=12 expected=21 hits=87/100 top=21 top_count=87
+#    Time: 38622075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=13 expected=22 hits=81/100 top=22 top_count=81
+#    Time: 38868075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=14 expected=23 hits=82/100 top=23 top_count=82
+#    Time: 39114075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=9 B=15 expected=24 hits=87/100 top=24 top_count=87
+#    Time: 39360075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=0 expected=10 hits=84/100 top=10 top_count=84
+#    Time: 39606075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=1 expected=11 hits=85/100 top=11 top_count=85
+#    Time: 39852075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=2 expected=12 hits=87/100 top=12 top_count=87
+#    Time: 40098075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=3 expected=13 hits=85/100 top=13 top_count=85
+#    Time: 40344075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=4 expected=14 hits=91/100 top=14 top_count=91
+#    Time: 40590075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=5 expected=15 hits=85/100 top=15 top_count=85
+#    Time: 40836075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=6 expected=16 hits=87/100 top=16 top_count=87
+#    Time: 41082075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=7 expected=17 hits=82/100 top=17 top_count=82
+#    Time: 41328075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=8 expected=18 hits=84/100 top=18 top_count=84
+#    Time: 41574075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=9 expected=19 hits=82/100 top=19 top_count=82
+#    Time: 41820075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=10 expected=20 hits=93/100 top=20 top_count=93
+#    Time: 42066075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=11 expected=21 hits=87/100 top=21 top_count=87
+#    Time: 42312075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=12 expected=22 hits=83/100 top=22 top_count=83
+#    Time: 42558075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=13 expected=23 hits=82/100 top=23 top_count=82
+#    Time: 42804075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=14 expected=24 hits=86/100 top=24 top_count=86
+#    Time: 43050075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=10 B=15 expected=25 hits=76/100 top=25 top_count=76
+#    Time: 43296075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=0 expected=11 hits=85/100 top=11 top_count=85
+#    Time: 43542075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=1 expected=12 hits=84/100 top=12 top_count=84
+#    Time: 43788075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=2 expected=13 hits=89/100 top=13 top_count=89
+#    Time: 44034075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=3 expected=14 hits=83/100 top=14 top_count=83
+#    Time: 44280075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=4 expected=15 hits=86/100 top=15 top_count=86
+#    Time: 44526075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=5 expected=16 hits=86/100 top=16 top_count=86
+#    Time: 44772075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=6 expected=17 hits=76/100 top=17 top_count=76
+#    Time: 45018075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=7 expected=18 hits=86/100 top=18 top_count=86
+#    Time: 45264075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=8 expected=19 hits=85/100 top=19 top_count=85
+#    Time: 45510075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=9 expected=20 hits=83/100 top=20 top_count=83
+#    Time: 45756075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=10 expected=21 hits=85/100 top=21 top_count=85
+#    Time: 46002075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=11 expected=22 hits=85/100 top=22 top_count=85
+#    Time: 46248075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=12 expected=23 hits=67/100 top=23 top_count=67
+#    Time: 46494075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=13 expected=24 hits=89/100 top=24 top_count=89
+#    Time: 46740075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=14 expected=25 hits=86/100 top=25 top_count=86
+#    Time: 46986075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=11 B=15 expected=26 hits=92/100 top=26 top_count=92
+#    Time: 47232075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=0 expected=12 hits=90/100 top=12 top_count=90
+#    Time: 47478075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=1 expected=13 hits=91/100 top=13 top_count=91
+#    Time: 47724075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=2 expected=14 hits=79/100 top=14 top_count=79
+#    Time: 47970075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=3 expected=15 hits=83/100 top=15 top_count=83
+#    Time: 48216075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=4 expected=16 hits=84/100 top=16 top_count=84
+#    Time: 48462075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=5 expected=17 hits=87/100 top=17 top_count=87
+#    Time: 48708075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=6 expected=18 hits=87/100 top=18 top_count=87
+#    Time: 48954075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=7 expected=19 hits=81/100 top=19 top_count=81
+#    Time: 49200075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=8 expected=20 hits=94/100 top=20 top_count=94
+#    Time: 49446075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=9 expected=21 hits=91/100 top=21 top_count=91
+#    Time: 49692075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=10 expected=22 hits=81/100 top=22 top_count=81
+#    Time: 49938075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=11 expected=23 hits=86/100 top=23 top_count=86
+#    Time: 50184075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=12 expected=24 hits=90/100 top=24 top_count=90
+#    Time: 50430075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=13 expected=25 hits=95/100 top=25 top_count=95
+#    Time: 50676075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=14 expected=26 hits=83/100 top=26 top_count=83
+#    Time: 50922075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=12 B=15 expected=27 hits=87/100 top=27 top_count=87
+#    Time: 51168075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=0 expected=13 hits=85/100 top=13 top_count=85
+#    Time: 51414075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=1 expected=14 hits=85/100 top=14 top_count=85
+#    Time: 51660075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=2 expected=15 hits=85/100 top=15 top_count=85
+#    Time: 51906075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=3 expected=16 hits=85/100 top=16 top_count=85
+#    Time: 52152075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=4 expected=17 hits=90/100 top=17 top_count=90
+#    Time: 52398075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=5 expected=18 hits=86/100 top=18 top_count=86
+#    Time: 52644075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=6 expected=19 hits=83/100 top=19 top_count=83
+#    Time: 52890075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=7 expected=20 hits=88/100 top=20 top_count=88
+#    Time: 53136075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=8 expected=21 hits=86/100 top=21 top_count=86
+#    Time: 53382075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=9 expected=22 hits=85/100 top=22 top_count=85
+#    Time: 53628075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=10 expected=23 hits=87/100 top=23 top_count=87
+#    Time: 53874075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=11 expected=24 hits=84/100 top=24 top_count=84
+#    Time: 54120075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=12 expected=25 hits=92/100 top=25 top_count=92
+#    Time: 54366075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=13 expected=26 hits=88/100 top=26 top_count=88
+#    Time: 54612075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=14 expected=27 hits=83/100 top=27 top_count=83
+#    Time: 54858075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=13 B=15 expected=28 hits=85/100 top=28 top_count=85
+#    Time: 55104075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=0 expected=14 hits=94/100 top=14 top_count=94
+#    Time: 55350075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=1 expected=15 hits=83/100 top=15 top_count=83
+#    Time: 55596075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=2 expected=16 hits=92/100 top=16 top_count=92
+#    Time: 55842075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=3 expected=17 hits=85/100 top=17 top_count=85
+#    Time: 56088075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=4 expected=18 hits=87/100 top=18 top_count=87
+#    Time: 56334075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=5 expected=19 hits=82/100 top=19 top_count=82
+#    Time: 56580075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=6 expected=20 hits=89/100 top=20 top_count=89
+#    Time: 56826075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=7 expected=21 hits=92/100 top=21 top_count=92
+#    Time: 57072075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=8 expected=22 hits=88/100 top=22 top_count=88
+#    Time: 57318075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=9 expected=23 hits=84/100 top=23 top_count=84
+#    Time: 57564075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=10 expected=24 hits=87/100 top=24 top_count=87
+#    Time: 57810075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=11 expected=25 hits=93/100 top=25 top_count=93
+#    Time: 58056075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=12 expected=26 hits=90/100 top=26 top_count=90
+#    Time: 58302075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=13 expected=27 hits=91/100 top=27 top_count=91
+#    Time: 58548075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=14 expected=28 hits=86/100 top=28 top_count=86
+#    Time: 58794075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=14 B=15 expected=29 hits=85/100 top=29 top_count=85
+#    Time: 59040075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=0 expected=15 hits=80/100 top=15 top_count=80
+#    Time: 59286075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=1 expected=16 hits=85/100 top=16 top_count=85
+#    Time: 59532075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=2 expected=17 hits=85/100 top=17 top_count=85
+#    Time: 59778075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=3 expected=18 hits=84/100 top=18 top_count=84
+#    Time: 60024075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=4 expected=19 hits=79/100 top=19 top_count=79
+#    Time: 60270075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=5 expected=20 hits=85/100 top=20 top_count=85
+#    Time: 60516075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=6 expected=21 hits=83/100 top=21 top_count=83
+#    Time: 60762075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=7 expected=22 hits=87/100 top=22 top_count=87
+#    Time: 61008075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=8 expected=23 hits=87/100 top=23 top_count=87
+#    Time: 61254075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=9 expected=24 hits=86/100 top=24 top_count=86
+#    Time: 61500075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=10 expected=25 hits=84/100 top=25 top_count=84
+#    Time: 61746075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=11 expected=26 hits=90/100 top=26 top_count=90
+#    Time: 61992075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=12 expected=27 hits=90/100 top=27 top_count=90
+#    Time: 62238075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=13 expected=28 hits=93/100 top=28 top_count=93
+#    Time: 62484075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=14 expected=29 hits=91/100 top=29 top_count=91
+#    Time: 62730075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward case A=15 B=15 expected=30 hits=90/100 top=30 top_count=90
+#    Time: 62976075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 forward summary cases=256 total_hits=22001/25600 min_hits=67 fail_cases=256 block_rnd=1 scramble_rnd=2 scramble_cycles=80 blocks=40,40,40,40 copy=2
+#    Time: 62976075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=0 SUM=0 hits=87/100 topA=0 top_count=87
+#    Time: 63222075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=1 SUM=1 hits=89/100 topA=0 top_count=89
+#    Time: 63468075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=2 SUM=2 hits=88/100 topA=0 top_count=88
+#    Time: 63714075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=3 SUM=3 hits=83/100 topA=0 top_count=83
+#    Time: 63960075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=4 SUM=4 hits=93/100 topA=0 top_count=93
+#    Time: 64206075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=5 SUM=5 hits=86/100 topA=0 top_count=86
+#    Time: 64452075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=6 SUM=6 hits=89/100 topA=0 top_count=89
+#    Time: 64698075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=7 SUM=7 hits=97/100 topA=0 top_count=97
+#    Time: 64944075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=8 SUM=8 hits=87/100 topA=0 top_count=87
+#    Time: 65190075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=9 SUM=9 hits=92/100 topA=0 top_count=92
+#    Time: 65436075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=10 SUM=10 hits=89/100 topA=0 top_count=89
+#    Time: 65682075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=11 SUM=11 hits=96/100 topA=0 top_count=96
+#    Time: 65928075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=12 SUM=12 hits=88/100 topA=0 top_count=88
+#    Time: 66174075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=13 SUM=13 hits=90/100 topA=0 top_count=90
+#    Time: 66420075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=14 SUM=14 hits=84/100 topA=0 top_count=84
+#    Time: 66666075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=0 B=15 SUM=15 hits=86/100 topA=0 top_count=86
+#    Time: 66912075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=0 SUM=1 hits=92/100 topA=1 top_count=92
+#    Time: 67158075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=1 SUM=2 hits=88/100 topA=1 top_count=88
+#    Time: 67404075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=2 SUM=3 hits=87/100 topA=1 top_count=87
+#    Time: 67650075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=3 SUM=4 hits=93/100 topA=1 top_count=93
+#    Time: 67896075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=4 SUM=5 hits=94/100 topA=1 top_count=94
+#    Time: 68142075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=5 SUM=6 hits=92/100 topA=1 top_count=92
+#    Time: 68388075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=6 SUM=7 hits=85/100 topA=1 top_count=85
+#    Time: 68634075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=7 SUM=8 hits=89/100 topA=1 top_count=89
+#    Time: 68880075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=8 SUM=9 hits=88/100 topA=1 top_count=88
+#    Time: 69126075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=9 SUM=10 hits=91/100 topA=1 top_count=91
+#    Time: 69372075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=10 SUM=11 hits=90/100 topA=1 top_count=90
+#    Time: 69618075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=11 SUM=12 hits=85/100 topA=1 top_count=85
+#    Time: 69864075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=12 SUM=13 hits=94/100 topA=1 top_count=94
+#    Time: 70110075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=13 SUM=14 hits=85/100 topA=1 top_count=85
+#    Time: 70356075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=14 SUM=15 hits=91/100 topA=1 top_count=91
+#    Time: 70602075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=1 B=15 SUM=16 hits=90/100 topA=1 top_count=90
+#    Time: 70848075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=0 SUM=2 hits=95/100 topA=2 top_count=95
+#    Time: 71094075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=1 SUM=3 hits=88/100 topA=2 top_count=88
+#    Time: 71340075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=2 SUM=4 hits=88/100 topA=2 top_count=88
+#    Time: 71586075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=3 SUM=5 hits=88/100 topA=2 top_count=88
+#    Time: 71832075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=4 SUM=6 hits=94/100 topA=2 top_count=94
+#    Time: 72078075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=5 SUM=7 hits=89/100 topA=2 top_count=89
+#    Time: 72324075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=6 SUM=8 hits=90/100 topA=2 top_count=90
+#    Time: 72570075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=7 SUM=9 hits=89/100 topA=2 top_count=89
+#    Time: 72816075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=8 SUM=10 hits=84/100 topA=2 top_count=84
+#    Time: 73062075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=9 SUM=11 hits=83/100 topA=2 top_count=83
+#    Time: 73308075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=10 SUM=12 hits=90/100 topA=2 top_count=90
+#    Time: 73554075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=11 SUM=13 hits=89/100 topA=2 top_count=89
+#    Time: 73800075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=12 SUM=14 hits=84/100 topA=2 top_count=84
+#    Time: 74046075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=13 SUM=15 hits=89/100 topA=2 top_count=89
+#    Time: 74292075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=14 SUM=16 hits=92/100 topA=2 top_count=92
+#    Time: 74538075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=2 B=15 SUM=17 hits=90/100 topA=2 top_count=90
+#    Time: 74784075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=0 SUM=3 hits=89/100 topA=3 top_count=89
+#    Time: 75030075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=1 SUM=4 hits=86/100 topA=3 top_count=86
+#    Time: 75276075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=2 SUM=5 hits=91/100 topA=3 top_count=91
+#    Time: 75522075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=3 SUM=6 hits=84/100 topA=3 top_count=84
+#    Time: 75768075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=4 SUM=7 hits=88/100 topA=3 top_count=88
+#    Time: 76014075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=5 SUM=8 hits=93/100 topA=3 top_count=93
+#    Time: 76260075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=6 SUM=9 hits=87/100 topA=3 top_count=87
+#    Time: 76506075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=7 SUM=10 hits=93/100 topA=3 top_count=93
+#    Time: 76752075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=8 SUM=11 hits=87/100 topA=3 top_count=87
+#    Time: 76998075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=9 SUM=12 hits=90/100 topA=3 top_count=90
+#    Time: 77244075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=10 SUM=13 hits=90/100 topA=3 top_count=90
+#    Time: 77490075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=11 SUM=14 hits=92/100 topA=3 top_count=92
+#    Time: 77736075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=12 SUM=15 hits=96/100 topA=3 top_count=96
+#    Time: 77982075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=13 SUM=16 hits=92/100 topA=3 top_count=92
+#    Time: 78228075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=14 SUM=17 hits=96/100 topA=3 top_count=96
+#    Time: 78474075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=3 B=15 SUM=18 hits=89/100 topA=3 top_count=89
+#    Time: 78720075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=0 SUM=4 hits=86/100 topA=4 top_count=86
+#    Time: 78966075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=1 SUM=5 hits=83/100 topA=4 top_count=83
+#    Time: 79212075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=2 SUM=6 hits=85/100 topA=4 top_count=85
+#    Time: 79458075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=3 SUM=7 hits=92/100 topA=4 top_count=92
+#    Time: 79704075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=4 SUM=8 hits=84/100 topA=4 top_count=84
+#    Time: 79950075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=5 SUM=9 hits=89/100 topA=4 top_count=89
+#    Time: 80196075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=6 SUM=10 hits=86/100 topA=4 top_count=86
+#    Time: 80442075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=7 SUM=11 hits=83/100 topA=4 top_count=83
+#    Time: 80688075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=8 SUM=12 hits=86/100 topA=4 top_count=86
+#    Time: 80934075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=9 SUM=13 hits=90/100 topA=4 top_count=90
+#    Time: 81180075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=10 SUM=14 hits=94/100 topA=4 top_count=94
+#    Time: 81426075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=11 SUM=15 hits=92/100 topA=4 top_count=92
+#    Time: 81672075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=12 SUM=16 hits=92/100 topA=4 top_count=92
+#    Time: 81918075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=13 SUM=17 hits=88/100 topA=4 top_count=88
+#    Time: 82164075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=14 SUM=18 hits=83/100 topA=4 top_count=83
+#    Time: 82410075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=4 B=15 SUM=19 hits=96/100 topA=4 top_count=96
+#    Time: 82656075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=0 SUM=5 hits=88/100 topA=5 top_count=88
+#    Time: 82902075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=1 SUM=6 hits=92/100 topA=5 top_count=92
+#    Time: 83148075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=2 SUM=7 hits=96/100 topA=5 top_count=96
+#    Time: 83394075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=3 SUM=8 hits=95/100 topA=5 top_count=95
+#    Time: 83640075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=4 SUM=9 hits=85/100 topA=5 top_count=85
+#    Time: 83886075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=5 SUM=10 hits=89/100 topA=5 top_count=89
+#    Time: 84132075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=6 SUM=11 hits=85/100 topA=5 top_count=85
+#    Time: 84378075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=7 SUM=12 hits=87/100 topA=5 top_count=87
+#    Time: 84624075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=8 SUM=13 hits=92/100 topA=5 top_count=92
+#    Time: 84870075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=9 SUM=14 hits=90/100 topA=5 top_count=90
+#    Time: 85116075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=10 SUM=15 hits=92/100 topA=5 top_count=92
+#    Time: 85362075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=11 SUM=16 hits=89/100 topA=5 top_count=89
+#    Time: 85608075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=12 SUM=17 hits=90/100 topA=5 top_count=90
+#    Time: 85854075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=13 SUM=18 hits=89/100 topA=5 top_count=89
+#    Time: 86100075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=14 SUM=19 hits=86/100 topA=5 top_count=86
+#    Time: 86346075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=5 B=15 SUM=20 hits=85/100 topA=5 top_count=85
+#    Time: 86592075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=0 SUM=6 hits=88/100 topA=6 top_count=88
+#    Time: 86838075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=1 SUM=7 hits=88/100 topA=6 top_count=88
+#    Time: 87084075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=2 SUM=8 hits=85/100 topA=6 top_count=85
+#    Time: 87330075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=3 SUM=9 hits=85/100 topA=6 top_count=85
+#    Time: 87576075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=4 SUM=10 hits=87/100 topA=6 top_count=87
+#    Time: 87822075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=5 SUM=11 hits=89/100 topA=6 top_count=89
+#    Time: 88068075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=6 SUM=12 hits=87/100 topA=6 top_count=87
+#    Time: 88314075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=7 SUM=13 hits=86/100 topA=6 top_count=86
+#    Time: 88560075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=8 SUM=14 hits=89/100 topA=6 top_count=89
+#    Time: 88806075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=9 SUM=15 hits=86/100 topA=6 top_count=86
+#    Time: 89052075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=10 SUM=16 hits=88/100 topA=6 top_count=88
+#    Time: 89298075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=11 SUM=17 hits=93/100 topA=6 top_count=93
+#    Time: 89544075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=12 SUM=18 hits=92/100 topA=6 top_count=92
+#    Time: 89790075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=13 SUM=19 hits=89/100 topA=6 top_count=89
+#    Time: 90036075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=14 SUM=20 hits=85/100 topA=6 top_count=85
+#    Time: 90282075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=6 B=15 SUM=21 hits=94/100 topA=6 top_count=94
+#    Time: 90528075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=0 SUM=7 hits=94/100 topA=7 top_count=94
+#    Time: 90774075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=1 SUM=8 hits=92/100 topA=7 top_count=92
+#    Time: 91020075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=2 SUM=9 hits=86/100 topA=7 top_count=86
+#    Time: 91266075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=3 SUM=10 hits=84/100 topA=7 top_count=84
+#    Time: 91512075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=4 SUM=11 hits=93/100 topA=7 top_count=93
+#    Time: 91758075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=5 SUM=12 hits=83/100 topA=7 top_count=83
+#    Time: 92004075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=6 SUM=13 hits=90/100 topA=7 top_count=90
+#    Time: 92250075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=7 SUM=14 hits=84/100 topA=7 top_count=84
+#    Time: 92496075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=8 SUM=15 hits=93/100 topA=7 top_count=93
+#    Time: 92742075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=9 SUM=16 hits=83/100 topA=7 top_count=83
+#    Time: 92988075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=10 SUM=17 hits=88/100 topA=7 top_count=88
+#    Time: 93234075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=11 SUM=18 hits=90/100 topA=7 top_count=90
+#    Time: 93480075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=12 SUM=19 hits=86/100 topA=7 top_count=86
+#    Time: 93726075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=13 SUM=20 hits=90/100 topA=7 top_count=90
+#    Time: 93972075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=14 SUM=21 hits=95/100 topA=7 top_count=95
+#    Time: 94218075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=7 B=15 SUM=22 hits=87/100 topA=7 top_count=87
+#    Time: 94464075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=0 SUM=8 hits=86/100 topA=8 top_count=86
+#    Time: 94710075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=1 SUM=9 hits=87/100 topA=8 top_count=87
+#    Time: 94956075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=2 SUM=10 hits=84/100 topA=8 top_count=84
+#    Time: 95202075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=3 SUM=11 hits=90/100 topA=8 top_count=90
+#    Time: 95448075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=4 SUM=12 hits=88/100 topA=8 top_count=88
+#    Time: 95694075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=5 SUM=13 hits=94/100 topA=8 top_count=94
+#    Time: 95940075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=6 SUM=14 hits=88/100 topA=8 top_count=88
+#    Time: 96186075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=7 SUM=15 hits=81/100 topA=8 top_count=81
+#    Time: 96432075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=8 SUM=16 hits=88/100 topA=8 top_count=88
+#    Time: 96678075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=9 SUM=17 hits=90/100 topA=8 top_count=90
+#    Time: 96924075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=10 SUM=18 hits=92/100 topA=8 top_count=92
+#    Time: 97170075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=11 SUM=19 hits=84/100 topA=8 top_count=84
+#    Time: 97416075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=12 SUM=20 hits=95/100 topA=8 top_count=95
+#    Time: 97662075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=13 SUM=21 hits=91/100 topA=8 top_count=91
+#    Time: 97908075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=14 SUM=22 hits=84/100 topA=8 top_count=84
+#    Time: 98154075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=8 B=15 SUM=23 hits=90/100 topA=8 top_count=90
+#    Time: 98400075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=0 SUM=9 hits=93/100 topA=9 top_count=93
+#    Time: 98646075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=1 SUM=10 hits=87/100 topA=9 top_count=87
+#    Time: 98892075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=2 SUM=11 hits=90/100 topA=9 top_count=90
+#    Time: 99138075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=3 SUM=12 hits=91/100 topA=9 top_count=91
+#    Time: 99384075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=4 SUM=13 hits=92/100 topA=9 top_count=92
+#    Time: 99630075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=5 SUM=14 hits=90/100 topA=9 top_count=90
+#    Time: 99876075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=6 SUM=15 hits=89/100 topA=9 top_count=89
+#    Time: 100122075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=7 SUM=16 hits=90/100 topA=9 top_count=90
+#    Time: 100368075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=8 SUM=17 hits=90/100 topA=9 top_count=90
+#    Time: 100614075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=9 SUM=18 hits=89/100 topA=9 top_count=89
+#    Time: 100860075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=10 SUM=19 hits=92/100 topA=9 top_count=92
+#    Time: 101106075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=11 SUM=20 hits=90/100 topA=9 top_count=90
+#    Time: 101352075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=12 SUM=21 hits=89/100 topA=9 top_count=89
+#    Time: 101598075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=13 SUM=22 hits=86/100 topA=9 top_count=86
+#    Time: 101844075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=14 SUM=23 hits=94/100 topA=9 top_count=94
+#    Time: 102090075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=9 B=15 SUM=24 hits=90/100 topA=9 top_count=90
+#    Time: 102336075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=0 SUM=10 hits=91/100 topA=10 top_count=91
+#    Time: 102582075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=1 SUM=11 hits=88/100 topA=10 top_count=88
+#    Time: 102828075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=2 SUM=12 hits=88/100 topA=10 top_count=88
+#    Time: 103074075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=3 SUM=13 hits=91/100 topA=10 top_count=91
+#    Time: 103320075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=4 SUM=14 hits=86/100 topA=10 top_count=86
+#    Time: 103566075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=5 SUM=15 hits=87/100 topA=10 top_count=87
+#    Time: 103812075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=6 SUM=16 hits=90/100 topA=10 top_count=90
+#    Time: 104058075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=7 SUM=17 hits=83/100 topA=10 top_count=83
+#    Time: 104304075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=8 SUM=18 hits=88/100 topA=10 top_count=88
+#    Time: 104550075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=9 SUM=19 hits=90/100 topA=10 top_count=90
+#    Time: 104796075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=10 SUM=20 hits=88/100 topA=10 top_count=88
+#    Time: 105042075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=11 SUM=21 hits=85/100 topA=10 top_count=85
+#    Time: 105288075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=12 SUM=22 hits=88/100 topA=10 top_count=88
+#    Time: 105534075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=13 SUM=23 hits=92/100 topA=10 top_count=92
+#    Time: 105780075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=14 SUM=24 hits=91/100 topA=10 top_count=91
+#    Time: 106026075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=10 B=15 SUM=25 hits=85/100 topA=10 top_count=85
+#    Time: 106272075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=0 SUM=11 hits=86/100 topA=11 top_count=86
+#    Time: 106518075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=1 SUM=12 hits=86/100 topA=11 top_count=86
+#    Time: 106764075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=2 SUM=13 hits=87/100 topA=11 top_count=87
+#    Time: 107010075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=3 SUM=14 hits=89/100 topA=11 top_count=89
+#    Time: 107256075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=4 SUM=15 hits=91/100 topA=11 top_count=91
+#    Time: 107502075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=5 SUM=16 hits=90/100 topA=11 top_count=90
+#    Time: 107748075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=6 SUM=17 hits=89/100 topA=11 top_count=89
+#    Time: 107994075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=7 SUM=18 hits=85/100 topA=11 top_count=85
+#    Time: 108240075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=8 SUM=19 hits=93/100 topA=11 top_count=93
+#    Time: 108486075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=9 SUM=20 hits=88/100 topA=11 top_count=88
+#    Time: 108732075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=10 SUM=21 hits=82/100 topA=11 top_count=82
+#    Time: 108978075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=11 SUM=22 hits=91/100 topA=11 top_count=91
+#    Time: 109224075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=12 SUM=23 hits=91/100 topA=11 top_count=91
+#    Time: 109470075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=13 SUM=24 hits=91/100 topA=11 top_count=91
+#    Time: 109716075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=14 SUM=25 hits=93/100 topA=11 top_count=93
+#    Time: 109962075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=11 B=15 SUM=26 hits=91/100 topA=11 top_count=91
+#    Time: 110208075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=0 SUM=12 hits=89/100 topA=12 top_count=89
+#    Time: 110454075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=1 SUM=13 hits=93/100 topA=12 top_count=93
+#    Time: 110700075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=2 SUM=14 hits=91/100 topA=12 top_count=91
+#    Time: 110946075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=3 SUM=15 hits=92/100 topA=12 top_count=92
+#    Time: 111192075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=4 SUM=16 hits=89/100 topA=12 top_count=89
+#    Time: 111438075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=5 SUM=17 hits=88/100 topA=12 top_count=88
+#    Time: 111684075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=6 SUM=18 hits=91/100 topA=12 top_count=91
+#    Time: 111930075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=7 SUM=19 hits=89/100 topA=12 top_count=89
+#    Time: 112176075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=8 SUM=20 hits=83/100 topA=12 top_count=83
+#    Time: 112422075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=9 SUM=21 hits=82/100 topA=12 top_count=82
+#    Time: 112668075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=10 SUM=22 hits=91/100 topA=12 top_count=91
+#    Time: 112914075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=11 SUM=23 hits=93/100 topA=12 top_count=93
+#    Time: 113160075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=12 SUM=24 hits=83/100 topA=12 top_count=83
+#    Time: 113406075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=13 SUM=25 hits=90/100 topA=12 top_count=90
+#    Time: 113652075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=14 SUM=26 hits=85/100 topA=12 top_count=85
+#    Time: 113898075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=12 B=15 SUM=27 hits=91/100 topA=12 top_count=91
+#    Time: 114144075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=0 SUM=13 hits=88/100 topA=13 top_count=88
+#    Time: 114390075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=1 SUM=14 hits=91/100 topA=13 top_count=91
+#    Time: 114636075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=2 SUM=15 hits=93/100 topA=13 top_count=93
+#    Time: 114882075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=3 SUM=16 hits=93/100 topA=13 top_count=93
+#    Time: 115128075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=4 SUM=17 hits=91/100 topA=13 top_count=91
+#    Time: 115374075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=5 SUM=18 hits=88/100 topA=13 top_count=88
+#    Time: 115620075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=6 SUM=19 hits=89/100 topA=13 top_count=89
+#    Time: 115866075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=7 SUM=20 hits=86/100 topA=13 top_count=86
+#    Time: 116112075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=8 SUM=21 hits=94/100 topA=13 top_count=94
+#    Time: 116358075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=9 SUM=22 hits=92/100 topA=13 top_count=92
+#    Time: 116604075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=10 SUM=23 hits=83/100 topA=13 top_count=83
+#    Time: 116850075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=11 SUM=24 hits=92/100 topA=13 top_count=92
+#    Time: 117096075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=12 SUM=25 hits=87/100 topA=13 top_count=87
+#    Time: 117342075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=13 SUM=26 hits=87/100 topA=13 top_count=87
+#    Time: 117588075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=14 SUM=27 hits=87/100 topA=13 top_count=87
+#    Time: 117834075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=13 B=15 SUM=28 hits=89/100 topA=13 top_count=89
+#    Time: 118080075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=0 SUM=14 hits=92/100 topA=14 top_count=92
+#    Time: 118326075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=1 SUM=15 hits=90/100 topA=14 top_count=90
+#    Time: 118572075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=2 SUM=16 hits=86/100 topA=14 top_count=86
+#    Time: 118818075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=3 SUM=17 hits=82/100 topA=14 top_count=82
+#    Time: 119064075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=4 SUM=18 hits=87/100 topA=14 top_count=87
+#    Time: 119310075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=5 SUM=19 hits=87/100 topA=14 top_count=87
+#    Time: 119556075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=6 SUM=20 hits=89/100 topA=14 top_count=89
+#    Time: 119802075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=7 SUM=21 hits=91/100 topA=14 top_count=91
+#    Time: 120048075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=8 SUM=22 hits=92/100 topA=14 top_count=92
+#    Time: 120294075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=9 SUM=23 hits=93/100 topA=14 top_count=93
+#    Time: 120540075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=10 SUM=24 hits=89/100 topA=14 top_count=89
+#    Time: 120786075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=11 SUM=25 hits=92/100 topA=14 top_count=92
+#    Time: 121032075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=12 SUM=26 hits=91/100 topA=14 top_count=91
+#    Time: 121278075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=13 SUM=27 hits=85/100 topA=14 top_count=85
+#    Time: 121524075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=14 SUM=28 hits=90/100 topA=14 top_count=90
+#    Time: 121770075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=14 B=15 SUM=29 hits=91/100 topA=14 top_count=91
+#    Time: 122016075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=0 SUM=15 hits=92/100 topA=15 top_count=92
+#    Time: 122262075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=1 SUM=16 hits=84/100 topA=15 top_count=84
+#    Time: 122508075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=2 SUM=17 hits=91/100 topA=15 top_count=91
+#    Time: 122754075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=3 SUM=18 hits=84/100 topA=15 top_count=84
+#    Time: 123000075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=4 SUM=19 hits=90/100 topA=15 top_count=90
+#    Time: 123246075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=5 SUM=20 hits=88/100 topA=15 top_count=88
+#    Time: 123492075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=6 SUM=21 hits=93/100 topA=15 top_count=93
+#    Time: 123738075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=7 SUM=22 hits=91/100 topA=15 top_count=91
+#    Time: 123984075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=8 SUM=23 hits=95/100 topA=15 top_count=95
+#    Time: 124230075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=9 SUM=24 hits=91/100 topA=15 top_count=91
+#    Time: 124476075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=10 SUM=25 hits=91/100 topA=15 top_count=91
+#    Time: 124722075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=11 SUM=26 hits=82/100 topA=15 top_count=82
+#    Time: 124968075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=12 SUM=27 hits=93/100 topA=15 top_count=93
+#    Time: 125214075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=13 SUM=28 hits=91/100 topA=15 top_count=91
+#    Time: 125460075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=14 SUM=29 hits=93/100 topA=15 top_count=93
+#    Time: 125706075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum case A=15 B=15 SUM=30 hits=82/100 topA=15 top_count=82
+#    Time: 125952075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: random4 inverse_bsum summary cases=256 total_hits=22787/25600 min_hits=81 fail_cases=256 block_rnd=1 scramble_rnd=2 scramble_cycles=80 blocks=40,40,40,40 copy=2
+#    Time: 125952075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# ** Note: tb_adder4_shadow1_randomized_exhaustive completed
+#    Time: 125952075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_randomized_exhaustive
+# 
+# quit -f
+# End time: 02:15:03 on May 25,2026, Elapsed time: 0:04:18
+# Errors: 0, Warnings: 0

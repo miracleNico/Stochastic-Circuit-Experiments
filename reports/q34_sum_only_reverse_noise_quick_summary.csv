@@ -1,3 +1,0 @@
-"mode","noise_encoded","noise_physical","trials_per_sum","valid_total","total_trials","valid_prob","invalid_total","zero_valid_sums","weak_lt_50pct_sums","min_valid_per_sum","max_valid_per_sum"
-"sum_only_reverse","4","0.25","100","2337","3100","0.7539","763","7","7","0","100"
-"sum_only_reverse","8","0.5","100","2344","3100","0.7561","756","7","7","0","100"

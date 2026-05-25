@@ -1,0 +1,11 @@
+session,run,direction,cases,hits,trials_total,success_probability,per_case_trials,min_hits,fail_cases
+baseline direct RCA,baseline_direct4,forward,256,21937,25600,0.8569140625,100,41,256
+idea 3+4 integer shadow RCA,idea34_integer4,forward,256,22001,25600,0.8594140625,100,67,256
+idea 3+4 integer shadow RCA,idea34_integer4,inverse_bsum,256,22787,25600,0.8901171875,100,81,256
+idea 2 only Q3.4 direct RCA,idea2_q34_direct4,forward,256,18056,25600,0.7053125,100,0,162
+idea 3 only sequential window RCA,idea3_window4,forward,256,11977,25600,0.4678515625,100,17,256
+idea 3 only sequential window RCA,idea3_window4,inverse_bsum,256,14027,25600,0.5479296875,100,27,256
+idea 4 only parallel shadow RCA,idea4_shadow_parallel4,forward,256,16732,25600,0.65359375,100,39,256
+idea 4 only parallel shadow RCA,idea4_shadow_parallel4,inverse_bsum,256,19061,25600,0.7445703125,100,54,256
+idea 2+3+4 Q3.4 shadow RCA,idea234_q34_4,forward,256,25251,25600,0.9863671875,100,92,153
+idea 2+3+4 Q3.4 shadow RCA,idea234_q34_4,inverse_bsum,256,25502,25600,0.996171875,100,95,77

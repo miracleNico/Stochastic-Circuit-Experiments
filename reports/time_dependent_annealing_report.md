@@ -349,6 +349,50 @@ SUM-only inverse:
 
 Conclusion: removing additive block noise does not damage the constrained inverse test; it improves it for this Q3.4 schedule. However, the SUM-only test is still not fully invertible. The shadow latch is directional and staged, so full underconstrained inverse use may need a separate reverse schedule or a bidirectional shadow mechanism.
 
+### SUM-only Reverse Schedule
+
+The SUM-only mode was also tested with the activation order reversed:
+
+```text
+forward order:
+  B0 -> q1 -> B1 -> q2 -> B2 -> q3 -> B3
+
+reverse order:
+  B3 -> q3 -> B2 -> q2 -> B1 -> q1 -> B0
+```
+
+This reverses the block timing, but it does not reverse the physical shadow edge. The one-node latch is still wired as `c_i -> q_{i+1}`.
+
+Distribution test:
+
+```text
+mode: clamp only 5-bit SUM
+trials: 1000 per SUM value
+block_rnd=0
+copy_rnd=0
+schedule: B0=10, B1=8, B2=16, B3=6, copy=2
+```
+
+Aggregate valid samples:
+
+```text
+forward order:
+  valid_total=23864/31000
+
+reverse order:
+  valid_total=23637/31000
+```
+
+So reverse order is not globally better as a SUM-only sampler. It improves 5 SUM values, worsens 24, and ties 2. But it still helps specific hard boundary cases:
+
+```text
+SUM=4:   forward 143/1000 -> reverse 587/1000
+SUM=25:  forward 850/1000 -> reverse 982/1000
+SUM=29:  forward   0/1000 -> reverse 223/1000
+```
+
+The important conclusion is that reverse scheduling is a useful control knob for underconstrained inverse behavior, but the current forward-directed shadow latch does not make a good unbiased reverse sampler. A true SUM-only inverse mode likely needs either schedule-dependent bidirectional shadow nodes or separate reverse-copy topology.
+
 ## 8. 8-bit Synthesized RCA Extension
 
 Ideas 2+3+4 were then applied to the 8-bit HA/FA-composed synthesized RCA. The generated topology is the direct 8-bit extension of the one-node carry shadow:
@@ -435,6 +479,93 @@ block_rnd=0, blocks=32 all, copy=2:
 
 Conclusion: idea 2+3+4 migrates positively to the 8-bit synthesized RCA in the quick check, but the 8-bit noisy schedule needs a much longer per-stage relaxation window than the 4-bit case. The small `0.25` noise is tolerable only after each stage is given about one full 39-node scheduler period.
 
+## 9. Why RCA Readout Looks Deterministic
+
+The successful RCA reports look almost perfectly deterministic, while individual gates can still show stochastic failures. This is not a contradiction. The current RCA testbenches use a staged update followed by a frozen readout:
+
+```text
+1. clamp A,B
+2. reset network
+3. run the scheduled activation windows
+4. turn all block/copy enables off
+5. count SUM for COUNT_CYCLES readout cycles
+```
+
+During step 5, the unclamped SUM/carry/shadow nodes are not hot. Only the clamped input nodes keep being reasserted. Therefore the reported `hits=1000/1000` usually means:
+
+```text
+the single scheduled trajectory for that vector ended in the correct state,
+then the readout loop observed the same frozen state 1000 times.
+```
+
+It does not mean:
+
+```text
+the continuously active stochastic RCA samples the correct state with probability 1.
+```
+
+This also explains the common failure pattern:
+
+```text
+hits=0/100
+top_sum=<wrong value> top_count=100
+```
+
+The scheduled trajectory ended in a wrong attractor, then the frozen readout repeated that wrong value.
+
+Individual gate tests differ because the gate remains active during sampling. There, each clock is another stochastic draw:
+
+```text
+P(s_i=+1) = (1 + tanh(F_i)) / 2
+```
+
+So a gate with finite field can still occasionally flip against the intended state. In the RCA schedule, once a block has collapsed, it is effectively latched by disabling its updates. The deterministic-looking RCA result is a property of:
+
+```text
+directed schedule + shadow latch + frozen readout + deterministic LFSR seeds
+```
+
+not proof that the underlying stochastic gate has zero error.
+
+The stronger probability test for RCA is therefore not a long frozen readout. It should repeat the whole scheduled solve many times per input vector, preferably with independent seeds or explicit randomized initialization, and count how often the final frozen state is correct.
+
+### Repeated-Solve Check
+
+A repeated-solve diagnostic was added for the 8-bit Q3.4 shadow RCA. It does not reset before every solve, because reset would reload the same LFSR seeds and replay the same trajectory. Instead each trial uses:
+
+```text
+1. unclamp all nodes
+2. run an 80-cycle scramble phase with all block/copy windows enabled
+3. clamp A,B
+4. run the 8-bit scheduled solve once
+5. sample the final SUM once
+```
+
+Parameters:
+
+```text
+blocks=40,40,40,40,40,40,40,40
+copy=2
+block_rnd=4       -> physical 0.25 during solve
+copy_rnd=0
+scramble_rnd=8    -> physical 0.5 during scramble
+scramble_cycles=80
+trials=200 per input pair
+```
+
+Picked input pairs:
+
+```text
+37+219  expected=256  hits=197/200  distinct_sums=4
+142+73  expected=215  hits=198/200  distinct_sums=3
+201+54  expected=255  hits=196/200  distinct_sums=5
+91+188  expected=279  hits=199/200  distinct_sums=2
+6+177   expected=183  hits=200/200  distinct_sums=1
+127+1   expected=128  hits=198/200  distinct_sums=3
+```
+
+This confirms that the RCA is not truly deterministic. The earlier `100/100` frozen-readout result meant the selected trajectory ended in the correct state and stayed frozen. When the full solve is repeated from different scrambled states, the final state has a high but non-unit success probability.
+
 ## Remaining Risk
 
 All successful RCA results above use deterministic LFSR seeds. The next robustness check should repeat the integer and Q3.4 shadow-latch schedules across randomized seed sets. The current conclusion is therefore:
@@ -466,9 +597,11 @@ tb/tb_adder4_shadow1_diagnostics.vhd
 tb/tb_adder4_shadow1_exhaustive.vhd
 tb/tb_adder4_shadow1_inverse.vhd
 tb/tb_adder8_shadow1_diagnostics.vhd
+tb/tb_adder8_shadow1_repeated_solve.vhd
 
 sim/run_adder4_shadow1_exhaustive.ps1
 sim/run_adder4_shadow1_q34_exhaustive.ps1
 sim/run_adder4_shadow1_q34_inverse.ps1
 sim/run_adder8_shadow1_q34_diagnostics.ps1
+sim/run_adder8_shadow1_q34_repeated_solve.ps1
 ```

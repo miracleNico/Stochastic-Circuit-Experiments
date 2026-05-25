@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="896" viewBox="0 0 1120 896">
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#1f2933}.title{font-size:18px;font-weight:700}.axis{font-size:11px}.cell{stroke:#ffffff;stroke-width:1}.small{font-size:10px}</style>
+<text x="560.0" y="24" text-anchor="middle" class="title">Primitive Gate Hamiltonian Energy Landscapes</text>
+<text x="74" y="96" text-anchor="end" class="axis">AND</text>
+<line x1="86" y1="128" x2="1086" y2="128" stroke="#c8d1dc"/>
+<rect x="86.0" y="120.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="211.0" y="120.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="336.0" y="120.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="461.0" y="97.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<rect x="586.0" y="52.0" width="124.0" height="76.0" fill="#b71c1c" opacity="0.88"/>
+<rect x="711.0" y="97.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<rect x="836.0" y="97.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<rect x="961.0" y="120.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<text x="86" y="146" class="small">min E=-3</text>
+<text x="1086" y="146" text-anchor="end" class="small">max E=9; green=valid</text>
+<text x="74" y="214" text-anchor="end" class="axis">OR</text>
+<line x1="86" y1="246" x2="1086" y2="246" stroke="#c8d1dc"/>
+<rect x="86.0" y="238.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="211.0" y="215.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<rect x="336.0" y="215.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<rect x="461.0" y="170.0" width="124.0" height="76.0" fill="#b71c1c" opacity="0.88"/>
+<rect x="586.0" y="215.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<rect x="711.0" y="238.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="836.0" y="238.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="961.0" y="238.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<text x="86" y="264" class="small">min E=-3</text>
+<text x="1086" y="264" text-anchor="end" class="small">max E=9; green=valid</text>
+<text x="74" y="332" text-anchor="end" class="axis">NAND</text>
+<line x1="86" y1="364" x2="1086" y2="364" stroke="#c8d1dc"/>
+<rect x="86.0" y="288.0" width="124.0" height="76.0" fill="#b71c1c" opacity="0.88"/>
+<rect x="211.0" y="333.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<rect x="336.0" y="333.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<rect x="461.0" y="356.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="586.0" y="356.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="711.0" y="356.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="836.0" y="356.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="961.0" y="333.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<text x="86" y="382" class="small">min E=-3</text>
+<text x="1086" y="382" text-anchor="end" class="small">max E=9; green=valid</text>
+<text x="74" y="450" text-anchor="end" class="axis">NOR</text>
+<line x1="86" y1="482" x2="1086" y2="482" stroke="#c8d1dc"/>
+<rect x="86.0" y="451.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<rect x="211.0" y="474.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="336.0" y="474.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="461.0" y="474.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="586.0" y="474.0" width="124.0" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="711.0" y="451.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<rect x="836.0" y="451.3" width="124.0" height="30.7" fill="#b71c1c" opacity="0.88"/>
+<rect x="961.0" y="406.0" width="124.0" height="76.0" fill="#b71c1c" opacity="0.88"/>
+<text x="86" y="500" class="small">min E=-3</text>
+<text x="1086" y="500" text-anchor="end" class="small">max E=9; green=valid</text>
+<text x="74" y="568" text-anchor="end" class="axis">HA/XOR</text>
+<line x1="86" y1="600" x2="1086" y2="600" stroke="#c8d1dc"/>
+<rect x="86.0" y="592.0" width="61.5" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="148.5" y="584.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="211.0" y="584.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="273.5" y="561.8" width="61.5" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="336.0" y="584.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="398.5" y="592.0" width="61.5" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="461.0" y="592.0" width="61.5" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="523.5" y="584.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="586.0" y="561.8" width="61.5" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="648.5" y="584.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="711.0" y="584.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="773.5" y="592.0" width="61.5" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="836.0" y="524.0" width="61.5" height="76.0" fill="#b71c1c" opacity="0.88"/>
+<rect x="898.5" y="561.8" width="61.5" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="961.0" y="561.8" width="61.5" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="1023.5" y="584.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<text x="86" y="618" class="small">min E=-4</text>
+<text x="1086" y="618" text-anchor="end" class="small">max E=14; green=valid</text>
+<text x="74" y="686" text-anchor="end" class="axis">XNOR</text>
+<line x1="86" y1="718" x2="1086" y2="718" stroke="#c8d1dc"/>
+<rect x="86.0" y="702.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="148.5" y="710.0" width="61.5" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="211.0" y="710.0" width="61.5" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="273.5" y="702.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="336.0" y="710.0" width="61.5" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="398.5" y="702.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="461.0" y="702.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="523.5" y="679.8" width="61.5" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="586.0" y="642.0" width="61.5" height="76.0" fill="#b71c1c" opacity="0.88"/>
+<rect x="648.5" y="679.8" width="61.5" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="711.0" y="679.8" width="61.5" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="773.5" y="702.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="836.0" y="679.8" width="61.5" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="898.5" y="702.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="961.0" y="702.4" width="61.5" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="1023.5" y="710.0" width="61.5" height="8.0" fill="#00796b" opacity="0.88"/>
+<text x="86" y="736" class="small">min E=-4</text>
+<text x="1086" y="736" text-anchor="end" class="small">max E=14; green=valid</text>
+<text x="74" y="804" text-anchor="end" class="axis">FA</text>
+<line x1="86" y1="836" x2="1086" y2="836" stroke="#c8d1dc"/>
+<rect x="86.0" y="828.0" width="30.2" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="117.2" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="148.5" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="179.8" y="797.8" width="30.2" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="211.0" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="242.2" y="797.8" width="30.2" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="273.5" y="797.8" width="30.2" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="304.8" y="760.0" width="30.2" height="76.0" fill="#b71c1c" opacity="0.88"/>
+<rect x="336.0" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="367.2" y="828.0" width="30.2" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="398.5" y="828.0" width="30.2" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="429.8" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="461.0" y="828.0" width="30.2" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="492.2" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="523.5" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="554.8" y="797.8" width="30.2" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="586.0" y="797.8" width="30.2" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="617.2" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="648.5" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="679.8" y="828.0" width="30.2" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="711.0" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="742.2" y="828.0" width="30.2" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="773.5" y="828.0" width="30.2" height="8.0" fill="#00796b" opacity="0.88"/>
+<rect x="804.8" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="836.0" y="760.0" width="30.2" height="76.0" fill="#b71c1c" opacity="0.88"/>
+<rect x="867.2" y="797.8" width="30.2" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="898.5" y="797.8" width="30.2" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="929.8" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="961.0" y="797.8" width="30.2" height="38.2" fill="#b71c1c" opacity="0.88"/>
+<rect x="992.2" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="1023.5" y="820.4" width="30.2" height="15.6" fill="#b71c1c" opacity="0.88"/>
+<rect x="1054.8" y="828.0" width="30.2" height="8.0" fill="#00796b" opacity="0.88"/>
+<text x="86" y="854" class="small">min E=-4</text>
+<text x="1086" y="854" text-anchor="end" class="small">max E=14; green=valid</text>
+</svg>

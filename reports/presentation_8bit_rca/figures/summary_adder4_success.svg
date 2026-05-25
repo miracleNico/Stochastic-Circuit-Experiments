@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430">
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#1f2933}.title{font-size:18px;font-weight:700}.axis{font-size:11px}.cell{stroke:#ffffff;stroke-width:1}.small{font-size:10px}</style>
+<text x="450.0" y="24" text-anchor="middle" class="title">4-bit Exhaustive Repeated-Solve Success</text>
+<text x="238" y="68" text-anchor="end" class="axis">baseline direct RCA (forward)</text>
+<rect x="250" y="52" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="52" width="522.7" height="20" fill="#00796b"/>
+<text x="780.7" y="68" class="axis">85.7%</text>
+<text x="238" y="102" text-anchor="end" class="axis">idea 3+4 integer shadow RCA (forward)</text>
+<rect x="250" y="86" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="86" width="524.2" height="20" fill="#00796b"/>
+<text x="782.2" y="102" class="axis">85.9%</text>
+<text x="238" y="136" text-anchor="end" class="axis">idea 3+4 integer shadow RCA (inverse)</text>
+<rect x="250" y="120" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="120" width="543.0" height="20" fill="#00796b"/>
+<text x="801.0" y="136" class="axis">89.0%</text>
+<text x="238" y="170" text-anchor="end" class="axis">idea 2 only Q3.4 direct RCA (forward)</text>
+<rect x="250" y="154" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="154" width="430.2" height="20" fill="#00796b"/>
+<text x="688.2" y="170" class="axis">70.5%</text>
+<text x="238" y="204" text-anchor="end" class="axis">idea 3 only sequential window RCA (forward)</text>
+<rect x="250" y="188" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="188" width="285.4" height="20" fill="#00796b"/>
+<text x="543.4" y="204" class="axis">46.8%</text>
+<text x="238" y="238" text-anchor="end" class="axis">idea 3 only sequential window RCA (inverse)</text>
+<rect x="250" y="222" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="222" width="334.2" height="20" fill="#00796b"/>
+<text x="592.2" y="238" class="axis">54.8%</text>
+<text x="238" y="272" text-anchor="end" class="axis">idea 4 only parallel shadow RCA (forward)</text>
+<rect x="250" y="256" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="256" width="398.7" height="20" fill="#00796b"/>
+<text x="656.7" y="272" class="axis">65.4%</text>
+<text x="238" y="306" text-anchor="end" class="axis">idea 4 only parallel shadow RCA (inverse)</text>
+<rect x="250" y="290" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="290" width="454.2" height="20" fill="#00796b"/>
+<text x="712.2" y="306" class="axis">74.5%</text>
+<text x="238" y="340" text-anchor="end" class="axis">idea 2+3+4 Q3.4 shadow RCA (forward)</text>
+<rect x="250" y="324" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="324" width="601.7" height="20" fill="#00796b"/>
+<text x="859.7" y="340" class="axis">98.6%</text>
+<text x="238" y="374" text-anchor="end" class="axis">idea 2+3+4 Q3.4 shadow RCA (inverse)</text>
+<rect x="250" y="358" width="610" height="20" fill="#eef2f7"/>
+<rect x="250" y="358" width="607.7" height="20" fill="#00796b"/>
+<text x="865.7" y="374" class="axis">99.6%</text>
+</svg>
