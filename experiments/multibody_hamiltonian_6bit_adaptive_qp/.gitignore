@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.log
+gurobi.log
+
+# Generated experiment outputs. Keep summarized results in EXPERIMENT_LOG.md.
+out*/
