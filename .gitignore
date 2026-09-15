@@ -1,12 +1,30 @@
+# Python bytecode
 __pycache__/
 *.py[cod]
 
-# ModelSim transient outputs
+# ModelSim transient outputs (work libraries, transcripts, waveforms)
+transcript
+*.wlf
+vsim.wlf
+work/
+work_*/
+sim/work*/
 sim/transcript
 sim/vsim.wlf
-sim/work*/
-sim/work_*/
-work/
+
+# Local trace/plot outputs written by sim/run_*_trace.ps1 and scripts/plot_*.py
+sim/*.csv
+sim/*.png
+
+# Regenerable coefficient-variant VHDL and scaled coefficient reports.
+# Regenerate with scripts/generate_hamiltonians.py or scripts/optimize_fp8_hamiltonians.py.
+# Curated variants that are referenced by sim/*.do live in src/variants/.
+sim/experiments/
 
 # Local scratch sweeps are regenerable and are not part of the curated report.
 reports/**/scratch*/
+
+# Python/Gurobi experiment outputs (summaries belong in the experiment's EXPERIMENT_LOG.md)
+experiments/**/out*/
+experiments/**/*.log
+gurobi.log
