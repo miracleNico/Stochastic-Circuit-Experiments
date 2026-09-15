@@ -1,5 +1,7 @@
 # 6-Bit Adaptive QP Experiment Log
 
+> Part of the project experiment history: see [reports/experiment_timeline.md](../../reports/experiment_timeline.md).
+
 ## 2026-07-08: Stage3 Hard-Cut Restart With 16 Solver Threads
 
 Purpose:

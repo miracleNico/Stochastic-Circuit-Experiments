@@ -21,7 +21,7 @@ def main() -> None:
         seed_name=f"ADDER8_SHADOW1_Q34_W{copy_weight_encoded}",
         field_frac_bits=FRAC_BITS,
     )
-    write_report(ROOT / "reports" / "optimized_q34_shadow1_adder8_blocks.json", ha, fa, copy_weight_encoded)
+    write_report(ROOT / "reports" / "coefficients" / "optimized_q34_shadow1_adder8_blocks.json", ha, fa, copy_weight_encoded)
 
 
 if __name__ == "__main__":

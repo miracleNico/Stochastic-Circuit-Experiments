@@ -1,5 +1,7 @@
 # Time-Dependent RCA Experiments
 
+> Part of the project experiment history: see [reports/experiment_timeline.md](experiment_timeline.md).
+
 Date: 2026-05-24
 
 ## 1. Problem Encountered
@@ -581,8 +583,8 @@ idea 4: positive and essential for RCA timing logic
 
 ```text
 reports/comb6_equal_gap_report.md
-reports/comb6_e3m4_equal_gap.json
-reports/optimized_q34_shadow1_blocks.json
+reports/coefficients/comb6_e3m4_equal_gap.json
+reports/coefficients/optimized_q34_shadow1_blocks.json
 
 scripts/generate_shadow1_adder4.py
 scripts/generate_shadow1_q34_adder4.py

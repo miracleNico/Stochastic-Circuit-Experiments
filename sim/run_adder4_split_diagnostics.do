@@ -6,7 +6,7 @@ if {[file exists work_adder4_split_diag]} {
     vdel -lib work_adder4_split_diag -all
 }
 
-set generated_networks "experiments/generated_networks_fp8_e3m4_b1_gap100_adder4_link_1_16.vhd"
+set generated_networks "../src/variants/generated_networks_fp8_e3m4_b1_gap100_adder4_link_1_16.vhd"
 if {[info exists ::env(GENERATED_NETWORKS_VHDL)]} {
     set generated_networks $::env(GENERATED_NETWORKS_VHDL)
 }

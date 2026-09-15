@@ -1,5 +1,7 @@
 # COMB6 E3M4 Equal-Gap Experiment
 
+> Part of the project experiment history: see [reports/experiment_timeline.md](experiment_timeline.md).
+
 Date: 2026-05-24
 
 ## Purpose
@@ -108,8 +110,8 @@ J = [[0, -32, -32, 64],
 Generated artifacts:
 
 ```text
-sim/experiments/generated_networks_comb6_e3m4_equal_gap.vhd
-reports/comb6_e3m4_equal_gap.json
+src/variants/generated_networks_comb6_e3m4_equal_gap.vhd
+reports/coefficients/comb6_e3m4_equal_gap.json
 ```
 
 Follow-on time-dependent RCA results are documented in:

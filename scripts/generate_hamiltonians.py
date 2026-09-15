@@ -590,8 +590,8 @@ def main() -> None:
     parser.add_argument("--weight-frac-bits", type=int, default=0)
     parser.add_argument("--weight-scale", type=parse_fraction, default=Fraction(1, 1))
     parser.add_argument("--vhdl", type=Path, default=ROOT / "src" / "generated_networks.vhd")
-    parser.add_argument("--json", type=Path, default=ROOT / "reports" / "hamiltonians.json")
-    parser.add_argument("--markdown", type=Path, default=ROOT / "reports" / "hamiltonians.md")
+    parser.add_argument("--json", type=Path, default=ROOT / "reports" / "coefficients" / "hamiltonians.json")
+    parser.add_argument("--markdown", type=Path, default=ROOT / "reports" / "coefficients" / "hamiltonians.md")
     args = parser.parse_args()
 
     hams = hamiltonians(args)

@@ -1,5 +1,7 @@
 # 6-Bit Least+6-Shadow Adaptive 2/3/4-Body QP
 
+> Part of the project experiment history: see [reports/experiment_timeline.md](../../reports/experiment_timeline.md).
+
 This folder contains an isolated continuous floating-point experiment for a
 6-bit least-node direct adder with six true carry-shadow nodes.
 
