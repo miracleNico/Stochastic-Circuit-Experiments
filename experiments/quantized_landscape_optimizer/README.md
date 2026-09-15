@@ -1,5 +1,7 @@
 # Quantized Hamiltonian Landscape Optimizer
 
+> Part of the project experiment history: see [reports/experiment_timeline.md](../../reports/experiment_timeline.md).
+
 This folder is a decoupled test area for learning Ising coefficients that are
 not only logically correct, but also friendlier to the sampler.
 

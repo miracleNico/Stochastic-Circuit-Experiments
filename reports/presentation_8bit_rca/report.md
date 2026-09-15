@@ -1,5 +1,7 @@
 # Presentation RCA Experiments: Timing Windows, Shadow Carries, and Q3.4 Weights
 
+> Part of the project experiment history: see [reports/experiment_timeline.md](../experiment_timeline.md).
+
 Date: 2026-05-25
 
 ## 1. Problem Encountered

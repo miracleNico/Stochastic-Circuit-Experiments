@@ -1,5 +1,7 @@
 # COMB6 E3M4 Equal-Gap Experiment
 
+> Part of the project experiment history: see [reports/experiment_timeline.md](experiment_timeline.md).
+
 Date: 2026-05-24
 
 ## Purpose
