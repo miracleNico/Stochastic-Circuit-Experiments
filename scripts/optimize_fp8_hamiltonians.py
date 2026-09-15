@@ -590,8 +590,8 @@ def main() -> None:
     parser.add_argument("--adder-width", type=int, default=8)
     parser.add_argument("--link-q8", type=int, default=None, help="Deprecated: encoded Q8 link value. Prefer --link-value.")
     parser.add_argument("--link-value", type=parse_fraction, default=Fraction(1, 16))
-    parser.add_argument("--vhdl", type=Path, default=ROOT / "sim" / "experiments" / "generated_networks_fp8_optimized_split.vhd")
-    parser.add_argument("--report", type=Path, default=ROOT / "reports" / "optimized_fp8_hamiltonians.json")
+    parser.add_argument("--vhdl", type=Path, default=ROOT / "src" / "variants" / "generated_networks_fp8_optimized_split.vhd")
+    parser.add_argument("--report", type=Path, default=ROOT / "reports" / "coefficients" / "fp8_split_carry" / "optimized_fp8_hamiltonians.json")
     args = parser.parse_args()
 
     if args.adder_width < 2:

@@ -6,7 +6,7 @@ if {[file exists work_e4m3_block_timing]} {
     vdel -lib work_e4m3_block_timing -all
 }
 
-set generated_networks "experiments/generated_networks_fp8_e4m3_maxgap_link_4.vhd"
+set generated_networks "../src/variants/generated_networks_fp8_e4m3_maxgap_link_4.vhd"
 if {[info exists ::env(GENERATED_NETWORKS_VHDL)]} {
     set generated_networks $::env(GENERATED_NETWORKS_VHDL)
 }
