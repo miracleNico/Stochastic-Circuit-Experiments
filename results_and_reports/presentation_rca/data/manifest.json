@@ -1,0 +1,282 @@
+{
+  "generated_at": "2026-05-25",
+  "artifacts": {
+    "direct_adder4": {
+      "path": "experiments/presentation_rca/hardware/generated_presentation_direct_adder4.vhd",
+      "entity": "gen_adder4",
+      "seed_salt": "PRESENTATION_DIRECT4_2089CBEAE9BD7891",
+      "rnd_weight": 1,
+      "sha256": "750c89fe7772b440b6be4e219f07dd4f40fed317f45f93d2f07e56d915df064b"
+    },
+    "direct_adder8": {
+      "path": "experiments/presentation_rca/hardware/generated_presentation_direct_adder8.vhd",
+      "entity": "gen_adder8",
+      "seed_salt": "PRESENTATION_DIRECT8_03AC0721525296FE",
+      "rnd_weight": 1,
+      "sha256": "b887b7404028f5829e7c7ffd142d87af1a469d47347cce686b098fb8ccf68c01"
+    },
+    "integer_window4": {
+      "path": "experiments/presentation_rca/hardware/generated_presentation_windowed_integer_adder4.vhd",
+      "entity": "gen_adder4_windowed",
+      "seed_salt": "PRESENTATION_INT4_WINDOW_4C776B861F45C248",
+      "field_frac_bits": 0,
+      "sha256": "9bddc31a2121df36bd9c8c474689c1834ae5c6f95afdd9ff80da856af0741922"
+    },
+    "integer_shadow4": {
+      "path": "experiments/presentation_rca/hardware/generated_presentation_shadow1_integer_adder4.vhd",
+      "entity": "gen_adder4_shadow1_windowed",
+      "seed_salt": "PRESENTATION_INT4_SHADOW1_37298A3607990CB4",
+      "copy_weight_encoded": 4,
+      "field_frac_bits": 0,
+      "sha256": "7580473e35cacf1a7fb264f29c479adcd87d684a0e23b63dfd8a92b39309a579"
+    },
+    "integer_shadow8": {
+      "path": "experiments/presentation_rca/hardware/generated_presentation_shadow1_integer_adder8.vhd",
+      "entity": "gen_adder8_shadow1_windowed",
+      "seed_salt": "PRESENTATION_INT8_SHADOW1_4E898EE9DC6C6495",
+      "copy_weight_encoded": 4,
+      "field_frac_bits": 0,
+      "sha256": "d9bac7aa1ba317624e9db0d5f88289b014d942bc78de00a3f96af75f818e0d8e"
+    },
+    "q34_direct4": {
+      "path": "experiments/presentation_rca/hardware/generated_presentation_direct_q34_adder4.vhd",
+      "entity": "gen_adder4",
+      "seed_salt": "PRESENTATION_Q34_DIRECT4_6AB312F3CB926BA4",
+      "field_frac_bits": 4,
+      "rnd_weight_encoded": 4,
+      "rnd_weight_physical": 0.25,
+      "sha256": "a1de18ecf74738f4e30711c7fac365315f56f4348ad527d8827ad2f350eb6f98"
+    },
+    "q34_direct8": {
+      "path": "experiments/presentation_rca/hardware/generated_presentation_direct_q34_adder8.vhd",
+      "entity": "gen_adder8",
+      "seed_salt": "PRESENTATION_Q34_DIRECT8_5F13371CC61F068B",
+      "field_frac_bits": 4,
+      "rnd_weight_encoded": 4,
+      "rnd_weight_physical": 0.25,
+      "sha256": "c76ecc60db8e4128454f8c0b52da7c3d79d54bb44aab6d1129be8b6622014f04"
+    },
+    "q34_shadow4": {
+      "path": "experiments/presentation_rca/hardware/generated_presentation_shadow1_q34_adder4.vhd",
+      "entity": "gen_adder4_shadow1_windowed",
+      "seed_salt": "PRESENTATION_Q34_4_SHADOW1_5ED6F27AF69F9C93",
+      "copy_weight_encoded": 64,
+      "copy_weight_physical": 4.0,
+      "field_frac_bits": 4,
+      "sha256": "96d9180d5b12da9edec8601a07a1da1de34c242ccf936d0d4c91cd4e48ee886a"
+    },
+    "q34_shadow8": {
+      "path": "experiments/presentation_rca/hardware/generated_presentation_shadow1_q34_adder8.vhd",
+      "entity": "gen_adder8_shadow1_windowed",
+      "seed_salt": "PRESENTATION_Q34_8_SHADOW1_29FE5AD3BFF46B23",
+      "copy_weight_encoded": 64,
+      "copy_weight_physical": 4.0,
+      "field_frac_bits": 4,
+      "sha256": "d1954c6abc7e1338661a9714ed87097ccfb3447d8af0a2e470f6593e00eb0a15"
+    }
+  },
+  "integer_weights": {
+    "ha": {
+      "h": [
+        1,
+        1,
+        -1,
+        -2
+      ],
+      "J": [
+        [
+          0,
+          -1,
+          1,
+          2
+        ],
+        [
+          -1,
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          0,
+          -2
+        ],
+        [
+          2,
+          2,
+          -2,
+          0
+        ]
+      ],
+      "gap": 2,
+      "valid_energy": -4
+    },
+    "fa": {
+      "h": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "J": [
+        [
+          0,
+          -1,
+          -1,
+          1,
+          2
+        ],
+        [
+          -1,
+          0,
+          -1,
+          1,
+          2
+        ],
+        [
+          -1,
+          -1,
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          0,
+          -2
+        ],
+        [
+          2,
+          2,
+          2,
+          -2,
+          0
+        ]
+      ],
+      "gap": 2,
+      "valid_energy": -4
+    }
+  },
+  "q34_weights": {
+    "format": "Q3.4 fixed point",
+    "ha": {
+      "h_encoded": [
+        56,
+        56,
+        -56,
+        -112
+      ],
+      "J_encoded": [
+        [
+          0,
+          -56,
+          56,
+          112
+        ],
+        [
+          -56,
+          0,
+          56,
+          112
+        ],
+        [
+          56,
+          56,
+          0,
+          -112
+        ],
+        [
+          112,
+          112,
+          -112,
+          0
+        ]
+      ],
+      "gap_encoded": 112,
+      "gap_physical": 7.0
+    },
+    "fa": {
+      "h_encoded": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "J_encoded": [
+        [
+          0,
+          -56,
+          -56,
+          56,
+          112
+        ],
+        [
+          -56,
+          0,
+          -56,
+          56,
+          112
+        ],
+        [
+          -56,
+          -56,
+          0,
+          56,
+          112
+        ],
+        [
+          56,
+          56,
+          56,
+          0,
+          -112
+        ],
+        [
+          112,
+          112,
+          112,
+          -112,
+          0
+        ]
+      ],
+      "gap_encoded": 112,
+      "gap_physical": 7.0
+    }
+  },
+  "simulator": "QuestaSim",
+  "simulator_version": "Questa Sim-64 vsim 2024.1 Simulator 2024.02 Feb  1 2024",
+  "seed_mode": "replay",
+  "replay_compatibility": {
+    "testbench_timing": {
+      "mode": "historical-presentation",
+      "runner_switch": "-LegacyReplayTiming",
+      "applies_to": [
+        "idea34_integer4"
+      ],
+      "behavior": "skip the later clamp-prime cycle and post-edge sample delay",
+      "default_wrapper_behavior": "corrected clamp-prime cycle and post-edge sample delay",
+      "purpose": "reproduce the committed integer Idea 3+4 ModelSim-era golden exactly"
+    }
+  },
+  "git_revision": "a50e26d38c69f31e8ce0f52bcfb8d58eef83c7cb",
+  "git_dirty": true,
+  "reproduced_at_utc": "2026-09-16T10:55:29Z",
+  "source_sha256": {
+    "experiments/presentation_rca/hardware/generated_presentation_direct_adder4.vhd": "750c89fe7772b440b6be4e219f07dd4f40fed317f45f93d2f07e56d915df064b",
+    "experiments/presentation_rca/hardware/generated_presentation_direct_adder8.vhd": "b887b7404028f5829e7c7ffd142d87af1a469d47347cce686b098fb8ccf68c01",
+    "experiments/presentation_rca/hardware/generated_presentation_windowed_integer_adder4.vhd": "9bddc31a2121df36bd9c8c474689c1834ae5c6f95afdd9ff80da856af0741922",
+    "experiments/presentation_rca/hardware/generated_presentation_shadow1_integer_adder4.vhd": "7580473e35cacf1a7fb264f29c479adcd87d684a0e23b63dfd8a92b39309a579",
+    "experiments/presentation_rca/hardware/generated_presentation_shadow1_integer_adder8.vhd": "d9bac7aa1ba317624e9db0d5f88289b014d942bc78de00a3f96af75f818e0d8e",
+    "experiments/presentation_rca/hardware/generated_presentation_direct_q34_adder4.vhd": "a1de18ecf74738f4e30711c7fac365315f56f4348ad527d8827ad2f350eb6f98",
+    "experiments/presentation_rca/hardware/generated_presentation_direct_q34_adder8.vhd": "c76ecc60db8e4128454f8c0b52da7c3d79d54bb44aab6d1129be8b6622014f04",
+    "experiments/presentation_rca/hardware/generated_presentation_shadow1_q34_adder4.vhd": "96d9180d5b12da9edec8601a07a1da1de34c242ccf936d0d4c91cd4e48ee886a",
+    "experiments/presentation_rca/hardware/generated_presentation_shadow1_q34_adder8.vhd": "d1954c6abc7e1338661a9714ed87097ccfb3447d8af0a2e470f6593e00eb0a15",
+    "experiments/gate_baseline/hardware/generated_networks.vhd": "87d75ec64f7fd7453ebdad8c00b36ae6d05bd9723ea2157a6019b8ce5bbb8090",
+    "experiments/comb6_equal_gap/hardware/generated_networks_comb6_e3m4_equal_gap.vhd": "fa3b0bfb42b90762ec3b5b3b2df579f93071aeaae12deb0592ffdedbd63328e1"
+  }
+}

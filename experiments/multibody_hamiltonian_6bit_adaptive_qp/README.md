@@ -1,5 +1,19 @@
 # 6-Bit Least+6-Shadow Adaptive 2/3/4-Body QP
 
+## Repository locations (Stage F)
+
+Python research tools now live in `scripts/multibody_hamiltonian_6bit_adaptive_qp/`.
+The experiment log and generated outputs live in
+`results_and_reports/multibody_hamiltonian_6bit_adaptive_qp/`; the `out*/` subtrees
+remain ignored. Run the commands below from the repository root. No experiment
+RTL or VHDL testbench is claimed: the RTL handoff gate below remains blocked.
+
+User-supplied research materials are tracked here unchanged:
+[graph-cut brainstorm](temp_graph_cut_feedback_brainstorm.md) and
+[optimizer formulation image](optimizer_formulation.png). They are exploratory
+notes, not newly validated experimental evidence. Their historical path references
+are preserved; use the current locations above for runnable tools and results.
+
 This folder contains an isolated continuous floating-point experiment for a
 6-bit least-node direct adder with six true carry-shadow nodes.
 
@@ -13,6 +27,19 @@ full state cube = 2^25 = 33,554,432
 This is not ModelSim/VHDL and is not quantized RTL. Coefficients are optimized
 as continuous float64 values with Gurobi.
 
+The research Python environment needs NumPy, Matplotlib, Numba and, for optimization,
+`gurobipy` plus a valid Gurobi license. This is separate from the NumPy-only
+reconstructed pairwise optimizer. During reorganization, Matplotlib 3.11.2 and
+Numba 0.67.0 were installed into the ignored project-local `.venv`; all seven
+research modules import, and `unit-check` and `pip check` passed. This does not
+rerun optimization or reconstruct the missing Stage3 result.
+
+```powershell
+python -m venv .venv
+./.venv/Scripts/python.exe -m pip install -r scripts/multibody_hamiltonian_6bit_adaptive_qp/requirements.txt
+./.venv/Scripts/python.exe scripts/multibody_hamiltonian_6bit_adaptive_qp/adaptive_qp_6bit.py unit-check
+```
+
 ## RTL Handoff Status
 
 The 2026-09-16 Questa migration preflight stopped before coefficient
@@ -22,7 +49,7 @@ support, active cuts, audit payload, or their SHA-256 identities. A newly
 solved zero-violation Hamiltonian could therefore not be proven identical to
 the documented Stage3 result. Per the RTL research gate, no term ROM or
 multibody field core is emitted until that exact source artifact can be
-recovered or reproducibly rebuilt and frozen. See `EXPERIMENT_LOG.md`.
+recovered or reproducibly rebuilt and frozen. See [EXPERIMENT_LOG.md](../../results_and_reports/multibody_hamiltonian_6bit_adaptive_qp/EXPERIMENT_LOG.md).
 
 ## QP Formulation
 
@@ -59,29 +86,29 @@ soft-cap penalty.
 ## Runs
 
 ```powershell
-python .\experiments\multibody_hamiltonian_6bit_adaptive_qp\adaptive_qp_6bit.py unit-check
+python .\scripts\multibody_hamiltonian_6bit_adaptive_qp\adaptive_qp_6bit.py unit-check
 
-python .\experiments\multibody_hamiltonian_6bit_adaptive_qp\adaptive_qp_6bit.py run-all `
-  --out .\experiments\multibody_hamiltonian_6bit_adaptive_qp\out
+python .\scripts\multibody_hamiltonian_6bit_adaptive_qp\adaptive_qp_6bit.py run-all `
+  --out .\results_and_reports\multibody_hamiltonian_6bit_adaptive_qp\out
 
-python .\experiments\multibody_hamiltonian_6bit_adaptive_qp\adaptive_qp_6bit.py run-baseline `
+python .\scripts\multibody_hamiltonian_6bit_adaptive_qp\adaptive_qp_6bit.py run-baseline `
   --order 3 `
-  --out .\experiments\multibody_hamiltonian_6bit_adaptive_qp\out
+  --out .\results_and_reports\multibody_hamiltonian_6bit_adaptive_qp\out
 
-python .\experiments\multibody_hamiltonian_6bit_adaptive_qp\adaptive_qp_6bit.py run-adaptive `
-  --out .\experiments\multibody_hamiltonian_6bit_adaptive_qp\out `
-  --full3-solution .\experiments\multibody_hamiltonian_6bit_adaptive_qp\out\full3\solution_full3.json
+python .\scripts\multibody_hamiltonian_6bit_adaptive_qp\adaptive_qp_6bit.py run-adaptive `
+  --out .\results_and_reports\multibody_hamiltonian_6bit_adaptive_qp\out `
+  --full3-solution .\results_and_reports\multibody_hamiltonian_6bit_adaptive_qp\out\full3\solution_full3.json
 
-python .\experiments\multibody_hamiltonian_6bit_adaptive_qp\compare_adaptive23_convergence.py `
+python .\scripts\multibody_hamiltonian_6bit_adaptive_qp\compare_adaptive23_convergence.py `
   --schedule paper-ssa `
   --paper-noise common `
-  --out-dir .\experiments\multibody_hamiltonian_6bit_adaptive_qp\out_adaptive23\convergence_compare_paper_ssa_common `
+  --out-dir .\results_and_reports\multibody_hamiltonian_6bit_adaptive_qp\out_adaptive23\convergence_compare_paper_ssa_common `
   --cycles 1000 `
   --trials 5
 
-python .\experiments\multibody_hamiltonian_6bit_adaptive_qp\staged_cut_verifier.py `
+python .\scripts\multibody_hamiltonian_6bit_adaptive_qp\staged_cut_verifier.py `
   --stage stage3 `
-  --out .\experiments\multibody_hamiltonian_6bit_adaptive_qp\out_staged_cut_sum_sibling_hard_run_t16 `
+  --out .\results_and_reports\multibody_hamiltonian_6bit_adaptive_qp\out_staged_cut_sum_sibling_hard_run_t16 `
   --stage3-cut-sum-sum `
   --stage3-cut-output-siblings `
   --max-rounds 4 `
@@ -117,7 +144,7 @@ The staged hard-cut verifier is used for controlled edge/hyperedge removal
 experiments. The current documented Stage3 run hard-cuts all SUM-SUM pairs and
 the local SUM-to-next-carry/output-sibling pairs before selecting 2/3-body
 terms. Its detailed selection rule, node scores, and final closure metrics are
-recorded in `EXPERIMENT_LOG.md`.
+recorded in [EXPERIMENT_LOG.md](../../results_and_reports/multibody_hamiltonian_6bit_adaptive_qp/EXPERIMENT_LOG.md).
 
 ## Outputs
 
@@ -158,7 +185,7 @@ If the paper-derived noise is too high for a clamped logic task, the runner can
 keep the paper's initial noise magnitude but decay it exponentially:
 
 ```powershell
-python .\experiments\multibody_hamiltonian_6bit_adaptive_qp\compare_adaptive23_convergence.py `
+python .\scripts\multibody_hamiltonian_6bit_adaptive_qp\compare_adaptive23_convergence.py `
   --schedule paper-ssa `
   --paper-noise common `
   --paper-noise-decay exp `

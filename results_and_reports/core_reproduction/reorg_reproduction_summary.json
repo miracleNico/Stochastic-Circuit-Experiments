@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "suite": "core",
+  "seed_mode": "replay",
+  "simulator": "QuestaSim",
+  "simulator_version": "Questa Sim-64 vsim 2024.1 Simulator 2024.02 Feb  1 2024",
+  "replay_compatibility": {
+    "testbench_timing": {
+      "mode": "historical-presentation",
+      "runner_switch": "-LegacyReplayTiming",
+      "applies_to": [
+        "idea34_integer4"
+      ],
+      "behavior": "skip the later clamp-prime cycle and post-edge sample delay",
+      "default_wrapper_behavior": "corrected clamp-prime cycle and post-edge sample delay",
+      "purpose": "reproduce the committed integer Idea 3+4 ModelSim-era golden exactly"
+    }
+  },
+  "git_revision": "6ed61d92a28fbbc54bbd359b93f812093e8e1bfe",
+  "git_dirty": true,
+  "started_at_utc": "2026-09-16T12:59:26Z",
+  "completed_at_utc": "2026-09-16T13:25:07Z",
+  "source_sha256": {
+    "experiments/presentation_rca/hardware/generated_presentation_direct_adder4.vhd": "750c89fe7772b440b6be4e219f07dd4f40fed317f45f93d2f07e56d915df064b",
+    "experiments/presentation_rca/hardware/generated_presentation_direct_adder8.vhd": "b887b7404028f5829e7c7ffd142d87af1a469d47347cce686b098fb8ccf68c01",
+    "experiments/presentation_rca/hardware/generated_presentation_windowed_integer_adder4.vhd": "9bddc31a2121df36bd9c8c474689c1834ae5c6f95afdd9ff80da856af0741922",
+    "experiments/presentation_rca/hardware/generated_presentation_shadow1_integer_adder4.vhd": "7580473e35cacf1a7fb264f29c479adcd87d684a0e23b63dfd8a92b39309a579",
+    "experiments/presentation_rca/hardware/generated_presentation_shadow1_integer_adder8.vhd": "d9bac7aa1ba317624e9db0d5f88289b014d942bc78de00a3f96af75f818e0d8e",
+    "experiments/presentation_rca/hardware/generated_presentation_direct_q34_adder4.vhd": "a1de18ecf74738f4e30711c7fac365315f56f4348ad527d8827ad2f350eb6f98",
+    "experiments/presentation_rca/hardware/generated_presentation_direct_q34_adder8.vhd": "c76ecc60db8e4128454f8c0b52da7c3d79d54bb44aab6d1129be8b6622014f04",
+    "experiments/presentation_rca/hardware/generated_presentation_shadow1_q34_adder4.vhd": "96d9180d5b12da9edec8601a07a1da1de34c242ccf936d0d4c91cd4e48ee886a",
+    "experiments/presentation_rca/hardware/generated_presentation_shadow1_q34_adder8.vhd": "d1954c6abc7e1338661a9714ed87097ccfb3447d8af0a2e470f6593e00eb0a15",
+    "experiments/gate_baseline/hardware/generated_networks.vhd": "87d75ec64f7fd7453ebdad8c00b36ae6d05bd9723ea2157a6019b8ce5bbb8090",
+    "experiments/comb6_equal_gap/hardware/generated_networks_comb6_e3m4_equal_gap.vhd": "fa3b0bfb42b90762ec3b5b3b2df579f93071aeaae12deb0592ffdedbd63328e1"
+  },
+  "comb6": {
+    "comb6_integer_1000": {
+      "top_matches": 21,
+      "zero_hit_cases": 39,
+      "min_hits": 0,
+      "total_hits": 20088,
+      "sample_count": 1000,
+      "cases": 64
+    },
+    "comb6_integer_20000": {
+      "top_matches": 50,
+      "zero_hit_cases": 14,
+      "min_hits": 0,
+      "total_hits": 47484,
+      "sample_count": 1000,
+      "cases": 64
+    },
+    "comb6_e3m4_1000": {
+      "top_matches": 57,
+      "zero_hit_cases": 2,
+      "min_hits": 0,
+      "total_hits": 54736,
+      "sample_count": 1000,
+      "cases": 64
+    },
+    "comb6_e3m4_5000": {
+      "top_matches": 62,
+      "zero_hit_cases": 2,
+      "min_hits": 0,
+      "total_hits": 62000,
+      "sample_count": 1000,
+      "cases": 64
+    },
+    "comb6_e3m4_20000": {
+      "top_matches": 64,
+      "zero_hit_cases": 0,
+      "min_hits": 997,
+      "total_hits": 63940,
+      "sample_count": 1000,
+      "cases": 64
+    }
+  },
+  "acceptance": {
+    "adder4": {
+      "baseline_direct4/forward": 21937,
+      "idea34_integer4/forward": 22001,
+      "idea34_integer4/inverse_bsum": 22787,
+      "idea2_q34_direct4/forward": 18056,
+      "idea3_window4/forward": 11977,
+      "idea3_window4/inverse_bsum": 14027,
+      "idea4_shadow_parallel4/forward": 16732,
+      "idea4_shadow_parallel4/inverse_bsum": 19061,
+      "idea234_q34_4/forward": 25511,
+      "idea234_q34_4/inverse_bsum": 25516
+    },
+    "sum_only": {
+      "sum_baseline_direct4": 26645,
+      "sum_idea34_integer4": 21267,
+      "sum_idea234_q34_4": 23946,
+      "sum_idea234_q34_reverse40_4": 23776,
+      "sum_idea4_parallel4": 19516,
+      "sum_idea24_q34_parallel4": 23818
+    },
+    "adder8": {
+      "baseline_direct8": 260,
+      "idea2_q34_direct8": 300,
+      "idea34_integer8": 421,
+      "idea234_q34_8": 596
+    },
+    "windows": {
+      "w2_2_4_2": 24654,
+      "w10_8_16_6": 25287,
+      "w40_40_40_40": 25511
+    }
+  },
+  "report_update_requested": false
+}

@@ -1,5 +1,16 @@
 # Quantized Hamiltonian Landscape Optimizer
 
+## Repository locations
+
+Stage E is the historical archive; Stage G is the reconstructed successor below.
+This directory owns the portable `specs/` and documentation. Current Python tools
+and tests live in `scripts/quantized_landscape_optimizer/`; Questa launchers and
+the static VHDL audit testbench live in `sim_scripts/quantized_landscape_optimizer/`
+and its `tb/`. New audit outputs go to
+`results_and_reports/quantized_landscape_optimizer/runs/`. Commands run from the
+repository root. Historical unavailable commands later in this README are
+preserved as provenance, not current entry points.
+
 This folder is a decoupled test area for learning pairwise Ising coefficients
 that are logically correct, quantizable, and friendlier to a one-bit-flip
 sampler. The original Stage E sources were not committed. The runnable artifact
@@ -61,15 +72,15 @@ of `2*quantum`; choose gap and descent settings with that lattice in mind.
 Run built-in gate demos:
 
 ```powershell
-python experiments\quantized_landscape_optimizer\generic_optimizer.py demo-gate --gate ha
-python experiments\quantized_landscape_optimizer\generic_optimizer.py demo-gate --gate fa
+python scripts\quantized_landscape_optimizer\generic_optimizer.py demo-gate --gate ha
+python scripts\quantized_landscape_optimizer\generic_optimizer.py demo-gate --gate fa
 ```
 
 Solve the included portable half-adder spec and save the same JSON that is
 printed to standard output:
 
 ```powershell
-python experiments\quantized_landscape_optimizer\generic_optimizer.py solve-spec --spec experiments\quantized_landscape_optimizer\specs\ha_demo.json --json-out experiments\quantized_landscape_optimizer\out\ha_demo_result.json
+python scripts\quantized_landscape_optimizer\generic_optimizer.py solve-spec --spec experiments\quantized_landscape_optimizer\specs\ha_demo.json --json-out results_and_reports\quantized_landscape_optimizer\out\ha_demo_result.json
 ```
 
 Both subcommands accept the same solver options. The defaults are:
@@ -170,13 +181,13 @@ process-only `PYTHON` variable is available. `-PassThru` returns the run,
 transcript, metadata, wave, and verification paths for orchestration code.
 
 ```powershell
-./experiments/quantized_landscape_optimizer/run_questa_audit.ps1
-./experiments/quantized_landscape_optimizer/run_generated_gates_audit.ps1
+./sim_scripts/quantized_landscape_optimizer/run_questa_audit.ps1
+./sim_scripts/quantized_landscape_optimizer/run_generated_gates_audit.ps1
 ```
 
 `run_questa_audit.ps1` solves the built-in HA and FA problems, writes temporary
 optimizer JSON, and passes it to `export_vhdl_coefficients.py`. The exporter
-parses the current `src/generated_networks.vhd` `BIAS`/`W*` values and refuses
+parses the current `experiments/gate_baseline/hardware/generated_networks.vhd` `BIAS`/`W*` values and refuses
 to emit a package unless every RTL coefficient is exactly twice the optimizer
 coefficient. The VHDL audit then enumerates all 16 HA and 32 FA states and
 requires:
@@ -222,7 +233,7 @@ python experiments\quantized_landscape_optimizer\landscape_optimizer.py optimize
 Historical JSON-output command (unavailable):
 
 ```text
-python experiments\quantized_landscape_optimizer\landscape_optimizer.py optimize-gates --target-gap 4 --json-out experiments\quantized_landscape_optimizer\out\q34_gap4.json
+python experiments\quantized_landscape_optimizer\landscape_optimizer.py optimize-gates --target-gap 4 --json-out results_and_reports\quantized_landscape_optimizer\out\q34_gap4.json
 ```
 
 The recorded composed-RCA optimizer kept the HA/FA valid states at one
@@ -322,7 +333,7 @@ Recorded bounded paper-style LP command (not runnable in this checkout):
 
 ```text
 $env:GRB_LICENSE_FILE='C:\gurobi1302\gurobi.lic'
-python experiments\quantized_landscape_optimizer\least_node_lp_adder8.py --out experiments\quantized_landscape_optimizer\out\least_node_lp_adder8_coeff2_cut --coeff-max 2 --initial-invalid 10000 --rounds 12 --cuts-per-round 4096 --chunk-size 1048576 --seed 20260602 --time-limit 300
+python experiments\quantized_landscape_optimizer\least_node_lp_adder8.py --out results_and_reports\quantized_landscape_optimizer\out\least_node_lp_adder8_coeff2_cut --coeff-max 2 --initial-invalid 10000 --rounds 12 --cuts-per-round 4096 --chunk-size 1048576 --seed 20260602 --time-limit 300
 ```
 
 ### Shadow Topologies
@@ -375,14 +386,14 @@ retained only as historical provenance and is not runnable in this checkout:
 
 ```text
 $env:GRB_LICENSE_FILE='C:\gurobi1302\gurobi.lic'
-python experiments\quantized_landscape_optimizer\shadow_group_adder8.py --shadow-mode carry8 --method gurobi-qp --coeff-max 2 --min-gap 1 --valid-weight 20000 --tv-weight 10 --coeff-l2-weight 0.01 --valid-samples 8192 --invalid-samples 0 --clamp-invalid-samples 4096 --tv-samples 4000 --time-limit 300 --cutting-rounds 2 --cuts-per-case 128 --cut-margin 1 --seed 20260601 --out experiments\quantized_landscape_optimizer\out\shadow_carry8_gurobi_qp_maxj2_gap1_v8192_c4096_cut2
+python experiments\quantized_landscape_optimizer\shadow_group_adder8.py --shadow-mode carry8 --method gurobi-qp --coeff-max 2 --min-gap 1 --valid-weight 20000 --tv-weight 10 --coeff-l2-weight 0.01 --valid-samples 8192 --invalid-samples 0 --clamp-invalid-samples 4096 --tv-samples 4000 --time-limit 300 --cutting-rounds 2 --cuts-per-case 128 --cut-margin 1 --seed 20260601 --out results_and_reports\quantized_landscape_optimizer\out\shadow_carry8_gurobi_qp_maxj2_gap1_v8192_c4096_cut2
 ```
 
 Recorded twelve-shadow command (not runnable in this checkout):
 
 ```text
 $env:GRB_LICENSE_FILE='C:\gurobi1302\gurobi.lic'
-python experiments\quantized_landscape_optimizer\shadow_group_adder8.py --shadow-mode carry8group4 --method gurobi-qp --coeff-max 7 --min-gap 1 --valid-weight 20000 --tv-weight 10 --coeff-l2-weight 0.01 --valid-samples 32768 --invalid-samples 0 --clamp-invalid-samples 8192 --tv-samples 8192 --cutting-rounds 2 --cuts-per-case 256 --cut-margin 1 --seed 20260610 --out experiments\quantized_landscape_optimizer\out\shadow_carry8group4_qp_maxj7_gap1_v32768_c8192_cut2
+python experiments\quantized_landscape_optimizer\shadow_group_adder8.py --shadow-mode carry8group4 --method gurobi-qp --coeff-max 7 --min-gap 1 --valid-weight 20000 --tv-weight 10 --coeff-l2-weight 0.01 --valid-samples 32768 --invalid-samples 0 --clamp-invalid-samples 8192 --tv-samples 8192 --cutting-rounds 2 --cuts-per-case 256 --cut-margin 1 --seed 20260610 --out results_and_reports\quantized_landscape_optimizer\out\shadow_carry8group4_qp_maxj7_gap1_v32768_c8192_cut2
 ```
 
 The `coeff-max=7` 12-shadow run did not actually use large coefficients:
@@ -426,7 +437,7 @@ For the recorded quick comparison, `n_opt` was constant and `I0` reached
 `I0_max` at cycle 100. This command is not runnable in this checkout:
 
 ```text
-python experiments\quantized_landscape_optimizer\compare_backward_real8.py --out experiments\quantized_landscape_optimizer\out\backward_real8_q16_i0max100_constantnopt_shadow12_maxj7 --shadow-solution experiments\quantized_landscape_optimizer\out\shadow_carry8group4_qp_maxj7_gap1_v32768_c8192_cut2\solution.json --frac-bits 16 --trials 100 --checkpoints 100,300,1000,2000 --update-rule paper-ssa --i0-max-time 100 --paper-noise-start-multiplier 1 --paper-noise-end-multiplier 1 --paper-noise-ramp-cycles 0 --seed 20260609
+python experiments\quantized_landscape_optimizer\compare_backward_real8.py --out results_and_reports\quantized_landscape_optimizer\out\backward_real8_q16_i0max100_constantnopt_shadow12_maxj7 --shadow-solution results_and_reports\quantized_landscape_optimizer\out\shadow_carry8group4_qp_maxj7_gap1_v32768_c8192_cut2\solution.json --frac-bits 16 --trials 100 --checkpoints 100,300,1000,2000 --update-rule paper-ssa --i0-max-time 100 --paper-noise-start-multiplier 1 --paper-noise-end-multiplier 1 --paper-noise-ramp-cycles 0 --seed 20260609
 ```
 
 Selected-vector result at 2000 cycles, six `(A,B)` cases, 100 random
@@ -456,7 +467,7 @@ shadow design, the landscape is projected by minimizing over all shadow nodes.
 Recorded plot-generation command (not runnable in this checkout):
 
 ```text
-python experiments\quantized_landscape_optimizer\visualize_shadow_vs_rca8.py --shadow-solution experiments\quantized_landscape_optimizer\out\shadow_carry8group4_qp_maxj7_gap1_v32768_c8192_cut2\solution.json --out experiments\quantized_landscape_optimizer\out\rca8_vs_shadow12_maxj7_landscape
+python experiments\quantized_landscape_optimizer\visualize_shadow_vs_rca8.py --shadow-solution results_and_reports\quantized_landscape_optimizer\out\shadow_carry8group4_qp_maxj7_gap1_v32768_c8192_cut2\solution.json --out results_and_reports\quantized_landscape_optimizer\out\rca8_vs_shadow12_maxj7_landscape
 ```
 
 Latest projected inverse landscape summary:
@@ -470,5 +481,5 @@ Latest projected inverse landscape summary:
 The historical plots were written to:
 
 ```text
-experiments/quantized_landscape_optimizer/out/rca8_vs_shadow12_maxj7_landscape
+results_and_reports/quantized_landscape_optimizer/out/rca8_vs_shadow12_maxj7_landscape
 ```

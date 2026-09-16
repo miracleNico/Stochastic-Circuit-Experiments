@@ -1,0 +1,6 @@
+# Replay hashes use exact working-tree bytes. Pin the original checkout style
+# explicitly so core.autocrlf (or a different platform) cannot change the hash.
+*.vhd text eol=crlf
+sim_scripts/quantized_landscape_optimizer/tb/tb_optimizer_energy_audit.vhd text eol=lf
+sim_scripts/tests/fixtures/*.vhd text eol=lf
+results_and_reports/**/traces/* text eol=lf
