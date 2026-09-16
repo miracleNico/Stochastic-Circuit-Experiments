@@ -1,6 +1,10 @@
 # COMB6 E3M4 Equal-Gap Experiment
 
-Date: 2026-05-24
+Date: 2026-09-16
+
+Simulator: `Questa Sim-64 vsim 2024.1 Simulator 2024.02 Feb  1 2024`
+
+Reproduction: fixed committed VHDL replay at Git `a50e26d38c69f31e8ce0f52bcfb8d58eef83c7cb`; no new seed salt was generated.
 
 ## Purpose
 

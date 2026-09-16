@@ -1,0 +1,311 @@
+# do {C:/Projects/stochastic-circuits-experiments/sim/run_comb6_diagnostics.do}
+# onerror {quit -code 1}
+# onbreak {quit -code 1}
+#
+# if {[file exists work_comb6_diag]} {
+#     vdel -lib work_comb6_diag -all
+# }
+#
+# set generated_networks "[sim_repo_path {src/generated_networks.vhd}]"
+# C:/Projects/stochastic-circuits-experiments/src/generated_networks.vhd
+# if {[info exists ::env(GENERATED_NETWORKS_VHDL)]} {
+#     set generated_networks [sim_input_path $::env(GENERATED_NETWORKS_VHDL)]
+# }
+# C:/Projects/stochastic-circuits-experiments/src/generated_networks.vhd
+# set comb_rnd_weight 1
+# 1
+# if {[info exists ::env(COMB_RND_WEIGHT)]} {
+#     set comb_rnd_weight $::env(COMB_RND_WEIGHT)
+# }
+# 1
+# set settle_cycles 1000
+# 1000
+# if {[info exists ::env(COMB_SETTLE_CYCLES)]} {
+#     set settle_cycles $::env(COMB_SETTLE_CYCLES)
+# }
+# 20000
+# set count_cycles 1000
+# 1000
+# if {[info exists ::env(COMB_COUNT_CYCLES)]} {
+#     set count_cycles $::env(COMB_COUNT_CYCLES)
+# }
+# 1000
+#
+# vlib work_comb6_diag
+# vmap work work_comb6_diag
+# QuestaSim-64 vmap 2024.1 Lib Mapping Utility 2024.02 Feb  1 2024
+# vmap work work_comb6_diag
+# Modifying C:\Projects\stochastic-circuits-experiments\.sim_build\reproduction\questa\run_comb6_diagnostics\core-questa-20260916-final3-comb6_integer_20000\modelsim.ini
+#
+# vcom -2008 [sim_repo_path {src/inv_sc_pkg.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:48 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/inv_sc_pkg.vhd
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package inv_sc_pkg
+# -- Compiling package body inv_sc_pkg
+# -- Loading package inv_sc_pkg
+# End time: 19:38:48 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 [sim_repo_path {src/lfsr32.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:48 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/lfsr32.vhd
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lfsr32
+# -- Compiling architecture rtl of lfsr32
+# End time: 19:38:48 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 [sim_repo_path {src/spin_node.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:48 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/spin_node.vhd
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity spin_node
+# -- Compiling architecture rtl of spin_node
+# -- Loading entity lfsr32
+# End time: 19:38:48 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 $generated_networks
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:49 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/generated_networks.vhd
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity gen_and_gate
+# -- Compiling architecture rtl of gen_and_gate
+# -- Loading entity spin_node
+# -- Compiling entity gen_or_gate
+# -- Compiling architecture rtl of gen_or_gate
+# -- Compiling entity gen_nand_gate
+# -- Compiling architecture rtl of gen_nand_gate
+# -- Compiling entity gen_nor_gate
+# -- Compiling architecture rtl of gen_nor_gate
+# -- Compiling entity gen_xor_gate
+# -- Compiling architecture rtl of gen_xor_gate
+# -- Compiling entity gen_xnor_gate
+# -- Compiling architecture rtl of gen_xnor_gate
+# -- Compiling entity gen_fa_gate
+# -- Compiling architecture rtl of gen_fa_gate
+# -- Compiling entity gen_adder4
+# -- Compiling architecture rtl of gen_adder4
+# -- Compiling entity gen_adder8
+# -- Compiling architecture rtl of gen_adder8
+# -- Compiling entity gen_comb6_mixed
+# -- Compiling architecture rtl of gen_comb6_mixed
+# -- Compiling entity gen_bitcount8
+# -- Compiling architecture rtl of gen_bitcount8
+# End time: 19:38:49 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 [sim_repo_path {tb/tb_comb6_diagnostics.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:49 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/tb/tb_comb6_diagnostics.vhd
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_comb6_diagnostics
+# -- Compiling architecture sim of tb_comb6_diagnostics
+# -- Loading package inv_sc_pkg
+# -- Loading entity gen_comb6_mixed
+# End time: 19:38:49 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+#
+# vsim -gCOMB_RND_WEIGHT=$comb_rnd_weight -gSETTLE_CYCLES=$settle_cycles -gCOUNT_CYCLES=$count_cycles work.tb_comb6_diagnostics
+# vsim work.tb_comb6_diagnostics -gCOUNT_CYCLES=1000 -gSETTLE_CYCLES=20000 -gCOMB_RND_WEIGHT=1
+# Start time: 19:38:49 on Sep 16,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.inv_sc_pkg(body)
+# Loading work.tb_comb6_diagnostics(sim)#1
+# Loading work.gen_comb6_mixed(rtl)#1
+# Loading work.spin_node(rtl)#1
+# Loading work.spin_node(rtl)#2
+# Loading work.spin_node(rtl)#3
+# Loading work.spin_node(rtl)#4
+# Loading work.spin_node(rtl)#5
+# Loading work.spin_node(rtl)#6
+# Loading work.spin_node(rtl)#7
+# Loading work.spin_node(rtl)#8
+# Loading work.spin_node(rtl)#9
+# Loading work.spin_node(rtl)#10
+# Loading work.spin_node(rtl)#11
+# Loading work.spin_node(rtl)#12
+# Loading work.spin_node(rtl)#13
+# Loading work.spin_node(rtl)#14
+# Loading work.spin_node(rtl)#15
+# Loading work.spin_node(rtl)#16
+# Loading work.spin_node(rtl)#17
+#
+# set case_count 64
+# 64
+# set run_ns [expr {($case_count * (8 + $settle_cycles + $count_cycles) + 200) * 10}]
+# 13447120
+# run ${run_ns} ns
+# ** Note: comb6 forward input=0 expected_sig=8 hits=941/1000 top_sig=8 top_count=941
+#    Time: 210075 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=1 expected_sig=14 hits=1000/1000 top_sig=14 top_count=1000
+#    Time: 420155 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=2 expected_sig=14 hits=1000/1000 top_sig=14 top_count=1000
+#    Time: 630235 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=3 expected_sig=11 hits=935/1000 top_sig=11 top_count=935
+#    Time: 840315 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=4 expected_sig=7 hits=0/1000 top_sig=9 top_count=935
+#    Time: 1050395 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=5 expected_sig=9 hits=935/1000 top_sig=9 top_count=935
+#    Time: 1260475 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=6 expected_sig=11 hits=0/1000 top_sig=7 top_count=1000
+#    Time: 1470555 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=7 expected_sig=12 hits=1000/1000 top_sig=12 top_count=1000
+#    Time: 1680635 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=8 expected_sig=9 hits=935/1000 top_sig=9 top_count=935
+#    Time: 1890715 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=9 expected_sig=7 hits=0/1000 top_sig=9 top_count=935
+#    Time: 2100795 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=10 expected_sig=5 hits=1000/1000 top_sig=5 top_count=1000
+#    Time: 2310875 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=11 expected_sig=10 hits=879/1000 top_sig=10 top_count=879
+#    Time: 2520955 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=12 expected_sig=7 hits=0/1000 top_sig=9 top_count=935
+#    Time: 2731035 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=13 expected_sig=9 hits=935/1000 top_sig=9 top_count=935
+#    Time: 2941115 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=14 expected_sig=11 hits=0/1000 top_sig=7 top_count=1000
+#    Time: 3151195 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=15 expected_sig=12 hits=1000/1000 top_sig=12 top_count=1000
+#    Time: 3361275 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=16 expected_sig=8 hits=941/1000 top_sig=8 top_count=941
+#    Time: 3571355 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=17 expected_sig=14 hits=1000/1000 top_sig=14 top_count=1000
+#    Time: 3781435 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=18 expected_sig=14 hits=1000/1000 top_sig=14 top_count=1000
+#    Time: 3991515 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=19 expected_sig=11 hits=935/1000 top_sig=11 top_count=935
+#    Time: 4201595 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=20 expected_sig=7 hits=0/1000 top_sig=14 top_count=999
+#    Time: 4411675 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=21 expected_sig=9 hits=935/1000 top_sig=9 top_count=935
+#    Time: 4621755 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=22 expected_sig=11 hits=0/1000 top_sig=7 top_count=1000
+#    Time: 4831835 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=23 expected_sig=12 hits=1000/1000 top_sig=12 top_count=1000
+#    Time: 5041915 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=24 expected_sig=9 hits=935/1000 top_sig=9 top_count=935
+#    Time: 5251995 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=25 expected_sig=7 hits=0/1000 top_sig=14 top_count=999
+#    Time: 5462075 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=26 expected_sig=5 hits=1000/1000 top_sig=5 top_count=1000
+#    Time: 5672155 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=27 expected_sig=10 hits=879/1000 top_sig=10 top_count=879
+#    Time: 5882235 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=28 expected_sig=7 hits=0/1000 top_sig=14 top_count=999
+#    Time: 6092315 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=29 expected_sig=9 hits=935/1000 top_sig=9 top_count=935
+#    Time: 6302395 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=30 expected_sig=11 hits=0/1000 top_sig=7 top_count=1000
+#    Time: 6512475 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=31 expected_sig=12 hits=1000/1000 top_sig=12 top_count=1000
+#    Time: 6722555 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=32 expected_sig=14 hits=1000/1000 top_sig=14 top_count=1000
+#    Time: 6932635 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=33 expected_sig=10 hits=941/1000 top_sig=10 top_count=941
+#    Time: 7142715 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=34 expected_sig=8 hits=941/1000 top_sig=8 top_count=941
+#    Time: 7352795 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=35 expected_sig=7 hits=1000/1000 top_sig=7 top_count=1000
+#    Time: 7562875 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=36 expected_sig=11 hits=0/1000 top_sig=7 top_count=1000
+#    Time: 7772955 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=37 expected_sig=5 hits=1000/1000 top_sig=5 top_count=1000
+#    Time: 7983035 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=38 expected_sig=7 hits=1000/1000 top_sig=7 top_count=1000
+#    Time: 8193115 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=39 expected_sig=8 hits=879/1000 top_sig=8 top_count=879
+#    Time: 8403195 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=40 expected_sig=5 hits=1000/1000 top_sig=5 top_count=1000
+#    Time: 8613275 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=41 expected_sig=11 hits=0/1000 top_sig=7 top_count=1000
+#    Time: 8823355 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=42 expected_sig=9 hits=935/1000 top_sig=9 top_count=935
+#    Time: 9033435 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=43 expected_sig=14 hits=1000/1000 top_sig=14 top_count=1000
+#    Time: 9243515 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=44 expected_sig=11 hits=0/1000 top_sig=7 top_count=1000
+#    Time: 9453595 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=45 expected_sig=5 hits=1000/1000 top_sig=5 top_count=1000
+#    Time: 9663675 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=46 expected_sig=7 hits=1000/1000 top_sig=7 top_count=1000
+#    Time: 9873755 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=47 expected_sig=8 hits=879/1000 top_sig=8 top_count=879
+#    Time: 10083835 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=48 expected_sig=14 hits=1000/1000 top_sig=14 top_count=1000
+#    Time: 10293915 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=49 expected_sig=10 hits=0/1000 top_sig=12 top_count=1000
+#    Time: 10503995 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=50 expected_sig=8 hits=825/1000 top_sig=8 top_count=825
+#    Time: 10714075 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=51 expected_sig=5 hits=1000/1000 top_sig=5 top_count=1000
+#    Time: 10924155 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=52 expected_sig=9 hits=935/1000 top_sig=9 top_count=935
+#    Time: 11134235 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=53 expected_sig=5 hits=1000/1000 top_sig=5 top_count=1000
+#    Time: 11344315 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=54 expected_sig=5 hits=1000/1000 top_sig=5 top_count=1000
+#    Time: 11554395 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=55 expected_sig=8 hits=612/1000 top_sig=8 top_count=612
+#    Time: 11764475 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=56 expected_sig=5 hits=1000/1000 top_sig=5 top_count=1000
+#    Time: 11974555 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=57 expected_sig=9 hits=935/1000 top_sig=9 top_count=935
+#    Time: 12184635 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=58 expected_sig=9 hits=935/1000 top_sig=9 top_count=935
+#    Time: 12394715 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=59 expected_sig=12 hits=1000/1000 top_sig=12 top_count=1000
+#    Time: 12604795 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=60 expected_sig=9 hits=935/1000 top_sig=9 top_count=935
+#    Time: 12814875 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=61 expected_sig=5 hits=1000/1000 top_sig=5 top_count=1000
+#    Time: 13024955 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=62 expected_sig=5 hits=1000/1000 top_sig=5 top_count=1000
+#    Time: 13235035 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 forward input=63 expected_sig=8 hits=612/1000 top_sig=8 top_count=612
+#    Time: 13445115 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: comb6 summary min_hits=0/1000 worst_input=4 expected_sig=7
+#    Time: 13445115 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+# ** Note: tb_comb6_diagnostics completed
+#    Time: 13445115 ns  Iteration: 0  Instance: /tb_comb6_diagnostics
+#
+# quit -f
+# End time: 19:38:58 on Sep 16,2026, Elapsed time: 0:00:09
+# Errors: 0, Warnings: 0

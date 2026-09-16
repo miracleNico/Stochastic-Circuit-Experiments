@@ -1,6 +1,10 @@
 # Presentation RCA Experiments: Timing Windows, Shadow Carries, and Q3.4 Weights
 
-Date: 2026-05-25
+Date: 2026-09-16
+
+Simulator: `Questa Sim-64 vsim 2024.1 Simulator 2024.02 Feb  1 2024` (QuestaSim)
+
+Evidence mode: `replay` at Git `a50e26d38c69f31e8ce0f52bcfb8d58eef83c7cb`
 
 ## 1. Problem Encountered
 
@@ -34,9 +38,11 @@ These figures provide the gate-level reference for every primitive block used he
 
 ![Gate reverse distributions](figures/gate_reverse_distributions.svg)
 
-## 4. ModelSim Protocol
+## 4. QuestaSim Protocol
 
-All 4-bit tests are exhaustive over A,B in 0..15. Each case is solved 100 times from randomized trajectories. The generated VHDL uses OS-random seed salts, and every trial starts with an unclamped scramble window before the solve window. The constrained inverse test clamps B and SUM and measures whether A is recovered.
+All 4-bit tests are exhaustive over A,B in 0..15. Each case is solved 100 times from randomized trajectories. The generated VHDL and seed salts are the committed frozen artifacts from the manifest; this replay does not generate a new random salt or overwrite generated source. Every trial starts with an unclamped scramble window before the solve window. The constrained inverse test clamps B and SUM and measures whether A is recovered.
+
+Historical timing provenance: the shadow/window case `idea34_integer4` uses `-LegacyReplayTiming` to skip the later clamp-prime cycle and post-edge sample delay. This compatibility mode exists only to reproduce the committed integer Idea 3+4 ModelSim-era golden exactly; the normal wrapper default uses the corrected clamp-prime cycle and post-edge sample delay.
 
 The 8-bit results are intentionally non-exhaustive companion checks. They use six selected vectors and 100 repeated solves per vector.
 
@@ -157,6 +163,17 @@ Thus, the present energy distribution is tuned for forward and constrained inver
 
 ![8-bit spot check](figures/summary_adder8_spotcheck.svg)
 
+Aggregate across the six fixed vectors:
+
+| Session | Fixed vectors | Aggregate hits | Minimum per-vector hits |
+|---|---:|---:|---:|
+| baseline direct RCA | 6 | 260/600 (43.33%) | 0/100 |
+| idea 2 only Q3.4 direct RCA | 6 | 300/600 (50.00%) | 0/100 |
+| idea 3+4 integer shadow RCA | 6 | 421/600 (70.17%) | 63/100 |
+| idea 2+3+4 Q3.4 shadow RCA | 6 | 596/600 (99.33%) | 98/100 |
+
+Per-vector evidence:
+
 | Session | A | B | Expected SUM | Hits | Distinct sums |
 |---|---:|---:|---:|---:|---:|
 | baseline direct RCA | 37 | 219 | 256 | 0/100 (0.0%) | 12 |
@@ -188,7 +205,7 @@ Thus, the present energy distribution is tuned for forward and constrained inver
 
 The important comparison is not only whether one frozen readout is correct, but the repeated-solve probability after independent randomization. The direct integer RCA is the baseline failure mode. Idea 3+4 tests whether timing windows plus one shadow node repair the carry direction. Idea 2+3+4 tests whether the same topology benefits from the Q3.4 optimized gate weights while preserving the moderate interblock copy.
 
-In this dataset, integer idea 3+4 is only a modest improvement over the direct 8-bit baseline and is roughly tied with the 4-bit direct baseline under the repeated-solve metric. The combined idea 2+3+4 result is the strongest positive result: Q3.4 plus the shadow/window schedule reaches 99.65% forward and 99.67% constrained inverse success on exhaustive 4-bit tests under the 40-cycle main protocol, and about 99-100% on the selected 8-bit vectors. This suggests that the larger intrablock gap is helpful only after timing isolation is added.
+In this dataset, integer idea 3+4 is only a modest improvement over the direct 8-bit baseline and is roughly tied with the 4-bit direct baseline under the repeated-solve metric. The combined idea 2+3+4 result is the strongest positive result: Q3.4 plus the shadow/window schedule reaches 99.65% forward and 99.67% constrained inverse success on exhaustive 4-bit tests under the 40-cycle main protocol, and 596/600 across the six selected 8-bit vectors with every vector at least 98/100. This suggests that the larger intrablock gap is helpful only after timing isolation is added.
 
 ## 10. Exact Parameters
 
@@ -329,6 +346,6 @@ Q3.4 FA gap: encoded 112, physical 7.0000
 - SUM-only valid-pair CSV: `data/sum_only_valid_pairs.csv`
 - Idea 2+3+4 forward window sweep CSV: `data/idea234_forward_window_sweep.csv`
 - 8-bit repeated-solve CSV: `data/adder8_repeated.csv`
-- Corrected Q3.4 40-cycle exhaustive transcript: `traces/idea234_q34_4.txt`
-- Corrected Q3.4 shortened-schedule transcript: `traces/idea234_q34_4_w10_8_16_6_corrected.log`
-- Other ModelSim transcripts: `traces/`
+- Corrected-timing Q3.4 40-cycle replay transcript: `traces/idea234_q34_4.txt`
+- Corrected-timing Q3.4 shortened-schedule replay transcript: `traces/sweep_idea234_w10_8_16_6.txt`
+- Other QuestaSim transcripts: `traces/`

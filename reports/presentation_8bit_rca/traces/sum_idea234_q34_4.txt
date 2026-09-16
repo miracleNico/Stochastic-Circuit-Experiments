@@ -1,21 +1,17 @@
-Reading pref.tcl
-
-# 2020.1
-
-# do run_adder4_shadow1_sum_randomized_distribution.do
+# do {C:/Projects/stochastic-circuits-experiments/sim/run_adder4_shadow1_sum_randomized_distribution.do}
 # onerror {quit -code 1}
 # onbreak {quit -code 1}
-# 
+#
 # if {[file exists work_adder4_shadow1_sum_random]} {
 #     vdel -lib work_adder4_shadow1_sum_random -all
 # }
-# 
-# set generated_shadow_vhdl "../src/generated_shadow1_adder4.vhd"
-# ../src/generated_shadow1_adder4.vhd
+#
+# set generated_shadow_vhdl "[sim_repo_path {src/generated_shadow1_adder4.vhd}]"
+# C:/Projects/stochastic-circuits-experiments/src/generated_shadow1_adder4.vhd
 # if {[info exists ::env(GENERATED_SHADOW_VHDL)]} {
-#     set generated_shadow_vhdl $::env(GENERATED_SHADOW_VHDL)
+#     set generated_shadow_vhdl [sim_input_path $::env(GENERATED_SHADOW_VHDL)]
 # }
-# ../src/generated_presentation_shadow1_q34_adder4.vhd
+# C:/Projects/stochastic-circuits-experiments/src/generated_presentation_shadow1_q34_adder4.vhd
 # set block_rnd_weight 1
 # 1
 # if {[info exists ::env(BLOCK_RND_WEIGHT)]} {
@@ -75,7 +71,6 @@ Reading pref.tcl
 # if {[info exists ::env(SETTLE_CYCLES)]} {
 #     set settle_cycles $::env(SETTLE_CYCLES)
 # }
-# 160
 # set trials 1000
 # 1000
 # if {[info exists ::env(TRIALS)]} {
@@ -92,17 +87,17 @@ Reading pref.tcl
 # if {[info exists ::env(PARALLEL_MODE)]} {
 #     set parallel_mode $::env(PARALLEL_MODE)
 # }
-# 
+#
 # vlib work_adder4_shadow1_sum_random
 # vmap work work_adder4_shadow1_sum_random
-# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
-# vmap work work_adder4_shadow1_sum_random 
-# Modifying modelsim.ini
-# 
-# vcom -2008 ../src/inv_sc_pkg.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 03:34:43 on May 25,2026
-# vcom -2008 ../src/inv_sc_pkg.vhd 
+# QuestaSim-64 vmap 2024.1 Lib Mapping Utility 2024.02 Feb  1 2024
+# vmap work work_adder4_shadow1_sum_random
+# Modifying C:\Projects\stochastic-circuits-experiments\.sim_build\reproduction\questa\run_adder4_shadow1_sum_randomized_distribution\core-questa-20260916-final3-sum_idea234_q34_4\modelsim.ini
+#
+# vcom -2008 [sim_repo_path {src/inv_sc_pkg.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:52:22 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/inv_sc_pkg.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -110,24 +105,24 @@ Reading pref.tcl
 # -- Compiling package inv_sc_pkg
 # -- Compiling package body inv_sc_pkg
 # -- Loading package inv_sc_pkg
-# End time: 03:34:43 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:52:23 on Sep 16,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vcom -2008 ../src/lfsr32.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 03:34:43 on May 25,2026
-# vcom -2008 ../src/lfsr32.vhd 
+# vcom -2008 [sim_repo_path {src/lfsr32.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:52:23 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/lfsr32.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity lfsr32
 # -- Compiling architecture rtl of lfsr32
-# End time: 03:34:44 on May 25,2026, Elapsed time: 0:00:01
+# End time: 19:52:23 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -2008 ../src/spin_node.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 03:34:44 on May 25,2026
-# vcom -2008 ../src/spin_node.vhd 
+# vcom -2008 [sim_repo_path {src/spin_node.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:52:23 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/spin_node.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -136,12 +131,12 @@ Reading pref.tcl
 # -- Compiling entity spin_node
 # -- Compiling architecture rtl of spin_node
 # -- Loading entity lfsr32
-# End time: 03:34:44 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:52:23 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -2008 $generated_shadow_vhdl
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 03:34:44 on May 25,2026
-# vcom -2008 ../src/generated_presentation_shadow1_q34_adder4.vhd 
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:52:23 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/generated_presentation_shadow1_q34_adder4.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -150,12 +145,12 @@ Reading pref.tcl
 # -- Compiling entity gen_adder4_shadow1_windowed
 # -- Compiling architecture rtl of gen_adder4_shadow1_windowed
 # -- Loading entity spin_node
-# End time: 03:34:44 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:52:23 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -2008 ../tb/tb_adder4_shadow1_sum_randomized_distribution.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 03:34:44 on May 25,2026
-# vcom -2008 ../tb/tb_adder4_shadow1_sum_randomized_distribution.vhd 
+# vcom -2008 [sim_repo_path {tb/tb_adder4_shadow1_sum_randomized_distribution.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:52:23 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/tb/tb_adder4_shadow1_sum_randomized_distribution.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -164,9 +159,9 @@ Reading pref.tcl
 # -- Compiling architecture sim of tb_adder4_shadow1_sum_randomized_distribution
 # -- Loading package inv_sc_pkg
 # -- Loading entity gen_adder4_shadow1_windowed
-# End time: 03:34:44 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:52:23 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
+#
 # vsim \
 #     -gBLOCK_RND_WEIGHT=$block_rnd_weight \
 #     -gCOPY_RND_WEIGHT=$copy_rnd_weight \
@@ -182,18 +177,46 @@ Reading pref.tcl
 #     -gREVERSE_ORDER=$reverse_order \
 #     -gPARALLEL_MODE=$parallel_mode \
 #     work.tb_adder4_shadow1_sum_randomized_distribution
-# vsim work.tb_adder4_shadow1_sum_randomized_distribution -gBLOCK_RND_WEIGHT=4 -gCOPY_RND_WEIGHT=0 -gCOPY_CYCLES=2 -gBLOCK1_CYCLES=8 -gTRIALS=1000 -gBLOCK3_CYCLES=6 -gPARALLEL_MODE=false -gSCRAMBLE_RND_WEIGHT=8 -gSCRAMBLE_CYCLES=80 -gSETTLE_CYCLES=160 -gBLOCK0_CYCLES=10 -gBLOCK2_CYCLES=16 -gREVERSE_ORDER=false 
-# Start time: 03:34:44 on May 25,2026
+# vsim work.tb_adder4_shadow1_sum_randomized_distribution -gBLOCK_RND_WEIGHT=4 -gCOPY_RND_WEIGHT=0 -gCOPY_CYCLES=2 -gBLOCK1_CYCLES=8 -gTRIALS=1000 -gBLOCK3_CYCLES=6 -gPARALLEL_MODE=false -gSCRAMBLE_RND_WEIGHT=8 -gSCRAMBLE_CYCLES=80 -gSETTLE_CYCLES=160 -gBLOCK0_CYCLES=10 -gBLOCK2_CYCLES=16 -gREVERSE_ORDER=false
+# Start time: 19:52:23 on Sep 16,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading work.inv_sc_pkg(body)
-# Loading work.tb_adder4_shadow1_sum_randomized_distribution(sim)
-# Loading work.gen_adder4_shadow1_windowed(rtl)
-# Loading work.spin_node(rtl)
-# Loading work.lfsr32(rtl)
-# 
+# Loading work.tb_adder4_shadow1_sum_randomized_distribution(sim)#1
+# Loading work.gen_adder4_shadow1_windowed(rtl)#1
+# Loading work.spin_node(rtl)#1
+# Loading work.spin_node(rtl)#2
+# Loading work.spin_node(rtl)#3
+# Loading work.spin_node(rtl)#4
+# Loading work.spin_node(rtl)#5
+# Loading work.spin_node(rtl)#6
+# Loading work.spin_node(rtl)#7
+# Loading work.spin_node(rtl)#8
+# Loading work.spin_node(rtl)#9
+# Loading work.spin_node(rtl)#10
+# Loading work.spin_node(rtl)#11
+# Loading work.spin_node(rtl)#12
+# Loading work.spin_node(rtl)#13
+# Loading work.spin_node(rtl)#14
+# Loading work.spin_node(rtl)#15
+#
 # set sum_cases 31
 # 31
 # set schedule_cycles [expr {$block0_cycles + $block1_cycles + $block2_cycles + $block3_cycles + (3 * $copy_cycles)}]
@@ -784,7 +807,7 @@ Reading pref.tcl
 #    Time: 39372475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: tb_adder4_shadow1_sum_randomized_distribution completed
 #    Time: 39372475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# 
+#
 # quit -f
-# End time: 03:35:40 on May 25,2026, Elapsed time: 0:00:56
+# End time: 19:52:41 on Sep 16,2026, Elapsed time: 0:00:18
 # Errors: 0, Warnings: 0

@@ -1,0 +1,11 @@
+{
+  "name": "half_adder_demo",
+  "description": "Portable half-adder specification for the reconstructed generic optimizer",
+  "nodes": ["A", "B", "S", "C"],
+  "valid_states": [
+    [0, 0, 0, 0],
+    [0, 1, 1, 0],
+    [1, 0, 1, 0],
+    [1, 1, 0, 1]
+  ]
+}

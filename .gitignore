@@ -1,12 +1,15 @@
 __pycache__/
 *.py[cod]
 
-# ModelSim transient outputs
+# Simulator transient outputs
 sim/transcript
 sim/vsim.wlf
 sim/work*/
 sim/work_*/
 work/
+
+# Isolated QuestaSim/ModelSim runs (transcripts, work libraries, WLF files).
+.sim_build/
 
 # Local scratch sweeps are regenerable and are not part of the curated report.
 reports/**/scratch*/

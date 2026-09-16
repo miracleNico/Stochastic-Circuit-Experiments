@@ -5,17 +5,42 @@ param(
     [int]$ScrambleRndWeight = -1,
     [int]$ScrambleCycles = -1,
     [int]$SettleCycles = -1,
-    [int]$Trials = -1
-)
+    [int]$Trials = -1,
+    [ValidateSet('Questa', 'ModelSim')][string]$Simulator = 'Questa',
+    [string]$VsimPath = '',
+    [string]$LicenseFile = '',
+    [string]$LicenseServer = '',
+    [string]$BuildRoot = '',
+    [string]$RunId = '',
+    [ValidateSet('None', 'Top', 'All')][string]$WaveMode = 'None',
+    [switch]$KeepWork,
+    [ValidateRange(0, 2147483)][int]$TimeoutSeconds = 0)
 
 $ErrorActionPreference = "Stop"
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$modelsimBin = "C:\intelFPGA_lite\modelsim_ase\win32aloem"
-$vsim = Join-Path $modelsimBin "vsim.exe"
-
-if (-not (Test-Path -LiteralPath $vsim)) {
-    throw "ModelSim executable not found at $vsim"
+function Invoke-ConfiguredSimulation {
+    param([Parameter(Mandatory)][string]$DoFile, [switch]$Gui, [switch]$Detach)
+    $invokeArguments = @{
+        DoFile = $DoFile
+        Simulator = $Simulator
+        WaveMode = $WaveMode
+        KeepWork = $KeepWork
+        TimeoutSeconds = $TimeoutSeconds
+        Gui = $Gui
+        Detach = $Detach
+        PassThru = $true
+    }
+    foreach ($name in @('VsimPath', 'LicenseFile', 'LicenseServer', 'BuildRoot', 'RunId')) {
+        $value = Get-Variable -Name $name -ValueOnly -Scope 1
+        if (-not [string]::IsNullOrWhiteSpace($value)) { $invokeArguments[$name] = $value }
+    }
+    $result = & (Join-Path $scriptDir 'Invoke-Simulation.ps1') @invokeArguments
+    if ($result.ExitCode -ne 0) {
+        [Console]::Error.WriteLine("$Simulator simulation failed with exit code $($result.ExitCode). See $($result.TranscriptPath)")
+        exit $result.ExitCode
+    }
+    return $result
 }
 
 Push-Location $scriptDir
@@ -41,8 +66,7 @@ try {
     $oldTrials = $env:TRIALS
     if ($Trials -ge 0) { $env:TRIALS = [string]$Trials }
 
-    & $vsim -c -do run_adder4_shadow1_parallel_randomized_exhaustive.do
-    if ($LASTEXITCODE -ne 0) { throw "ModelSim returned exit code $LASTEXITCODE" }
+    $simulationResult = Invoke-ConfiguredSimulation -DoFile (Join-Path $scriptDir run_adder4_shadow1_parallel_randomized_exhaustive.do)
 }
 finally {
     if ($null -eq $oldGeneratedShadowVhdl) { Remove-Item Env:\GENERATED_SHADOW_VHDL -ErrorAction SilentlyContinue } else { $env:GENERATED_SHADOW_VHDL = $oldGeneratedShadowVhdl }

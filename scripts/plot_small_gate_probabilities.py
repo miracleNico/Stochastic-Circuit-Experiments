@@ -4,8 +4,6 @@ import math
 from collections import Counter
 from pathlib import Path
 
-import matplotlib.pyplot as plt
-
 from generate_hamiltonians import energy, hamiltonians
 
 
@@ -132,7 +130,19 @@ def write_csv(path: Path, rows: list[dict[str, str]], fieldnames: list[str]) -> 
         writer.writerows(rows)
 
 
-def plot_reverse_ab(rows: list[dict[str, str]], path: Path) -> None:
+def _load_matplotlib_pyplot():
+    """Load matplotlib on demand so the bundled Pillow-only runtime works."""
+    try:
+        import matplotlib
+
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as pyplot
+    except ImportError:
+        return None
+    return pyplot
+
+
+def _plot_reverse_ab_matplotlib(rows: list[dict[str, str]], path: Path, plt) -> None:
     reverse_rows = [row for row in rows if row["y_clamped"] == "1"]
     gates = list(dict.fromkeys(row["gate"] for row in reverse_rows))
     fig, axes = plt.subplots(len(gates), 2, figsize=(11, 2.2 * len(gates)), sharey=True)
@@ -158,6 +168,103 @@ def plot_reverse_ab(rows: list[dict[str, str]], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path, dpi=160)
     plt.close(fig)
+
+
+def _pillow_font(size: int, bold: bool = False):
+    from PIL import ImageFont
+
+    family = "DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf"
+    try:
+        return ImageFont.truetype(family, size)
+    except OSError:
+        return ImageFont.load_default()
+
+
+def _plot_reverse_ab_pillow(rows: list[dict[str, str]], path: Path) -> None:
+    from PIL import Image, ImageDraw
+
+    reverse_rows = [row for row in rows if row["y_clamped"] == "1"]
+    gates = list(dict.fromkeys(row["gate"] for row in reverse_rows))
+    if not gates:
+        raise ValueError("No reverse-clamp probability rows were provided")
+
+    width = 1100
+    header_height = 54
+    row_height = 235
+    height = header_height + row_height * len(gates) + 24
+    image = Image.new("RGB", (width, height), "white")
+    draw = ImageDraw.Draw(image)
+    title_font = _pillow_font(20, bold=True)
+    heading_font = _pillow_font(14, bold=True)
+    label_font = _pillow_font(11)
+    small_font = _pillow_font(9)
+    colors = {"00": "#4c78a8", "01": "#f58518", "10": "#54a24b", "11": "#b279a2"}
+
+    draw.text((28, 16), "Exact reverse-clamp P(A,B) distributions", fill="#111111", font=title_font)
+    panel_width = (width - 74) // 2
+    for row_index, gate in enumerate(gates):
+        panel_top = header_height + row_index * row_height + 28
+        panel_bottom = panel_top + 170
+        for col_index, y_value in enumerate(["0", "1"]):
+            panel_left = 52 + col_index * (panel_width + 18)
+            panel_right = panel_left + panel_width
+            draw.rectangle((panel_left, panel_top, panel_right, panel_bottom), outline="#777777", width=1)
+            for tick in range(5):
+                probability = tick / 4
+                y = round(panel_bottom - probability * (panel_bottom - panel_top))
+                draw.line((panel_left, y, panel_right, y), fill="#e0e0e0", width=1)
+                if col_index == 0:
+                    draw.text((panel_left - 7, y), f"{probability:.2f}", fill="#444444", font=small_font, anchor="rm")
+
+            selected = [
+                row
+                for row in reverse_rows
+                if row["gate"] == gate and row["y_value"] == y_value
+            ]
+            by_ab = {row["ab"]: row for row in selected}
+            bar_area = panel_right - panel_left
+            slot_width = bar_area / 4
+            for index, ab in enumerate(["00", "01", "10", "11"]):
+                row = by_ab.get(ab)
+                probability = float(row["probability"]) if row is not None else 0.0
+                center = panel_left + (index + 0.5) * slot_width
+                bar_width = slot_width * 0.58
+                bar_top = panel_bottom - probability * (panel_bottom - panel_top)
+                draw.rectangle(
+                    (round(center - bar_width / 2), round(bar_top), round(center + bar_width / 2), panel_bottom),
+                    fill=colors[ab],
+                    outline="#333333" if row is not None and row["valid_for_clamped_y"] == "1" else colors[ab],
+                    width=2,
+                )
+                draw.text((round(center), panel_bottom + 7), ab, fill="#222222", font=label_font, anchor="ma")
+                draw.text(
+                    (round(center), max(panel_top + 4, round(bar_top) - 15)),
+                    f"{probability:.3f}",
+                    fill="#222222",
+                    font=small_font,
+                    anchor="ma",
+                )
+
+            draw.text(
+                ((panel_left + panel_right) // 2, panel_top - 22),
+                f"{gate} reverse Y={y_value}",
+                fill="#111111",
+                font=heading_font,
+                anchor="ma",
+            )
+            if col_index == 0:
+                draw.text((18, (panel_top + panel_bottom) // 2), "P(A,B)", fill="#222222", font=label_font, anchor="mm")
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    image.save(path, format="PNG", optimize=True)
+
+
+def plot_reverse_ab(rows: list[dict[str, str]], path: Path) -> None:
+    plt = _load_matplotlib_pyplot()
+    if plt is None:
+        _plot_reverse_ab_pillow(rows, path)
+    else:
+        _plot_reverse_ab_matplotlib(rows, path, plt)
 
 
 def main() -> None:

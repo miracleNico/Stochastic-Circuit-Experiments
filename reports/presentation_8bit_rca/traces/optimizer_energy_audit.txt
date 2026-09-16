@@ -1,0 +1,57 @@
+# do {C:/Projects/stochastic-circuits-experiments/experiments/quantized_landscape_optimizer/questa_energy_audit.do}
+# C:/Projects/stochastic-circuits-experiments/.sim_build/reproduction/_optimizer_audit_inputs/972e27494dc44b9e9e1eccfbd1f49193/optimizer_coefficients_pkg.vhd
+# QuestaSim-64 vmap 2024.1 Lib Mapping Utility 2024.02 Feb  1 2024
+# vmap work C:/Projects/stochastic-circuits-experiments/.sim_build/reproduction/questa/questa_energy_audit/core-questa-20260916-final3-optimizer_energy_audit/work
+# Modifying C:\Projects\stochastic-circuits-experiments\.sim_build\reproduction\questa\questa_energy_audit\core-questa-20260916-final3-optimizer_energy_audit\modelsim.ini
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:32 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/.sim_build/reproduction/_optimizer_audit_inputs/972e27494dc44b9e9e1eccfbd1f49193/optimizer_coefficients_pkg.vhd
+# -- Loading package STANDARD
+# -- Compiling package optimizer_coefficients_pkg
+# End time: 19:38:32 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:32 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/experiments/quantized_landscape_optimizer/vhdl/tb_optimizer_energy_audit.vhd
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package optimizer_coefficients_pkg
+# -- Compiling entity tb_optimizer_energy_audit
+# -- Compiling architecture sim of tb_optimizer_energy_audit
+# End time: 19:38:32 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim work.tb_optimizer_energy_audit
+# Start time: 19:38:32 on Sep 16,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.optimizer_coefficients_pkg
+# Loading work.tb_optimizer_energy_audit(sim)#1
+# ** Note: OPTIMIZER_AUDIT HA valid_energy=-2 gap=1 invalid_local_minima=0 states=16
+#    Time: 0 ps  Iteration: 0  Instance: /tb_optimizer_energy_audit
+# ** Note: OPTIMIZER_AUDIT FA valid_energy=-2 gap=1 invalid_local_minima=0 states=32
+#    Time: 0 ps  Iteration: 0  Instance: /tb_optimizer_energy_audit
+# ** Note: RTL_SCALE_AUDIT HA valid_energy=-4 gap=2 invalid_local_minima=0 proportional_scale=2 states=16
+#    Time: 0 ps  Iteration: 0  Instance: /tb_optimizer_energy_audit
+# ** Note: RTL_SCALE_AUDIT FA valid_energy=-4 gap=2 invalid_local_minima=0 proportional_scale=2 states=32
+#    Time: 0 ps  Iteration: 0  Instance: /tb_optimizer_energy_audit
+# ** Note: tb_optimizer_energy_audit passed
+#    Time: 0 ps  Iteration: 0  Instance: /tb_optimizer_energy_audit
+# End time: 19:38:33 on Sep 16,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

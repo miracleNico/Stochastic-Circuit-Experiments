@@ -14,7 +14,11 @@ entity tb_adder4_shadow1_randomized_exhaustive is
         BLOCK3_CYCLES       : natural := 8;
         COPY_CYCLES         : natural := 1;
         TRIALS              : natural := 100;
-        RUN_INVERSE         : boolean := true
+        RUN_INVERSE         : boolean := true;
+        -- The committed presentation traces predate clamp priming/sample-delay
+        -- hardening. Keep the corrected timing as the default, while allowing
+        -- the fixed-seed replay to reproduce that historical evidence exactly.
+        LEGACY_REPLAY_TIMING : boolean := false
     );
 end entity;
 
@@ -228,9 +232,13 @@ begin
             for trial in 1 to TRIALS loop
                 scramble_network;
                 clamp_forward(aval, bval);
-                prime_clamps;
+                if not LEGACY_REPLAY_TIMING then
+                    prime_clamps;
+                end if;
                 run_shadow_schedule;
-                wait for 1 ns;
+                if not LEGACY_REPLAY_TIMING then
+                    wait for 1 ns;
+                end if;
                 sample := sum_value(spins);
                 hist(sample) := hist(sample) + 1;
             end loop;
@@ -262,9 +270,13 @@ begin
             for trial in 1 to TRIALS loop
                 scramble_network;
                 clamp_inverse_b_sum(bval, target_sum);
-                prime_clamps;
+                if not LEGACY_REPLAY_TIMING then
+                    prime_clamps;
+                end if;
                 run_shadow_schedule;
-                wait for 1 ns;
+                if not LEGACY_REPLAY_TIMING then
+                    wait for 1 ns;
+                end if;
                 sample := a_value(spins);
                 hist(sample) := hist(sample) + 1;
             end loop;

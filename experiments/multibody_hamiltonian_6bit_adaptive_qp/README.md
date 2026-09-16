@@ -13,6 +13,17 @@ full state cube = 2^25 = 33,554,432
 This is not ModelSim/VHDL and is not quantized RTL. Coefficients are optimized
 as continuous float64 values with Gurobi.
 
+## RTL Handoff Status
+
+The 2026-09-16 Questa migration preflight stopped before coefficient
+quantization or RTL generation. The tracked experiment records the aggregate
+Stage3 audit, but it does not contain the concrete solution coefficients, term
+support, active cuts, audit payload, or their SHA-256 identities. A newly
+solved zero-violation Hamiltonian could therefore not be proven identical to
+the documented Stage3 result. Per the RTL research gate, no term ROM or
+multibody field core is emitted until that exact source artifact can be
+recovered or reproducibly rebuilt and frozen. See `EXPERIMENT_LOG.md`.
+
 ## QP Formulation
 
 For spin state `x` and coefficient vector `theta`,

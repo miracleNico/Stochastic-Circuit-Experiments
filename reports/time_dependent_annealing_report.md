@@ -1,6 +1,10 @@
-# Time-Dependent RCA Experiments
+# Time-Dependent RCA Experiments (Legacy ModelSim Evidence)
 
 Date: 2026-05-24
+
+Status: historical ModelSim results; this exploratory report was not rerun or
+republished by the fixed-seed QuestaSim core reproduction. It is retained for
+legacy context only.
 
 ## 1. Problem Encountered
 

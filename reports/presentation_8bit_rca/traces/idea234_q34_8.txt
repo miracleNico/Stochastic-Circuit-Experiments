@@ -1,21 +1,17 @@
-Reading pref.tcl
-
-# 2020.1
-
-# do run_adder8_shadow1_repeated_solve.do
+# do {C:/Projects/stochastic-circuits-experiments/sim/run_adder8_shadow1_repeated_solve.do}
 # onerror {quit -code 1}
 # onbreak {quit -code 1}
-# 
+#
 # if {[file exists work_adder8_shadow1_repeat]} {
 #     vdel -lib work_adder8_shadow1_repeat -all
 # }
-# 
-# set generated_shadow_vhdl "../src/generated_shadow1_q34_adder8.vhd"
-# ../src/generated_shadow1_q34_adder8.vhd
+#
+# set generated_shadow_vhdl "[sim_repo_path {src/generated_shadow1_q34_adder8.vhd}]"
+# C:/Projects/stochastic-circuits-experiments/src/generated_shadow1_q34_adder8.vhd
 # if {[info exists ::env(GENERATED_SHADOW_VHDL)]} {
-#     set generated_shadow_vhdl $::env(GENERATED_SHADOW_VHDL)
+#     set generated_shadow_vhdl [sim_input_path $::env(GENERATED_SHADOW_VHDL)]
 # }
-# ../src/generated_presentation_shadow1_q34_adder8.vhd
+# C:/Projects/stochastic-circuits-experiments/src/generated_presentation_shadow1_q34_adder8.vhd
 # set block_rnd_weight 4
 # 4
 # if {[info exists ::env(BLOCK_RND_WEIGHT)]} {
@@ -100,17 +96,17 @@ Reading pref.tcl
 #     set trials $::env(TRIALS)
 # }
 # 100
-# 
+#
 # vlib work_adder8_shadow1_repeat
 # vmap work work_adder8_shadow1_repeat
-# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
-# vmap work work_adder8_shadow1_repeat 
-# Modifying modelsim.ini
-# 
-# vcom -2008 ../src/inv_sc_pkg.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 02:34:40 on May 25,2026
-# vcom -2008 ../src/inv_sc_pkg.vhd 
+# QuestaSim-64 vmap 2024.1 Lib Mapping Utility 2024.02 Feb  1 2024
+# vmap work work_adder8_shadow1_repeat
+# Modifying C:\Projects\stochastic-circuits-experiments\.sim_build\reproduction\questa\run_adder8_shadow1_repeated_solve\core-questa-20260916-final3-idea234_q34_8\modelsim.ini
+#
+# vcom -2008 [sim_repo_path {src/inv_sc_pkg.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:55:23 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/inv_sc_pkg.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -118,24 +114,24 @@ Reading pref.tcl
 # -- Compiling package inv_sc_pkg
 # -- Compiling package body inv_sc_pkg
 # -- Loading package inv_sc_pkg
-# End time: 02:34:40 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:55:23 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -2008 ../src/lfsr32.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 02:34:40 on May 25,2026
-# vcom -2008 ../src/lfsr32.vhd 
+# vcom -2008 [sim_repo_path {src/lfsr32.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:55:23 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/lfsr32.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity lfsr32
 # -- Compiling architecture rtl of lfsr32
-# End time: 02:34:40 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:55:23 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -2008 ../src/spin_node.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 02:34:40 on May 25,2026
-# vcom -2008 ../src/spin_node.vhd 
+# vcom -2008 [sim_repo_path {src/spin_node.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:55:23 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/spin_node.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -144,12 +140,12 @@ Reading pref.tcl
 # -- Compiling entity spin_node
 # -- Compiling architecture rtl of spin_node
 # -- Loading entity lfsr32
-# End time: 02:34:40 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:55:23 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -2008 $generated_shadow_vhdl
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 02:34:40 on May 25,2026
-# vcom -2008 ../src/generated_presentation_shadow1_q34_adder8.vhd 
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:55:23 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/generated_presentation_shadow1_q34_adder8.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -158,12 +154,12 @@ Reading pref.tcl
 # -- Compiling entity gen_adder8_shadow1_windowed
 # -- Compiling architecture rtl of gen_adder8_shadow1_windowed
 # -- Loading entity spin_node
-# End time: 02:34:40 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:55:24 on Sep 16,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vcom -2008 ../tb/tb_adder8_shadow1_repeated_solve.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 02:34:40 on May 25,2026
-# vcom -2008 ../tb/tb_adder8_shadow1_repeated_solve.vhd 
+# vcom -2008 [sim_repo_path {tb/tb_adder8_shadow1_repeated_solve.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:55:24 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/tb/tb_adder8_shadow1_repeated_solve.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -172,9 +168,9 @@ Reading pref.tcl
 # -- Compiling architecture sim of tb_adder8_shadow1_repeated_solve
 # -- Loading package inv_sc_pkg
 # -- Loading entity gen_adder8_shadow1_windowed
-# End time: 02:34:40 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:55:24 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
+#
 # vsim \
 #     -gBLOCK_RND_WEIGHT=$block_rnd_weight \
 #     -gCOPY_RND_WEIGHT=$copy_rnd_weight \
@@ -191,20 +187,66 @@ Reading pref.tcl
 #     -gCOPY_CYCLES=$copy_cycles \
 #     -gTRIALS=$trials \
 #     work.tb_adder8_shadow1_repeated_solve
-# vsim work.tb_adder8_shadow1_repeated_solve -gBLOCK4_CYCLES=40 -gBLOCK6_CYCLES=40 -gCOPY_CYCLES=2 -gBLOCK_RND_WEIGHT=4 -gCOPY_RND_WEIGHT=0 -gBLOCK1_CYCLES=40 -gTRIALS=100 -gBLOCK3_CYCLES=40 -gBLOCK5_CYCLES=40 -gSCRAMBLE_RND_WEIGHT=8 -gSCRAMBLE_CYCLES=80 -gBLOCK7_CYCLES=40 -gBLOCK0_CYCLES=40 -gBLOCK2_CYCLES=40 
-# Start time: 02:34:40 on May 25,2026
+# vsim work.tb_adder8_shadow1_repeated_solve -gBLOCK4_CYCLES=40 -gBLOCK6_CYCLES=40 -gCOPY_CYCLES=2 -gBLOCK_RND_WEIGHT=4 -gCOPY_RND_WEIGHT=0 -gBLOCK1_CYCLES=40 -gTRIALS=100 -gBLOCK3_CYCLES=40 -gBLOCK5_CYCLES=40 -gSCRAMBLE_RND_WEIGHT=8 -gSCRAMBLE_CYCLES=80 -gBLOCK7_CYCLES=40 -gBLOCK0_CYCLES=40 -gBLOCK2_CYCLES=40
+# Start time: 19:55:24 on Sep 16,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading work.inv_sc_pkg(body)
-# Loading work.tb_adder8_shadow1_repeated_solve(sim)
-# Loading work.gen_adder8_shadow1_windowed(rtl)
-# Loading work.spin_node(rtl)
-# Loading work.lfsr32(rtl)
-# ** Warning: Design size of 13547 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-# 
+# Loading work.tb_adder8_shadow1_repeated_solve(sim)#1
+# Loading work.gen_adder8_shadow1_windowed(rtl)#1
+# Loading work.spin_node(rtl)#1
+# Loading work.spin_node(rtl)#2
+# Loading work.spin_node(rtl)#3
+# Loading work.spin_node(rtl)#4
+# Loading work.spin_node(rtl)#5
+# Loading work.spin_node(rtl)#6
+# Loading work.spin_node(rtl)#7
+# Loading work.spin_node(rtl)#8
+# Loading work.spin_node(rtl)#9
+# Loading work.spin_node(rtl)#10
+# Loading work.spin_node(rtl)#11
+# Loading work.spin_node(rtl)#12
+# Loading work.spin_node(rtl)#13
+# Loading work.spin_node(rtl)#14
+# Loading work.spin_node(rtl)#15
+# Loading work.spin_node(rtl)#16
+# Loading work.spin_node(rtl)#17
+# Loading work.spin_node(rtl)#18
+# Loading work.spin_node(rtl)#19
+# Loading work.spin_node(rtl)#20
+# Loading work.spin_node(rtl)#21
+# Loading work.spin_node(rtl)#22
+# Loading work.spin_node(rtl)#23
+# Loading work.spin_node(rtl)#24
+# Loading work.spin_node(rtl)#25
+# Loading work.spin_node(rtl)#26
+# Loading work.spin_node(rtl)#27
+# Loading work.spin_node(rtl)#28
+# Loading work.spin_node(rtl)#29
+# Loading work.spin_node(rtl)#30
+# Loading work.spin_node(rtl)#31
+# Loading work.spin_node(rtl)#32
+# Loading work.spin_node(rtl)#33
+# Loading work.spin_node(rtl)#34
+# Loading work.spin_node(rtl)#35
+#
 # set case_count 6
 # 6
 # set solve_cycles [expr {$block0_cycles + $block1_cycles + $block2_cycles + $block3_cycles + $block4_cycles + $block5_cycles + $block6_cycles + $block7_cycles + (7 * $copy_cycles)}]
@@ -246,7 +288,7 @@ Reading pref.tcl
 #    Time: 2484075 ns  Iteration: 0  Instance: /tb_adder8_shadow1_repeated_solve
 # ** Note: tb_adder8_shadow1_repeated_solve completed
 #    Time: 2484075 ns  Iteration: 0  Instance: /tb_adder8_shadow1_repeated_solve
-# 
+#
 # quit -f
-# End time: 02:35:54 on May 25,2026, Elapsed time: 0:01:14
-# Errors: 0, Warnings: 1
+# End time: 19:55:28 on Sep 16,2026, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 0

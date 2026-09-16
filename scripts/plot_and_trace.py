@@ -1,9 +1,9 @@
 import argparse
 import csv
+import math
+import textwrap
 from collections import Counter, defaultdict
 from pathlib import Path
-
-import matplotlib.pyplot as plt
 
 
 SCENARIOS = {
@@ -236,7 +236,29 @@ def add_scenario_background(ax, rows: list[dict[str, int]]) -> None:
         )
 
 
-def plot_trace(rows: list[dict[str, int]], summaries: list[dict[str, str]], gate: str, path: Path) -> None:
+def _load_matplotlib_pyplot():
+    """Load matplotlib only when it is available.
+
+    The simulation workflow deliberately supports the bundled Python runtime,
+    which includes Pillow but may not include matplotlib.
+    """
+    try:
+        import matplotlib
+
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as pyplot
+    except ImportError:
+        return None
+    return pyplot
+
+
+def _plot_trace_matplotlib(
+    rows: list[dict[str, int]],
+    summaries: list[dict[str, str]],
+    gate: str,
+    path: Path,
+    plt,
+) -> None:
     t_us = [row["time_ns"] / 1000.0 for row in rows]
     a = [row["a"] for row in rows]
     b = [row["b"] for row in rows]
@@ -314,8 +336,163 @@ def plot_trace(rows: list[dict[str, int]], summaries: list[dict[str, str]], gate
     plt.close(fig)
 
 
+def _pillow_font(size: int, bold: bool = False):
+    from PIL import ImageFont
+
+    family = "DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf"
+    try:
+        return ImageFont.truetype(family, size)
+    except OSError:
+        return ImageFont.load_default()
+
+
+def _draw_step_series(draw, xs, values, map_y, color: str, width: int = 2) -> None:
+    """Draw a bounded-size post-step series without losing the endpoints."""
+    if not xs:
+        return
+    max_samples = 4000
+    stride = max(1, math.ceil(len(xs) / max_samples))
+    indices = list(range(0, len(xs), stride))
+    if indices[-1] != len(xs) - 1:
+        indices.append(len(xs) - 1)
+
+    points = [(xs[indices[0]], map_y(values[indices[0]]))]
+    previous = values[indices[0]]
+    for index in indices[1:]:
+        x = xs[index]
+        points.append((x, map_y(previous)))
+        previous = values[index]
+        points.append((x, map_y(previous)))
+    if len(points) > 1:
+        draw.line(points, fill=color, width=width)
+
+
+def _plot_trace_pillow(
+    rows: list[dict[str, int]], summaries: list[dict[str, str]], gate: str, path: Path
+) -> None:
+    from PIL import Image, ImageDraw
+
+    width, height = 1500, 1000
+    image = Image.new("RGB", (width, height), "white")
+    draw = ImageDraw.Draw(image)
+    title_font = _pillow_font(22, bold=True)
+    heading_font = _pillow_font(15, bold=True)
+    label_font = _pillow_font(12)
+    small_font = _pillow_font(10)
+
+    left, right = 88, width - 28
+    panels = [(72, 302), (350, 574), (622, 762)]
+    time_values = [row["time_ns"] / 1000.0 for row in rows]
+    time_min, time_max = min(time_values), max(time_values)
+    time_span = max(time_max - time_min, 1.0)
+
+    def map_x(value: float) -> int:
+        return round(left + (value - time_min) / time_span * (right - left))
+
+    xs = [map_x(value) for value in time_values]
+    grouped: dict[int, list[dict[str, int]]] = defaultdict(list)
+    for row in rows:
+        grouped[row["scenario"]].append(row)
+
+    shade_colors = ["#f2f7ff", "#fff6e8"]
+    for index, scenario in enumerate(sorted(grouped)):
+        group = grouped[scenario]
+        start = map_x(group[0]["time_ns"] / 1000.0)
+        end = map_x(group[-1]["time_ns"] / 1000.0)
+        for top, bottom in panels:
+            draw.rectangle((start, top, max(start + 1, end), bottom), fill=shade_colors[index % 2])
+        label = SCENARIOS.get(scenario, str(scenario))
+        draw.text(((start + end) // 2, 52), label, fill="#333333", font=small_font, anchor="mm")
+
+    for top, bottom in panels:
+        draw.rectangle((left, top, right, bottom), outline="#777777", width=1)
+        for fraction in (0.25, 0.5, 0.75):
+            y = round(top + fraction * (bottom - top))
+            draw.line((left, y, right, y), fill="#dddddd", width=1)
+
+    draw.text((left, 12), f"Invertible {gate.upper()} stochastic spin samples", fill="#111111", font=title_font)
+
+    digital_names = ["A", "B", "Y"] + (["C"] if gate == "xor" else [])
+    digital_keys = ["a", "b", "y"] + (["aux_c"] if gate == "xor" else [])
+    digital_colors = ["#4c78a8", "#f58518", "#54a24b", "#b279a2"]
+    digital_top, digital_bottom = panels[0]
+    lane_height = (digital_bottom - digital_top) / len(digital_names)
+    for lane, (name, key, color) in enumerate(zip(digital_names, digital_keys, digital_colors)):
+        base = digital_top + (lane + 0.72) * lane_height
+
+        def map_digital(value, base=base):
+            return round(base - value * lane_height * 0.48)
+
+        _draw_step_series(draw, xs, [row[key] for row in rows], map_digital, color, width=2)
+        draw.text((left - 12, round(base - lane_height * 0.22)), name, fill=color, font=heading_font, anchor="rm")
+
+    field_keys = ["field_a", "field_b", "field_y"] + (["field_aux"] if gate == "xor" else [])
+    field_labels = ["field A", "field B", "field Y"] + (["field C"] if gate == "xor" else [])
+    field_top, field_bottom = panels[1]
+    field_values = [row[key] for row in rows for key in field_keys]
+    field_limit = max(1, max(abs(value) for value in field_values))
+
+    def map_field(value):
+        fraction = (field_limit - value) / (2 * field_limit)
+        return round(field_top + fraction * (field_bottom - field_top))
+
+    zero_y = map_field(0)
+    draw.line((left, zero_y, right, zero_y), fill="#555555", width=1)
+    for key, label, color in zip(field_keys, field_labels, digital_colors):
+        _draw_step_series(draw, xs, [row[key] for row in rows], map_field, color, width=2)
+    draw.text((left - 12, (field_top + field_bottom) // 2), "local field", fill="#222222", font=label_font, anchor="mm")
+    legend_x = left + 10
+    for label, color in zip(field_labels, digital_colors):
+        draw.line((legend_x, field_top + 15, legend_x + 22, field_top + 15), fill=color, width=3)
+        draw.text((legend_x + 28, field_top + 15), label, fill="#222222", font=small_font, anchor="lm")
+        legend_x += 118
+
+    valid = [1 if is_valid_state(row, gate) else 0 for row in rows]
+    measure = [row["measure"] for row in rows]
+    valid_top, valid_bottom = panels[2]
+
+    def map_valid(value):
+        return round(valid_bottom - 20 - value * (valid_bottom - valid_top - 40))
+
+    _draw_step_series(draw, xs, valid, map_valid, "#147a3d", width=3)
+    _draw_step_series(draw, xs, [1.15 * value for value in measure], map_valid, "#555555", width=2)
+    draw.text((left - 12, (valid_top + valid_bottom) // 2), "valid", fill="#222222", font=label_font, anchor="mm")
+    draw.text((left + 10, valid_top + 12), "valid relation", fill="#147a3d", font=small_font)
+    draw.text((left + 120, valid_top + 12), "measurement window", fill="#555555", font=small_font)
+
+    for fraction in (0.0, 0.25, 0.5, 0.75, 1.0):
+        x = round(left + fraction * (right - left))
+        value = time_min + fraction * time_span
+        draw.line((x, valid_bottom, x, valid_bottom + 6), fill="#555555", width=1)
+        draw.text((x, valid_bottom + 10), f"{value:.1f}", fill="#333333", font=small_font, anchor="ma")
+    draw.text(((left + right) // 2, valid_bottom + 32), "time (us)", fill="#222222", font=label_font, anchor="ma")
+
+    summary_y = 818
+    draw.text((left, summary_y - 30), "Measured scenario summary", fill="#111111", font=heading_font)
+    for item in summaries:
+        line = (
+            f'{item["label"]}: valid {float(item["valid_rate"]) * 100:.0f}%, '
+            f'Y=1 {float(item["y_one_rate"]) * 100:.0f}%, '
+            f'P(state {item["state_probabilities"]}), P(AB {item["ab_probabilities"]})'
+        )
+        for wrapped in textwrap.wrap(line, width=150, subsequent_indent="    "):
+            draw.text((left, summary_y), wrapped, fill="#222222", font=small_font)
+            summary_y += 17
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    image.save(path, format="PNG", optimize=True)
+
+
+def plot_trace(rows: list[dict[str, int]], summaries: list[dict[str, str]], gate: str, path: Path) -> None:
+    plt = _load_matplotlib_pyplot()
+    if plt is None:
+        _plot_trace_pillow(rows, summaries, gate, path)
+    else:
+        _plot_trace_matplotlib(rows, summaries, gate, path, plt)
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Parse and plot ModelSim logic-gate trace CSV.")
+    parser = argparse.ArgumentParser(description="Parse and plot a logic-gate simulator trace CSV.")
     parser.add_argument("--gate", choices=["and", "xor"], default="and")
     parser.add_argument("--input", type=Path, default=Path("sim/and_trace.csv"))
     parser.add_argument("--plot", type=Path, default=Path("sim/and_trace.png"))

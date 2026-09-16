@@ -1,21 +1,17 @@
-Reading pref.tcl
-
-# 2020.1
-
-# do run_adder4_windowed_randomized_exhaustive.do
+# do {C:/Projects/stochastic-circuits-experiments/sim/run_adder4_windowed_randomized_exhaustive.do}
 # onerror {quit -code 1}
 # onbreak {quit -code 1}
-# 
+#
 # if {[file exists work_adder4_windowed_random_exhaustive]} {
 #     vdel -lib work_adder4_windowed_random_exhaustive -all
 # }
-# 
-# set generated_windowed_vhdl "../src/generated_windowed_adder4.vhd"
-# ../src/generated_windowed_adder4.vhd
+#
+# set generated_windowed_vhdl "[sim_repo_path {src/generated_windowed_adder4.vhd}]"
+# C:/Projects/stochastic-circuits-experiments/src/generated_windowed_adder4.vhd
 # if {[info exists ::env(GENERATED_WINDOWED_VHDL)]} {
-#     set generated_windowed_vhdl $::env(GENERATED_WINDOWED_VHDL)
+#     set generated_windowed_vhdl [sim_input_path $::env(GENERATED_WINDOWED_VHDL)]
 # }
-# ../src/generated_presentation_windowed_integer_adder4.vhd
+# C:/Projects/stochastic-circuits-experiments/src/generated_presentation_windowed_integer_adder4.vhd
 # set active_rnd_weight 1
 # 1
 # if {[info exists ::env(ACTIVE_RND_WEIGHT)]} {
@@ -76,17 +72,17 @@ Reading pref.tcl
 #     set trials $::env(TRIALS)
 # }
 # 100
-# 
+#
 # vlib work_adder4_windowed_random_exhaustive
 # vmap work work_adder4_windowed_random_exhaustive
-# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
-# vmap work work_adder4_windowed_random_exhaustive 
-# Modifying modelsim.ini
-# 
-# vcom -2008 ../src/inv_sc_pkg.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 02:20:06 on May 25,2026
-# vcom -2008 ../src/inv_sc_pkg.vhd 
+# QuestaSim-64 vmap 2024.1 Lib Mapping Utility 2024.02 Feb  1 2024
+# vmap work work_adder4_windowed_random_exhaustive
+# Modifying C:\Projects\stochastic-circuits-experiments\.sim_build\reproduction\questa\run_adder4_windowed_randomized_exhaustive\core-questa-20260916-final3-idea3_window4\modelsim.ini
+#
+# vcom -2008 [sim_repo_path {src/inv_sc_pkg.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:44:28 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/inv_sc_pkg.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -94,24 +90,24 @@ Reading pref.tcl
 # -- Compiling package inv_sc_pkg
 # -- Compiling package body inv_sc_pkg
 # -- Loading package inv_sc_pkg
-# End time: 02:20:06 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:44:29 on Sep 16,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vcom -2008 ../src/lfsr32.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 02:20:06 on May 25,2026
-# vcom -2008 ../src/lfsr32.vhd 
+# vcom -2008 [sim_repo_path {src/lfsr32.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:44:29 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/lfsr32.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity lfsr32
 # -- Compiling architecture rtl of lfsr32
-# End time: 02:20:06 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:44:29 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -2008 ../src/spin_node.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 02:20:06 on May 25,2026
-# vcom -2008 ../src/spin_node.vhd 
+# vcom -2008 [sim_repo_path {src/spin_node.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:44:29 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/spin_node.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -120,12 +116,12 @@ Reading pref.tcl
 # -- Compiling entity spin_node
 # -- Compiling architecture rtl of spin_node
 # -- Loading entity lfsr32
-# End time: 02:20:06 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:44:29 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -2008 $generated_windowed_vhdl
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 02:20:06 on May 25,2026
-# vcom -2008 ../src/generated_presentation_windowed_integer_adder4.vhd 
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:44:29 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/generated_presentation_windowed_integer_adder4.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -134,12 +130,12 @@ Reading pref.tcl
 # -- Compiling entity gen_adder4_windowed
 # -- Compiling architecture rtl of gen_adder4_windowed
 # -- Loading entity spin_node
-# End time: 02:20:06 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:44:29 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -2008 ../tb/tb_adder4_windowed_randomized_exhaustive.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 02:20:06 on May 25,2026
-# vcom -2008 ../tb/tb_adder4_windowed_randomized_exhaustive.vhd 
+# vcom -2008 [sim_repo_path {tb/tb_adder4_windowed_randomized_exhaustive.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:44:29 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/tb/tb_adder4_windowed_randomized_exhaustive.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -148,9 +144,9 @@ Reading pref.tcl
 # -- Compiling architecture sim of tb_adder4_windowed_randomized_exhaustive
 # -- Loading package inv_sc_pkg
 # -- Loading entity gen_adder4_windowed
-# End time: 02:20:06 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:44:29 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
+#
 # vsim \
 #     -gACTIVE_RND_WEIGHT=$active_rnd_weight \
 #     -gFINAL_RND_WEIGHT=$final_rnd_weight \
@@ -163,18 +159,43 @@ Reading pref.tcl
 #     -gFINAL_CYCLES=$final_cycles \
 #     -gTRIALS=$trials \
 #     work.tb_adder4_windowed_randomized_exhaustive
-# vsim work.tb_adder4_windowed_randomized_exhaustive -gFINAL_CYCLES=0 -gWAVE3_CYCLES=40 -gFINAL_RND_WEIGHT=1 -gWAVE0_CYCLES=40 -gWAVE1_CYCLES=40 -gACTIVE_RND_WEIGHT=1 -gTRIALS=100 -gWAVE2_CYCLES=40 -gSCRAMBLE_CYCLES=80 -gSCRAMBLE_RND_WEIGHT=2 
-# Start time: 02:20:06 on May 25,2026
+# vsim work.tb_adder4_windowed_randomized_exhaustive -gFINAL_CYCLES=0 -gWAVE3_CYCLES=40 -gFINAL_RND_WEIGHT=1 -gWAVE0_CYCLES=40 -gWAVE1_CYCLES=40 -gACTIVE_RND_WEIGHT=1 -gTRIALS=100 -gWAVE2_CYCLES=40 -gSCRAMBLE_CYCLES=80 -gSCRAMBLE_RND_WEIGHT=2
+# Start time: 19:44:29 on Sep 16,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading work.inv_sc_pkg(body)
-# Loading work.tb_adder4_windowed_randomized_exhaustive(sim)
-# Loading work.gen_adder4_windowed(rtl)
-# Loading work.spin_node(rtl)
-# Loading work.lfsr32(rtl)
-# 
+# Loading work.tb_adder4_windowed_randomized_exhaustive(sim)#1
+# Loading work.gen_adder4_windowed(rtl)#1
+# Loading work.spin_node(rtl)#1
+# Loading work.spin_node(rtl)#2
+# Loading work.spin_node(rtl)#3
+# Loading work.spin_node(rtl)#4
+# Loading work.spin_node(rtl)#5
+# Loading work.spin_node(rtl)#6
+# Loading work.spin_node(rtl)#7
+# Loading work.spin_node(rtl)#8
+# Loading work.spin_node(rtl)#9
+# Loading work.spin_node(rtl)#10
+# Loading work.spin_node(rtl)#11
+# Loading work.spin_node(rtl)#12
+#
 # set case_count 512
 # 512
 # set solve_cycles [expr {$wave0_cycles + $wave1_cycles + $wave2_cycles + $wave3_cycles + $final_cycles}]
@@ -1214,7 +1235,7 @@ Reading pref.tcl
 #    Time: 122880075 ns  Iteration: 0  Instance: /tb_adder4_windowed_randomized_exhaustive
 # ** Note: tb_adder4_windowed_randomized_exhaustive completed
 #    Time: 122880075 ns  Iteration: 0  Instance: /tb_adder4_windowed_randomized_exhaustive
-# 
+#
 # quit -f
-# End time: 02:24:06 on May 25,2026, Elapsed time: 0:04:00
+# End time: 19:46:01 on Sep 16,2026, Elapsed time: 0:01:32
 # Errors: 0, Warnings: 0

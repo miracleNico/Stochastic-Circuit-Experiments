@@ -1,21 +1,17 @@
-Reading pref.tcl
-
-# 2020.1
-
-# do run_adder4_shadow1_sum_randomized_distribution.do
+# do {C:/Projects/stochastic-circuits-experiments/sim/run_adder4_shadow1_sum_randomized_distribution.do}
 # onerror {quit -code 1}
 # onbreak {quit -code 1}
-# 
+#
 # if {[file exists work_adder4_shadow1_sum_random]} {
 #     vdel -lib work_adder4_shadow1_sum_random -all
 # }
-# 
-# set generated_shadow_vhdl "../src/generated_shadow1_adder4.vhd"
-# ../src/generated_shadow1_adder4.vhd
+#
+# set generated_shadow_vhdl "[sim_repo_path {src/generated_shadow1_adder4.vhd}]"
+# C:/Projects/stochastic-circuits-experiments/src/generated_shadow1_adder4.vhd
 # if {[info exists ::env(GENERATED_SHADOW_VHDL)]} {
-#     set generated_shadow_vhdl $::env(GENERATED_SHADOW_VHDL)
+#     set generated_shadow_vhdl [sim_input_path $::env(GENERATED_SHADOW_VHDL)]
 # }
-# ../src/generated_presentation_shadow1_q34_adder4.vhd
+# C:/Projects/stochastic-circuits-experiments/src/generated_presentation_shadow1_q34_adder4.vhd
 # set block_rnd_weight 1
 # 1
 # if {[info exists ::env(BLOCK_RND_WEIGHT)]} {
@@ -45,31 +41,26 @@ Reading pref.tcl
 # if {[info exists ::env(BLOCK0_CYCLES)]} {
 #     set block0_cycles $::env(BLOCK0_CYCLES)
 # }
-# 10
 # set block1_cycles 40
 # 40
 # if {[info exists ::env(BLOCK1_CYCLES)]} {
 #     set block1_cycles $::env(BLOCK1_CYCLES)
 # }
-# 8
 # set block2_cycles 40
 # 40
 # if {[info exists ::env(BLOCK2_CYCLES)]} {
 #     set block2_cycles $::env(BLOCK2_CYCLES)
 # }
-# 16
 # set block3_cycles 40
 # 40
 # if {[info exists ::env(BLOCK3_CYCLES)]} {
 #     set block3_cycles $::env(BLOCK3_CYCLES)
 # }
-# 6
 # set copy_cycles 2
 # 2
 # if {[info exists ::env(COPY_CYCLES)]} {
 #     set copy_cycles $::env(COPY_CYCLES)
 # }
-# 2
 # set settle_cycles 160
 # 160
 # if {[info exists ::env(SETTLE_CYCLES)]} {
@@ -93,17 +84,17 @@ Reading pref.tcl
 #     set parallel_mode $::env(PARALLEL_MODE)
 # }
 # true
-# 
+#
 # vlib work_adder4_shadow1_sum_random
 # vmap work work_adder4_shadow1_sum_random
-# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
-# vmap work work_adder4_shadow1_sum_random 
-# Modifying modelsim.ini
-# 
-# vcom -2008 ../src/inv_sc_pkg.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 03:37:51 on May 25,2026
-# vcom -2008 ../src/inv_sc_pkg.vhd 
+# QuestaSim-64 vmap 2024.1 Lib Mapping Utility 2024.02 Feb  1 2024
+# vmap work work_adder4_shadow1_sum_random
+# Modifying C:\Projects\stochastic-circuits-experiments\.sim_build\reproduction\questa\run_adder4_shadow1_sum_randomized_distribution\core-questa-20260916-final3-sum_idea24_q34_parallel4\modelsim.ini
+#
+# vcom -2008 [sim_repo_path {src/inv_sc_pkg.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:54:14 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/inv_sc_pkg.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -111,24 +102,24 @@ Reading pref.tcl
 # -- Compiling package inv_sc_pkg
 # -- Compiling package body inv_sc_pkg
 # -- Loading package inv_sc_pkg
-# End time: 03:37:51 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:54:14 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -2008 ../src/lfsr32.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 03:37:51 on May 25,2026
-# vcom -2008 ../src/lfsr32.vhd 
+# vcom -2008 [sim_repo_path {src/lfsr32.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:54:14 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/lfsr32.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity lfsr32
 # -- Compiling architecture rtl of lfsr32
-# End time: 03:37:51 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:54:15 on Sep 16,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vcom -2008 ../src/spin_node.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 03:37:51 on May 25,2026
-# vcom -2008 ../src/spin_node.vhd 
+# vcom -2008 [sim_repo_path {src/spin_node.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:54:15 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/spin_node.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -137,12 +128,12 @@ Reading pref.tcl
 # -- Compiling entity spin_node
 # -- Compiling architecture rtl of spin_node
 # -- Loading entity lfsr32
-# End time: 03:37:51 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:54:15 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -2008 $generated_shadow_vhdl
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 03:37:51 on May 25,2026
-# vcom -2008 ../src/generated_presentation_shadow1_q34_adder4.vhd 
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:54:15 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/generated_presentation_shadow1_q34_adder4.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -151,12 +142,12 @@ Reading pref.tcl
 # -- Compiling entity gen_adder4_shadow1_windowed
 # -- Compiling architecture rtl of gen_adder4_shadow1_windowed
 # -- Loading entity spin_node
-# End time: 03:37:51 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:54:15 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -2008 ../tb/tb_adder4_shadow1_sum_randomized_distribution.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 03:37:51 on May 25,2026
-# vcom -2008 ../tb/tb_adder4_shadow1_sum_randomized_distribution.vhd 
+# vcom -2008 [sim_repo_path {tb/tb_adder4_shadow1_sum_randomized_distribution.vhd}]
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:54:15 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/tb/tb_adder4_shadow1_sum_randomized_distribution.vhd
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -165,9 +156,9 @@ Reading pref.tcl
 # -- Compiling architecture sim of tb_adder4_shadow1_sum_randomized_distribution
 # -- Loading package inv_sc_pkg
 # -- Loading entity gen_adder4_shadow1_windowed
-# End time: 03:37:51 on May 25,2026, Elapsed time: 0:00:00
+# End time: 19:54:15 on Sep 16,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
+#
 # vsim \
 #     -gBLOCK_RND_WEIGHT=$block_rnd_weight \
 #     -gCOPY_RND_WEIGHT=$copy_rnd_weight \
@@ -183,24 +174,52 @@ Reading pref.tcl
 #     -gREVERSE_ORDER=$reverse_order \
 #     -gPARALLEL_MODE=$parallel_mode \
 #     work.tb_adder4_shadow1_sum_randomized_distribution
-# vsim work.tb_adder4_shadow1_sum_randomized_distribution -gBLOCK_RND_WEIGHT=4 -gCOPY_RND_WEIGHT=0 -gCOPY_CYCLES=2 -gBLOCK1_CYCLES=8 -gTRIALS=1000 -gBLOCK3_CYCLES=6 -gPARALLEL_MODE=true -gSCRAMBLE_RND_WEIGHT=8 -gSCRAMBLE_CYCLES=80 -gSETTLE_CYCLES=160 -gBLOCK0_CYCLES=10 -gBLOCK2_CYCLES=16 -gREVERSE_ORDER=false 
-# Start time: 03:37:51 on May 25,2026
+# vsim work.tb_adder4_shadow1_sum_randomized_distribution -gBLOCK_RND_WEIGHT=4 -gCOPY_RND_WEIGHT=0 -gCOPY_CYCLES=2 -gBLOCK1_CYCLES=40 -gTRIALS=1000 -gBLOCK3_CYCLES=40 -gPARALLEL_MODE=true -gSCRAMBLE_RND_WEIGHT=8 -gSCRAMBLE_CYCLES=80 -gSETTLE_CYCLES=160 -gBLOCK0_CYCLES=40 -gBLOCK2_CYCLES=40 -gREVERSE_ORDER=false
+# Start time: 19:54:15 on Sep 16,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading work.inv_sc_pkg(body)
-# Loading work.tb_adder4_shadow1_sum_randomized_distribution(sim)
-# Loading work.gen_adder4_shadow1_windowed(rtl)
-# Loading work.spin_node(rtl)
-# Loading work.lfsr32(rtl)
-# 
+# Loading work.tb_adder4_shadow1_sum_randomized_distribution(sim)#1
+# Loading work.gen_adder4_shadow1_windowed(rtl)#1
+# Loading work.spin_node(rtl)#1
+# Loading work.spin_node(rtl)#2
+# Loading work.spin_node(rtl)#3
+# Loading work.spin_node(rtl)#4
+# Loading work.spin_node(rtl)#5
+# Loading work.spin_node(rtl)#6
+# Loading work.spin_node(rtl)#7
+# Loading work.spin_node(rtl)#8
+# Loading work.spin_node(rtl)#9
+# Loading work.spin_node(rtl)#10
+# Loading work.spin_node(rtl)#11
+# Loading work.spin_node(rtl)#12
+# Loading work.spin_node(rtl)#13
+# Loading work.spin_node(rtl)#14
+# Loading work.spin_node(rtl)#15
+#
 # set sum_cases 31
 # 31
 # set schedule_cycles [expr {$block0_cycles + $block1_cycles + $block2_cycles + $block3_cycles + (3 * $copy_cycles)}]
-# 46
+# 166
 # set solve_cycles $schedule_cycles
-# 46
+# 166
 # if {$parallel_mode eq "true"} {
 #     set solve_cycles $settle_cycles
 # }
@@ -210,17 +229,17 @@ Reading pref.tcl
 # set run_ns [expr {($sum_cases * $trials * $trial_cycles + 1000) * 10}]
 # 74720000
 # run ${run_ns} ns
-# ** Note: sumdist_random summary SUM=0 valid_total=0 invalid_total=1000 coverage=0 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=0 valid_total=0 invalid_total=1000 coverage=0 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 2410075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=0 A=0 B=0 count=0 trials=1000
 #    Time: 2410075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=1 valid_total=471 invalid_total=529 coverage=2 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=1 valid_total=471 invalid_total=529 coverage=2 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 4820155 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=1 A=0 B=1 count=335 trials=1000
 #    Time: 4820155 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=1 A=1 B=0 count=136 trials=1000
 #    Time: 4820155 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=2 valid_total=699 invalid_total=301 coverage=3 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=2 valid_total=699 invalid_total=301 coverage=3 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 7230235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=2 A=0 B=2 count=258 trials=1000
 #    Time: 7230235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -228,7 +247,7 @@ Reading pref.tcl
 #    Time: 7230235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=2 A=2 B=0 count=181 trials=1000
 #    Time: 7230235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=3 valid_total=900 invalid_total=100 coverage=4 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=3 valid_total=900 invalid_total=100 coverage=4 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 9640315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=3 A=0 B=3 count=482 trials=1000
 #    Time: 9640315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -238,7 +257,7 @@ Reading pref.tcl
 #    Time: 9640315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=3 A=3 B=0 count=15 trials=1000
 #    Time: 9640315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=4 valid_total=897 invalid_total=103 coverage=3 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=4 valid_total=897 invalid_total=103 coverage=3 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 12050395 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=4 A=0 B=4 count=0 trials=1000
 #    Time: 12050395 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -250,7 +269,7 @@ Reading pref.tcl
 #    Time: 12050395 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=4 A=4 B=0 count=0 trials=1000
 #    Time: 12050395 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=5 valid_total=994 invalid_total=6 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=5 valid_total=994 invalid_total=6 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 14460475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=5 A=0 B=5 count=237 trials=1000
 #    Time: 14460475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -264,7 +283,7 @@ Reading pref.tcl
 #    Time: 14460475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=5 A=5 B=0 count=91 trials=1000
 #    Time: 14460475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=6 valid_total=993 invalid_total=7 coverage=7 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=6 valid_total=993 invalid_total=7 coverage=7 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 16870555 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=6 A=0 B=6 count=46 trials=1000
 #    Time: 16870555 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -280,7 +299,7 @@ Reading pref.tcl
 #    Time: 16870555 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=6 A=6 B=0 count=54 trials=1000
 #    Time: 16870555 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=7 valid_total=994 invalid_total=6 coverage=7 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=7 valid_total=994 invalid_total=6 coverage=7 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 19280635 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=7 A=0 B=7 count=57 trials=1000
 #    Time: 19280635 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -298,7 +317,7 @@ Reading pref.tcl
 #    Time: 19280635 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=7 A=7 B=0 count=0 trials=1000
 #    Time: 19280635 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=8 valid_total=991 invalid_total=9 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=8 valid_total=991 invalid_total=9 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 21690715 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=8 A=0 B=8 count=0 trials=1000
 #    Time: 21690715 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -318,7 +337,7 @@ Reading pref.tcl
 #    Time: 21690715 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=8 A=8 B=0 count=0 trials=1000
 #    Time: 21690715 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=9 valid_total=993 invalid_total=7 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=9 valid_total=993 invalid_total=7 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 24100795 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=9 A=0 B=9 count=117 trials=1000
 #    Time: 24100795 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -340,7 +359,7 @@ Reading pref.tcl
 #    Time: 24100795 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=9 A=9 B=0 count=136 trials=1000
 #    Time: 24100795 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=10 valid_total=991 invalid_total=9 coverage=8 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=10 valid_total=991 invalid_total=9 coverage=8 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 26510875 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=10 A=0 B=10 count=48 trials=1000
 #    Time: 26510875 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -364,7 +383,7 @@ Reading pref.tcl
 #    Time: 26510875 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=10 A=10 B=0 count=0 trials=1000
 #    Time: 26510875 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=11 valid_total=993 invalid_total=7 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=11 valid_total=993 invalid_total=7 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 28920955 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=11 A=0 B=11 count=257 trials=1000
 #    Time: 28920955 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -390,7 +409,7 @@ Reading pref.tcl
 #    Time: 28920955 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=11 A=11 B=0 count=0 trials=1000
 #    Time: 28920955 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=12 valid_total=990 invalid_total=10 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=12 valid_total=990 invalid_total=10 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 31331035 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=12 A=0 B=12 count=0 trials=1000
 #    Time: 31331035 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -418,7 +437,7 @@ Reading pref.tcl
 #    Time: 31331035 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=12 A=12 B=0 count=0 trials=1000
 #    Time: 31331035 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=13 valid_total=995 invalid_total=5 coverage=9 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=13 valid_total=995 invalid_total=5 coverage=9 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 33741115 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=13 A=0 B=13 count=108 trials=1000
 #    Time: 33741115 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -448,7 +467,7 @@ Reading pref.tcl
 #    Time: 33741115 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=13 A=13 B=0 count=91 trials=1000
 #    Time: 33741115 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=14 valid_total=994 invalid_total=6 coverage=11 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=14 valid_total=994 invalid_total=6 coverage=11 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 36151195 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=14 A=0 B=14 count=0 trials=1000
 #    Time: 36151195 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -480,7 +499,7 @@ Reading pref.tcl
 #    Time: 36151195 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=14 A=14 B=0 count=0 trials=1000
 #    Time: 36151195 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=15 valid_total=995 invalid_total=5 coverage=11 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=15 valid_total=995 invalid_total=5 coverage=11 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 38561275 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=15 A=0 B=15 count=26 trials=1000
 #    Time: 38561275 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -514,7 +533,7 @@ Reading pref.tcl
 #    Time: 38561275 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=15 A=15 B=0 count=0 trials=1000
 #    Time: 38561275 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=16 valid_total=992 invalid_total=8 coverage=10 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=16 valid_total=992 invalid_total=8 coverage=10 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 40971355 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=16 A=1 B=15 count=26 trials=1000
 #    Time: 40971355 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -546,7 +565,7 @@ Reading pref.tcl
 #    Time: 40971355 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=16 A=15 B=1 count=5 trials=1000
 #    Time: 40971355 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=17 valid_total=993 invalid_total=7 coverage=7 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=17 valid_total=993 invalid_total=7 coverage=7 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 43381435 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=17 A=2 B=15 count=0 trials=1000
 #    Time: 43381435 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -576,7 +595,7 @@ Reading pref.tcl
 #    Time: 43381435 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=17 A=15 B=2 count=15 trials=1000
 #    Time: 43381435 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=18 valid_total=991 invalid_total=9 coverage=8 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=18 valid_total=991 invalid_total=9 coverage=8 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 45791515 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=18 A=3 B=15 count=94 trials=1000
 #    Time: 45791515 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -604,7 +623,7 @@ Reading pref.tcl
 #    Time: 45791515 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=18 A=15 B=3 count=0 trials=1000
 #    Time: 45791515 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=19 valid_total=992 invalid_total=8 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=19 valid_total=992 invalid_total=8 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 48201595 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=19 A=4 B=15 count=0 trials=1000
 #    Time: 48201595 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -630,7 +649,7 @@ Reading pref.tcl
 #    Time: 48201595 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=19 A=15 B=4 count=0 trials=1000
 #    Time: 48201595 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=20 valid_total=989 invalid_total=11 coverage=5 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=20 valid_total=989 invalid_total=11 coverage=5 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 50611675 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=20 A=5 B=15 count=0 trials=1000
 #    Time: 50611675 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -654,7 +673,7 @@ Reading pref.tcl
 #    Time: 50611675 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=20 A=15 B=5 count=42 trials=1000
 #    Time: 50611675 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=21 valid_total=994 invalid_total=6 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=21 valid_total=994 invalid_total=6 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 53021755 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=21 A=6 B=15 count=0 trials=1000
 #    Time: 53021755 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -676,7 +695,7 @@ Reading pref.tcl
 #    Time: 53021755 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=21 A=15 B=6 count=0 trials=1000
 #    Time: 53021755 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=22 valid_total=993 invalid_total=7 coverage=7 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=22 valid_total=993 invalid_total=7 coverage=7 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 55431835 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=22 A=7 B=15 count=0 trials=1000
 #    Time: 55431835 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -696,7 +715,7 @@ Reading pref.tcl
 #    Time: 55431835 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=22 A=15 B=7 count=0 trials=1000
 #    Time: 55431835 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=23 valid_total=994 invalid_total=6 coverage=7 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=23 valid_total=994 invalid_total=6 coverage=7 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 57841915 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=23 A=8 B=15 count=57 trials=1000
 #    Time: 57841915 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -714,7 +733,7 @@ Reading pref.tcl
 #    Time: 57841915 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=23 A=15 B=8 count=0 trials=1000
 #    Time: 57841915 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=24 valid_total=991 invalid_total=9 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=24 valid_total=991 invalid_total=9 coverage=6 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 60251995 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=24 A=9 B=15 count=57 trials=1000
 #    Time: 60251995 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -730,7 +749,7 @@ Reading pref.tcl
 #    Time: 60251995 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=24 A=15 B=9 count=5 trials=1000
 #    Time: 60251995 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=25 valid_total=521 invalid_total=479 coverage=3 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=25 valid_total=521 invalid_total=479 coverage=3 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 62662075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=25 A=10 B=15 count=0 trials=1000
 #    Time: 62662075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -744,7 +763,7 @@ Reading pref.tcl
 #    Time: 62662075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=25 A=15 B=10 count=15 trials=1000
 #    Time: 62662075 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=26 valid_total=292 invalid_total=708 coverage=3 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=26 valid_total=292 invalid_total=708 coverage=3 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 65072155 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=26 A=11 B=15 count=153 trials=1000
 #    Time: 65072155 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -756,7 +775,7 @@ Reading pref.tcl
 #    Time: 65072155 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=26 A=15 B=11 count=37 trials=1000
 #    Time: 65072155 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=27 valid_total=93 invalid_total=907 coverage=1 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=27 valid_total=93 invalid_total=907 coverage=1 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 67482235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=27 A=12 B=15 count=0 trials=1000
 #    Time: 67482235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -766,7 +785,7 @@ Reading pref.tcl
 #    Time: 67482235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=27 A=15 B=12 count=0 trials=1000
 #    Time: 67482235 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=28 valid_total=93 invalid_total=907 coverage=1 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=28 valid_total=93 invalid_total=907 coverage=1 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 69892315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=28 A=13 B=15 count=0 trials=1000
 #    Time: 69892315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
@@ -774,19 +793,19 @@ Reading pref.tcl
 #    Time: 69892315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=28 A=15 B=13 count=93 trials=1000
 #    Time: 69892315 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=29 valid_total=0 invalid_total=1000 coverage=0 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=29 valid_total=0 invalid_total=1000 coverage=0 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 72302395 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=29 A=14 B=15 count=0 trials=1000
 #    Time: 72302395 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=29 A=15 B=14 count=0 trials=1000
 #    Time: 72302395 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# ** Note: sumdist_random summary SUM=30 valid_total=0 invalid_total=1000 coverage=0 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=10,8,16,6 copy=2 settle=160
+# ** Note: sumdist_random summary SUM=30 valid_total=0 invalid_total=1000 coverage=0 trials=1000 parallel=true reverse=false block_rnd=4 copy_rnd=0 scramble_rnd=8 blocks=40,40,40,40 copy=2 settle=160
 #    Time: 74712475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: sumdist_random valid SUM=30 A=15 B=15 count=0 trials=1000
 #    Time: 74712475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
 # ** Note: tb_adder4_shadow1_sum_randomized_distribution completed
 #    Time: 74712475 ns  Iteration: 0  Instance: /tb_adder4_shadow1_sum_randomized_distribution
-# 
+#
 # quit -f
-# End time: 03:39:53 on May 25,2026, Elapsed time: 0:02:02
+# End time: 19:54:56 on Sep 16,2026, Elapsed time: 0:00:41
 # Errors: 0, Warnings: 0

@@ -43,6 +43,65 @@ forcing clamped nodes. This avoids symmetric parallel-update oscillations in
 the small XOR/half-adder network and is closer to the asynchronous update style
 used by Boltzmann-machine p-bit systems.
 
+## Simulation And Reproduction Workflow
+
+QuestaSim 2024.1 is the default VHDL simulator. The migration keeps the
+existing `vcom`, `vsim`, and `.do` flow; `qrun` is not used. A normal smoke run
+from the repository root is:
+
+```powershell
+.\sim\run_questa.ps1
+```
+
+Every experiment wrapper defaults to Questa and accepts the common tool,
+license, build, waveform, and timeout arguments described in
+[`sim/README.md`](sim/README.md). The explicit ModelSim launcher and archived
+repository-local configuration now live under
+[`legacy/modelsim/`](legacy/modelsim/README.md). Runs are isolated under
+`.sim_build/`; they do not use the archived `legacy/modelsim/modelsim.ini` or
+share a `work` library.
+
+The fixed-seed core reproduction entry point is:
+
+```powershell
+python .\scripts\run_questa_core_reproduction.py `
+  --suite core `
+  --seed-mode replay `
+  --simulator questa `
+  --update-reports
+```
+
+Replay validates the committed generated VHDL and seed identities, stages all
+new evidence, and replaces the original reports only after every semantic
+golden check passes. Use `--preflight` to validate inputs, tool identity, and
+entry points without running simulations or modifying reports. The complete
+25-run core replay passed on 2026-09-16 with QuestaSim 2024.1, and the
+presentation and COMB6 reports were then replaced transactionally. This is a
+fixed-seed result for the committed generated VHDL, not a cross-seed robustness
+claim.
+
+The frozen integer Idea 3+4 RCA golden predates the testbench's clamp-prime
+cycle and post-edge sample delay. The core driver marks only
+`idea34_integer4` with `-LegacyReplayTiming` so Questa can reproduce that
+historical evidence exactly; the Q3.4 main run and short schedules use the
+corrected timing, which is also the ordinary wrapper default. This mixed
+protocol is recorded in the published manifest and run summary.
+
+ModelSim is retained only as an explicit legacy target through
+`legacy/modelsim/run_modelsim.ps1` or the shared runner's explicit
+`-Simulator ModelSim` compatibility option. A missing Questa installation never
+causes an automatic fallback to ModelSim. Verilator+cocotb remains a future
+parallel workflow; this migration does not add it, CI runners, or a `qrun`
+flow.
+
+The current development host does not provide a legacy ModelSim executable, so
+legacy acceptance is limited to static `.do` compatibility. Dynamic ModelSim
+validation is marked "environment not provided" and does not block Questa.
+
+See [`experiment_timeline.md`](experiment_timeline.md) for the chronological
+experiment record, optimizer provenance, fixed-seed results, and local branch
+consolidation notes.
+
 ## Current Presentation Workflow
 
 The current main result is the RCA timing/shadow-node study in:
@@ -56,29 +115,39 @@ adder problem. The report includes:
 
 - restored primitive-gate visualizations for AND, OR, NAND, NOR, HA/XOR, XNOR,
   and FA;
-- exhaustive randomized ModelSim tests for the 4-bit RCA;
+- exhaustive fixed-seed tests for the 4-bit RCA;
 - a separate clamp SUM-only inverse-distribution test for the 4-bit RCA;
-- non-exhaustive repeated-solve ModelSim checks for selected 8-bit RCA vectors;
+- non-exhaustive repeated-solve checks for selected 8-bit RCA vectors;
 - ablations for idea 2, idea 3, and idea 4 separately;
 - final comparison against the combined idea 2+3+4 design;
 - a separate forward-only window-reduction check for shortened Q3.4 schedules.
 
-Rebuild the full presentation dataset from fresh OS-random seed salts:
+Replay the committed seed set with Questa and publish only fully validated
+results:
 
 ```powershell
-cd "C:\Projects\stochastic_circuits"
-python .\scripts\run_presentation_rca_experiments.py
+python .\scripts\run_questa_core_reproduction.py `
+  --suite core `
+  --seed-mode replay `
+  --simulator questa `
+  --update-reports
 ```
 
-The driver regenerates presentation VHDL, runs ModelSim, parses transcripts into
-CSV, and writes SVG figures under `reports/presentation_8bit_rca/`. Curated
-report artifacts are organized as:
+The replay driver does not generate a new random salt or overwrite committed
+generated VHDL. It checks source hashes, runs Questa, parses stable VHDL report
+records into CSV, checks exact integer goldens and derived values, and stages
+SVG figures under `.sim_build/` before publication. Curated report artifacts
+are organized as:
 
 ```text
 reports/presentation_8bit_rca/data/     Parsed CSV and JSON data
 reports/presentation_8bit_rca/figures/  SVG/PNG visualizations
-reports/presentation_8bit_rca/traces/   ModelSim transcripts used as evidence
+reports/presentation_8bit_rca/traces/   Simulator transcripts used as evidence
 ```
+
+The old random-regeneration driver is deliberately guarded. It refuses to run
+unless both `--legacy-regenerate` and `--replace-report` are supplied; it is not
+part of the fixed replay workflow.
 
 Latest 4-bit exhaustive repeated-solve results under the main 40-cycle
 comparison protocol:
@@ -319,37 +388,53 @@ src/inv_xor_gate.vhd    Four-node invertible XOR/half-adder network
 src/generated_networks.vhd
                          Generated OR/NAND/NOR/XNOR/FA/adder/bitcount networks
 src/generated_presentation_*.vhd
-                         Fresh-seeded RCA presentation artifacts
-tb/*.vhd                ModelSim testbenches
+                         Frozen-seed RCA presentation artifacts
+tb/*.vhd                VHDL testbenches
 reports/hamiltonians.*  Coefficient reports
 reports/presentation_8bit_rca/
                          Current report, CSV data, SVG figures, and transcripts
+experiment_timeline.md   Repository chronology and evidence provenance
 scripts/*.py            Generator, verifier, and probability plotters
+scripts/run_questa_core_reproduction.py
+                         Fixed-seed Questa core replay and golden checks
 scripts/run_presentation_rca_experiments.py
-                         End-to-end presentation experiment driver
-sim/run_modelsim.do     ModelSim compile/run script
-sim/run_modelsim.ps1    PowerShell wrapper for local ModelSim path
+                         Guarded legacy random-regeneration driver
+sim/Simulator.psm1      Shared simulator, license, isolation, and metadata logic
+sim/Invoke-Simulation.ps1
+                         Stable low-level simulation CLI
+sim/run_questa.ps1      Default Questa primitive-gate regression
+sim/run_gate_regression.do
+                         Shared primitive-gate regression
+legacy/modelsim/        Explicit ModelSim launcher and archived configuration
 ```
 
-Regenerable Python bytecode, ModelSim work libraries, transcripts outside the
-curated report folder, and local scratch sweep directories are ignored by
-`.gitignore`.
+Regenerable Python bytecode, isolated simulator work directories, and local
+scratch sweep directories are ignored by `.gitignore`. Curated evidence remains
+under `reports/`.
 
 ## Run Simulation
 
-From PowerShell:
+From the repository root, run the default primitive-gate regression with
+Questa:
 
 ```powershell
-cd "C:\Projects\stochastic_circuits"
-.\sim\run_modelsim.ps1
+.\sim\run_questa.ps1
 ```
 
-Or from the `sim` folder:
+The stable low-level interface accepts any migrated `.do` file:
 
 ```powershell
-cd "C:\Projects\stochastic_circuits\sim"
-C:\intelFPGA_lite\modelsim_ase\win32aloem\vsim.exe -c -do run_modelsim.do
+.\sim\Invoke-Simulation.ps1 `
+  -DoFile .\sim\run_comb6_diagnostics.do `
+  -Simulator Questa `
+  -WaveMode None `
+  -TimeoutSeconds 3600
 ```
+
+Use `-VsimPath` to choose an executable explicitly and either `-LicenseFile`
+or `-LicenseServer` to override license discovery. Details, all common wrapper
+arguments, run-directory contents, and exit codes are in
+[`sim/README.md`](sim/README.md).
 
 The testbenches verify:
 
@@ -379,13 +464,17 @@ For targeted 8-bit synthesized-adder convergence debugging:
 The diagnostic bench reports output-sum histograms and per-sum/per-carry hit
 counts for hard carry-chain cases.
 
-For the presentation RCA workflow, the most useful direct entry point is:
+For the presentation RCA workflow, use the safe fixed replay entry point:
 
 ```powershell
-python .\scripts\run_presentation_rca_experiments.py
+python .\scripts\run_questa_core_reproduction.py `
+  --suite core `
+  --seed-mode replay `
+  --simulator questa `
+  --update-reports
 ```
 
-Individual runners used by that script include:
+Individual wrappers used by the replay include:
 
 ```text
 sim/run_adder4_direct_randomized_exhaustive.ps1
@@ -398,40 +487,43 @@ sim/run_adder8_direct_repeated_solve.ps1
 sim/run_adder8_shadow1_repeated_solve.ps1
 ```
 
-The 4-bit presentation tests are exhaustive over all `A,B` pairs and use fresh
-randomized trajectories. The SUM-only test is exhaustive over SUM=0..30 and
-records the sampled valid-pair distribution. The 8-bit presentation tests are
-selected-vector repeated solves, not exhaustive.
+The 4-bit presentation tests are exhaustive over all `A,B` pairs and replay the
+committed deterministic seed streams. The SUM-only test is exhaustive over
+SUM=0..30 and records the sampled valid-pair distribution. The 8-bit
+presentation tests are selected-vector repeated solves, not exhaustive. This
+replay establishes reproducibility for the committed seeds only; it is not a
+cross-seed robustness claim.
 
 ## Open AND Waveform
 
-To open ModelSim in GUI mode with an AND-gate wave window:
+To open Questa in GUI mode with an AND-gate wave window:
 
 ```powershell
-cd "C:\Projects\stochastic_circuits"
 .\sim\open_and_wave.ps1
 ```
 
 The script compiles the AND design, runs `tb_inv_and_gate` for 20 us, and adds
 the clamp controls, spins, local fields, update phase, counters, and PRNG bits
-to the wave window.
+to the wave window. It defaults to `-WaveMode All` and keeps the isolated work
+library for interactive inspection.
 
 ## Python Trace Visualization
 
 For a cleaner sampled view, run the trace flow:
 
 ```powershell
-cd "C:\Projects\stochastic_circuits"
 .\sim\run_and_trace.ps1
 ```
 
-This runs `tb_inv_and_trace`, writes `sim/and_trace.csv`, then uses
-`scripts/plot_and_trace.py` to generate:
+This runs `tb_inv_and_trace`, then keeps both the raw CSV and every derived
+artifact in the same isolated `.sim_build/.../raw/` directory. The derived
+files are:
 
 ```text
-sim/and_trace.png
-sim/and_trace_summary.csv
-sim/and_state_probabilities.csv
+.sim_build/.../raw/and_trace.png
+.sim_build/.../raw/and_trace_summary.csv
+.sim_build/.../raw/and_state_probabilities.csv
+.sim_build/.../raw/and_ab_probabilities.csv
 ```
 
 The trace covers all four forward AND cases plus reverse operation with
@@ -446,14 +538,14 @@ For XOR:
 This produces:
 
 ```text
-sim/xor_trace.csv
-sim/xor_trace.png
-sim/xor_trace_summary.csv
-sim/xor_state_probabilities.csv
-sim/xor_ab_probabilities.csv
+.sim_build/.../raw/xor_trace.csv
+.sim_build/.../raw/xor_trace.png
+.sim_build/.../raw/xor_trace_summary.csv
+.sim_build/.../raw/xor_state_probabilities.csv
+.sim_build/.../raw/xor_ab_probabilities.csv
 ```
 
-To regenerate both legacy probability reports:
+To regenerate both trace reports and the exact small-gate probability report:
 
 ```powershell
 .\sim\run_all_traces.ps1
@@ -463,18 +555,19 @@ This also writes exact small-gate Hamiltonian probability reports for
 AND/OR/NAND/NOR/XOR/XNOR:
 
 ```text
-sim/generated_gate_probability_summary.csv
-sim/generated_gate_state_probabilities.csv
-sim/generated_gate_ab_probabilities.csv
-sim/generated_gate_probabilities.png
+.sim_build/.../run_all_traces/.../raw/generated_gate_probability_summary.csv
+.sim_build/.../run_all_traces/.../raw/generated_gate_state_probabilities.csv
+.sim_build/.../run_all_traces/.../raw/generated_gate_ab_probabilities.csv
+.sim_build/.../run_all_traces/.../raw/generated_gate_probabilities.png
 ```
 
 For clamped-output runs, the `*_ab_probabilities.csv` files are the most useful
 view. For example, AND with `Y=0` should distribute probability across
 `AB=00`, `AB=01`, and `AB=10`, with each near one third.
 
-The current presentation gate visualizations are produced by
-`scripts/run_presentation_rca_experiments.py` and written to:
+The current presentation gate visualizations are staged by
+`scripts/run_questa_core_reproduction.py` and, after all goldens pass, published
+to:
 
 ```text
 reports/presentation_8bit_rca/figures/gate_energy_landscape.svg

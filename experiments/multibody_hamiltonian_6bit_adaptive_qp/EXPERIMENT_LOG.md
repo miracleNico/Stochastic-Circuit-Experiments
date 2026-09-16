@@ -128,3 +128,35 @@ audit with zero violations while excluding all SUM-SUM and SUM-to-next-carry
 dynamic convergence improvement. The invalid local-minimum count remains high,
 so Stage4 or a revised term-selection strategy is still needed before claiming
 sampler-level improvement.
+
+## 2026-09-16: Questa RTL Handoff Preflight Stopped Before RTL
+
+The migration's independent RTL research gate was evaluated after the Questa
+core suite passed. It did not advance to quantization or VHDL generation.
+
+Evidence available in this checkout:
+
+- the command, selected term counts, cutting-plane round totals, and aggregate
+  exhaustive audit recorded above;
+- the reported static result of zero gap violations, 1642 invalid local
+  minima, and 1376 nonzero coefficients.
+
+Required identity-bearing evidence that is absent from both the tracked tree
+and the current checkout:
+
+- the concrete Stage3 solution JSON and dense coefficient vector;
+- the exact term support and final active-cut set;
+- the machine-readable exhaustive audit and SHA-256 identities for those
+  artifacts.
+
+The available Python runtime also lacks `matplotlib` and `gurobipy`; the host
+only exposes a Gurobi 10.0.3 command-line installation, not the Python runtime
+used by this experiment. More importantly, installing dependencies and solving
+again would not establish that a new zero-violation optimum is the same Stage3
+Hamiltonian documented above.
+
+Consequently the Q3.29/Q3.37 quantization gate, `2^25` bit-exact cube audit,
+term ROM, local-field core, scheduler, and dynamic Questa tests were not
+created. The only retained conclusion remains: the documented continuous
+Stage3 solve closes the static gap, while dynamic convergence improvement has
+not been demonstrated.

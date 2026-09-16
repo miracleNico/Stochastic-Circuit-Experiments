@@ -1,0 +1,127 @@
+# do {C:/Projects/stochastic-circuits-experiments/experiments/quantized_landscape_optimizer/generated_gates_audit.do}
+# QuestaSim-64 vmap 2024.1 Lib Mapping Utility 2024.02 Feb  1 2024
+# vmap work C:/Projects/stochastic-circuits-experiments/.sim_build/reproduction/questa/generated_gates_audit/core-questa-20260916-final3-generated_gates/work
+# Modifying C:\Projects\stochastic-circuits-experiments\.sim_build\reproduction\questa\generated_gates_audit\core-questa-20260916-final3-generated_gates\modelsim.ini
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:36 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/inv_sc_pkg.vhd
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package inv_sc_pkg
+# -- Compiling package body inv_sc_pkg
+# -- Loading package inv_sc_pkg
+# End time: 19:38:36 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:36 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/lfsr32.vhd
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity lfsr32
+# -- Compiling architecture rtl of lfsr32
+# End time: 19:38:36 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:36 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/spin_node.vhd
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity spin_node
+# -- Compiling architecture rtl of spin_node
+# -- Loading entity lfsr32
+# End time: 19:38:36 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:36 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/src/generated_networks.vhd
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package inv_sc_pkg
+# -- Compiling entity gen_and_gate
+# -- Compiling architecture rtl of gen_and_gate
+# -- Loading entity spin_node
+# -- Compiling entity gen_or_gate
+# -- Compiling architecture rtl of gen_or_gate
+# -- Compiling entity gen_nand_gate
+# -- Compiling architecture rtl of gen_nand_gate
+# -- Compiling entity gen_nor_gate
+# -- Compiling architecture rtl of gen_nor_gate
+# -- Compiling entity gen_xor_gate
+# -- Compiling architecture rtl of gen_xor_gate
+# -- Compiling entity gen_xnor_gate
+# -- Compiling architecture rtl of gen_xnor_gate
+# -- Compiling entity gen_fa_gate
+# -- Compiling architecture rtl of gen_fa_gate
+# -- Compiling entity gen_adder4
+# -- Compiling architecture rtl of gen_adder4
+# -- Compiling entity gen_adder8
+# -- Compiling architecture rtl of gen_adder8
+# -- Compiling entity gen_comb6_mixed
+# -- Compiling architecture rtl of gen_comb6_mixed
+# -- Compiling entity gen_bitcount8
+# -- Compiling architecture rtl of gen_bitcount8
+# End time: 19:38:36 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:38:36 on Sep 16,2026
+# vcom -2008 C:/Projects/stochastic-circuits-experiments/tb/tb_generated_gates.vhd
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_generated_gates
+# -- Compiling architecture sim of tb_generated_gates
+# -- Loading package inv_sc_pkg
+# -- Loading entity gen_and_gate
+# -- Loading entity gen_or_gate
+# -- Loading entity gen_nand_gate
+# -- Loading entity gen_nor_gate
+# -- Loading entity gen_xor_gate
+# -- Loading entity gen_xnor_gate
+# -- Loading entity gen_fa_gate
+# End time: 19:38:36 on Sep 16,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim work.tb_generated_gates
+# Start time: 19:38:36 on Sep 16,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.inv_sc_pkg(body)
+# Loading work.tb_generated_gates(sim)#1
+# Loading work.gen_and_gate(rtl)#1
+# Loading work.gen_or_gate(rtl)#1
+# Loading work.gen_nand_gate(rtl)#1
+# Loading work.gen_nor_gate(rtl)#1
+# Loading work.gen_xor_gate(rtl)#1
+# Loading work.gen_xnor_gate(rtl)#1
+# Loading work.gen_fa_gate(rtl)#1
+# Loading work.spin_node(rtl)#21
+# ** Note: tb_generated_gates passed
+#    Time: 971515 ns  Iteration: 0  Instance: /tb_generated_gates
+# End time: 19:38:41 on Sep 16,2026, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 0

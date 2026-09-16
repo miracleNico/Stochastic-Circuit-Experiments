@@ -10,17 +10,42 @@ param(
     [int]$BiasY = 999999,
     [int]$JAb = 999999,
     [int]$JAy = 999999,
-    [int]$JBy = 999999
-)
+    [int]$JBy = 999999,
+    [ValidateSet('Questa', 'ModelSim')][string]$Simulator = 'Questa',
+    [string]$VsimPath = '',
+    [string]$LicenseFile = '',
+    [string]$LicenseServer = '',
+    [string]$BuildRoot = '',
+    [string]$RunId = '',
+    [ValidateSet('None', 'Top', 'All')][string]$WaveMode = 'None',
+    [switch]$KeepWork,
+    [ValidateRange(0, 2147483)][int]$TimeoutSeconds = 0)
 
 $ErrorActionPreference = "Stop"
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$modelsimBin = "C:\intelFPGA_lite\modelsim_ase\win32aloem"
-$vsim = Join-Path $modelsimBin "vsim.exe"
-
-if (-not (Test-Path -LiteralPath $vsim)) {
-    throw "ModelSim executable not found at $vsim"
+function Invoke-ConfiguredSimulation {
+    param([Parameter(Mandatory)][string]$DoFile, [switch]$Gui, [switch]$Detach)
+    $invokeArguments = @{
+        DoFile = $DoFile
+        Simulator = $Simulator
+        WaveMode = $WaveMode
+        KeepWork = $KeepWork
+        TimeoutSeconds = $TimeoutSeconds
+        Gui = $Gui
+        Detach = $Detach
+        PassThru = $true
+    }
+    foreach ($name in @('VsimPath', 'LicenseFile', 'LicenseServer', 'BuildRoot', 'RunId')) {
+        $value = Get-Variable -Name $name -ValueOnly -Scope 1
+        if (-not [string]::IsNullOrWhiteSpace($value)) { $invokeArguments[$name] = $value }
+    }
+    $result = & (Join-Path $scriptDir 'Invoke-Simulation.ps1') @invokeArguments
+    if ($result.ExitCode -ne 0) {
+        [Console]::Error.WriteLine("$Simulator simulation failed with exit code $($result.ExitCode). See $($result.TranscriptPath)")
+        exit $result.ExitCode
+    }
+    return $result
 }
 
 Push-Location $scriptDir
@@ -61,8 +86,7 @@ try {
     $oldJBy = $env:J_BY
     if ($JBy -ne 999999) { $env:J_BY = [string]$JBy }
 
-    & $vsim -c -do run_and_onecycle_sanity.do
-    if ($LASTEXITCODE -ne 0) { throw "ModelSim returned exit code $LASTEXITCODE" }
+    $simulationResult = Invoke-ConfiguredSimulation -DoFile (Join-Path $scriptDir run_and_onecycle_sanity.do)
 }
 finally {
     if ($null -eq $oldTrials) { Remove-Item Env:\TRIALS -ErrorAction SilentlyContinue } else { $env:TRIALS = $oldTrials }

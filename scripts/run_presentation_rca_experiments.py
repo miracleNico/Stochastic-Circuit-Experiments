@@ -1,3 +1,4 @@
+import argparse
 import csv
 import json
 import math
@@ -12,12 +13,6 @@ from pathlib import Path
 
 from generate_hamiltonians import adder4, adder8, emit_vhdl, energy, fa_block, ha_block, hamiltonians
 from generate_shadow1_adder4 import emit as emit_shadow1
-from generate_shadow1_q34_adder4 import (
-    COPY_PHYSICAL,
-    FRAC_BITS,
-    optimize_q34_blocks,
-    write_report as write_q34_report,
-)
 from generate_windowed_adder4 import emit as emit_windowed
 
 
@@ -71,6 +66,18 @@ WINDOW_SWEEP_CONFIGS = [
     ("w10_8_16_6", 10, 8, 16, 6),
     ("w40_40_40_40", 40, 40, 40, 40),
 ]
+
+
+def configure_output_root(path: Path) -> None:
+    """Redirect all report writers to a caller-owned staging directory."""
+
+    global OUT, DATA, FIGS, TRACES
+    OUT = path.resolve()
+    DATA = OUT / "data"
+    FIGS = OUT / "figures"
+    TRACES = OUT / "traces"
+    for directory in (DATA, FIGS, TRACES):
+        directory.mkdir(parents=True, exist_ok=True)
 
 
 def rel(path: Path) -> str:
@@ -128,6 +135,16 @@ def prepare_output() -> None:
 
 
 def generate_artifacts() -> dict:
+    # The Q3.4 optimizer imports SciPy.  Keep that dependency out of replay and
+    # report-parser imports; only the explicitly acknowledged legacy generation
+    # path needs it.
+    from generate_shadow1_q34_adder4 import (
+        COPY_PHYSICAL,
+        FRAC_BITS,
+        optimize_q34_blocks,
+        write_report as write_q34_report,
+    )
+
     manifest: dict = {"generated_at": "2026-05-25", "artifacts": {}}
 
     int_ha = ha_block()
@@ -1382,6 +1399,25 @@ def repeat8_table(rows: list[dict]) -> str:
     return "\n".join(lines)
 
 
+def repeat8_aggregate_table(rows: list[dict]) -> str:
+    lines = [
+        "| Session | Fixed vectors | Aggregate hits | Minimum per-vector hits |",
+        "|---|---:|---:|---:|",
+    ]
+    for run in REPEAT8_RUN_ORDER:
+        selected = [row for row in rows if row["run"] == run]
+        if not selected:
+            continue
+        hits = sum(row["hits"] for row in selected)
+        trials = sum(row["trials"] for row in selected)
+        lines.append(
+            f"| {selected[0]['session']} | {len(selected)} | "
+            f"{hits}/{trials} ({hits / trials * 100:.2f}%) | "
+            f"{min(row['hits'] for row in selected)}/{selected[0]['trials']} |"
+        )
+    return "\n".join(lines)
+
+
 def sum_only_table(rows: list[dict]) -> str:
     lines = [
         "| Pattern | Valid rate | Valid-pair coverage | Entropy vs uniform | TV from uniform | Zero-valid sums |",
@@ -1458,6 +1494,12 @@ def write_report(
     repeat8_rows: list[dict],
     sum_aggregate_rows: list[dict],
     figures: dict[str, str],
+    *,
+    simulator_name: str = "ModelSim",
+    simulator_version: str = "legacy",
+    seed_mode: str = "regenerate",
+    reproduced_at: str = "2026-05-25",
+    git_revision: str = "legacy",
 ) -> None:
     int_weights = manifest["integer_weights"]
     q34_weights = manifest["q34_weights"]
@@ -1468,9 +1510,36 @@ def write_report(
     idea34_pct = summary_pct(summary_rows, "idea34_integer4")
     idea234_pct = summary_pct(summary_rows, "idea234_q34_4")
     idea234_inverse_pct = summary_pct(summary_rows, "idea234_q34_4", "inverse_bsum")
+    report_date = reproduced_at[:10]
+    if seed_mode == "replay":
+        seed_description = (
+            "The generated VHDL and seed salts are the committed frozen artifacts from the manifest; "
+            "this replay does not generate a new random salt or overwrite generated source."
+        )
+    else:
+        seed_description = "The generated VHDL uses newly generated OS-random seed salts."
+    timing_compatibility = manifest.get("replay_compatibility", {}).get("testbench_timing")
+    historical_timing_replay = bool(seed_mode == "replay" and timing_compatibility)
+    if historical_timing_replay:
+        timing_cases = ", ".join(f"`{name}`" for name in timing_compatibility["applies_to"])
+        timing_subject = "case" if len(timing_compatibility["applies_to"]) == 1 else "cases"
+        timing_verb = "uses" if len(timing_compatibility["applies_to"]) == 1 else "use"
+        timing_provenance = (
+            f"\n\nHistorical timing provenance: the shadow/window {timing_subject} "
+            f"{timing_cases} {timing_verb} `{timing_compatibility['runner_switch']}` to "
+            f"{timing_compatibility['behavior']}. This compatibility mode exists only to "
+            f"{timing_compatibility['purpose']}; the normal wrapper default uses the "
+            f"{timing_compatibility['default_wrapper_behavior']}."
+        )
+    else:
+        timing_provenance = ""
     report = f"""# Presentation RCA Experiments: Timing Windows, Shadow Carries, and Q3.4 Weights
 
-Date: 2026-05-25
+Date: {report_date}
+
+Simulator: `{simulator_version}` ({simulator_name})
+
+Evidence mode: `{seed_mode}` at Git `{git_revision}`
 
 ## 1. Problem Encountered
 
@@ -1504,9 +1573,9 @@ These figures provide the gate-level reference for every primitive block used he
 
 ![Gate reverse distributions](figures/gate_reverse_distributions.svg)
 
-## 4. ModelSim Protocol
+## 4. {simulator_name} Protocol
 
-All 4-bit tests are exhaustive over A,B in 0..15. Each case is solved {SHADOW_TRIALS} times from randomized trajectories. The generated VHDL uses OS-random seed salts, and every trial starts with an unclamped scramble window before the solve window. The constrained inverse test clamps B and SUM and measures whether A is recovered.
+All 4-bit tests are exhaustive over A,B in 0..15. Each case is solved {SHADOW_TRIALS} times from randomized trajectories. {seed_description} Every trial starts with an unclamped scramble window before the solve window. The constrained inverse test clamps B and SUM and measures whether A is recovered.{timing_provenance}
 
 The 8-bit results are intentionally non-exhaustive companion checks. They use six selected vectors and {REPEAT8_TRIALS} repeated solves per vector.
 
@@ -1586,13 +1655,19 @@ Thus, the present energy distribution is tuned for forward and constrained inver
 
 ![8-bit spot check](figures/summary_adder8_spotcheck.svg)
 
+Aggregate across the six fixed vectors:
+
+{repeat8_aggregate_table(repeat8_rows)}
+
+Per-vector evidence:
+
 {repeat8_table(repeat8_rows)}
 
 ## 9. Interpretation
 
 The important comparison is not only whether one frozen readout is correct, but the repeated-solve probability after independent randomization. The direct integer RCA is the baseline failure mode. Idea 3+4 tests whether timing windows plus one shadow node repair the carry direction. Idea 2+3+4 tests whether the same topology benefits from the Q3.4 optimized gate weights while preserving the moderate interblock copy.
 
-In this dataset, integer idea 3+4 is only a modest improvement over the direct 8-bit baseline and is roughly tied with the 4-bit direct baseline under the repeated-solve metric. The combined idea 2+3+4 result is the strongest positive result: Q3.4 plus the shadow/window schedule reaches {idea234_pct:.2f}% forward and {idea234_inverse_pct:.2f}% constrained inverse success on exhaustive 4-bit tests under the 40-cycle main protocol, and about 99-100% on the selected 8-bit vectors. This suggests that the larger intrablock gap is helpful only after timing isolation is added.
+In this dataset, integer idea 3+4 is only a modest improvement over the direct 8-bit baseline and is roughly tied with the 4-bit direct baseline under the repeated-solve metric. The combined idea 2+3+4 result is the strongest positive result: Q3.4 plus the shadow/window schedule reaches {idea234_pct:.2f}% forward and {idea234_inverse_pct:.2f}% constrained inverse success on exhaustive 4-bit tests under the 40-cycle main protocol, and 596/600 across the six selected 8-bit vectors with every vector at least 98/100. This suggests that the larger intrablock gap is helpful only after timing isolation is added.
 
 ## 10. Exact Parameters
 
@@ -1719,14 +1794,14 @@ Q3.4 FA gap: encoded {q34_weights['fa']['gap_encoded']}, physical {q34_weights['
 - SUM-only valid-pair CSV: `data/sum_only_valid_pairs.csv`
 - Idea 2+3+4 forward window sweep CSV: `data/idea234_forward_window_sweep.csv`
 - 8-bit repeated-solve CSV: `data/adder8_repeated.csv`
-- Corrected Q3.4 40-cycle exhaustive transcript: `traces/idea234_q34_4.txt`
-- Corrected Q3.4 shortened-schedule transcript: `traces/idea234_q34_4_w10_8_16_6_corrected.log`
-- Other ModelSim transcripts: `traces/`
+- Corrected-timing Q3.4 40-cycle replay transcript: `traces/idea234_q34_4.txt`
+- Corrected-timing Q3.4 shortened-schedule replay transcript: `traces/sweep_idea234_w10_8_16_6.txt`
+- Other {simulator_name} transcripts: `traces/`
 """
     (OUT / "report.md").write_text(report, encoding="utf-8")
 
 
-def main() -> None:
+def run_legacy_regeneration() -> None:
     prepare_output()
     manifest = generate_artifacts()
     runs = run_all()
@@ -1737,9 +1812,36 @@ def main() -> None:
     print(f"Wrote {OUT / 'report.md'}")
 
 
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Legacy artifact-regeneration driver. Fixed-seed replay belongs to "
+            "run_questa_core_reproduction.py."
+        )
+    )
+    parser.add_argument(
+        "--legacy-regenerate",
+        action="store_true",
+        help="allow generation of new random salts and generated VHDL",
+    )
+    parser.add_argument(
+        "--replace-report",
+        action="store_true",
+        help="acknowledge that the legacy flow replaces the presentation report tree",
+    )
+    args = parser.parse_args(argv)
+    if not (args.legacy_regenerate and args.replace_report):
+        parser.error(
+            "refusing the destructive legacy flow; use run_questa_core_reproduction.py "
+            "--seed-mode replay, or explicitly pass both --legacy-regenerate and --replace-report"
+        )
+    run_legacy_regeneration()
+    return 0
+
+
 if __name__ == "__main__":
     try:
-        main()
+        raise SystemExit(main())
     except Exception as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         raise

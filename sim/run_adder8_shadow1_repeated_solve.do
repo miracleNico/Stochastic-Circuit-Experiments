@@ -1,3 +1,8 @@
+if {[info exists ::env(SIM_DIR)]} {
+    source [file join $::env(SIM_DIR) sim_common.do]
+} else {
+    source [file join [file dirname [info script]] sim_common.do]
+}
 transcript on
 onerror {quit -code 1}
 onbreak {quit -code 1}
@@ -6,9 +11,9 @@ if {[file exists work_adder8_shadow1_repeat]} {
     vdel -lib work_adder8_shadow1_repeat -all
 }
 
-set generated_shadow_vhdl "../src/generated_shadow1_q34_adder8.vhd"
+set generated_shadow_vhdl "[sim_repo_path {src/generated_shadow1_q34_adder8.vhd}]"
 if {[info exists ::env(GENERATED_SHADOW_VHDL)]} {
-    set generated_shadow_vhdl $::env(GENERATED_SHADOW_VHDL)
+    set generated_shadow_vhdl [sim_input_path $::env(GENERATED_SHADOW_VHDL)]
 }
 set block_rnd_weight 4
 if {[info exists ::env(BLOCK_RND_WEIGHT)]} {
@@ -70,11 +75,11 @@ if {[info exists ::env(TRIALS)]} {
 vlib work_adder8_shadow1_repeat
 vmap work work_adder8_shadow1_repeat
 
-vcom -2008 ../src/inv_sc_pkg.vhd
-vcom -2008 ../src/lfsr32.vhd
-vcom -2008 ../src/spin_node.vhd
+vcom -2008 [sim_repo_path {src/inv_sc_pkg.vhd}]
+vcom -2008 [sim_repo_path {src/lfsr32.vhd}]
+vcom -2008 [sim_repo_path {src/spin_node.vhd}]
 vcom -2008 $generated_shadow_vhdl
-vcom -2008 ../tb/tb_adder8_shadow1_repeated_solve.vhd
+vcom -2008 [sim_repo_path {tb/tb_adder8_shadow1_repeated_solve.vhd}]
 
 vsim \
     -gBLOCK_RND_WEIGHT=$block_rnd_weight \
