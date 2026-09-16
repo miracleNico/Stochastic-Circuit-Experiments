@@ -28,11 +28,20 @@ The history was completely linear (no merge commits, no forks):
 | `test` | `main` (1 commit after `8f512ce`) | `a0998af` 2026-06-11 03:55 | Documentation (README only) for the "quantized Hamiltonian landscape optimizer" experiments | Documentation only; the 7 scripts and `out/` results referenced by the README were never committed |
 | `codex/quantized-landscape-optimizer` | `test` (1 commit after `a0998af`) | `a50e26d` 2026-07-30 00:59 | Continuous-float 2/3/4-body QP optimization (Gurobi) of a 6-bit least-node + 6-shadow-carry adder, including the Stage3 hard-cut experiment | Code + README + EXPERIMENT_LOG committed; `out*/` results excluded by .gitignore |
 
-Current state (2026-09-15):
+Integration on 2026-09-15:
 
 - `origin/main` was fast-forwarded from `8f512ce` to `a50e26d`, so `main` now contains everything from the former `test` and `codex/quantized-landscape-optimizer` branches.
 - The remote branches `test` and `codex/quantized-landscape-optimizer` were deleted after the fast-forward. All their commits remain reachable from `main`.
 - The two later branches only added files under `experiments/`; they did not modify any file that already existed on `main` (`git diff 8f512ce a50e26d -- README.md .gitignore` was empty).
+- The cleanup/restructure PR #1 was merged into `main` as `0ab0875` (2026-09-15 20:20 UTC).
+
+Branches audited on 2026-09-16:
+
+| Branch | Head | Relation to `main` (`0ab0875`) | Content | Integration status |
+|---|---|---|---|---|
+| `main` | `0ab0875` | — | `a50e26d` + cleanup/restructure (PR #1) | — |
+| `codex/quantized-landscape-optimizer-20260916` | `a50e26d` | Ancestor of `main` (the pre-cleanup tree, re-pushed under a new name) | Identical to the old `codex/quantized-landscape-optimizer` head: `experiments/quantized_landscape_optimizer/README.md`, the 6-bit adaptive QP code, and the since-removed `sim/experiments/` artifacts. No new commits; the 7 quantized-landscape-optimizer scripts and `out/` results are still absent | Already contained in `main`; `git merge` reports "Already up to date". Kept as a read-only snapshot of the pre-cleanup layout |
+| `cursor/experiment-e0-e1-plan-b98b` | `910e322` 2026-09-15 22:12 UTC | 1 commit ahead of `main` | Adds `experiments/multibody_hamiltonian_6bit_adaptive_qp/PLAN_E0_E1.md` (392 lines): the E0/E1 execution plan summarized in Stage G below | Open as PR #2 (plan only, no code); not merged
 
 ## 2. Experiment timeline in chronological order
 
@@ -128,6 +137,24 @@ Added `experiments/multibody_hamiltonian_6bit_adaptive_qp/`: 7 Python scripts (3
 | `analyze_ab_failures.py`, `tiny4_experiment.py`, `edge_hypercut_experiment.py` | Failure analysis, critical-node classification, edge/hyperedge cuts | No committed numbers |
 | **`staged_cut_verifier.py --stage stage3 --stage3-cut-sum-sum --stage3-cut-output-siblings --max-rounds 4 --gurobi-threads 16`** (EXPERIMENT_LOG 2026-07-08) | Hard-cut 27 SUM–SUM and SUM–next-carry/output-sibling 2-body terms before optimization; limited to 2/3-body; Gurobi 16 threads (12C/24T machine) | Critical nodes s6, c4, c6; 2083 terms (1-body 25, 2-body 273, 3-body 1785, 515 triples rejected by hard cuts); cutting planes converge in 4 rounds: violations 100774 → 8438 → 71 → **0**, γ ≈ 2.499e-5, minimum invalid gap 2.497e-5; exhaustive audit over 33,554,432 states, **0 violations**, valid std 4.6e-9, **1642 invalid local minima**, 1376 non-zero terms. Conclusion: statically feasible, but no proven dynamic convergence improvement; needs Stage4 or a revised option strategy |
 
+### Stage G (planned): E0 baseline rebuild + metrics, E1 canonical vs long-range support (plan committed 2026-09-15 22:12 UTC in `910e322`, branch `cursor/experiment-e0-e1-plan-b98b`, PR #2)
+
+Plan document: `experiments/multibody_hamiltonian_6bit_adaptive_qp/PLAN_E0_E1.md` (on the branch above; not yet on `main`). Background: the graph-cut feedback brainstorm. Execution target is the licensed local Gurobi workstation (12C/24T, Gurobi 13.0.x) used for the 2026-07-08 Stage3 run; nothing in E0/E1 runs on a cloud VM. No numerical results exist yet; the rows below describe what is planned and what "done" means.
+
+Structural ground truth stated in the plan (verified by enumeration over `NODE_NAMES` / `node_stage`): 300 pairs / 2300 triples / 12650 quads in total; canonical in-block terms 57 / 54 / 26; span ≤ 1 terms 118 / 259 / 325; span ≤ 2 terms 186 / 721 / 1745. Blocks: `B0 = {a0,b0,s0,c1}`, `Bk = {ak,bk,ck,sk,c(k+1)}` for `k = 1..5`, `B6 = {s6,c6}`.
+
+| Sub-experiment | Method | Planned deliverable / success criterion |
+|---|---|---|
+| E0.1 Regenerate artifacts | `adaptive_qp_6bit.py run-baseline --order 2` (full2, 325 terms) → `--order 3` (full3, 2625 terms) → the exact logged Stage3 command (`staged_cut_verifier.py --stage stage3 --stage3-cut-sum-sum --stage3-cut-output-siblings --max-rounds 4 --gurobi-threads 16`), all with the Stage3 defaults fixed (`--seed 2026070602`, `--coeff-max 2`, `--valid-weight 20000`, `--cap-weight 200000`, `--tv-weight 100`, `--coeff-weight 0.1`, barrier, no crossover) | Reproduction checks against the 2026-07-08 log: 2083 terms (273 pairs, 1785 triples, 515 rejected), critical nodes `s6 c4 c6`, closure in ≤ 4 rounds with 0 violations, γ within ~1e-7 of 2.4994e-5, invalid local minima within a few percent of 1642, non-zero terms near 1376; runtime per round recorded |
+| E0.2 Extended static metrics | New `landscape_metrics.py` + `audit_solution.py` (post-processing only, no Gurobi): clique weights `W`, Dobrushin row max and scale-free gap κ = γ / row max, treewidth of `G` and `G_ab`, clamped local minima per mode (`ab` 13 free bits, `asum`/`bsum` 12, `sum` 18) with depth/barrier, feed-forward dominance ratios `r_u`, F1/F2 non-canonical weight sums; one-line change `local_minimum_codes(..., free_bits=None)` | `out_metrics/extended_summary.csv` with rows for `full2`, `full3`, `stage3`; sanity checks: `free_bits=range(25)` reproduces `local_minimum_codes`, canonical support gives treewidth exactly 4 (`G_ab` 2), canonical FA gives `d_u = 0` for `a,b`. `clamped_minima_ab` replaces "1642" as the reference trap count |
+| E0.3 Dynamic baseline | `compare_paper_ssa_solutions.py` with `full2`, `full3`, `stage3` in one paired invocation, baseline `stage3`, modes `ab,asum,bsum,sum`, `--trials 20 --cycles 1000` (81920 trials per mode, 2·SE ≤ 0.35%) | `convergence_paired.csv`, `convergence_vs_baseline.csv` (delta, `two_se`, `degraded_beyond_2se`) |
+| E1.1 Support rules | New `support_rules.py` (`block` / `span` / `full` term rules, `build_support`) and `run_support_sweep.py` around `solve_cutting_plane`; self-test asserts 57/54/26 and 118/259/325 | Runner writes the standard artifact set plus `support_summary.json` |
+| E1.2 Support sweep | Runs `canon2` (82 terms), `canon3` (136), `canon4` (162), `span1_2` (143), `span1_3` (402), optional `span2_3` (932) vs references `stage3` (2083) and `full3` (2625); same seed/weights/`--coeff-max 2`, seed cuts from `out/full2/invalid_cuts_final.npz`, `--max-rounds 8` | `canon2` is the feasibility certificate (canonical quadratic encoding is provably feasible within `|θ| ≤ 2`); non-closure there means a runner bug |
+| E1.3 Measurements | `audit_solution.py` per run (expected treewidth `canon*` 4/2, `span1_*` 7/≤4, `stage3` ~18/~6) and one paired paper-SSA run with all 7 labels | Per-run line: γ, κ, tw, clamped minima, `r_max`, non-zero terms, `ab/asum/bsum/sum` ± 2SE, delta vs `stage3` |
+| E1.4 Decision rules | Confirmed if a restricted run beats `stage3` on `ab` and `asum` by > 2SE **and** has `clamped_minima_ab ≤ 0.10 ×` stage3's → next E3/E2. Falsified if `stage3`/`full3` beat every restricted run by > 2SE → "long-range coupling helps", next A6/A12b/A11. Mixed (static better, dynamics not) → A9 block-Gibbs diagnostic | Side question: whether Stage3's "output sibling" cut removed canonical `s_k – c_{k+1}` structure |
+
+Planned files (all under `experiments/multibody_hamiltonian_6bit_adaptive_qp/`): `landscape_metrics.py`, `audit_solution.py`, `support_rules.py`, `run_support_sweep.py` (new); `adaptive_qp_6bit.py` (`free_bits` argument only); `EXPERIMENT_LOG.md` entries "E0 baseline rebuild" and "E1 support sweep"; README paragraph for the new scripts. `solve_soft_valid_qp`, the weights and the Stage3 pipeline stay unchanged so all new numbers remain comparable with the 2026-07-08 log.
+
 ## 3. Result summary and comparison
 
 ### 3.1 4-bit RCA forward / constrained inverse (exhaustive 256 cases × 100 random trajectories, final `main` version)
@@ -178,6 +205,7 @@ Integer HA/FA baseline 32.33% < 12 shadows (max7) 34.33% < 12 shadows (max2) 37.
 - Idea 3 (sequential window): semi-positive alone (46.79%, below baseline).
 - Idea 4 (shadow carry): 65.36% alone; combined with 3 it is the key to RCA timing logic.
 - Landscape optimization (E/F): static metrics (γ, smoothness, number of local minima) can be improved, but dynamic convergence improvement has not been demonstrated; 8 shadows still beat 12 shadows.
+- Stage G (E0/E1): planned only; no results yet. It will replace the unclamped "1642" trap count with per-mode clamped counts and test whether restricting the Hamiltonian support to canonical blocks / adjacent blocks reduces traps and improves `ab`/`asum` success versus Stage3.
 
 ## 4. Unclear points / missing results
 
@@ -190,11 +218,13 @@ Integer HA/FA baseline 32.33% < 12 shadows (max7) 34.33% < 12 shadows (max2) 37.
 7. **No fine-grained timing inside Stage A**: `04243d1` is a single large commit (402 files); the order of A1–A14 can only be inferred from the narrative order of the two reports and the COMB6 report date (05-24); the `adder8` baseline transcript end time 05-25 00:15 is the only hard timestamp.
 8. **The FP8/Q8 split-carry series (~23 `optimized_*.json`) has no corresponding simulation result files**, only the one qualitative sentence in `time_dependent_annealing_report.md §4`: "underperformed… zero-hit cases remained".
 9. The 8-bit presentation results are non-exhaustive (6 vectors); neither an exhaustive 8-bit forward test nor an 8-bit SUM-only test has been done.
-10. `main` had no updates after 05-25 until the fast-forward of 2026-09-15; there was no PR or merge record between `test`/`codex` and `main` — the two later branches were integrated by a plain fast-forward and then deleted (see §1).
+10. `main` had no updates after 05-25 until the fast-forward of 2026-09-15; there was no PR or merge record between `test`/`codex` and `main` — the two later branches were integrated by a plain fast-forward and then deleted (see §1). `codex/quantized-landscape-optimizer-20260916` (re-pushed 2026-09-16) is a snapshot of that same head and adds nothing beyond `main`.
+11. **Stage G (E0/E1) has no results.** `PLAN_E0_E1.md` exists only on `cursor/experiment-e0-e1-plan-b98b` (PR #2); none of the planned scripts (`landscape_metrics.py`, `audit_solution.py`, `support_rules.py`, `run_support_sweep.py`) or run directories exist yet, and the E0.1 regeneration of `full2`/`full3`/Stage3 has not been executed.
 
 ## 5. Main evidence files
 
-- Commit history: `git log --stat` (6 commits, formerly 3 branches, linear)
+- Commit history: `git log --stat` (6 original commits, formerly 3 branches, linear; plus PR #1 merge `0ab0875`)
+- `origin/cursor/experiment-e0-e1-plan-b98b:experiments/multibody_hamiltonian_6bit_adaptive_qp/PLAN_E0_E1.md` (`910e322`, PR #2)
 - `README.md` (final `main` version and the `04243d1` original)
 - `reports/presentation_8bit_rca/report.md` (and its diffs across `bc2ac96`→`3575e71`→`8f512ce`)
 - `reports/presentation_8bit_rca/data/adder4_summary.csv`, `sum_only_aggregate.csv`, `idea234_forward_window_sweep.csv`, `adder8_repeated.csv`, `rca_energy_landscape_summary.csv`, `manifest.json`

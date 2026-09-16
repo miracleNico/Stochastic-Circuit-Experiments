@@ -166,6 +166,7 @@ Details, per-run numbers, timestamps, and evidence files are in [reports/experim
 | D (2026-05-25) | Main protocol at 40 cycles/block, forward window-reduction sweep, AND single-cycle sanity check | Ideas 2+3+4 (40×4): forward **99.65%**, constrained inverse **99.67%**; 10,8,16,6 → 98.78%; 2,2,4,2 → 96.30%; reverse-order SUM-only raises coverage to 194/256 but stays below baseline |
 | E (2026-06) | Quantized landscape optimizer, least-node LP, 8-bit shadow topologies, real inverse RCA8 (documentation only) | Least-node LP gap collapses to 1/8192; 8-shadow carry Q16 inverse 42.33% vs integer baseline 32.33%; smoother landscapes but no dynamic gain from 12 shadows |
 | F (2026-07) | 6-bit 2/3/4-body adaptive QP with hard cuts (Gurobi) | Stage3 hard cut: cutting planes converge in 4 rounds to 0 violations over 33,554,432 states, but 1642 invalid local minima remain; dynamic convergence improvement not demonstrated |
+| G (planned, 2026-09) | E0 baseline rebuild + extended static/dynamic metrics; E1 canonical vs long-range support sweep (`canon2/3/4`, `span1_2/3` vs `stage3`/`full3`) | Plan only (`PLAN_E0_E1.md` on branch `cursor/experiment-e0-e1-plan-b98b`, PR #2); runs target the licensed local Gurobi workstation; no results yet |
 
 Final 4-bit RCA comparison (exhaustive 256 cases × 100 randomized trajectories, 40-cycle protocol):
 
