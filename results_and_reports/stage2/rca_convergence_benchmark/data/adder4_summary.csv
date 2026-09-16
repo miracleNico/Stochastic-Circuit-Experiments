@@ -1,0 +1,11 @@
+session,run,direction,cases,hits,trials_total,success_probability,per_case_trials,min_hits,fail_cases
+baseline direct RCA,baseline_direct4,forward,256,21937,25600,0.8569140625,100,41,256
+scheduled auxiliary-carry architecture integer shadow RCA,scheduled_auxiliary_carry_integer4,forward,256,22001,25600,0.8594140625,100,67,256
+scheduled auxiliary-carry architecture integer shadow RCA,scheduled_auxiliary_carry_integer4,inverse_bsum,256,22787,25600,0.8901171875,100,81,256
+quantized coefficient scaling only Q3.4 direct RCA,quantized_coefficient_direct4,forward,256,18056,25600,0.7053125,100,0,162
+carry-ordered block scheduling only sequential window RCA,carry_ordered_schedule4,forward,256,11977,25600,0.4678515625,100,17,256
+carry-ordered block scheduling only sequential window RCA,carry_ordered_schedule4,inverse_bsum,256,14027,25600,0.5479296875,100,27,256
+auxiliary carry-state decoupling only parallel shadow RCA,auxiliary_carry_parallel4,forward,256,16732,25600,0.65359375,100,39,256
+auxiliary carry-state decoupling only parallel shadow RCA,auxiliary_carry_parallel4,inverse_bsum,256,19061,25600,0.7445703125,100,54,256
+quantized scheduled auxiliary-carry architecture Q3.4 shadow RCA,quantized_scheduled_auxiliary_carry4,forward,256,25511,25600,0.9965234375,100,97,77
+quantized scheduled auxiliary-carry architecture Q3.4 shadow RCA,quantized_scheduled_auxiliary_carry4,inverse_bsum,256,25516,25600,0.99671875,100,98,76

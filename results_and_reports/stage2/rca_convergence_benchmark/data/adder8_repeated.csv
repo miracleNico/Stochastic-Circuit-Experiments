@@ -1,0 +1,25 @@
+session,run,a,b,expected,hits,trials,success_probability,distinct_sums
+baseline direct RCA,baseline_direct8,37,219,256,0,100,0.0,12
+baseline direct RCA,baseline_direct8,142,73,215,67,100,0.67,14
+baseline direct RCA,baseline_direct8,201,54,255,23,100,0.23,20
+baseline direct RCA,baseline_direct8,91,188,279,71,100,0.71,12
+baseline direct RCA,baseline_direct8,6,177,183,38,100,0.38,22
+baseline direct RCA,baseline_direct8,127,1,128,61,100,0.61,16
+quantized coefficient scaling only Q3.4 direct RCA,quantized_coefficient_direct8,37,219,256,0,100,0.0,2
+quantized coefficient scaling only Q3.4 direct RCA,quantized_coefficient_direct8,142,73,215,100,100,1.0,1
+quantized coefficient scaling only Q3.4 direct RCA,quantized_coefficient_direct8,201,54,255,100,100,1.0,1
+quantized coefficient scaling only Q3.4 direct RCA,quantized_coefficient_direct8,91,188,279,0,100,0.0,2
+quantized coefficient scaling only Q3.4 direct RCA,quantized_coefficient_direct8,6,177,183,100,100,1.0,1
+quantized coefficient scaling only Q3.4 direct RCA,quantized_coefficient_direct8,127,1,128,0,100,0.0,3
+scheduled auxiliary-carry architecture integer shadow RCA,scheduled_auxiliary_carry_integer8,37,219,256,70,100,0.7,16
+scheduled auxiliary-carry architecture integer shadow RCA,scheduled_auxiliary_carry_integer8,142,73,215,73,100,0.73,18
+scheduled auxiliary-carry architecture integer shadow RCA,scheduled_auxiliary_carry_integer8,201,54,255,63,100,0.63,21
+scheduled auxiliary-carry architecture integer shadow RCA,scheduled_auxiliary_carry_integer8,91,188,279,82,100,0.82,11
+scheduled auxiliary-carry architecture integer shadow RCA,scheduled_auxiliary_carry_integer8,6,177,183,67,100,0.67,18
+scheduled auxiliary-carry architecture integer shadow RCA,scheduled_auxiliary_carry_integer8,127,1,128,66,100,0.66,21
+quantized scheduled auxiliary-carry architecture Q3.4 shadow RCA,quantized_scheduled_auxiliary_carry8,37,219,256,100,100,1.0,1
+quantized scheduled auxiliary-carry architecture Q3.4 shadow RCA,quantized_scheduled_auxiliary_carry8,142,73,215,98,100,0.98,2
+quantized scheduled auxiliary-carry architecture Q3.4 shadow RCA,quantized_scheduled_auxiliary_carry8,201,54,255,100,100,1.0,1
+quantized scheduled auxiliary-carry architecture Q3.4 shadow RCA,quantized_scheduled_auxiliary_carry8,91,188,279,100,100,1.0,1
+quantized scheduled auxiliary-carry architecture Q3.4 shadow RCA,quantized_scheduled_auxiliary_carry8,6,177,183,100,100,1.0,1
+quantized scheduled auxiliary-carry architecture Q3.4 shadow RCA,quantized_scheduled_auxiliary_carry8,127,1,128,98,100,0.98,3

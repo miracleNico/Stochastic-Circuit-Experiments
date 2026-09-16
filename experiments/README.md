@@ -1,23 +1,30 @@
 # Experiment index
 
-The [timeline](../experiment_timeline.md) remains the chronological record.
-Directories group related stages by experiment, rather than duplicating hardware
-and evidence for every historical milestone. All commands below and in experiment
-READMEs run from the repository root.
+The [timeline](../experiment_timeline.md) is the chronological record. The
+repository uses numeric stages and alphabetic substages; each substage owns its
+experiment-specific hardware and a README.
 
-| Experiment | Timeline stages | Scope |
+| Stage | Substage | Scope |
 |---|---|---|
-| [gate_baseline](gate_baseline/README.md) | A1–A2 | Primitive gates, generated Hamiltonians, probability traces |
-| [coefficient_sweep](coefficient_sweep/README.md) | A3 | FP4/FP8/Q8 coefficient and split-carry variants |
-| [comb6_equal_gap](comb6_equal_gap/README.md) | A4 | Six-input combinational equal-gap comparison |
-| [rca_annealing](rca_annealing/README.md) | A5–A14 | RCA scheduling, windows, shadow carry, Q3.4 exploration |
-| [presentation_rca](presentation_rca/README.md) | B–D | Frozen 4/8-bit comparison, SUM-only study, short schedules |
-| [quantized_landscape_optimizer](quantized_landscape_optimizer/README.md) | E, G | Historical missing optimizer and reconstructed generic successor |
-| [multibody_hamiltonian_6bit_adaptive_qp](multibody_hamiltonian_6bit_adaptive_qp/README.md) | F | Adaptive multibody Hamiltonian research |
-| [core_reproduction](core_reproduction/README.md) | G | Cross-experiment fixed-seed Questa acceptance |
+| [Stage 1](stage1/README.md) | 1.A | Primitive spin-gate validation |
+|  | 1.B | Quantized coefficient exploration |
+|  | 1.C | Combinational gap equalization |
+|  | 1.D | Scheduled auxiliary-carry RCA development |
+| [Stage 2](stage2/README.md) | 2.A | Randomized RCA convergence benchmark |
+|  | 2.B | SUM-conditioned inverse sampling |
+|  | 2.C | Schedule reduction and readout validation |
+| [Stage 3](stage3/README.md) | 3.A | Historical landscape-optimizer archive |
+|  | 3.B | Verified pairwise optimizer successor |
+| [Stage 4](stage4/README.md) | 4.A | ModelSim-to-QuestaSim infrastructure migration |
+|  | 4.B | Fixed-seed simulator compatibility validation |
+|  | 4.C | Repository taxonomy and consolidation |
+| [Stage 5](stage5/README.md) | 5.A | Adaptive multibody Hamiltonian research |
+|  | 5.B | RTL handoff and readiness gate |
 
-Each experiment owns its design description, specs and experiment-specific
-`hardware/` here. Python tools live in `scripts/<experiment>/`, Questa scripts
-and VHDL testbenches in `sim_scripts/<experiment>/` and its `tb/`, and evidence
-in `results_and_reports/<experiment>/`. Software-only experiments do not need an
-empty hardware directory. Shared reusable VHDL stays in `src/`.
+Stage 4.B is not a new scientific experiment. It reruns committed sources and
+fixed seeds solely to verify that the simulator migration preserves the accepted
+results. Stage 5 contains the later adaptive-multibody research.
+
+Python tools mirror this taxonomy under `scripts/`; Questa wrappers and
+testbenches live under `sim_scripts/`; evidence lives under
+`results_and_reports/`. Shared reusable VHDL remains in `src/`.

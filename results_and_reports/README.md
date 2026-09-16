@@ -5,10 +5,11 @@ Curated reports, coefficient outputs, parsed data, figures and published traces
 are versioned here. A file move does not imply a new simulation or change its
 scientific provenance.
 
-New simulator runs default to `<experiment>/runs/<simulator>/<case>/<run-id>/`.
+New simulator runs default to `stageN/<owner>/runs/<simulator>/<case>/<run-id>/`.
 That ignored directory contains transcripts, metadata, raw CSV, optional WLF and
-work libraries. Full core replay stages under `core_reproduction/runs/` and
-publishes verified evidence back to its owning experiments transactionally.
+work libraries. Full compatibility validation stages under
+`stage4/B_fixed_seed_compatibility_validation/runs/` and publishes verified
+evidence back to its owning experiments transactionally.
 Explicit `-BuildRoot` / `--build-root` overrides are still supported.
 
 Historical ignored `.sim_build/` caches may exist locally from before the

@@ -40,7 +40,7 @@ function Invoke-ConfiguredSimulation {
 
 Push-Location $simDir
 try {
-    $simulationResult = Invoke-ConfiguredSimulation -DoFile (Join-Path $simDir 'gate_baseline/run_gate_regression.do')
+    $simulationResult = Invoke-ConfiguredSimulation -DoFile (Join-Path $simDir 'stage1/A_primitive_spin_gate_validation/run_gate_regression.do')
 }
 finally {
     Pop-Location

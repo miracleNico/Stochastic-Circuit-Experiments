@@ -13,23 +13,23 @@ Experiment launchers are grouped by the identifiers in
 [the experiment index](../experiments/README.md). Each experiment's VHDL
 testbenches are retained in its `tb/` subdirectory; the old top-level `tb/`
 is no longer needed. Shared runner modules stay at this directory's root.
-Core replay stores suite-wide staging under
-`results_and_reports/core_reproduction/runs/`; standalone wrappers use their
-own experiment's `results_and_reports/<experiment>/runs/`.
+Stage 4.B compatibility validation stores suite-wide staging under
+`results_and_reports/stage4/B_fixed_seed_compatibility_validation/runs/`; standalone wrappers use their
+own substage's `results_and_reports/stageN/<owner>/runs/`.
 
 ## Quick Start
 
 Run the primitive-gate regression from the repository root:
 
 ```powershell
-.\sim_scripts\gate_baseline\run_questa.ps1
+.\sim_scripts\stage1\A_primitive_spin_gate_validation\run_questa.ps1
 ```
 
 Run a particular migrated `.do` file through the stable low-level interface:
 
 ```powershell
 .\sim_scripts\Invoke-Simulation.ps1 `
-  -DoFile .\sim_scripts\comb6_equal_gap\run_comb6_diagnostics.do `
+  -DoFile .\sim_scripts\stage1\C_combinational_gap_equalization\run_comb6_diagnostics.do `
   -Simulator Questa `
   -TimeoutSeconds 3600
 ```
@@ -47,7 +47,7 @@ The experiment wrappers accept these common trailing arguments:
 | `-VsimPath <path>` | Explicit `vsim.exe`, its directory, or an install directory containing `win64/vsim.exe` | automatic |
 | `-LicenseFile <path>` | Explicit license file | automatic |
 | `-LicenseServer <port@host>` | Explicit license server; mutually exclusive with `-LicenseFile` | automatic |
-| `-BuildRoot <path>` | Root for isolated runs | `results_and_reports/<experiment>/runs` |
+| `-BuildRoot <path>` | Root for isolated runs | `results_and_reports/stageN/<owner>/runs` |
 | `-RunId <id>` | Reproducible run-directory suffix; unsafe characters are replaced | UTC/PID/random ID |
 | `-WaveMode None\|Top\|All` | Disable waves, log top-level objects, or recursively log all objects | `None` |
 | `-KeepWork` | Retain the compiled work library after success | off |
@@ -106,7 +106,7 @@ on another host.
 Each invocation creates:
 
 ```text
-results_and_reports/<experiment>/runs/<simulator>/<do-basename>/<run-id>/
+results_and_reports/stageN/<owner>/runs/<simulator>/<do-basename>/<run-id>/
   modelsim.ini
   work/                 # removed after success unless -KeepWork
   transcript.log
@@ -163,45 +163,45 @@ native exit code:
 | `70` | expected artifact missing |
 
 The simulator's native exit code and the normalized status are both retained
-in metadata. RCA reproduction does not treat exit code `0` alone as evidence;
+in metadata. RCA compatibility validation does not treat exit code `0` alone as evidence;
 its transcript parsers must also match the exact semantic goldens.
 
-## Fixed-Seed Core Replay
+## Fixed-Seed Simulator Compatibility Validation
 
 Validate frozen inputs and entry points without running simulations:
 
 ```powershell
-python .\scripts\core_reproduction\run_questa_core_reproduction.py --preflight
+python .\scripts\stage4\B_fixed_seed_compatibility_validation\run_questa_compatibility_validation.py --preflight
 ```
 
 Run the full core suite and publish reports only after all checks pass:
 
 ```powershell
-python .\scripts\core_reproduction\run_questa_core_reproduction.py `
+python .\scripts\stage4\B_fixed_seed_compatibility_validation\run_questa_compatibility_validation.py `
   --suite core `
   --seed-mode replay `
   --simulator questa `
   --update-reports
 ```
 
-Optional replay overrides include `--vsim-path`, one of `--license-file` or
+Optional validation overrides include `--vsim-path`, one of `--license-file` or
 `--license-server`, `--build-root`, `--run-id`, and `--timeout-seconds`. Replay
 checks committed VHDL hashes and seed signatures, never generates a random
 salt, stages all report data, and installs the original report trees only after
 the optimizer, gates, COMB6, 4-bit, SUM-only, and selected 8-bit goldens pass.
 Without `--update-reports`, validated candidate reports remain in staging.
 
-The integer Idea 3+4 RCA golden (`idea34_integer4`) predates the testbench's
+The integer Scheduled auxiliary-carry architecture RCA golden (`scheduled_auxiliary_carry_integer4`) predates the testbench's
 clamp-prime cycle and post-edge sample delay. The core driver uses
-`-LegacyReplayTiming` only for that case to reproduce its historical
+`-LegacyReplayTiming` only for that case to match its historical
 ModelSim-era evidence. The Q3.4 main run and both short forward schedules use
 the corrected timing, which remains the wrapper default. Both the candidate
-manifest and `reproduction_summary.json` record this compatibility mode.
+manifest and `compatibility_validation_summary.json` record this compatibility mode.
 
-The complete 25-run core replay passed on 2026-09-16 with QuestaSim 2024.1 and
+The complete 25-run compatibility validation passed on 2026-09-16 with QuestaSim 2024.1 and
 published both report targets transactionally. Its result applies only to the
 committed fixed seeds, not to unseen seeds. Future source or golden changes
-require a new successful run before they can be described as reproduced.
+require a new successful run before migration compatibility can be accepted.
 
 ## Legacy ModelSim
 

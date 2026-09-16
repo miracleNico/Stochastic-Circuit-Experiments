@@ -314,9 +314,13 @@ function Invoke-HdlSimulation {
     $simDir = Split-Path -Parent $PSCommandPath
     $repoRoot = Split-Path -Parent $simDir
     $relativeDoPath = [IO.Path]::GetRelativePath($simDir, $doPath) -replace '\\', '/'
-    $experiment = ($relativeDoPath -split '/')[0]
-    if ($experiment -eq '..' -or -not (Test-Path -LiteralPath (Join-Path $repoRoot "experiments/$experiment/README.md") -PathType Leaf)) {
-        $experiment = 'core_reproduction'
+    $segments = @($relativeDoPath -split '/')
+    $experiment = 'stage4/A_questa_migration'
+    if ($segments.Count -ge 3 -and $segments[0] -match '^stage[1-5]$' -and $segments[1] -match '^[A-Z]_') {
+        $candidate = "$($segments[0])/$($segments[1])"
+        if (Test-Path -LiteralPath (Join-Path $repoRoot "experiments/$candidate/README.md") -PathType Leaf) {
+            $experiment = $candidate
+        }
     }
     if ([string]::IsNullOrWhiteSpace($BuildRoot)) {
         $BuildRoot = Join-Path $repoRoot "results_and_reports/$experiment/runs"

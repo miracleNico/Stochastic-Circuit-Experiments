@@ -43,14 +43,14 @@ forcing clamped nodes. This avoids symmetric parallel-update oscillations in
 the small XOR/half-adder network and is closer to the asynchronous update style
 used by Boltzmann-machine p-bit systems.
 
-## Simulation And Reproduction Workflow
+## Simulation And Migration-Validation Workflow
 
 QuestaSim 2024.1 is the default VHDL simulator. The migration keeps the
 existing `vcom`, `vsim`, and `.do` flow; `qrun` is not used. A normal smoke run
 from the repository root is:
 
 ```powershell
-.\sim_scripts\gate_baseline\run_questa.ps1
+.\sim_scripts\stage1\A_primitive_spin_gate_validation\run_questa.ps1
 ```
 
 Every experiment wrapper defaults to Questa and accepts the common tool,
@@ -58,31 +58,31 @@ license, build, waveform, and timeout arguments described in
 [`sim_scripts/README.md`](sim_scripts/README.md). The explicit ModelSim launcher and archived
 repository-local configuration now live under
 [`legacy/modelsim/`](legacy/modelsim/README.md). Runs are isolated under
-`results_and_reports/<experiment>/runs/`; they do not use the archived `legacy/modelsim/modelsim.ini` or
+`results_and_reports/stageN/<owner>/runs/`; they do not use the archived `legacy/modelsim/modelsim.ini` or
 share a `work` library.
 
-The fixed-seed core reproduction entry point is:
+The fixed-seed simulator compatibility entry point is:
 
 ```powershell
-python .\scripts\core_reproduction\run_questa_core_reproduction.py `
+python .\scripts\stage4\B_fixed_seed_compatibility_validation\run_questa_compatibility_validation.py `
   --suite core `
   --seed-mode replay `
   --simulator questa `
   --update-reports
 ```
 
-Replay validates the committed generated VHDL and seed identities, stages all
+Compatibility validation checks the committed generated VHDL and seed identities, stages all
 new evidence, and replaces the original reports only after every semantic
 golden check passes. Use `--preflight` to validate inputs, tool identity, and
 entry points without running simulations or modifying reports. The complete
-25-run core replay passed on 2026-09-16 with QuestaSim 2024.1, and the
-presentation and COMB6 reports were then replaced transactionally. This is a
+25-run migration validation passed on 2026-09-16 with QuestaSim 2024.1, and the
+RCA benchmark and COMB6 reports were then replaced transactionally. This is a
 fixed-seed result for the committed generated VHDL, not a cross-seed robustness
 claim.
 
-The frozen integer Idea 3+4 RCA golden predates the testbench's clamp-prime
+The frozen integer Scheduled auxiliary-carry architecture RCA golden predates the testbench's clamp-prime
 cycle and post-edge sample delay. The core driver marks only
-`idea34_integer4` with `-LegacyReplayTiming` so Questa can reproduce that
+`scheduled_auxiliary_carry_integer4` with `-LegacyReplayTiming` so Questa can match that
 historical evidence exactly; the Q3.4 main run and short schedules use the
 corrected timing, which is also the ordinary wrapper default. This mixed
 protocol is recorded in the published manifest and run summary.
@@ -102,15 +102,15 @@ See [`experiment_timeline.md`](experiment_timeline.md) for the chronological
 experiment record, optimizer provenance, fixed-seed results, and local branch
 consolidation notes.
 
-## Current Presentation Workflow
+## Current RCA Convergence Benchmark
 
 The current main result is the RCA timing/shadow-node study in:
 
 ```text
-results_and_reports/presentation_rca/report.md
+results_and_reports/stage2/rca_convergence_benchmark/report.md
 ```
 
-It is designed as a clean presentation artifact for the pseudo-time-dependent
+It is designed as a concise benchmark artifact for the pseudo-time-dependent
 adder problem. The report includes:
 
 - restored primitive-gate visualizations for AND, OR, NAND, NOR, HA/XOR, XNOR,
@@ -118,15 +118,15 @@ adder problem. The report includes:
 - exhaustive fixed-seed tests for the 4-bit RCA;
 - a separate clamp SUM-only inverse-distribution test for the 4-bit RCA;
 - non-exhaustive repeated-solve checks for selected 8-bit RCA vectors;
-- ablations for idea 2, idea 3, and idea 4 separately;
-- final comparison against the combined idea 2+3+4 design;
+- ablations for quantized coefficient scaling, carry-ordered block scheduling, and auxiliary carry-state decoupling separately;
+- final comparison against the combined quantized scheduled auxiliary-carry architecture design;
 - a separate forward-only window-reduction check for shortened Q3.4 schedules.
 
 Replay the committed seed set with Questa and publish only fully validated
 results:
 
 ```powershell
-python .\scripts\core_reproduction\run_questa_core_reproduction.py `
+python .\scripts\stage4\B_fixed_seed_compatibility_validation\run_questa_compatibility_validation.py `
   --suite core `
   --seed-mode replay `
   --simulator questa `
@@ -136,13 +136,13 @@ python .\scripts\core_reproduction\run_questa_core_reproduction.py `
 The replay driver does not generate a new random salt or overwrite committed
 generated VHDL. It checks source hashes, runs Questa, parses stable VHDL report
 records into CSV, checks exact integer goldens and derived values, and stages
-SVG figures under `results_and_reports/core_reproduction/runs/` before publication. Curated report artifacts
+SVG figures under `results_and_reports/stage4/B_fixed_seed_compatibility_validation/runs/` before publication. Curated report artifacts
 are organized as:
 
 ```text
-results_and_reports/presentation_rca/data/     Parsed CSV and JSON data
-results_and_reports/presentation_rca/figures/  SVG/PNG visualizations
-results_and_reports/presentation_rca/traces/   Simulator transcripts used as evidence
+results_and_reports/stage2/rca_convergence_benchmark/data/     Parsed CSV and JSON data
+results_and_reports/stage2/rca_convergence_benchmark/figures/  SVG/PNG visualizations
+results_and_reports/stage2/rca_convergence_benchmark/traces/   Simulator transcripts used as evidence
 ```
 
 The old random-regeneration driver is deliberately guarded. It refuses to run
@@ -155,21 +155,21 @@ comparison protocol:
 | Test | Forward success | Constrained inverse |
 |---|---:|---:|
 | Direct integer baseline | 85.69% | n/a |
-| Idea 2 only, Q3.4 direct weights | 70.53% | n/a |
-| Idea 3 only, sequential window | 46.79% | 54.79% |
-| Idea 4 only, parallel shadow node | 65.36% | 74.46% |
-| Idea 3+4, integer shadow/window | 85.94% | 89.01% |
-| Idea 2+3+4, Q3.4 shadow/window | 99.65% | 99.67% |
+| Quantized coefficient scaling only, Q3.4 direct weights | 70.53% | n/a |
+| Carry-ordered block scheduling only, sequential window | 46.79% | 54.79% |
+| Auxiliary carry-state decoupling only, parallel shadow node | 65.36% | 74.46% |
+| Scheduled auxiliary-carry architecture, integer shadow/window | 85.94% | 89.01% |
+| Quantized scheduled auxiliary-carry architecture, Q3.4 shadow/window | 99.65% | 99.67% |
 
 The shortened Q3.4 schedules are reported separately as forward-only timing
 experiments. The corrected `10,8,16,6` schedule reaches `98.78%`, and the
 shortest physically justified schedule tested here, `2,2,4,2`, reaches
 `96.30%`. These are not used as the constrained-inverse hyperparameter setting.
 
-The key interpretation is that idea 2 does not work by itself: Q3.4 increases
+The key interpretation is that quantized coefficient scaling does not work by itself: Q3.4 increases
 the local HA/FA field magnitude and saturates the tanh update, but it does not
 fix carry arrival time. A downstream FA can confidently collapse around a wrong
-early carry. Q3.4 becomes useful only after idea 3 and idea 4 provide timing
+early carry. Q3.4 becomes useful only after carry-ordered block scheduling and auxiliary carry-state decoupling provide timing
 isolation and a directional shadow carry boundary.
 
 Clamp SUM-only inverse sampling is intentionally reported separately because it
@@ -179,11 +179,11 @@ operand. Current 1000-trial-per-SUM results remain mixed:
 | Test | Valid rate | Valid-pair coverage |
 |---|---:|---:|
 | Direct integer baseline | 85.95% | 100.00% |
-| Idea 3+4, integer shadow/window | 68.60% | 100.00% |
-| Idea 2+3+4, Q3.4 shadow/window | 77.25% | 25.00% |
-| Idea 2+3+4, Q3.4 reverse-order shadow/window | 76.70% | 75.78% |
-| Idea 4 only, parallel shadow node | 62.95% | 100.00% |
-| Idea 2+4, Q3.4 parallel shadow | 76.83% | 64.45% |
+| Scheduled auxiliary-carry architecture, integer shadow/window | 68.60% | 100.00% |
+| Quantized scheduled auxiliary-carry architecture, Q3.4 shadow/window | 77.25% | 25.00% |
+| Quantized scheduled auxiliary-carry architecture, Q3.4 reverse-order shadow/window | 76.70% | 75.78% |
+| Auxiliary carry-state decoupling only, parallel shadow node | 62.95% | 100.00% |
+| Quantized auxiliary-carry decoupling, Q3.4 parallel shadow | 76.83% | 64.45% |
 
 The direct integer baseline is strongest on this SUM-only metric, while the
 shadow/window ideas mainly help the timing-dependent forward and constrained
@@ -236,7 +236,7 @@ Forward mode clamps `A` and `B`, then allows `Y` to settle. Reverse mode clamps
 Files:
 
 - `src/inv_xor_gate.vhd`
-- `sim_scripts/gate_baseline/tb/tb_inv_xor_gate.vhd`
+- `sim_scripts/stage1/A_primitive_spin_gate_validation/tb/tb_inv_xor_gate.vhd`
 
 A pure three-node pairwise Ising XOR requires a three-body parity term, so this
 project implements XOR as the sum output of a four-node invertible half-adder.
@@ -272,15 +272,15 @@ So `Y = A xor B` and `aux_c = A and B`.
 Run the generator after editing coefficient definitions:
 
 ```powershell
-python .\scripts\gate_baseline\generate_hamiltonians.py
+python .\scripts\stage1\A_primitive_spin_gate_validation\generate_hamiltonians.py
 ```
 
 It writes:
 
 ```text
-experiments/gate_baseline/hardware/generated_networks.vhd
-results_and_reports/gate_baseline/hamiltonians.json
-results_and_reports/gate_baseline/hamiltonians.md
+experiments/stage1/A_primitive_spin_gate_validation/hardware/generated_networks.vhd
+results_and_reports/stage1/A_primitive_spin_gate_validation/hamiltonians.json
+results_and_reports/stage1/A_primitive_spin_gate_validation/hamiltonians.md
 ```
 
 The default HA/FA block scales are `1`; optional `--ha-scale` and `--fa-scale`
@@ -291,10 +291,10 @@ weights with an explicit field radix. For example, this emits FP4 coefficients
 whose physical Hamiltonian weights are half of the base library:
 
 ```powershell
-python .\scripts\gate_baseline\generate_hamiltonians.py `
+python .\scripts\stage1\A_primitive_spin_gate_validation\generate_hamiltonians.py `
   --weight-frac-bits 4 `
   --weight-scale 1/2 `
-  --vhdl experiments\coefficient_sweep\hardware\generated_networks_fp4_half.vhd
+  --vhdl experiments\stage1\B_quantized_coefficient_exploration\hardware\generated_networks_fp4_half.vhd
 ```
 
 The default generated RTL remains integer-weighted (`--weight-frac-bits 0`,
@@ -304,10 +304,10 @@ For an FP8 minimum-gap experiment, use one FP8 LSB of physical coefficient
 weight:
 
 ```powershell
-python .\scripts\gate_baseline\generate_hamiltonians.py `
+python .\scripts\stage1\A_primitive_spin_gate_validation\generate_hamiltonians.py `
   --weight-frac-bits 8 `
   --weight-scale 1/256 `
-  --vhdl experiments\coefficient_sweep\hardware\generated_networks_fp8_mingap.vhd
+  --vhdl experiments\stage1\B_quantized_coefficient_exploration\hardware\generated_networks_fp8_mingap.vhd
 ```
 
 Because `RND_WEIGHT` is encoded in the same fixed-point field units, a noise
@@ -326,36 +326,36 @@ also emits an experimental split-carry adder with weak Q8 equality links between
 blocks:
 
 ```powershell
-python .\scripts\coefficient_sweep\optimize_fp8_hamiltonians.py --link-q8 16
-python .\scripts\coefficient_sweep\optimize_fp8_hamiltonians.py `
+python .\scripts\stage1\B_quantized_coefficient_exploration\optimize_fp8_hamiltonians.py --link-q8 16
+python .\scripts\stage1\B_quantized_coefficient_exploration\optimize_fp8_hamiltonians.py `
   --coefficient-format fp8-e4m3 `
   --coeff-max-value 448 `
   --link-value 1/16 `
-  --vhdl experiments\coefficient_sweep\hardware\generated_networks_fp8_e4m3_optimized_split.vhd `
+  --vhdl experiments\stage1\B_quantized_coefficient_exploration\hardware\generated_networks_fp8_e4m3_optimized_split.vhd `
   --report reports\optimized_fp8_e4m3_hamiltonians.json
-python .\scripts\coefficient_sweep\optimize_fp8_hamiltonians.py `
+python .\scripts\stage1\B_quantized_coefficient_exploration\optimize_fp8_hamiltonians.py `
   --coefficient-format fp8-e3m4 `
   --fp8-bias 1 `
   --coeff-max-value 100 `
   --link-value 1/16 `
-  --vhdl experiments\coefficient_sweep\hardware\generated_networks_fp8_e3m4_b1_gap100_link_1_16.vhd `
+  --vhdl experiments\stage1\B_quantized_coefficient_exploration\hardware\generated_networks_fp8_e3m4_b1_gap100_link_1_16.vhd `
   --report reports\optimized_fp8_e3m4_b1_gap100_link_1_16.json
-python .\scripts\coefficient_sweep\optimize_fp8_hamiltonians.py `
+python .\scripts\stage1\B_quantized_coefficient_exploration\optimize_fp8_hamiltonians.py `
   --coefficient-format fp8-e2m5 `
   --fp8-bias -3 `
   --coeff-max-value 100 `
   --link-value 1/2 `
-  --vhdl experiments\coefficient_sweep\hardware\generated_networks_fp8_e2m5_bminus3_gap100_link_1_2.vhd `
+  --vhdl experiments\stage1\B_quantized_coefficient_exploration\hardware\generated_networks_fp8_e2m5_bminus3_gap100_link_1_2.vhd `
   --report reports\optimized_fp8_e2m5_bminus3_gap100_link_1_2.json
 ```
 
-This writes `results_and_reports/coefficient_sweep/optimized_fp8_hamiltonians.json` and
-`experiments/coefficient_sweep/hardware/generated_networks_fp8_optimized_split.vhd`.
+This writes `results_and_reports/stage1/B_quantized_coefficient_exploration/optimized_fp8_hamiltonians.json` and
+`experiments/stage1/B_quantized_coefficient_exploration/hardware/generated_networks_fp8_optimized_split.vhd`.
 
 For exact coefficient checks:
 
 ```powershell
-python .\scripts\gate_baseline\verify_hamiltonians.py
+python .\scripts\stage1\A_primitive_spin_gate_validation\verify_hamiltonians.py
 ```
 
 This exhaustively verifies every 3-, 4-, and 5-node block, all `4096`
@@ -380,15 +380,15 @@ instead of the direct theoretical `25`-node form.
 ## Project Layout
 
 ```text
-experiments/<experiment>/README.md   Purpose, stage mapping and reproduction
-experiments/<experiment>/hardware/   Experiment-specific generated VHDL
-results_and_reports/<experiment>/    Curated evidence, figures and reports
-results_and_reports/<experiment>/runs/  Ignored isolated simulator outputs
-scripts/<experiment>/               Python generators, analysis and tests
-sim_scripts/<experiment>/           Questa PowerShell and .do launchers
-sim_scripts/<experiment>/tb/        Experiment VHDL testbenches
+experiments/stageN/<substage>/README.md   Purpose and experiment boundary
+experiments/stageN/<substage>/hardware/   Experiment-specific generated VHDL
+results_and_reports/stageN/<owner>/       Curated evidence, figures and reports
+results_and_reports/stageN/<owner>/runs/  Ignored isolated simulator outputs
+scripts/stageN/<substage>/                Python generators, analysis and tests
+sim_scripts/stageN/<substage>/            Questa PowerShell and .do launchers
+sim_scripts/stageN/<substage>/tb/         Experiment VHDL testbenches
 sim_scripts/Simulator.psm1          Shared runner; Invoke-Simulation.ps1 CLI
-sim_scripts/tests/                  Runner unit tests and failure fixtures
+sim_scripts/stage4/A_questa_migration/tests/                  Runner unit tests and failure fixtures
 src/                                Shared primitive VHDL only
 legacy/modelsim/                    Explicit legacy launcher and configuration
 experiment_timeline.md              Chronology and evidence provenance
@@ -397,16 +397,17 @@ experiment_timeline.md              Chronology and evidence provenance
 Regenerable Python bytecode, isolated simulator work directories, and local
 scratch sweep directories are ignored by `.gitignore`. Curated evidence remains
 under `results_and_reports/`. See the [experiment index](experiments/README.md)
-for the full Stage A–G mapping. Stages B–D share `presentation_rca` because they
-share frozen RTL and an integrated report. Testbenches are retained, but the old
-top-level `tb/` is folded into each experiment's `sim_scripts/<experiment>/tb/`.
+for the full Stage 1–5 mapping. Stages 2.A–2.C share the
+`rca_convergence_benchmark` because they share frozen RTL and an integrated
+report. Testbenches are retained, but the old top-level `tb/` is folded into
+each experiment's `sim_scripts/stageN/<substage>/tb/`.
 Old flat script paths are intentionally replaced by the organized paths above.
 
-The reorganization passed the 25-run fixed-seed Questa core replay, 47 Python
+The reorganization passed the 25-run fixed-seed Questa compatibility validation, 47 Python
 tests, runner/failure tests and a fresh-checkout hash check. See the
-[validation record](results_and_reports/core_reproduction/reorg_validation.md).
+[validation record](results_and_reports/stage4/B_fixed_seed_compatibility_validation/reorg_validation.md).
 The optional research environment is local `.venv`; its dependencies and setup
-are documented in the [multibody experiment](experiments/multibody_hamiltonian_6bit_adaptive_qp/README.md).
+are documented in the [multibody experiment](experiments/stage5/README.md).
 
 ## Run Simulation
 
@@ -414,14 +415,14 @@ From the repository root, run the default primitive-gate regression with
 Questa:
 
 ```powershell
-.\sim_scripts\gate_baseline\run_questa.ps1
+.\sim_scripts\stage1\A_primitive_spin_gate_validation\run_questa.ps1
 ```
 
 The stable low-level interface accepts any migrated `.do` file:
 
 ```powershell
 .\sim_scripts\Invoke-Simulation.ps1 `
-  -DoFile .\sim_scripts\comb6_equal_gap\run_comb6_diagnostics.do `
+  -DoFile .\sim_scripts\stage1\C_combinational_gap_equalization\run_comb6_diagnostics.do `
   -Simulator Questa `
   -WaveMode None `
   -TimeoutSeconds 3600
@@ -445,25 +446,25 @@ The testbenches verify:
 The small-gate checks are hard assertions. The generated 8-bit adder and
 bitcount bench reports sampled probabilities because auxiliary-node landscapes
 can have local minima; exact structural correctness is covered by
-`scripts/gate_baseline/verify_hamiltonians.py`.
+`scripts/stage1/A_primitive_spin_gate_validation/verify_hamiltonians.py`.
 
 For targeted 8-bit synthesized-adder convergence debugging:
 
 ```powershell
-.\sim_scripts\rca_annealing\run_adder8_diagnostics.ps1
-.\sim_scripts\rca_annealing\run_adder8_diagnostics.ps1 `
-  -GeneratedNetworks "experiments/generated_networks_fp4_half.vhd" `
+.\sim_scripts\stage1\D_scheduled_auxiliary_carry_rca\run_adder8_diagnostics.ps1
+.\sim_scripts\stage1\D_scheduled_auxiliary_carry_rca\run_adder8_diagnostics.ps1 `
+  -GeneratedNetworks "experiments/stage1/B_quantized_coefficient_exploration/hardware/generated_networks_fp4_half.vhd" `
   -AdderRndWeight 1
-.\sim_scripts\coefficient_sweep\run_adder8_split_diagnostics.ps1
+.\sim_scripts\stage1\B_quantized_coefficient_exploration\run_adder8_split_diagnostics.ps1
 ```
 
 The diagnostic bench reports output-sum histograms and per-sum/per-carry hit
 counts for hard carry-chain cases.
 
-For the presentation RCA workflow, use the safe fixed replay entry point:
+For migration acceptance of the RCA benchmark, use the fixed-seed compatibility entry point:
 
 ```powershell
-python .\scripts\core_reproduction\run_questa_core_reproduction.py `
+python .\scripts\stage4\B_fixed_seed_compatibility_validation\run_questa_compatibility_validation.py `
   --suite core `
   --seed-mode replay `
   --simulator questa `
@@ -473,20 +474,20 @@ python .\scripts\core_reproduction\run_questa_core_reproduction.py `
 Individual wrappers used by the replay include:
 
 ```text
-sim_scripts/presentation_rca/run_adder4_direct_randomized_exhaustive.ps1
-sim_scripts/presentation_rca/run_adder4_direct_sum_randomized_distribution.ps1
-sim_scripts/presentation_rca/run_adder4_windowed_randomized_exhaustive.ps1
-sim_scripts/presentation_rca/run_adder4_shadow1_parallel_randomized_exhaustive.ps1
-sim_scripts/presentation_rca/run_adder4_shadow1_randomized_exhaustive.ps1
-sim_scripts/presentation_rca/run_adder4_shadow1_sum_randomized_distribution.ps1
-sim_scripts/presentation_rca/run_adder8_direct_repeated_solve.ps1
-sim_scripts/presentation_rca/run_adder8_shadow1_repeated_solve.ps1
+sim_scripts/stage2/A_randomized_rca_convergence/run_adder4_direct_randomized_exhaustive.ps1
+sim_scripts/stage2/B_sum_conditioned_inverse_sampling/run_adder4_direct_sum_randomized_distribution.ps1
+sim_scripts/stage2/A_randomized_rca_convergence/run_adder4_windowed_randomized_exhaustive.ps1
+sim_scripts/stage2/A_randomized_rca_convergence/run_adder4_shadow1_parallel_randomized_exhaustive.ps1
+sim_scripts/stage2/A_randomized_rca_convergence/run_adder4_shadow1_randomized_exhaustive.ps1
+sim_scripts/stage2/B_sum_conditioned_inverse_sampling/run_adder4_shadow1_sum_randomized_distribution.ps1
+sim_scripts/stage2/A_randomized_rca_convergence/run_adder8_direct_repeated_solve.ps1
+sim_scripts/stage2/A_randomized_rca_convergence/run_adder8_shadow1_repeated_solve.ps1
 ```
 
-The 4-bit presentation tests are exhaustive over all `A,B` pairs and replay the
+The 4-bit benchmark tests are exhaustive over all `A,B` pairs and replay the
 committed deterministic seed streams. The SUM-only test is exhaustive over
 SUM=0..30 and records the sampled valid-pair distribution. The 8-bit
-presentation tests are selected-vector repeated solves, not exhaustive. This
+benchmark tests are selected-vector repeated solves, not exhaustive. This
 replay establishes reproducibility for the committed seeds only; it is not a
 cross-seed robustness claim.
 
@@ -495,7 +496,7 @@ cross-seed robustness claim.
 To open Questa in GUI mode with an AND-gate wave window:
 
 ```powershell
-.\sim_scripts\gate_baseline\open_and_wave.ps1
+.\sim_scripts\stage1\A_primitive_spin_gate_validation\open_and_wave.ps1
 ```
 
 The script compiles the AND design, runs `tb_inv_and_gate` for 20 us, and adds
@@ -508,18 +509,18 @@ library for interactive inspection.
 For a cleaner sampled view, run the trace flow:
 
 ```powershell
-.\sim_scripts\gate_baseline\run_and_trace.ps1
+.\sim_scripts\stage1\A_primitive_spin_gate_validation\run_and_trace.ps1
 ```
 
 This runs `tb_inv_and_trace`, then keeps both the raw CSV and every derived
-artifact in the same isolated `results_and_reports/gate_baseline/runs/.../raw/` directory. The derived
+artifact in the same isolated `results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../raw/` directory. The derived
 files are:
 
 ```text
-results_and_reports/gate_baseline/runs/.../raw/and_trace.png
-results_and_reports/gate_baseline/runs/.../raw/and_trace_summary.csv
-results_and_reports/gate_baseline/runs/.../raw/and_state_probabilities.csv
-results_and_reports/gate_baseline/runs/.../raw/and_ab_probabilities.csv
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../raw/and_trace.png
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../raw/and_trace_summary.csv
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../raw/and_state_probabilities.csv
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../raw/and_ab_probabilities.csv
 ```
 
 The trace covers all four forward AND cases plus reverse operation with
@@ -528,48 +529,48 @@ The trace covers all four forward AND cases plus reverse operation with
 For XOR:
 
 ```powershell
-.\sim_scripts\gate_baseline\run_xor_trace.ps1
+.\sim_scripts\stage1\A_primitive_spin_gate_validation\run_xor_trace.ps1
 ```
 
 This produces:
 
 ```text
-results_and_reports/gate_baseline/runs/.../raw/xor_trace.csv
-results_and_reports/gate_baseline/runs/.../raw/xor_trace.png
-results_and_reports/gate_baseline/runs/.../raw/xor_trace_summary.csv
-results_and_reports/gate_baseline/runs/.../raw/xor_state_probabilities.csv
-results_and_reports/gate_baseline/runs/.../raw/xor_ab_probabilities.csv
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../raw/xor_trace.csv
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../raw/xor_trace.png
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../raw/xor_trace_summary.csv
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../raw/xor_state_probabilities.csv
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../raw/xor_ab_probabilities.csv
 ```
 
 To regenerate both trace reports and the exact small-gate probability report:
 
 ```powershell
-.\sim_scripts\gate_baseline\run_all_traces.ps1
+.\sim_scripts\stage1\A_primitive_spin_gate_validation\run_all_traces.ps1
 ```
 
 This also writes exact small-gate Hamiltonian probability reports for
 AND/OR/NAND/NOR/XOR/XNOR:
 
 ```text
-results_and_reports/gate_baseline/runs/.../run_all_traces/.../raw/generated_gate_probability_summary.csv
-results_and_reports/gate_baseline/runs/.../run_all_traces/.../raw/generated_gate_state_probabilities.csv
-results_and_reports/gate_baseline/runs/.../run_all_traces/.../raw/generated_gate_ab_probabilities.csv
-results_and_reports/gate_baseline/runs/.../run_all_traces/.../raw/generated_gate_probabilities.png
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../run_all_traces/.../raw/generated_gate_probability_summary.csv
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../run_all_traces/.../raw/generated_gate_state_probabilities.csv
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../run_all_traces/.../raw/generated_gate_ab_probabilities.csv
+results_and_reports/stage1/A_primitive_spin_gate_validation/runs/.../run_all_traces/.../raw/generated_gate_probabilities.png
 ```
 
 For clamped-output runs, the `*_ab_probabilities.csv` files are the most useful
 view. For example, AND with `Y=0` should distribute probability across
 `AB=00`, `AB=01`, and `AB=10`, with each near one third.
 
-The current presentation gate visualizations are staged by
-`scripts/core_reproduction/run_questa_core_reproduction.py` and, after all goldens pass, published
+The current benchmark gate visualizations are staged by
+`scripts/stage4/B_fixed_seed_compatibility_validation/run_questa_compatibility_validation.py` and, after all goldens pass, published
 to:
 
 ```text
-results_and_reports/presentation_rca/figures/gate_energy_landscape.svg
-results_and_reports/presentation_rca/figures/gate_reverse_distributions.svg
-results_and_reports/presentation_rca/data/gate_energy_landscape.csv
-results_and_reports/presentation_rca/data/gate_reverse_distributions.csv
+results_and_reports/stage2/rca_convergence_benchmark/figures/gate_energy_landscape.svg
+results_and_reports/stage2/rca_convergence_benchmark/figures/gate_reverse_distributions.svg
+results_and_reports/stage2/rca_convergence_benchmark/data/gate_energy_landscape.csv
+results_and_reports/stage2/rca_convergence_benchmark/data/gate_reverse_distributions.csv
 ```
 
 ## Notes
