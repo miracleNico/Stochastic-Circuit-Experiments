@@ -13,7 +13,7 @@ $ErrorActionPreference = "Stop"
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $repoRoot = [IO.Path]::GetFullPath((Join-Path $scriptDir '..\..'))
-$simDir = Join-Path $repoRoot 'sim'
+$simDir = Join-Path $repoRoot 'sim_scripts'
 function Invoke-ConfiguredSimulation {
     param([Parameter(Mandatory)][string]$DoFile, [switch]$Gui, [switch]$Detach)
     $invokeArguments = @{
@@ -40,7 +40,7 @@ function Invoke-ConfiguredSimulation {
 
 Push-Location $simDir
 try {
-    $simulationResult = Invoke-ConfiguredSimulation -DoFile (Join-Path $simDir 'run_gate_regression.do')
+    $simulationResult = Invoke-ConfiguredSimulation -DoFile (Join-Path $simDir 'stage1/A_primitive_spin_gate_validation/run_gate_regression.do')
 }
 finally {
     Pop-Location

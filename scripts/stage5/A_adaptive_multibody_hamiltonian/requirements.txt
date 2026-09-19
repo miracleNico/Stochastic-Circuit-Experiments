@@ -1,0 +1,4 @@
+# Unit checks and plots. Optimization additionally needs gurobipy and a license.
+numpy>=1.25
+matplotlib==3.11.2
+numba==0.67.0

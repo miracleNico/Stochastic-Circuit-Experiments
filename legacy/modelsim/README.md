@@ -10,8 +10,8 @@ installation:
 .\legacy\modelsim\run_modelsim.ps1 -VsimPath <legacy-vsim.exe>
 ```
 
-The launcher delegates to the shared isolated runner in `sim/` and executes
-`sim/run_gate_regression.do`. The experiment `.do` files remain in `sim/`
+The launcher delegates to the shared isolated runner in `sim_scripts/` and executes
+`sim_scripts/stage1/A_primitive_spin_gate_validation/run_gate_regression.do`. The experiment `.do` files remain in `sim_scripts/`
 because QuestaSim uses the same `vcom`, `vsim`, and Tcl interfaces.
 
 `modelsim.ini` is an archived repository snapshot only. Neither the Questa

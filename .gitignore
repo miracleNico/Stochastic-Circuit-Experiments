@@ -1,4 +1,5 @@
 __pycache__/
+.venv/
 *.py[cod]
 
 # Simulator transient outputs
@@ -13,3 +14,10 @@ work/
 
 # Local scratch sweeps are regenerable and are not part of the curated report.
 reports/**/scratch*/
+
+# Per-experiment runs contain work libraries, transcripts, waves and staging.
+results_and_reports/**/runs/
+results_and_reports/**/scratch*/
+results_and_reports/stage5/A_adaptive_multibody_hamiltonian/out*/
+results_and_reports/stage3/B_verified_pairwise_optimizer_successor/out*/
+experiments/**/hardware/scratch*/
