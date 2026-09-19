@@ -28,11 +28,11 @@ The original six-commit experiment history through `a50e26d` was completely line
 | `test` | `main` (1 commit after `8f512ce`) | `a0998af` 2026-06-11 03:55 | Documentation (README only) for the "quantized Hamiltonian landscape optimizer" experiments | Documentation only; the 7 scripts and `out/` results referenced by the README were never committed |
 | `codex/quantized-landscape-optimizer` | `test` (1 commit after `a0998af`) | `a50e26d` 2026-07-30 00:59 | Continuous-float 2/3/4-body QP optimization (Gurobi) of a 6-bit least-node + 6-shadow-carry adder, including the Stage3 hard-cut experiment | Code + README + EXPERIMENT_LOG committed; `out*/` results excluded by .gitignore |
 
-Repository consolidation state (2026-09-16–17):
+Repository consolidation state (2026-09-16–19):
 
 - The checkout initially exposed only `codex/quantized-landscape-optimizer`; no local `main` or `test` ref existed. The historical tips were nevertheless already in one ancestor chain: `8f512ce` → `a0998af` → `a50e26d`, so replaying merge commits would have added no content.
 - `main` was created at the migration/consolidation commit `6ed61d9`, force-pushed at the user's direction, and retains all original experiment commits in its ancestry. The local `codex/quantized-landscape-optimizer` ref was deleted; `test` was already absent.
-- The three obsolete remote experiment branches were deleted. A later `reorg` baseline was published at `443b3c0`; the numeric-stage and terminology work in this document continues from that commit on the local `reorg` branch. A live `git ls-remote --heads origin` check on 2026-09-17 listed `main` and `reorg` only.
+- The three obsolete remote experiment branches were deleted. A later `reorg` baseline was published at `443b3c0`; the completed numeric-stage and terminology work was merged into `main` after validation. The temporary `reorg` branch was then deleted locally and remotely, leaving `main` as the only published branch.
 - The two later historical tips only added files under `experiments/`; they did not modify files that already existed at `8f512ce` (`git diff 8f512ce a50e26d -- README.md .gitignore` is empty).
 - Stage 3.B adds a new, independently reconstructed generic optimizer successor. Stage 4 adds the QuestaSim runner and fixed-seed compatibility evidence. Neither is recovered historical optimizer source or a new scientific reproduction experiment.
 
@@ -145,19 +145,18 @@ The recovery audit confirmed that the original Stage 3.A optimizer source and sa
 | 5.B 6-bit multibody RTL readiness gate | Before Q3.29/Q3.37 quantization or RTL, require the exact Stage 5.A solution JSON, term support, active cuts, audit payload and SHA-256 identities | Gate fails because only the aggregate experiment log survived. No speculative term ROM, local-field core or scheduler was generated. The admissible conclusion remains: **the static gap can close, but dynamic improvement is not proven** |
 | 4.C Repository and legacy consolidation | Verify the historical tips by ancestry; make the migration commit the sole local `main` tip; archive the explicit ModelSim launcher/configuration without moving the shared Questa-compatible `.do` files | The old experiment commits stay reachable from `main`; the numeric-stage reorganization is performed later on local `reorg` |
 
-### Stage 4.C — Repository taxonomy and consolidation (historical Stage H) (2026-09-16–17, `reorg`)
+### Stage 4.C — Repository taxonomy and consolidation (historical Stage H) (2026-09-16–19, completed on `main`)
 
 The Questa migration was saved on `main` as `6ed61d9` before branching. GitHub
 `main` was verified at that commit. On explicit request, the remote branches
 `codex/quantized-landscape-optimizer-20260916` (`a50e26d`),
 `cursor/experiment-e0-e1-plan-b98b` (`910e322`) and
 `cursor/timeline-e0-e1-audit-50af` (`969f59a`) were deleted. A subsequent
-`reorg` baseline was published at `443b3c0`; on 2026-09-17,
-`git ls-remote --heads origin` listed `main` at `6ed61d9` and `reorg` at
-`443b3c0`. The current numeric-stage changes are committed locally on top of
-that baseline; `main` remains unchanged. The branch deletions remove names, not
-the historical commits identified above. No merge or recovery of the cursor
-branches is claimed.
+`reorg` baseline was published at `443b3c0`, and the completed numeric-stage
+work was validated and merged into `main`. After the updated `main` was pushed,
+the temporary `reorg` branch was deleted locally and remotely. The branch
+deletions remove names, not the historical commits identified above. No merge
+or recovery of the cursor branches is claimed.
 
 The [experiment index](experiments/README.md) maps the history into five numeric
 stages with alphabetic substages. Documentation/specs/hardware belong under
@@ -249,11 +248,11 @@ Integer HA/FA baseline 32.33% < 12 shadows (max7) 34.33% < 12 shadows (max2) 37.
 6. **No fine-grained timing inside Stage 1**: `04243d1` is a single large commit (402 files); the order of its substages can only be inferred from the narrative order of the two historical reports and the original COMB6 report date (05-24); the `adder8` baseline transcript end time 05-25 00:15 is the only hard timestamp.
 7. **The FP8/Q8 split-carry series (~23 `optimized_*.json`) has no corresponding simulation result files**, only the one qualitative sentence in the historical `time_dependent_annealing_report.md §4`: "underperformed… zero-hit cases remained".
 8. The 8-bit benchmark results are non-exhaustive (6 vectors); neither an exhaustive 8-bit forward test nor an 8-bit SUM-only test has been done.
-9. **Remote state was unavailable during the initial migration**, but was verified during Stage 4.C: GitHub `main` is `6ed61d9`; the three obsolete experiment branches were deleted on request; and the published `reorg` baseline is `443b3c0`. The current restructuring continues locally from that baseline. The original historical experiment tips remain ancestors of `main`. A pre-existing broken app-internal `refs/codex/turn-diffs/checkpoints/...` reference can disrupt generic `git fetch`; it is not an experiment branch and was not deleted by the branch cleanup.
+9. **Remote state was unavailable during the initial migration**, but was verified during Stage 4.C. The three obsolete experiment branches were deleted on request; the completed `reorg` work was merged into and pushed as `main`; and the temporary `reorg` branch was then deleted locally and remotely. The original historical experiment tips remain ancestors of `main`. A pre-existing broken app-internal `refs/codex/turn-diffs/checkpoints/...` reference can disrupt generic `git fetch`; it is not an experiment branch and was not deleted by the branch cleanup.
 
 ## 5. Main evidence files
 
-- Commit history: `git log main --stat` (the original 6-commit experiment chain plus the migration/consolidation commit)
+- Commit history: `git log main --stat` (the original experiment chain, migration commit and numeric-stage reorganization)
 - `README.md` (final `main` version and the `04243d1` original)
 - `results_and_reports/stage2/rca_convergence_benchmark/report.md` (and its diffs across `bc2ac96`→`3575e71`→`8f512ce`)
 - `results_and_reports/stage2/rca_convergence_benchmark/data/adder4_summary.csv`, `sum_only_aggregate.csv`, `quantized_scheduled_auxiliary_carry_window_sweep.csv`, `adder8_repeated.csv`, `rca_energy_landscape_summary.csv`, `manifest.json`
